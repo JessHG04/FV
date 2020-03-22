@@ -1,0 +1,6 @@
+/home/jess/Escritorio/map/build/CMakeFiles/rebuild_cache.dir
+/home/jess/Escritorio/map/build/CMakeFiles/Map.dir
+/home/jess/Escritorio/map/build/CMakeFiles/edit_cache.dir
+/home/jess/Escritorio/map/build/CMakeFiles/libModulos.dir
+/home/jess/Escritorio/map/build/ej_modulos/CMakeFiles/edit_cache.dir
+/home/jess/Escritorio/map/build/ej_modulos/CMakeFiles/rebuild_cache.dir

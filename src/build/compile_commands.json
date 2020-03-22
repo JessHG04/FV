@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/jess/Escritorio/map/build",
+  "command": "/usr/bin/g++-5    -I/home/jess/Escritorio/map/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/Map.dir/main.cpp.o -c /home/jess/Escritorio/map/main.cpp",
+  "file": "/home/jess/Escritorio/map/main.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/map/build",
+  "command": "/usr/bin/g++-5    -I/home/jess/Escritorio/map/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o -c /home/jess/Escritorio/map/ej_modulos/mimodulo.cpp",
+  "file": "/home/jess/Escritorio/map/ej_modulos/mimodulo.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/map/build",
+  "command": "/usr/bin/g++-5    -I/home/jess/Escritorio/map/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.o -c /home/jess/Escritorio/map/ej_modulos/mimodulo2.cpp",
+  "file": "/home/jess/Escritorio/map/ej_modulos/mimodulo2.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/map/build",
+  "command": "/usr/bin/g++-5    -I/home/jess/Escritorio/map/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Map.cpp.o -c /home/jess/Escritorio/map/ej_modulos/Map.cpp",
+  "file": "/home/jess/Escritorio/map/ej_modulos/Map.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/map/build",
+  "command": "/usr/bin/g++-5    -I/home/jess/Escritorio/map/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/tinyxml2.cpp.o -c /home/jess/Escritorio/map/ej_modulos/tinyxml2.cpp",
+  "file": "/home/jess/Escritorio/map/ej_modulos/tinyxml2.cpp"
+}
+]
