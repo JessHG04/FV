@@ -1,53 +1,42 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-
 #include "include/config.h"
-#include "ej_modulos/Map.h"
+#include "ej_modulos/Menu.h"
+#include "ej_modulos/Juego.h"
+#include "ej_modulos/Jugador.h"
 
-int main(){
-    //Creacion de ventana
-    sf::RenderWindow window(sf::VideoMode(960, 640), "Prueba mapa");
-
-    //Objeto tipo Map
-    Map *mapa = new Map();
-    
-    mapa->mapMatrix(); //Se guarda los datos del mapa
-    mapa->load("resources/Tileset.png", sf::Vector2u(16,16), mapa->tilemap, mapa->widthMap, mapa->heightMap, mapa->numLayers);
-
-    //std::cout << "Voy para el bucle del juego" << std::endl;
-
-    //GameLoop
+int main() {
+    /*sf::RenderWindow window(sf::VideoMode(600,600),"Seleccion personaje - Gremory Hole");
+    Menu menu(window.getSize().x,window.getSize().y);
     while(window.isOpen()){
-        //Ventana en color blanco
-        window.clear(sf::Color::White);
+      sf::Event evento;
+      while(window.pollEvent(evento)){
+        switch (evento.type)
+        {
+        case sf::Event::KeyReleased:
+          switch (evento.key.code)
+          {
+          case sf::Keyboard::Up:
+            menu.moveUp();
+            break;
 
-        //Dibujo el mapa revisar
-        //window.draw(map);
-
-        //Bucle de obtencion de eventos
-        sf::Event event;
-        while (window.pollEvent(event)){
-            switch ((event.type)){
-            case sf::Event::Closed:
-                window.close();
-                break;
-
-            //Verificacion de mis teclas
-            case sf::Event::KeyPressed:
-                switch (event.key.code){
-                    //Tecla escape para salir
-                    case sf::Keyboard::Escape:
-                        window.close();
-                        break;
-                    default:
-                        std::cout << event.key.code << std::endl;
-                        break;
-                }
-            }
+          case sf::Keyboard::Down:
+            menu.moveDown();  
+            break;
+          
+          }
+          case sf::Event::Closed:
+            window.close();
+            break;
+        
+       
         }
-        window.clear();
-        window.draw(*mapa);
-        window.display();
-    }
-    return 0;
+      }
+      window.clear();
+      menu.dibujar(window);
+      window.display();
+    }*/
+
+ Juego *juego = new Juego(sf::Vector2u(960,640));
+ return 0;
 }

@@ -8,7 +8,7 @@ void Map::mapMatrix(){
 
     tinyxml2::XMLDocument doc;
 
-    doc.LoadFile("resources/Mazmorra1.tmx");
+    doc.LoadFile("resources/Mapas/Mazmorra1.tmx");
     //Dimensiones del mapa y tiles
     tinyxml2::XMLElement *map = doc.FirstChildElement("map");
 
