@@ -7,6 +7,7 @@ CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
  /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o
+ /home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
  /home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
  /home/jess/Escritorio/FV/src/ej_modulos/Juego.cpp
  /home/jess/Escritorio/FV/src/ej_modulos/Juego.h
@@ -14,6 +15,9 @@ CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/Mago.h
  /home/jess/Escritorio/FV/src/ej_modulos/Map.h
  /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+ /home/jess/Escritorio/FV/src/ej_modulos/bala.h
+ /home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.h
+ /home/jess/Escritorio/FV/src/ej_modulos/lara.h
  /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
  /home/jess/Escritorio/FV/src/ej_modulos/tinyxml2.h
 CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o

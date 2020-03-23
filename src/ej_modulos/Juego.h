@@ -4,6 +4,9 @@
 #include "Guerrera.h"
 #include "Proyectil.h"
 #include "Map.h"
+#include "Enemigo.h"
+#include "bala.h"
+#include "lara.h"
 
 class Juego{
     public:
@@ -13,6 +16,7 @@ class Juego{
         void logica(); // procesa logicas del juego
         void procesar_eventos(); // elementos de entrada, teclado...
         void cortarEventoDash(int distancia);
+        bool colisionPersMapa(int direccion); //1 -> Abajo
 
     private:
         bool gameover = false;

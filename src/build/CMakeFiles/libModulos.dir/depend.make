@@ -6,6 +6,7 @@ CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o: ../ej_modulos/Guerrera.h
 CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o: ../ej_modulos/Jugador.h
 CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o: ../ej_modulos/spritePersonaje.h
 
+CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Enemigo.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Guerrera.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Juego.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Juego.h
@@ -13,6 +14,9 @@ CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Jugador.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Mago.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Map.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Proyectil.h
+CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/bala.h
+CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/cuadradoD.h
+CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/lara.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/tinyxml2.h
 

@@ -35,7 +35,7 @@ void Map::mapMatrix(){
         layer = layer->NextSiblingElement("layer");
     }
 
-    std::cout << "Numero de capas: " << numLayers << std::endl;
+    //std::cout << "Numero de capas: " << numLayers << std::endl;
 
     //Reserva de memoria de los GIDs de las capas
     tilemap = new int **[numLayers];

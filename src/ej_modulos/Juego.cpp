@@ -13,7 +13,7 @@ Juego::Juego(sf::Vector2u resolucion){
     //----------------------------------------BUCLE DEL JUEGO------------------------------------------------------------------------------
     while(gameover != true){
         *crono1 = reloj1->getElapsedTime(); // Obtener tiempo transcurrido 
-
+        j1->posInicial = j1->get_posicion();
         if(crono1->asSeconds() > 0.08){ // comparamos si el tiempo transcurrido es 1 fps (1 frame) si es asi ejecuttamos un instante
             while(ventana->pollEvent(*evento)){
                 procesar_eventos();
@@ -60,10 +60,10 @@ Juego::Juego(sf::Vector2u resolucion){
             dibujar();
             //Si sigue saltando y llega a la posicion de donde salto se para
             //EN EL JUEGO CAMBIAR ESTA CONDICION POR LA COLISION CON EL MAPA PORQUE PUEDE SER QUE SE SUBA A UNA PLATAFORMA Y NO VUELVA A LA POSICION INICIAL
-            if(j1->saltando && j1->posInicial.y == j1->get_posicion().y){
+            if(colisionPersMapa(1)){
                 j1->saltando = false;
                 j1->movimiento = false;
-                j1->vel_salto = -20.0f;
+                j1->vel_salto = 0;
                 j1->set_velocidad(sf::Vector2f(0,0));
                  if(j1->direccion == izq){
                         j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,2));
@@ -89,7 +89,7 @@ void Juego::iniciar(){
         j1 = new Guerrera(4,4,sf::Vector2i(0,0));
     else
         j1 = new Mago(4,4,sf::Vector2i(0,0));
-    j1->set_posicion(sf::Vector2f(300,300));
+    j1->set_posicion(sf::Vector2f(48,25*16));
     evento = new sf::Event();
 }
 
@@ -109,7 +109,7 @@ void Juego::dibujar(){
 void Juego::procesar_eventos(){
             
                     
-                
+    
 
     switch (evento->type)
     {
@@ -118,6 +118,7 @@ void Juego::procesar_eventos(){
             break;
         case sf::Event::KeyPressed:
             // si se pulsta la tecla izquierda
+            
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
                  j1->direccion = izq;
 
@@ -129,6 +130,7 @@ void Juego::procesar_eventos(){
                         
                 }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
                         if(!j1->saltando){
+                            j1->vel_salto = -20.0f;
                             j1->saltando = true;
                             if (j1->movimiento != true)
                                 j1->posInicial = sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y);
@@ -157,6 +159,7 @@ void Juego::procesar_eventos(){
                         
                 }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
                     if(!j1->saltando){
+                        j1->vel_salto = -20.0f;
                         j1->saltando = true;
                         if (j1->movimiento != true)
                             j1->posInicial = sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y);
@@ -177,6 +180,7 @@ void Juego::procesar_eventos(){
 //--------------------------SALTO----------------------------------------------------------------------------------------
             else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
                 if(!j1->saltando){
+                    j1->vel_salto = -20.0f;
                     j1->saltando = true;
                     if (j1->movimiento != true)
                         j1->posInicial = sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y);
@@ -289,4 +293,29 @@ void Juego::procesar_eventos(){
         break;
 
     }
+}
+
+bool Juego::colisionPersMapa(int direccion){ //La colision del personaje con el mapa
+    int gid;
+    sf::RectangleShape box2(sf::Vector2f(j1->tamFrame.x-10, j1->tamFrame.y-10));
+    box2.setPosition(j1->get_posicion().x, j1->get_posicion().y);
+    box2.setFillColor(sf::Color::Red);
+    bool colisionando = false;
+    for(unsigned int l = 0; l < mapa->numLayers; l++){
+        for(unsigned int y = 0; y < mapa->heightMap; y++){
+            for(unsigned int x = 0; x < mapa->widthMap; x++){
+                gid = mapa->tilemap[l][y][x];
+                sf::RectangleShape box(sf::Vector2f(16, 16));
+                box.setPosition(sf::Vector2f(x*16, y*16));
+                box.setFillColor(sf::Color::Green);
+                if(gid > 0 && direccion == 1){
+                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                        j1->set_posicion(sf::Vector2f(j1->posInicial.x, j1->posInicial.y-1));
+                        colisionando = true;
+                    }
+                }
+            }
+        }
+    }
+    return colisionando;
 }
