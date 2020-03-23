@@ -8,7 +8,7 @@
             "name": "(lldb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Map", //Ruta de antes:"${workspaceFolder}/build/Map"
+            "program": "${workspaceFolder}/MiJuego",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -17,10 +17,10 @@
             "MIMode": "lldb"
         },
         {
-            "name": "(gdb) Launch",
+            "name": "Gremory Hole (gdb)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/Map", //Ruta de antes:"${workspaceFolder}/build/Map"
+            "program": "${workspaceFolder}/MiJuego",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
@@ -30,3 +30,32 @@
         }
     ]
 }
+/*{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "g++ build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Habilitar la impresión con sangría para gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "g++ build active file",
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ]
+}*/
