@@ -82,6 +82,9 @@ void Juego::iniciar(){
     fps = 60;
     reloj1 = new sf::Clock();
     crono1 = new sf::Time();
+    mapa = new Map();
+    mapa->mapMatrix();
+    mapa->load("resources/Mapas/Tileset.png", sf::Vector2u(16,16), mapa->tilemap, mapa->widthMap, mapa->heightMap, mapa->numLayers);
     if(esGuerrera)
         j1 = new Guerrera(4,4,sf::Vector2i(0,0));
     else
@@ -93,6 +96,7 @@ void Juego::iniciar(){
 void Juego::dibujar(){
     ventana->clear();
     ventana->draw(j1->get_sprite());
+    ventana->draw(*mapa);
     if(p1)
         ventana->draw(p1->get_sprite());
     ventana->display();

@@ -3,6 +3,7 @@
 #include "Mago.h"
 #include "Guerrera.h"
 #include "Proyectil.h"
+#include "Map.h"
 
 class Juego{
     public:
@@ -19,6 +20,8 @@ class Juego{
         Jugador *j1;
         //Creamos el proyectil de eugyn
         Proyectil *p1;
+        //Creamos el mapa
+        Map *mapa;
         //El evento que se recibe
         sf::Event *evento;
         // La ventana de nuestro juego
@@ -27,5 +30,5 @@ class Juego{
          sf::Clock *reloj1;
          sf::Time *crono1;
          int fps;
-         bool esGuerrera = true;
+         bool esGuerrera = false;
 };

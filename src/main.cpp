@@ -6,7 +6,7 @@
 #include "ej_modulos/Jugador.h"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(600,600),"Seleccion personaje - Gremory Hole");
+    /*sf::RenderWindow window(sf::VideoMode(600,600),"Seleccion personaje - Gremory Hole");
     Menu menu(window.getSize().x,window.getSize().y);
     while(window.isOpen()){
       sf::Event evento;
@@ -35,8 +35,8 @@ int main() {
       window.clear();
       menu.dibujar(window);
       window.display();
-    }
+    }*/
 
- // Juego *juego = new Juego(sf::Vector2u(800,600));
- // return 0;
+ Juego *juego = new Juego(sf::Vector2u(960,640));
+ return 0;
 }

@@ -9,6 +9,8 @@ target_sources(libModulos PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/Mago.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/Proyectil.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/Menu.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Map.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/tinyxml2.cpp"
 )
 
 #Y donde se encuentran los .h
