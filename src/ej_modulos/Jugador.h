@@ -5,7 +5,7 @@
 #include <string>
 
 enum estados{parado,andando,muerto};
-enum direcciones{izq = 2,der = 3};
+enum direcciones{quieto = 0, arriba = 1, izq = 2,der = 3, abajo = 4}; 
 
 class Jugador : public spritePersonaje{
     public:
@@ -45,6 +45,7 @@ class Jugador : public spritePersonaje{
         sf::Vector2f posInicial; 
         int vida;
         direcciones direccion;
+        direcciones dirColision;
 
     private:
         //spritePersonaje * spriteJugador;

@@ -16,7 +16,7 @@ class Juego{
         void logica(); // procesa logicas del juego
         void procesar_eventos(); // elementos de entrada, teclado...
         void cortarEventoDash(int distancia);
-        bool colisionPersMapa(int direccion); //1 -> Abajo
+        bool colisionPersMapa(direcciones direccion); //1 -> Arriba 2-> Izquierda 3-> Drcha 4->Abajo
 
     private:
         bool gameover = false;

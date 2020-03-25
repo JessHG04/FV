@@ -10,7 +10,7 @@ Juego::Juego(sf::Vector2u resolucion){
     //Iniciamos el juego
     iniciar();
 
-    //----------------------------------------BUCLE DEL JUEGO------------------------------------------------------------------------------
+    // ************************************ BUCLE DEL JUEGO *************************************************************************
     while(gameover != true){
         *crono1 = reloj1->getElapsedTime(); // Obtener tiempo transcurrido 
         j1->posInicial = j1->get_posicion();
@@ -40,14 +40,33 @@ Juego::Juego(sf::Vector2u resolucion){
 
             if(j1->saltando){
                 j1->vel_salto += 2.0f;
+                
+                if(j1->vel_salto > 0){
+                    j1->dirColision = abajo;
+                }else{
+                    j1->dirColision = arriba;
+                }
+                
                 if(!j1->movimiento)
                     j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));
                 else if(j1->direccion == izq)
                     j1->set_velocidad(sf::Vector2f(-j1->vel_desp,j1->vel_salto));
                 else if(j1->direccion == der)
                     j1->set_velocidad(sf::Vector2f(j1->vel_desp,j1->vel_salto));
-            }
-
+            } 
+            //********************************************* GRAVEDAD *************************************************
+            /*else if(j1->dirColision == abajo){
+                j1->vel_salto += 2.0f;
+                j1->dirColision = abajo;
+                
+                if(!j1->movimiento)
+                    j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));
+                else if(j1->direccion == izq)
+                    j1->set_velocidad(sf::Vector2f(-j1->vel_desp,j1->vel_salto));
+                else if(j1->direccion == der)
+                    j1->set_velocidad(sf::Vector2f(j1->vel_desp,j1->vel_salto));
+            }*/
+            //********************************************************************************************************
             if(j1->movimiento){
                 j1->animar();
             }
@@ -60,7 +79,7 @@ Juego::Juego(sf::Vector2u resolucion){
             dibujar();
             //Si sigue saltando y llega a la posicion de donde salto se para
             //EN EL JUEGO CAMBIAR ESTA CONDICION POR LA COLISION CON EL MAPA PORQUE PUEDE SER QUE SE SUBA A UNA PLATAFORMA Y NO VUELVA A LA POSICION INICIAL
-            if(colisionPersMapa(1)){
+            if(colisionPersMapa(j1->direccion)){
                 j1->saltando = false;
                 j1->movimiento = false;
                 j1->vel_salto = 0;
@@ -77,7 +96,7 @@ Juego::Juego(sf::Vector2u resolucion){
         }
     }
 }
-
+//******************************************* FIN DEL BUCLE DEL JUEGO ************************************************************
 void Juego::iniciar(){
     fps = 60;
     reloj1 = new sf::Clock();
@@ -89,7 +108,10 @@ void Juego::iniciar(){
         j1 = new Guerrera(4,4,sf::Vector2i(0,0));
     else
         j1 = new Mago(4,4,sf::Vector2i(0,0));
-    j1->set_posicion(sf::Vector2f(48,25*16));
+    j1->set_posicion(sf::Vector2f(47,24*16));
+    j1->dirColision = quieto;
+    j1->direccion = quieto;
+    j1->vel_salto = 0;
     evento = new sf::Event();
 }
 
@@ -121,6 +143,7 @@ void Juego::procesar_eventos(){
             
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
                  j1->direccion = izq;
+                 j1->dirColision = izq;
 
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
                     j1->movimiento = true;
@@ -132,6 +155,7 @@ void Juego::procesar_eventos(){
                         if(!j1->saltando){
                             j1->vel_salto = -20.0f;
                             j1->saltando = true;
+                            j1->dirColision = arriba;
                             if (j1->movimiento != true)
                                 j1->posInicial = sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y);
                             //j1->movimiento = true;
@@ -150,7 +174,7 @@ void Juego::procesar_eventos(){
             // si se pulsa la tecla derecha
             else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
                 j1->direccion = der;
-
+                j1->dirColision = der;
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
                     j1->movimiento = true;
                     //j1->set_frameY(0); 
@@ -161,6 +185,7 @@ void Juego::procesar_eventos(){
                     if(!j1->saltando){
                         j1->vel_salto = -20.0f;
                         j1->saltando = true;
+                        j1->dirColision = der;
                         if (j1->movimiento != true)
                             j1->posInicial = sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y);
                         //j1->movimiento = true;
@@ -182,6 +207,7 @@ void Juego::procesar_eventos(){
                 if(!j1->saltando){
                     j1->vel_salto = -20.0f;
                     j1->saltando = true;
+                    j1->dirColision = arriba;
                     if (j1->movimiento != true)
                         j1->posInicial = sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y);
                     //j1->movimiento = true;
@@ -198,10 +224,12 @@ void Juego::procesar_eventos(){
 
                 //Vemos a que lado esta mirando
                 if(j1->direccion == izq){
+                    j1->dirColision = izq;
                     j1->set_sprite(j1->archivo,2,1,1,sf::Vector2i(0,0));
                     j1->set_velocidad(sf::Vector2f(-j1->vel_desp*5,0));
                     //j1->set_posicion(sf::Vector2f(j1->get_posicion().x - j1->vel_desp,(j1->get_posicion().y)));
                 }else{
+                    j1->dirColision = der;
                     j1->set_sprite(j1->archivo,4,1,1,sf::Vector2i(0,0));
                     j1->set_velocidad(sf::Vector2f(j1->vel_desp*5,0));
                 }
@@ -227,10 +255,12 @@ void Juego::procesar_eventos(){
                 }
                 else{
                     if(j1->direccion == izq){
+                        j1->dirColision = izq;
                         j1->movimiento = true;
                         j1->set_frameY(0); 
                         j1->set_sprite(j1->archivo,6,3,1,sf::Vector2i(0,0));
                     }else{
+                        j1->dirColision = der;
                         j1->movimiento = true;
                         j1->set_frameY(0); 
                         j1->set_sprite(j1->archivo,7,3,1,sf::Vector2i(0,0));
@@ -295,9 +325,9 @@ void Juego::procesar_eventos(){
     }
 }
 
-bool Juego::colisionPersMapa(int direccion){ //La colision del personaje con el mapa
+bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje con el mapa
     int gid;
-    sf::RectangleShape box2(sf::Vector2f(j1->tamFrame.x-10, j1->tamFrame.y-10));
+    sf::RectangleShape box2(sf::Vector2f(j1->tamFrame.x-20, j1->tamFrame.y-20));
     box2.setPosition(j1->get_posicion().x, j1->get_posicion().y);
     box2.setFillColor(sf::Color::Red);
     bool colisionando = false;
@@ -308,11 +338,38 @@ bool Juego::colisionPersMapa(int direccion){ //La colision del personaje con el 
                 sf::RectangleShape box(sf::Vector2f(16, 16));
                 box.setPosition(sf::Vector2f(x*16, y*16));
                 box.setFillColor(sf::Color::Green);
-                if(gid > 0 && direccion == 1){
+                if(gid > 0 && direccion == 1 && !colisionando){ //Arriba
                     if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
-                        j1->set_posicion(sf::Vector2f(j1->posInicial.x, j1->posInicial.y-1));
+                        j1->set_posicion(sf::Vector2f(j1->posInicial.x, j1->posInicial.y+1));
+                        j1->dirColision = abajo;
+                        j1->vel_salto = 0;
                         colisionando = true;
                     }
+                }
+                if(gid > 0 && direccion == 2 && !colisionando){ //Izquierda
+                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                        j1->set_posicion(sf::Vector2f(j1->posInicial.x+1, j1->posInicial.y));
+                        j1->dirColision = abajo;
+                        colisionando = true;
+                    }
+                }
+                if(gid > 0 && direccion == 3 && !colisionando){ //Derecha
+                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                        j1->set_posicion(sf::Vector2f(j1->posInicial.x-1, j1->posInicial.y));
+                        j1->dirColision = abajo;
+                        colisionando = true;
+                    }
+                }
+                if(gid > 0 && direccion == 4 && !colisionando){ //Abajo
+                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                        j1->set_posicion(sf::Vector2f(j1->posInicial.x, j1->posInicial.y-1));
+                        j1->dirColision = quieto;
+                        colisionando = true;
+                        j1->saltando = false;
+                    }
+                }else{
+                    j1->saltando = true;
+                    j1->dirColision = abajo;
                 }
             }
         }
