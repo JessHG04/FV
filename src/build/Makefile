@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/juan/Escritorio/FV/FV/src
+CMAKE_SOURCE_DIR = /home/juan/Escritorio/FV/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/juan/Escritorio/FV/FV/src/build
+CMAKE_BINARY_DIR = /home/juan/Escritorio/FV/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan/Escritorio/FV/FV/src/build/CMakeFiles /home/juan/Escritorio/FV/FV/src/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan/Escritorio/FV/src/build/CMakeFiles /home/juan/Escritorio/FV/src/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan/Escritorio/FV/FV/src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan/Escritorio/FV/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -135,6 +135,87 @@ libModulos: cmake_check_build_system
 libModulos/fast:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/build
 .PHONY : libModulos/fast
+
+ej_modulos/AnimationDarkrai.o: ej_modulos/AnimationDarkrai.cpp.o
+
+.PHONY : ej_modulos/AnimationDarkrai.o
+
+# target to build an object file
+ej_modulos/AnimationDarkrai.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/AnimationDarkrai.cpp.o
+.PHONY : ej_modulos/AnimationDarkrai.cpp.o
+
+ej_modulos/AnimationDarkrai.i: ej_modulos/AnimationDarkrai.cpp.i
+
+.PHONY : ej_modulos/AnimationDarkrai.i
+
+# target to preprocess a source file
+ej_modulos/AnimationDarkrai.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/AnimationDarkrai.cpp.i
+.PHONY : ej_modulos/AnimationDarkrai.cpp.i
+
+ej_modulos/AnimationDarkrai.s: ej_modulos/AnimationDarkrai.cpp.s
+
+.PHONY : ej_modulos/AnimationDarkrai.s
+
+# target to generate assembly for a file
+ej_modulos/AnimationDarkrai.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/AnimationDarkrai.cpp.s
+.PHONY : ej_modulos/AnimationDarkrai.cpp.s
+
+ej_modulos/Darkrai.o: ej_modulos/Darkrai.cpp.o
+
+.PHONY : ej_modulos/Darkrai.o
+
+# target to build an object file
+ej_modulos/Darkrai.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o
+.PHONY : ej_modulos/Darkrai.cpp.o
+
+ej_modulos/Darkrai.i: ej_modulos/Darkrai.cpp.i
+
+.PHONY : ej_modulos/Darkrai.i
+
+# target to preprocess a source file
+ej_modulos/Darkrai.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.i
+.PHONY : ej_modulos/Darkrai.cpp.i
+
+ej_modulos/Darkrai.s: ej_modulos/Darkrai.cpp.s
+
+.PHONY : ej_modulos/Darkrai.s
+
+# target to generate assembly for a file
+ej_modulos/Darkrai.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.s
+.PHONY : ej_modulos/Darkrai.cpp.s
+
+ej_modulos/Enemigo.o: ej_modulos/Enemigo.cpp.o
+
+.PHONY : ej_modulos/Enemigo.o
+
+# target to build an object file
+ej_modulos/Enemigo.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o
+.PHONY : ej_modulos/Enemigo.cpp.o
+
+ej_modulos/Enemigo.i: ej_modulos/Enemigo.cpp.i
+
+.PHONY : ej_modulos/Enemigo.i
+
+# target to preprocess a source file
+ej_modulos/Enemigo.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.i
+.PHONY : ej_modulos/Enemigo.cpp.i
+
+ej_modulos/Enemigo.s: ej_modulos/Enemigo.cpp.s
+
+.PHONY : ej_modulos/Enemigo.s
+
+# target to generate assembly for a file
+ej_modulos/Enemigo.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.s
+.PHONY : ej_modulos/Enemigo.cpp.s
 
 ej_modulos/Guerrera.o: ej_modulos/Guerrera.cpp.o
 
@@ -470,6 +551,15 @@ help:
 	@echo "... GremoryHole"
 	@echo "... edit_cache"
 	@echo "... libModulos"
+	@echo "... ej_modulos/AnimationDarkrai.o"
+	@echo "... ej_modulos/AnimationDarkrai.i"
+	@echo "... ej_modulos/AnimationDarkrai.s"
+	@echo "... ej_modulos/Darkrai.o"
+	@echo "... ej_modulos/Darkrai.i"
+	@echo "... ej_modulos/Darkrai.s"
+	@echo "... ej_modulos/Enemigo.o"
+	@echo "... ej_modulos/Enemigo.i"
+	@echo "... ej_modulos/Enemigo.s"
 	@echo "... ej_modulos/Guerrera.o"
 	@echo "... ej_modulos/Guerrera.i"
 	@echo "... ej_modulos/Guerrera.s"

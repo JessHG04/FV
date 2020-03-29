@@ -76,6 +76,8 @@ Juego::Juego(sf::Vector2u resolucion){
             j1->update();
             if(p1)
                 p1->update();
+
+            darkrai->Update(reloj1->getElapsedTime().asSeconds());
             dibujar();
             //Si sigue saltando y llega a la posicion de donde salto se para
             //EN EL JUEGO CAMBIAR ESTA CONDICION POR LA COLISION CON EL MAPA PORQUE PUEDE SER QUE SE SUBA A UNA PLATAFORMA Y NO VUELVA A LA POSICION INICIAL
@@ -108,6 +110,8 @@ void Juego::iniciar(){
         j1 = new Guerrera(4,4,sf::Vector2i(0,0));
     else
         j1 = new Mago(4,4,sf::Vector2i(0,0));
+
+    darkrai = new Darkrai(400,200,25.0f,*j1->spr_player);
     j1->set_posicion(sf::Vector2f(47,21*16));
     j1->dirColision = abajo;
     //j1->direccion = quieto;
@@ -121,6 +125,7 @@ void Juego::dibujar(){
     ventana->draw(*mapa);
     if(p1)
         ventana->draw(p1->get_sprite());
+    darkrai->Draw(*ventana);
     ventana->display();
 }
 

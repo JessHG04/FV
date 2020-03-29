@@ -10,6 +10,9 @@ file(REMOVE_RECURSE
   "CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/Map.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/tinyxml2.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/AnimationDarkrai.cpp.o"
   "liblibModulos.pdb"
   "liblibModulos.a"
 )

@@ -11,6 +11,10 @@ target_sources(libModulos PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/Menu.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/Map.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/tinyxml2.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Enemigo.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Darkrai.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/AnimationDarkrai.cpp"
+
 )
 
 #Y donde se encuentran los .h

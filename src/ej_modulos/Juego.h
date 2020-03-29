@@ -7,6 +7,7 @@
 #include "Enemigo.h"
 #include "bala.h"
 #include "lara.h"
+#include "Darkrai.h"
 
 class Juego{
     public:
@@ -26,6 +27,8 @@ class Juego{
         Proyectil *p1;
         //Creamos el mapa
         Map *mapa;
+        //creamos enemigo
+        Darkrai *darkrai;
         //El evento que se recibe
         sf::Event *evento;
         // La ventana de nuestro juego
