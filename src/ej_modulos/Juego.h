@@ -22,6 +22,8 @@ class Juego{
         Proyectil *p1;
         //Creamos el mapa
         Map *mapa;
+        //Creamos la vista
+        sf::View vista;
         //El evento que se recibe
         sf::Event *evento;
         // La ventana de nuestro juego
