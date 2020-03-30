@@ -1,42 +1,70 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+
+using namespace std;
+using namespace sf;
+
 #include "include/config.h"
-#include "ej_modulos/Menu.h"
-#include "ej_modulos/Juego.h"
-#include "ej_modulos/Jugador.h"
+#include "ej_modulos/mojon.h"
+#include "ej_modulos/cuadradoD.h"
+#include "ej_modulos/cuadradoI.h"
+#include "ej_modulos/Enemigo.h"
+#include "ej_modulos/lara.h"
+#include "ej_modulos/bala.h"
+
+#define kVel 5
 
 int main() {
-    /*sf::RenderWindow window(sf::VideoMode(600,600),"Seleccion personaje - Gremory Hole");
-    Menu menu(window.getSize().x,window.getSize().y);
-    while(window.isOpen()){
-      sf::Event evento;
-      while(window.pollEvent(evento)){
-        switch (evento.type)
-        {
-        case sf::Event::KeyReleased:
-          switch (evento.key.code)
-          {
-          case sf::Keyboard::Up:
-            menu.moveUp();
-            break;
+  //Creamos una ventana
+  sf::RenderWindow window(sf::VideoMode(640, 480), "P0. Fundamentos de los Videojuegos. DCCIA");
+  // MOJON
 
-          case sf::Keyboard::Down:
-            menu.moveDown();  
-            break;
-          
-          }
-          case sf::Event::Closed:
-            window.close();
-            break;
-        
-       
+  mojon *npcMojonazo = new mojon(320, 500);
+  cuadradoD *cuadradodd = new cuadradoD();
+  cuadradoI *cuadradoii = new cuadradoI();
+  // LARA CROFT
+  bala *balera = new bala();
+  lara *larita = new lara();
+  cuadradoD *cuadri = new cuadradoD();
+
+  while (window.isOpen()) {
+    //Bucle de obtención de eventos
+    sf::Event event;
+    while (window.pollEvent(event)) {
+
+      switch (event.type) {
+
+      //Si se recibe el evento de cerrar la ventana la cierro
+      case sf::Event::Closed:
+        window.close();
+        break;
+
+      //Se pulsó una tecla, imprimo su codigo
+      case sf::Event::KeyPressed:
+
+        //Verifico si se pulsa alguna tecla de movimiento
+        switch (event.key.code) {
+        //Tecla ESC para salir
+        case sf::Keyboard::Escape:
+          window.close();
+          break;
+
+        //Cualquier tecla desconocida se imprime por pantalla su código
+        default:
+          std::cout << event.key.code << std::endl;
+          break;
         }
       }
-      window.clear();
-      menu.dibujar(window);
-      window.display();
-    }*/
+    }
+    window.clear();
+    npcMojonazo->Update(npcMojonazo, cuadradodd, cuadradoii);
+    larita->Update(window, larita, cuadri, balera);
+    npcMojonazo->Draw(window);
+    larita->Draw(window);
+    window.draw(cuadradodd->devolverSprite2());
+    window.draw(cuadradoii->devolverSprite2());
+    window.display();
+  }
 
- Juego *juego = new Juego(sf::Vector2u(960,640));
- return 0;
+  return 0;
 }
