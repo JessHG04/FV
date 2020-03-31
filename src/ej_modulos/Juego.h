@@ -29,6 +29,8 @@ class Juego{
         Map *mapa;
         //creamos enemigo
         Darkrai *darkrai;
+        //Creamos la vista
+        sf::View vista;
         //El evento que se recibe
         sf::Event *evento;
         // La ventana de nuestro juego

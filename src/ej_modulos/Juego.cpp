@@ -9,6 +9,10 @@ Juego::Juego(sf::Vector2u resolucion){
     ventana = new sf::RenderWindow(sf::VideoMode(resolucion.x,resolucion.y), "Gremory Hole");
     //Iniciamos el juego
     iniciar();
+    //Camara
+    vista.reset(sf::FloatRect(0, 0, resolucion.x, resolucion.y));
+    vista.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
+    sf::Vector2f pos_vista(resolucion.x / 2 , resolucion.y / 2);
 
     // ************************************ BUCLE DEL JUEGO *************************************************************************
     while(gameover != true){
@@ -95,6 +99,15 @@ Juego::Juego(sf::Vector2u resolucion){
                     }
             }
             reloj1->restart();
+            //Camara - Extremo derecho, normal, extremo izquierdo
+            if(j1->get_posicion().x >= (mapa->widthMap * 16 - resolucion.x /2)){
+                pos_vista.x = mapa->widthMap * 16 - resolucion.x /2;
+            }else if(j1->get_posicion().x > resolucion.x / 2){
+                pos_vista.x = j1->get_posicion().x;
+            }else{
+                pos_vista.x = resolucion.x / 2;
+            }
+            vista.setCenter(pos_vista);
         }
     }
 }
@@ -121,6 +134,7 @@ void Juego::iniciar(){
 
 void Juego::dibujar(){
     ventana->clear();
+    ventana->setView(vista); //Camara
     ventana->draw(j1->get_sprite());
     ventana->draw(*mapa);
     if(p1)
