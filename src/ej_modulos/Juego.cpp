@@ -79,14 +79,14 @@ Juego::Juego(sf::Vector2u resolucion){
                     }
             }
             reloj1->restart();
-            //Camara
-            if(j1->get_posicion().x >= 2390){
-                pos_vista.x = 2390;
+            //Camara - Extremo derecho, normal, extremo izquierdo
+            if(j1->get_posicion().x >= (mapa->widthMap * 16 - resolucion.x /2)){
+                pos_vista.x = mapa->widthMap * 16 - resolucion.x /2;
             }else if(j1->get_posicion().x > resolucion.x / 2){
                 pos_vista.x = j1->get_posicion().x;
             }else{
                 pos_vista.x = resolucion.x / 2;
-            }            
+            }
             vista.setCenter(pos_vista);
         }
     }

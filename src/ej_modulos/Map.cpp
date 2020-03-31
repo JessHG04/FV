@@ -45,13 +45,16 @@ void Map::mapMatrix(){
             tilemap[l][y] = new int[widthMap];
         }
     }
+
     this->data = map->FirstChildElement("layer")->FirstChildElement("data")->FirstChildElement("tile");
 
     //Asignacion de cada gids a la matriz de 3x3 (layer-height-width)
 
     for(unsigned int l = 0; l < numLayers; l++){
+        std::cout << "L vale: " << l << std::endl;
         if(l==1){
-            this->data = map->FirstChildElement("layer")->FirstChildElement("data")->FirstChildElement("tile");
+            //this->data = map->NextSiblingElement("layer")->FirstChildElement("data")->FirstChildElement("tile");
+            this->data = map->FirstChildElement("layer")->FirstChildElement("data")->FirstChildElement("tile")
         }
         for(unsigned int y = 0; y < heightMap; y++) {
             for(unsigned int x = 0; x < widthMap; x++){
@@ -60,19 +63,20 @@ void Map::mapMatrix(){
                 this->data = data->NextSiblingElement("tile");
             }
         }
+        //this->data = map->FirstChildElement("layer")->FirstChildElement("data")->FirstChildElement("tile");
     }
     //std::cout << "He acabao con la matriz" << std::endl;
 
     //Segun las diapositivas de teoria
-    /*
-    tinyxml2::XMLElement *data [0] = map->FirstChildElement("layer")->FirstChildElement("data")->FirstChildElement("tile");
-
+    
+    //tinyxml2::XMLElement *data [0] = map->FirstChildElement("layer")->FirstChildElement("data")->FirstChildElement("tile");
+    /*this->data = map->FirstChildElement("layer")->FirstChildElement("data")->FirstChildElement("tile");
     for(unsigned l = 0; l < numLayers; l++){
         for(unsigned y = 0; y < heightMap; y++){
             for(unsigned x = 0; x < widthMap; x++){
-                data[l]->QueryIntAtribute("gid", &tilemap[l][x]y]);
+                data->QueryIntAtribute("gid", &tilemap[l][y][x]);
                 //Paso al siguiente
-                data[l] = data[l]->NextSiblingElement("tile");
+                this->data = data->NextSiblingElement("tile");
             }
         }
     }
