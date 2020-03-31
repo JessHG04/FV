@@ -2,8 +2,6 @@
 #include <SFML/Graphics.hpp>
 
 
-
-
 Juego::Juego(sf::Vector2u resolucion){
     //Creamos una ventana
     ventana = new sf::RenderWindow(sf::VideoMode(resolucion.x,resolucion.y), "Gremory Hole");
@@ -111,9 +109,10 @@ void Juego::dibujar(){
     ventana->clear();
     ventana->setView(vista); //Camara
     ventana->draw(j1->get_sprite());
-    ventana->draw(*mapa);
+    
     if(p1)
         ventana->draw(p1->get_sprite());
+    ventana->draw(*mapa);
     ventana->display();
 }
 

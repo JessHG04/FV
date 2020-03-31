@@ -170,12 +170,6 @@ GremoryHole_BINARY_DIR:STATIC=/home/jess/Escritorio/FV/src/build
 //Value Computed by CMake
 GremoryHole_SOURCE_DIR:STATIC=/home/jess/Escritorio/FV/src
 
-//Value Computed by CMake
-MiJuego_BINARY_DIR:STATIC=/home/jess/Escritorio/FV/src/build
-
-//Value Computed by CMake
-MiJuego_SOURCE_DIR:STATIC=/home/jess/Escritorio/FV/src
-
 //Path to a library.
 SFML_AUDIO_LIBRARY_DYNAMIC_DEBUG:FILEPATH=SFML_AUDIO_LIBRARY_DYNAMIC_DEBUG-NOTFOUND
 
