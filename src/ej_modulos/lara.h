@@ -13,19 +13,20 @@ using namespace sf;
 
 class lara : public Enemigo{
     public:
-        int direccion;
         Texture *tex;
         Clock reloja, relojb;
-        int numVidas, avanza;
+        int numVidas, avanza = 0;
+        float coolDownDisparo = 6;
         bool fin, yasta = false;
         lara();
         void cambiarSprite(int);
         void restartSprite();
         Sprite devolverSprite();
         void Draw(RenderWindow &);
-        void Update(RenderWindow &, lara*, cuadradoD*, bala*);
+        void Update(RenderWindow &, lara*, cuadradoD*);
     private:
-        Sprite *sprite;        
+        Sprite *sprite;
+        bala *balera = nullptr;        
 };
 
 #endif

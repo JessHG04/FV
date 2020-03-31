@@ -23,7 +23,6 @@ int main() {
   cuadradoD *cuadradodd = new cuadradoD();
   cuadradoI *cuadradoii = new cuadradoI();
   // LARA CROFT
-  bala *balera = new bala();
   lara *larita = new lara();
   cuadradoD *cuadri = new cuadradoD();
 
@@ -58,7 +57,7 @@ int main() {
     }
     window.clear();
     npcMojonazo->Update(npcMojonazo, cuadradodd, cuadradoii);
-    larita->Update(window, larita, cuadri, balera);
+    larita->Update(window, larita, cuadri);
     npcMojonazo->Draw(window);
     larita->Draw(window);
     window.draw(cuadradodd->devolverSprite2());

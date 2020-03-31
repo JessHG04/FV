@@ -47,29 +47,38 @@ using namespace sf;
         sprite->setScale(1, 1);
     }
 
-    void lara::Update(RenderWindow &window, lara *larita, cuadradoD *cuadri, bala *balera){
+    void lara::Update(RenderWindow &window, lara *larita, cuadradoD *cuadri){
         float sgs2 = relojb.getElapsedTime().asSeconds();
         float sgs = reloja.getElapsedTime().asSeconds();
-        sgs2 = relojb.getElapsedTime().asSeconds();
-        sgs = reloja.getElapsedTime().asSeconds();
+        cout << sgs << endl;
         if(sgs >= 2){
-            larita->cambiarSprite(avanza);
             avanza++;
-            if(avanza == 3){
+            larita->cambiarSprite(avanza);
+            if(avanza == 2){
                 // yasta = true;
-                avanza = 0;
+                avanza = -1;
             }
             reloja.restart();
         }
         // window.clear();
         // larita->Draw(window);
-        if(sgs2 >= 7.8){
+        if(sgs2 >= coolDownDisparo){
+            balera = new bala();
+            cout << sgs2 << endl;
             window.draw(balera->devolverSprite());
-            balera->movimientoBala();
-            larita->cambiarSprite(avanza);
+            relojb.restart();
         }
-        if(balera->devolverSprite().getGlobalBounds().intersects(cuadri->devolverSprite2().getGlobalBounds())){
-            cout << "Colision con el cuadrado" << endl;
+        else{
+            if(balera != nullptr){
+                balera->movimientoBala();
+//                larita->cambiarSprite(avanza);
+                window.draw(balera->devolverSprite());
+            }
+        }
+        if(balera != nullptr){
+            if(balera->devolverSprite().getGlobalBounds().intersects(cuadri->devolverSprite2().getGlobalBounds())){
+                cout << "Colision con el cuadrado" << endl;
+            }
         }
     }
 

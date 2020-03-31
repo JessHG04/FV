@@ -20,7 +20,7 @@
             "name": "Gremory Hole (gdb)",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/MiJuego",
+            "program": "${workspaceFolder}/GremoryHole",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
