@@ -135,8 +135,8 @@ void Juego::iniciar(){
 void Juego::dibujar(){
     ventana->clear();
     ventana->setView(vista); //Camara
-    ventana->draw(j1->get_sprite());
     ventana->draw(*mapa);
+    ventana->draw(j1->get_sprite());
     if(p1)
         ventana->draw(p1->get_sprite());
     darkrai->Draw(*ventana);
@@ -147,10 +147,7 @@ void Juego::dibujar(){
 
 }*/
 
-void Juego::procesar_eventos(){
-            
-                    
-    
+void Juego::procesar_eventos(){    
 
     switch (evento->type)
     {
@@ -350,7 +347,7 @@ bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje
     box2.setPosition(j1->get_posicion().x, j1->get_posicion().y+10);
     box2.setFillColor(sf::Color::Red);
     bool colisionando = false;
-    for(unsigned int l = 0; l < mapa->numLayers; l++){
+    for(unsigned int l = 0; l < 1; l++){
         for(unsigned int y = 0; y < mapa->heightMap; y++){
             for(unsigned int x = 0; x < mapa->widthMap; x++){
                 gid = mapa->tilemap[l][y][x];

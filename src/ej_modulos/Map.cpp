@@ -51,9 +51,9 @@ void Map::mapMatrix(){
 
     //Asignacion de cada gids a la matriz de 3x3 (layer-height-width)
 
-    for(unsigned int l = 0; l < numLayers; l++){
+    for(unsigned int l = 0; l < numLayers; l++){    
         if(l==1){
-            this->data = map->FirstChildElement("layer")->FirstChildElement("data")->FirstChildElement("tile");
+            this->data = map->FirstChildElement("layer")->NextSiblingElement("layer")->FirstChildElement("data")->FirstChildElement("tile");
         }
         for(unsigned int y = 0; y < heightMap; y++) {
             for(unsigned int x = 0; x < widthMap; x++){
@@ -62,6 +62,8 @@ void Map::mapMatrix(){
                 this->data = data->NextSiblingElement("tile");
             }
         }
+        //this->data = data->PreviousSiblingElement("data")->PreviousSiblingElement("layer");
+        //this->data = data->NextSiblingElement("layer");
     }
     //std::cout << "He acabao con la matriz" << std::endl;
 
