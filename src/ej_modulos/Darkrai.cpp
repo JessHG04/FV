@@ -142,6 +142,5 @@ void Darkrai::Draw(sf::RenderWindow& window) {
     esGolpeado = false;
   } else {
     window.draw(*body);
-    window.draw(*boundingBox);
   }
 }
