@@ -30,6 +30,6 @@ using namespace sf;
         spriteb->setScale(1, 1);
     }
 
-    Sprite bala::devolverSprite(){
+    Sprite bala::getSprite(){
         return *spriteb;
     }

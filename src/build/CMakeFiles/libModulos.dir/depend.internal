@@ -17,8 +17,10 @@ CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o
  /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.h
  /home/pascual/Escritorio/FV/src/ej_modulos/bala.h
  /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoD.h
+ /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoI.h
  /home/pascual/Escritorio/FV/src/ej_modulos/lara.cpp
  /home/pascual/Escritorio/FV/src/ej_modulos/lara.h
+ /home/pascual/Escritorio/FV/src/ej_modulos/mojon.h
 CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o
  /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo.cpp
  /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo.h
@@ -27,7 +29,9 @@ CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.o
  /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo2.h
 CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o
  /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.h
+ /home/pascual/Escritorio/FV/src/ej_modulos/bala.h
  /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoD.h
  /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoI.h
+ /home/pascual/Escritorio/FV/src/ej_modulos/lara.h
  /home/pascual/Escritorio/FV/src/ej_modulos/mojon.cpp
  /home/pascual/Escritorio/FV/src/ej_modulos/mojon.h

@@ -60,15 +60,15 @@ include CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o: ../ej_modulos/mimodulo.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pascual/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo.cpp
+	/usr/bin/g++-5   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo.cpp > CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.i
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo.cpp > CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.i
 
 CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo.cpp -o CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.s
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo.cpp -o CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.s
 
 CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o.requires:
 
@@ -84,15 +84,15 @@ CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o.provides.build: CMakeFiles/l
 CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.o: ../ej_modulos/mimodulo2.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pascual/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo2.cpp
+	/usr/bin/g++-5   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo2.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo2.cpp > CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.i
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo2.cpp > CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.i
 
 CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo2.cpp -o CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.s
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo2.cpp -o CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.s
 
 CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.o.requires:
 
@@ -108,15 +108,15 @@ CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.o.provides.build: CMakeFiles/
 CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o: ../ej_modulos/mojon.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pascual/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/mojon.cpp
+	/usr/bin/g++-5   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/mojon.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/mojon.cpp > CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.i
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/mojon.cpp > CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.i
 
 CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/mojon.cpp -o CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.s
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/mojon.cpp -o CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.s
 
 CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o.requires:
 
@@ -132,15 +132,15 @@ CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o.provides.build: CMakeFiles/libM
 CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o: ../ej_modulos/cuadradoD.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pascual/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoD.cpp
+	/usr/bin/g++-5   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoD.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoD.cpp > CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.i
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoD.cpp > CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.i
 
 CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoD.cpp -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.s
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoD.cpp -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.s
 
 CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o.requires:
 
@@ -156,15 +156,15 @@ CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o.provides.build: CMakeFiles/
 CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o: ../ej_modulos/cuadradoI.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pascual/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoI.cpp
+	/usr/bin/g++-5   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoI.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoI.cpp > CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.i
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoI.cpp > CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.i
 
 CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoI.cpp -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.s
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoI.cpp -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.s
 
 CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o.requires:
 
@@ -180,15 +180,15 @@ CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o.provides.build: CMakeFiles/
 CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o: ../ej_modulos/Enemigo.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pascual/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.cpp
+	/usr/bin/g++-5   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.cpp > CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.i
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.cpp > CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.i
 
 CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.cpp -o CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.s
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.cpp -o CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.s
 
 CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o.requires:
 
@@ -204,15 +204,15 @@ CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o.provides.build: CMakeFiles/li
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/lara.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pascual/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/lara.cpp
+	/usr/bin/g++-5   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/lara.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/lara.cpp > CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.i
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/lara.cpp > CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.i
 
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/lara.cpp -o CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.s
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/lara.cpp -o CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.s
 
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o.requires:
 
@@ -228,15 +228,15 @@ CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o.provides.build: CMakeFiles/libMo
 CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o: ../ej_modulos/bala.cpp
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pascual/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/bala.cpp
+	/usr/bin/g++-5   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/bala.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/bala.cpp > CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.i
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pascual/Escritorio/FV/src/ej_modulos/bala.cpp > CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.i
 
 CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/bala.cpp -o CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.s
+	/usr/bin/g++-5  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pascual/Escritorio/FV/src/ej_modulos/bala.cpp -o CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.s
 
 CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o.requires:
 

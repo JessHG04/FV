@@ -18,8 +18,9 @@ int main() {
   //Creamos una ventana
   sf::RenderWindow window(sf::VideoMode(640, 480), "P0. Fundamentos de los Videojuegos. DCCIA");
   // MOJON
-
-  mojon *npcMojonazo = new mojon(320, 500);
+  // sprite.setColor(sf::Color::Transparent);
+  mojon *npcMojonazo = new mojon(320, 240, 320, 640);
+  mojon *npcMojonazo2 = new mojon(320, 380, 320, 640);
   cuadradoD *cuadradodd = new cuadradoD();
   cuadradoI *cuadradoii = new cuadradoI();
   // LARA CROFT
@@ -57,8 +58,10 @@ int main() {
     }
     window.clear();
     npcMojonazo->Update(npcMojonazo, cuadradodd, cuadradoii);
-    larita->Update(window, larita, cuadri);
+    npcMojonazo2->Update(npcMojonazo2, cuadradodd, cuadradoii);
+    larita->Update(window, larita, cuadri, npcMojonazo2);
     npcMojonazo->Draw(window);
+    npcMojonazo2->Draw(window);
     larita->Draw(window);
     window.draw(cuadradodd->devolverSprite2());
     window.draw(cuadradoii->devolverSprite2());

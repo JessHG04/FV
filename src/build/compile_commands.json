@@ -1,0 +1,47 @@
+[
+{
+  "directory": "/home/pascual/Escritorio/FV/src/build",
+  "command": "/usr/bin/g++-5    -I/home/pascual/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/GremoryHole.dir/main.cpp.o -c /home/pascual/Escritorio/FV/src/main.cpp",
+  "file": "/home/pascual/Escritorio/FV/src/main.cpp"
+},
+{
+  "directory": "/home/pascual/Escritorio/FV/src/build",
+  "command": "/usr/bin/g++-5    -I/home/pascual/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo.cpp",
+  "file": "/home/pascual/Escritorio/FV/src/ej_modulos/mimodulo.cpp"
+},
+{
+  "directory": "/home/pascual/Escritorio/FV/src/build",
+  "command": "/usr/bin/g++-5    -I/home/pascual/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/mimodulo2.cpp",
+  "file": "/home/pascual/Escritorio/FV/src/ej_modulos/mimodulo2.cpp"
+},
+{
+  "directory": "/home/pascual/Escritorio/FV/src/build",
+  "command": "/usr/bin/g++-5    -I/home/pascual/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/mojon.cpp",
+  "file": "/home/pascual/Escritorio/FV/src/ej_modulos/mojon.cpp"
+},
+{
+  "directory": "/home/pascual/Escritorio/FV/src/build",
+  "command": "/usr/bin/g++-5    -I/home/pascual/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoD.cpp",
+  "file": "/home/pascual/Escritorio/FV/src/ej_modulos/cuadradoD.cpp"
+},
+{
+  "directory": "/home/pascual/Escritorio/FV/src/build",
+  "command": "/usr/bin/g++-5    -I/home/pascual/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/cuadradoI.cpp",
+  "file": "/home/pascual/Escritorio/FV/src/ej_modulos/cuadradoI.cpp"
+},
+{
+  "directory": "/home/pascual/Escritorio/FV/src/build",
+  "command": "/usr/bin/g++-5    -I/home/pascual/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.cpp",
+  "file": "/home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.cpp"
+},
+{
+  "directory": "/home/pascual/Escritorio/FV/src/build",
+  "command": "/usr/bin/g++-5    -I/home/pascual/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/lara.cpp",
+  "file": "/home/pascual/Escritorio/FV/src/ej_modulos/lara.cpp"
+},
+{
+  "directory": "/home/pascual/Escritorio/FV/src/build",
+  "command": "/usr/bin/g++-5    -I/home/pascual/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o -c /home/pascual/Escritorio/FV/src/ej_modulos/bala.cpp",
+  "file": "/home/pascual/Escritorio/FV/src/ej_modulos/bala.cpp"
+}
+]

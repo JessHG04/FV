@@ -7,6 +7,7 @@
 #include "Enemigo.h"
 #include "cuadradoD.h"
 #include "bala.h"
+#include "mojon.h"
 
 using namespace std;
 using namespace sf;
@@ -14,16 +15,17 @@ using namespace sf;
 class lara : public Enemigo{
     public:
         Texture *tex;
-        Clock reloja, relojb;
+        Clock reloja, relojb, relojc, relojd;
         int numVidas, avanza = 0;
         float coolDownDisparo = 6;
-        bool fin, yasta = false;
+        bool fin, yasta = false, entra = false, entrada = false, esGolpeado = false;
         lara();
         void cambiarSprite(int);
         void restartSprite();
-        Sprite devolverSprite();
+        Sprite getSprite();
         void Draw(RenderWindow &);
-        void Update(RenderWindow &, lara*, cuadradoD*);
+        void Update(RenderWindow &, lara*, cuadradoD*, mojon*);
+        void recibeGolpe();
     private:
         Sprite *sprite;
         bala *balera = nullptr;        

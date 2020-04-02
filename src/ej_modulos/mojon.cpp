@@ -3,15 +3,19 @@
 #include "mojon.h"
 #include "cuadradoD.h"
 #include "cuadradoI.h"
+#include "Enemigo.h"
+#include "lara.h"
 
 using namespace std;
 using namespace sf;
 
 #define kVel 10
 
-    mojon::mojon(int pos1, int pos2) : Enemigo(6){
+    mojon::mojon(int xx, int yy, int pos1, int pos2) : Enemigo(6){
         direccion = 0;
         avansa = 0;
+        x = xx;
+        y = yy;
         posx = pos1;
         posxx = pos2;
         tex = new Texture();
@@ -26,7 +30,7 @@ using namespace sf;
         sprite->setTextureRect(sf::IntRect(15, 164, 18, 50));
         
         // Lo dispongo en el centro de la pantalla
-        sprite->setPosition(320, 240);
+        sprite->setPosition(xx, yy);
     }
 
     mojon::~mojon() {
@@ -165,6 +169,10 @@ using namespace sf;
 
     void mojon::Draw(RenderWindow &window){
         window.draw(*sprite);
+    }
+
+    void mojon::recibeGolpe(){
+        perderVida();
     }
 
     Sprite mojon::getSprite(){

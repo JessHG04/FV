@@ -4,6 +4,7 @@
 #include "Enemigo.h"
 #include "cuadradoD.h"
 #include "bala.h"
+#include "mojon.h"
 
 using namespace std;
 using namespace sf;
@@ -47,10 +48,12 @@ using namespace sf;
         sprite->setScale(1, 1);
     }
 
-    void lara::Update(RenderWindow &window, lara *larita, cuadradoD *cuadri){
+    void lara::Update(RenderWindow &window, lara *larita, cuadradoD *cuadri, mojon *mojonillo){
         float sgs2 = relojb.getElapsedTime().asSeconds();
         float sgs = reloja.getElapsedTime().asSeconds();
-        cout << sgs << endl;
+        float sgs3 = relojc.getElapsedTime().asSeconds();
+        float sgs4 = relojd.getElapsedTime().asSeconds();
+        //cout << sgs << endl;
         if(sgs >= 2){
             avanza++;
             larita->cambiarSprite(avanza);
@@ -64,21 +67,42 @@ using namespace sf;
         // larita->Draw(window);
         if(sgs2 >= coolDownDisparo){
             balera = new bala();
-            cout << sgs2 << endl;
-            window.draw(balera->devolverSprite());
+            //cout << sgs2 << endl;
+            window.draw(balera->getSprite());
             relojb.restart();
         }
         else{
             if(balera != nullptr){
                 balera->movimientoBala();
-//                larita->cambiarSprite(avanza);
-                window.draw(balera->devolverSprite());
+                // larita->cambiarSprite(avanza);
+                window.draw(balera->getSprite());
             }
         }
         if(balera != nullptr){
-            if(balera->devolverSprite().getGlobalBounds().intersects(cuadri->devolverSprite2().getGlobalBounds())){
-                cout << "Colision con el cuadrado" << endl;
+            if(sgs4 >= 0.3){
+                if(balera->getSprite().getGlobalBounds().intersects(mojonillo->getSprite().getGlobalBounds())){
+                    cout << "Le quita 1 vida al mojon" << endl;
+                    mojonillo->perderVida();
+                    cout << "Mojon: " << mojonillo->getNumVidas() << endl;
+                    // mojonillo->getSprite().setColor(Color::Transparent);
+                }
+                else{
+                    // mojonillo->getSprite().setColor(Color(255,255,255));
+                }
+                relojd.restart();
             }
+        }
+        if(sgs3 >= 1) {
+            if(mojonillo->getSprite().getGlobalBounds().intersects(larita->getSprite().getGlobalBounds())){
+                cout << "Le quita 1 vida a lara" << endl;
+                larita->recibeGolpe();
+                cout << "Lara: " << larita->getNumVidas() << endl;
+                sprite->setColor(Color::Transparent);
+            }
+            else{
+                sprite->setColor(Color(255,255,255));
+            }
+            relojc.restart();
         }
     }
 
@@ -86,6 +110,10 @@ using namespace sf;
         window.draw(*sprite);
     }
 
-    Sprite lara::devolverSprite(){
+    void lara::recibeGolpe(){
+        perderVida();
+    }
+
+    Sprite lara::getSprite(){
         return *sprite;
     }

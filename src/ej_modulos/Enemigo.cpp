@@ -20,3 +20,7 @@ void Enemigo::perderVida(){
 bool Enemigo::getMuerte(){
     return muerto;
 }
+
+int Enemigo::getNumVidas(){
+    return this->vidas;
+}

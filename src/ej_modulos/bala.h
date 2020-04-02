@@ -12,8 +12,7 @@ class bala{
         Texture *tex;
         bala();
         void movimientoBala();
-        Sprite devolverSprite();
-    private:
+        Sprite getSprite();
         Sprite *spriteb;        
 };
 
