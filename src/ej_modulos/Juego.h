@@ -18,7 +18,9 @@ class Juego{
         void procesar_eventos(); // elementos de entrada, teclado...
         void cortarEventoDash(int distancia);
         bool colisionPersMapa(direcciones direccion); //1 -> Arriba 2-> Izquierda 3-> Drcha 4->Abajo
-
+        bool colisionProyecMapa(direccionProyectil direccion);
+        bool colisionPersTrampa(direcciones direccion);
+        
     private:
         bool gameover = false;
         //Creamos al jugador
@@ -38,6 +40,8 @@ class Juego{
          //Creamos el reloj
          sf::Clock *reloj1;
          sf::Time *crono1;
+         sf::Clock *relojInmortal;
+         sf::Time *cronoInmortal;
          int fps;
          bool esGuerrera = false;
 };

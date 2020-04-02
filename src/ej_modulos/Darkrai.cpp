@@ -44,9 +44,9 @@ Darkrai::~Darkrai() {
 }
 
 
-void Darkrai::Update(float deltaTime) {
+void Darkrai::Update(float deltaTime , sf::Sprite &pers) {
     sf::Vector2f movimiento(0.0f, 0.0f);
-
+    this->personaje = &pers;
     if (personaje  &&  !muerto) {
 
       sf::Vector2i distancia(0, 0);

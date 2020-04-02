@@ -39,13 +39,14 @@ class Jugador : public spritePersonaje{
         bool movimiento = false;
         float vel_desp; // velocidad desplazamiento
         //-------------------------------------------SALTO---------------------------------------
-        float vel_salto = -20.0f;
+        float vel_salto = -100.0f;
         bool saltando = false;
         //Variable para guardar al posiocn actual
         sf::Vector2f posInicial; 
         int vida;
         direcciones direccion;
         direcciones dirColision;
+        bool inmortal = false;
 
     private:
         //spritePersonaje * spriteJugador;

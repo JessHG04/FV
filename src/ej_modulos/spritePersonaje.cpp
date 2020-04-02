@@ -9,12 +9,17 @@ void spritePersonaje::set_sprite(sf::String file, int sprite, int cantidadX1, in
     cantidadX = cantidadX1; //Cantidad de grids en x
     cantidadY = cantidadY1; //Cantidad de grids en y
     sprite_actual = sprite; //Sprite a cargar
+   /*delete txt_player;
+    txt_player = 0;*/
     txt_player = new sf::Texture(); //Textura de imagen
     sf::String cargaArchivo = file + std::to_string(sprite) + ".png"; //Archivo a cargar
 
     //Cargo la textura
     txt_player->loadFromFile(cargaArchivo); //Cargo el recurso desde la ruta
+    /*delete spr_player;
+    spr_player = 0;*/
     spr_player = new sf::Sprite(*txt_player); //Nuevo sprite apartir de textura
+    spr_player->setOrigin((txt_player->getSize().x / cantidadX) / 2, (txt_player->getSize().y / cantidadY) / 2);
     tamFrame = sf::Vector2f(txt_player->getSize().x / cantidadX, txt_player->getSize().y / cantidadY); //Dimension de cada frame haciendo la operacion
     frame_actual = frm_act; // cogemos el frame que queremos utilizar
     seleccionar_frame();

@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "spritePersonaje.h"
 
+enum direccionProyectil{izquierda = 1, derecha = 2}; 
+
 class Proyectil : public spritePersonaje{
     public:
 
@@ -31,10 +33,10 @@ class Proyectil : public spritePersonaje{
 
         void update();//actualizar fisicas del jugador
         
-        int eliminar = 0;
         sf::Vector2f posicionInicial;
         float vel_desp; // velocidad desplazamiento
         sf::String file;
+        direccionProyectil dirColision;
 
     private:
         sf::Vector2f posicion;
@@ -42,4 +44,3 @@ class Proyectil : public spritePersonaje{
 };
     
         
-
