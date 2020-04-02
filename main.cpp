@@ -38,6 +38,8 @@ sp.setTextureRect(sf::IntRect(0 * 75, 0 * 75, 75, 75));
 sp.setOrigin(75 / 2, 75);
 
   KinderSorpresa *kinder = new KinderSorpresa(100, 600, 250, 20.0, sprite, sp, 5);
+  Enemigo *ene;
+  ene = kinder;
 
   //Bucle del juego
   while (window.isOpen()) {
@@ -74,6 +76,10 @@ sp.setOrigin(75 / 2, 75);
         case sf::Keyboard::Down:
           //Escala por defecto
           sprite.move(0, kVel);
+          break;
+
+        case sf::Keyboard::F:
+          ene->recibeGolpe();
           break;
 
         case sf::Keyboard::Left:
@@ -120,12 +126,12 @@ sp.setOrigin(75 / 2, 75);
       }
     }
 
-    kinder->Update(deltaTime);
+    ene->Update(deltaTime);
 
     window.clear(sf::Color(150, 150, 150));
     window.draw(sprite);
     window.draw(sp);
-    kinder->Draw(window);
+    ene->Draw(window);
     window.display();
   }
 

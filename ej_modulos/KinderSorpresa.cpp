@@ -196,17 +196,20 @@ bool KinderSorpresa::estaEnRango(sf::Sprite *p) {
 }
 
 
+void KinderSorpresa::recibeGolpe() {
+    if (!esGolpeado) {
+        esGolpeado = true;
+        this->perderVida();
+    }
+}
+
+
 void KinderSorpresa::Draw(RenderWindow &window) {
     if (esGolpeado) {
         esGolpeado = false;
     } else {
         window.draw(*body);
     }
-}
-
-
-void KinderSorpresa::recibeGolpe() {
-    esGolpeado = true;
 }
 
 
