@@ -20,9 +20,12 @@ void spritePersonaje::set_sprite(sf::String file, int sprite, int cantidadX1, in
     spr_player = 0;*/
     spr_player = new sf::Sprite(*txt_player); //Nuevo sprite apartir de textura
     spr_player->setOrigin((txt_player->getSize().x / cantidadX) / 2, (txt_player->getSize().y / cantidadY) / 2);
-    tamFrame = sf::Vector2f(txt_player->getSize().x / cantidadX, txt_player->getSize().y / cantidadY); //Dimension de cada frame haciendo la operacion
+    tamFrame = sf::Vector2f(txt_player->getSize().x / cantidadX, txt_player->getSize().y / cantidadY); //Dimension de cada frame haciendo la operacion    
     frame_actual = frm_act; // cogemos el frame que queremos utilizar
-    seleccionar_frame();
+    seleccionar_frame(); 
+    sf::RectangleShape box(sf::Vector2f(tamFrame.x-20, tamFrame.y-20));
+    cajaColisiones = box;
+    cajaColisiones.setFillColor(sf::Color::Blue);
 }
 
 void spritePersonaje::seleccionar_frame(){
@@ -33,11 +36,7 @@ void spritePersonaje::seleccionar_frame(){
 
 void spritePersonaje::animar(){
     if(frame_actual.x != (cantidadX-1)){ // si no alcance el ultimo frame
-            frame_actual.x += 1; //incremento un frame
-           
-        
-        
-       
+        frame_actual.x += 1; //incremento un frame
     }else{
         frame_actual.x = 0;
     }

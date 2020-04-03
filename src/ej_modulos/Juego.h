@@ -36,12 +36,13 @@ class Juego{
         //El evento que se recibe
         sf::Event *evento;
         // La ventana de nuestro juego
-         sf::RenderWindow *ventana;
-         //Creamos el reloj
-         sf::Clock *reloj1;
-         sf::Time *crono1;
-         sf::Clock *relojInmortal;
-         sf::Time *cronoInmortal;
-         int fps;
-         bool esGuerrera = false;
+        sf::RenderWindow *ventana;
+        //Creamos el reloj
+        sf::Clock *reloj1;
+        sf::Time *crono1;
+        sf::Clock *relojInmortal;
+        sf::Time *cronoInmortal;
+        int fps;
+        bool esGuerrera = false;
+        bool gravedad = true;
 };

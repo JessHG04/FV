@@ -39,11 +39,11 @@ Juego::Juego(sf::Vector2u resolucion){
              //if(instanceof<Mago>(j1))
                 //j1->movimiento = true;
             // Si sigue saltando la gravedad le sigue afectando
-
-            if(j1->saltando){
-                j1->vel_salto += 3.0f;
+            //********************************************* GRAVEDAD *************************************************
+            if(gravedad){
+                j1->vel_salto += 2.5f;
                 
-               if(j1->vel_salto > 0){
+                if(j1->vel_salto > 0){
                     j1->dirColision = abajo;
                 }else{
                     j1->dirColision = arriba;
@@ -55,20 +55,8 @@ Juego::Juego(sf::Vector2u resolucion){
                     j1->set_velocidad(sf::Vector2f(-j1->vel_desp,j1->vel_salto));
                 else if(j1->direccion == der)
                     j1->set_velocidad(sf::Vector2f(j1->vel_desp,j1->vel_salto));
-            } 
-            //********************************************* GRAVEDAD *************************************************
-            /*else if(j1->dirColision == abajo){
-                j1->vel_salto += 2.0f;
-                j1->dirColision = abajo;
-                
-                if(!j1->movimiento)
-                    j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));
-                else if(j1->direccion == izq)
-                    j1->set_velocidad(sf::Vector2f(-j1->vel_desp,j1->vel_salto));
-                else if(j1->direccion == der)
-                    j1->set_velocidad(sf::Vector2f(j1->vel_desp,j1->vel_salto));
-            }*/
-            //********************************************************************************************************
+            }
+
             if(j1->movimiento || j1->inmortal){
                 j1->animar();
             }
@@ -95,7 +83,6 @@ Juego::Juego(sf::Vector2u resolucion){
                     }
             }
             
-          
             if(colisionPersTrampa(j1->dirColision)){
                 if(!j1->inmortal){ 
                     relojInmortal->restart();
@@ -112,9 +99,6 @@ Juego::Juego(sf::Vector2u resolucion){
                     }
                 }
             }
-            
-            
-            
             
             if(colisionPersMapa(j1->dirColision)){
                 j1->saltando = false;
@@ -169,12 +153,21 @@ void Juego::iniciar(){
 
 void Juego::dibujar(){
     ventana->clear();
+    sf::RectangleShape box(sf::Vector2f(16, 16));
+    box.setFillColor(sf::Color::Red);
+    
+    ventana->draw(j1->cajaColisiones);
     ventana->setView(vista); //Camara
     ventana->draw(*mapa);
     ventana->draw(j1->get_sprite());
     if(p1)
         ventana->draw(p1->get_sprite());
     darkrai->Draw(*ventana);
+    ventana->draw(box);
+    box.scale(1.1,1.1);
+    box.setPosition(0,16);
+    box.setFillColor(sf::Color::Green);
+    ventana->draw(box);
     ventana->display();
 }
 
@@ -183,10 +176,6 @@ void Juego::dibujar(){
 }*/
 
 void Juego::procesar_eventos(){
-            
-                    
-    
-
     switch (evento->type)
     {
         case sf::Event::Closed:
@@ -194,7 +183,7 @@ void Juego::procesar_eventos(){
             break;
         case sf::Event::KeyPressed:
             // si se pulsta la tecla izquierda
-            
+            gravedad = true;
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
                  j1->direccion = izq;
                  j1->dirColision = izq;
@@ -265,11 +254,11 @@ void Juego::procesar_eventos(){
                     if (j1->movimiento != true)
                         j1->posInicial = sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y);
                     //j1->movimiento = true;
-                    j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));     
+                    j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));
+                    gravedad = true;     
                 }
             }
                 
-
 //--------------------------DASH-----------------------------------------------------------------------------------------
             else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
                 j1->movimiento = true;
@@ -393,59 +382,65 @@ void Juego::procesar_eventos(){
 
 bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje con el mapa
     int gid;
-    sf::RectangleShape box2(sf::Vector2f(j1->tamFrame.x-20, j1->tamFrame.y-20));
-    box2.setPosition(j1->get_posicion().x - j1->tamFrame.x/2, j1->get_posicion().y - j1->tamFrame.y/2);
-    box2.setFillColor(sf::Color::Red);
+    sf::RectangleShape cajaMapa(sf::Vector2f(16, 16)); //Caja de colision de cada GID del mapa
     bool colisionando = false;
+    sf::RectangleShape box = j1->cajaColisiones;
+    box.scale(1.1,1.1); //Se hace un pelín más grande
     for(unsigned int l = 0; l < 1; l++){
         for(unsigned int y = 0; y < mapa->heightMap; y++){
             for(unsigned int x = 0; x < mapa->widthMap; x++){
                 gid = mapa->tilemap[l][y][x];
-                sf::RectangleShape box(sf::Vector2f(16, 16));
                 box.setPosition(sf::Vector2f(x*16, y*16));
+
+                if(gid > 0 && direccion == 4 && !colisionando){ //Abajo
+                    if(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
+                        if(cajaMapa.getGlobalBounds().intersects(box.getGlobalBounds())){
+                            j1->set_posicion(sf::Vector2f(j1->posInicial.x, j1->posInicial.y-1));
+                            j1->dirColision = quieto;
+                            colisionando = true;
+                            gravedad = false;
+                        }
+                    }
+                }
                 if(gid > 0 && direccion == 1 && !colisionando){ //Arriba
-                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                    if(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
                         j1->set_posicion(sf::Vector2f(j1->posInicial.x, j1->posInicial.y+1));
                         j1->dirColision = quieto;
                         if(j1->saltando)
                             j1->dirColision = abajo;
                         j1->vel_salto = 0;
                         colisionando = true;
+                        gravedad = true;
                     }
                 }
                 if(gid > 0 && direccion == 2 && !colisionando){ //Izquierda
-                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                    if(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
                         j1->set_posicion(sf::Vector2f(j1->posInicial.x+1, j1->posInicial.y));
                         j1->dirColision = quieto;
                         if(j1->saltando)
                             j1->dirColision = abajo;
                         colisionando = true;
+                        gravedad = true;
                     }
                 }
                 if(gid > 0 && direccion == 3 && !colisionando){ //Derecha
-                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                    if(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
                         j1->set_posicion(sf::Vector2f(j1->posInicial.x-1, j1->posInicial.y));
                         j1->dirColision = quieto;
                         if(j1->saltando)
                             j1->dirColision = abajo;
                         colisionando = true;
+                        gravedad = true;
                     }
                 }
-                
-                /*if(direccion != quieto  && !colisionando){
-                    j1->saltando = true;  // EL FALLO ESTA AQUIIIIIIIIIIIIIIIIIIIIIIIIIIII
-                    j1->dirColision = abajo;    
-                }*/
-
-                if(gid > 0 && direccion == 4 && !colisionando){ //Abajo
-                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
-                        j1->set_posicion(sf::Vector2f(j1->posInicial.x, j1->posInicial.y-1));
-                        j1->dirColision = quieto;
-                        colisionando = true;
-                        j1->saltando = false;
-                    }
+                /*
+                if(gravedad && !j1->saltando && cajaMapa.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                    //j1->saltando = true;  // EL FALLO ESTA AQUIIIIIIIIIIIIIIIIIIIIIIIIIIII
+                    j1->dirColision = abajo;
+                    gravedad = false;
+                    std::cout << "Hola estoy fallando" << std::endl;
                 }
-                
+                */
             }
         }
     }
@@ -454,8 +449,6 @@ bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje
 
 bool Juego::colisionProyecMapa(direccionProyectil direccion){ //La colision del proyectil con el mapa
     int gid;
-    sf::RectangleShape box2(sf::Vector2f(p1->tamFrame.x, p1->tamFrame.y));
-    box2.setPosition(p1->get_posicion().x, p1->get_posicion().y);
     bool colisionando = false;
 
     for(unsigned int l = 0; l < 1; l++){
@@ -466,12 +459,12 @@ bool Juego::colisionProyecMapa(direccionProyectil direccion){ //La colision del 
                 box.setPosition(sf::Vector2f(x*16, y*16));
 
                 if(gid > 0 && direccion == 1 && !colisionando){ //Izquierda
-                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                    if(box.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
                         colisionando = true;
                     }
                 }
                 if(gid > 0 && direccion == 2 && !colisionando){ //Derecha
-                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                    if(box.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
                         colisionando = true;
                     }
                 }                
@@ -483,9 +476,6 @@ bool Juego::colisionProyecMapa(direccionProyectil direccion){ //La colision del 
 
 bool Juego::colisionPersTrampa(direcciones direccion){ //La colision del personaje con la trampa
     int gid;
-    sf::RectangleShape box2(sf::Vector2f(j1->tamFrame.x-20, j1->tamFrame.y-20));
-    box2.setPosition(j1->get_posicion().x - j1->tamFrame.x/2, j1->get_posicion().y - j1->tamFrame.y/2);
-    box2.setFillColor(sf::Color::Red);
     bool colisionando = false;
     for(unsigned int l = 0; l < 1; l++){
         for(unsigned int y = 0; y < mapa->heightMap; y++){
@@ -495,26 +485,25 @@ bool Juego::colisionPersTrampa(direcciones direccion){ //La colision del persona
                 box.setPosition(sf::Vector2f(x*16, y*16));
 
                 if(gid == 144 && direccion == 1 && !colisionando){ //Arriba
-                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                    if(box.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
                         colisionando = true;
                     }
                 }
 
                 if(gid == 144  && direccion == 2 && !colisionando){ //Izquierda
-                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                    if(box.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
                        colisionando = true;
                     }
                 }
 
                 if(gid == 144  && direccion == 3 && !colisionando){ //Derecha
-                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                    if(box.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
                         colisionando = true;
                     }
                 }
-                
 
                 if(gid == 144 && direccion == 4 && !colisionando){ //Abajo
-                    if(box.getGlobalBounds().intersects(box2.getGlobalBounds())){
+                    if(box.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
                         colisionando = true;
                     }
                 }

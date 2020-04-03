@@ -21,5 +21,5 @@ class spritePersonaje{
         int cantidadY;
         sf::Vector2i frame_actual; // parte de la plantilla de sprites que se usa
         sf::Vector2f tamFrame;
-        
+        sf::RectangleShape cajaColisiones;
 };
