@@ -4,7 +4,7 @@
 using namespace std;
 using namespace sf;
 
-#define kVel 0.05
+#define kVel 0.08
 
 #include "bala.h"
 
@@ -28,6 +28,10 @@ using namespace sf;
         spriteb->setTextureRect(sf::IntRect(120, 18, 22, 14));
         spriteb->move(-kVel, 0);
         spriteb->setScale(1, 1);
+    }
+
+    void bala::hacerTransparente(){
+        spriteb->setColor(Color::Transparent);
     }
 
     Sprite bala::getSprite(){

@@ -24,6 +24,8 @@ class mojon : public Enemigo{
         void cambiarSpriteDos(int);
         Sprite getSprite();
         void recibeGolpe();
+        void hacerTransparente();
+        void restartSprite();
     private:
         Sprite *sprite;
 };

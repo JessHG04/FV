@@ -84,10 +84,11 @@ using namespace sf;
                     cout << "Le quita 1 vida al mojon" << endl;
                     mojonillo->perderVida();
                     cout << "Mojon: " << mojonillo->getNumVidas() << endl;
-                    // mojonillo->getSprite().setColor(Color::Transparent);
+                    mojonillo->hacerTransparente();
+                    balera->hacerTransparente();
                 }
                 else{
-                    // mojonillo->getSprite().setColor(Color(255,255,255));
+                    mojonillo->restartSprite();
                 }
                 relojd.restart();
             }

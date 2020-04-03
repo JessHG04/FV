@@ -13,7 +13,8 @@ class bala{
         bala();
         void movimientoBala();
         Sprite getSprite();
-        Sprite *spriteb;        
+        Sprite *spriteb;
+        void hacerTransparente();      
 };
 
 #endif

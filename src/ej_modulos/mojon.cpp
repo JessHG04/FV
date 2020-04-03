@@ -175,6 +175,14 @@ using namespace sf;
         perderVida();
     }
 
+    void mojon::hacerTransparente(){
+        sprite->setColor(Color::Transparent);
+    }
+
+    void mojon::restartSprite(){
+        sprite->setColor(Color(255,255,255));
+    }
+
     Sprite mojon::getSprite(){
         return *sprite;
     }
