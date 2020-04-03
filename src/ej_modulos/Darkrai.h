@@ -9,7 +9,7 @@ class Darkrai : public Enemigo {
     public:
         Darkrai(int ,int ,float ,sf::Sprite &);
         ~Darkrai();
-        void Update(float deltaTime ,sf::Sprite &);
+        void Update(float deltaTime);
         void Draw(sf::RenderWindow &);
         sf::RectangleShape getBoundingBox();
         void recibeGolpe();

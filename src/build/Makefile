@@ -163,6 +163,33 @@ ej_modulos/AnimationDarkrai.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/AnimationDarkrai.cpp.s
 .PHONY : ej_modulos/AnimationDarkrai.cpp.s
 
+ej_modulos/AnimationKinder.o: ej_modulos/AnimationKinder.cpp.o
+
+.PHONY : ej_modulos/AnimationKinder.o
+
+# target to build an object file
+ej_modulos/AnimationKinder.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o
+.PHONY : ej_modulos/AnimationKinder.cpp.o
+
+ej_modulos/AnimationKinder.i: ej_modulos/AnimationKinder.cpp.i
+
+.PHONY : ej_modulos/AnimationKinder.i
+
+# target to preprocess a source file
+ej_modulos/AnimationKinder.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.i
+.PHONY : ej_modulos/AnimationKinder.cpp.i
+
+ej_modulos/AnimationKinder.s: ej_modulos/AnimationKinder.cpp.s
+
+.PHONY : ej_modulos/AnimationKinder.s
+
+# target to generate assembly for a file
+ej_modulos/AnimationKinder.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.s
+.PHONY : ej_modulos/AnimationKinder.cpp.s
+
 ej_modulos/Darkrai.o: ej_modulos/Darkrai.cpp.o
 
 .PHONY : ej_modulos/Darkrai.o
@@ -298,6 +325,33 @@ ej_modulos/Jugador.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.s
 .PHONY : ej_modulos/Jugador.cpp.s
 
+ej_modulos/KinderSorpresa.o: ej_modulos/KinderSorpresa.cpp.o
+
+.PHONY : ej_modulos/KinderSorpresa.o
+
+# target to build an object file
+ej_modulos/KinderSorpresa.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o
+.PHONY : ej_modulos/KinderSorpresa.cpp.o
+
+ej_modulos/KinderSorpresa.i: ej_modulos/KinderSorpresa.cpp.i
+
+.PHONY : ej_modulos/KinderSorpresa.i
+
+# target to preprocess a source file
+ej_modulos/KinderSorpresa.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.i
+.PHONY : ej_modulos/KinderSorpresa.cpp.i
+
+ej_modulos/KinderSorpresa.s: ej_modulos/KinderSorpresa.cpp.s
+
+.PHONY : ej_modulos/KinderSorpresa.s
+
+# target to generate assembly for a file
+ej_modulos/KinderSorpresa.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.s
+.PHONY : ej_modulos/KinderSorpresa.cpp.s
+
 ej_modulos/Mago.o: ej_modulos/Mago.cpp.o
 
 .PHONY : ej_modulos/Mago.o
@@ -406,59 +460,140 @@ ej_modulos/Proyectil.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.s
 .PHONY : ej_modulos/Proyectil.cpp.s
 
-ej_modulos/mimodulo.o: ej_modulos/mimodulo.cpp.o
+ej_modulos/bala.o: ej_modulos/bala.cpp.o
 
-.PHONY : ej_modulos/mimodulo.o
-
-# target to build an object file
-ej_modulos/mimodulo.cpp.o:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o
-.PHONY : ej_modulos/mimodulo.cpp.o
-
-ej_modulos/mimodulo.i: ej_modulos/mimodulo.cpp.i
-
-.PHONY : ej_modulos/mimodulo.i
-
-# target to preprocess a source file
-ej_modulos/mimodulo.cpp.i:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.i
-.PHONY : ej_modulos/mimodulo.cpp.i
-
-ej_modulos/mimodulo.s: ej_modulos/mimodulo.cpp.s
-
-.PHONY : ej_modulos/mimodulo.s
-
-# target to generate assembly for a file
-ej_modulos/mimodulo.cpp.s:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.s
-.PHONY : ej_modulos/mimodulo.cpp.s
-
-ej_modulos/mimodulo2.o: ej_modulos/mimodulo2.cpp.o
-
-.PHONY : ej_modulos/mimodulo2.o
+.PHONY : ej_modulos/bala.o
 
 # target to build an object file
-ej_modulos/mimodulo2.cpp.o:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.o
-.PHONY : ej_modulos/mimodulo2.cpp.o
+ej_modulos/bala.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o
+.PHONY : ej_modulos/bala.cpp.o
 
-ej_modulos/mimodulo2.i: ej_modulos/mimodulo2.cpp.i
+ej_modulos/bala.i: ej_modulos/bala.cpp.i
 
-.PHONY : ej_modulos/mimodulo2.i
+.PHONY : ej_modulos/bala.i
 
 # target to preprocess a source file
-ej_modulos/mimodulo2.cpp.i:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.i
-.PHONY : ej_modulos/mimodulo2.cpp.i
+ej_modulos/bala.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.i
+.PHONY : ej_modulos/bala.cpp.i
 
-ej_modulos/mimodulo2.s: ej_modulos/mimodulo2.cpp.s
+ej_modulos/bala.s: ej_modulos/bala.cpp.s
 
-.PHONY : ej_modulos/mimodulo2.s
+.PHONY : ej_modulos/bala.s
 
 # target to generate assembly for a file
-ej_modulos/mimodulo2.cpp.s:
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.s
-.PHONY : ej_modulos/mimodulo2.cpp.s
+ej_modulos/bala.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.s
+.PHONY : ej_modulos/bala.cpp.s
+
+ej_modulos/cuadradoD.o: ej_modulos/cuadradoD.cpp.o
+
+.PHONY : ej_modulos/cuadradoD.o
+
+# target to build an object file
+ej_modulos/cuadradoD.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o
+.PHONY : ej_modulos/cuadradoD.cpp.o
+
+ej_modulos/cuadradoD.i: ej_modulos/cuadradoD.cpp.i
+
+.PHONY : ej_modulos/cuadradoD.i
+
+# target to preprocess a source file
+ej_modulos/cuadradoD.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.i
+.PHONY : ej_modulos/cuadradoD.cpp.i
+
+ej_modulos/cuadradoD.s: ej_modulos/cuadradoD.cpp.s
+
+.PHONY : ej_modulos/cuadradoD.s
+
+# target to generate assembly for a file
+ej_modulos/cuadradoD.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.s
+.PHONY : ej_modulos/cuadradoD.cpp.s
+
+ej_modulos/cuadradoI.o: ej_modulos/cuadradoI.cpp.o
+
+.PHONY : ej_modulos/cuadradoI.o
+
+# target to build an object file
+ej_modulos/cuadradoI.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o
+.PHONY : ej_modulos/cuadradoI.cpp.o
+
+ej_modulos/cuadradoI.i: ej_modulos/cuadradoI.cpp.i
+
+.PHONY : ej_modulos/cuadradoI.i
+
+# target to preprocess a source file
+ej_modulos/cuadradoI.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.i
+.PHONY : ej_modulos/cuadradoI.cpp.i
+
+ej_modulos/cuadradoI.s: ej_modulos/cuadradoI.cpp.s
+
+.PHONY : ej_modulos/cuadradoI.s
+
+# target to generate assembly for a file
+ej_modulos/cuadradoI.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.s
+.PHONY : ej_modulos/cuadradoI.cpp.s
+
+ej_modulos/lara.o: ej_modulos/lara.cpp.o
+
+.PHONY : ej_modulos/lara.o
+
+# target to build an object file
+ej_modulos/lara.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o
+.PHONY : ej_modulos/lara.cpp.o
+
+ej_modulos/lara.i: ej_modulos/lara.cpp.i
+
+.PHONY : ej_modulos/lara.i
+
+# target to preprocess a source file
+ej_modulos/lara.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.i
+.PHONY : ej_modulos/lara.cpp.i
+
+ej_modulos/lara.s: ej_modulos/lara.cpp.s
+
+.PHONY : ej_modulos/lara.s
+
+# target to generate assembly for a file
+ej_modulos/lara.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.s
+.PHONY : ej_modulos/lara.cpp.s
+
+ej_modulos/mojon.o: ej_modulos/mojon.cpp.o
+
+.PHONY : ej_modulos/mojon.o
+
+# target to build an object file
+ej_modulos/mojon.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o
+.PHONY : ej_modulos/mojon.cpp.o
+
+ej_modulos/mojon.i: ej_modulos/mojon.cpp.i
+
+.PHONY : ej_modulos/mojon.i
+
+# target to preprocess a source file
+ej_modulos/mojon.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.i
+.PHONY : ej_modulos/mojon.cpp.i
+
+ej_modulos/mojon.s: ej_modulos/mojon.cpp.s
+
+.PHONY : ej_modulos/mojon.s
+
+# target to generate assembly for a file
+ej_modulos/mojon.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.s
+.PHONY : ej_modulos/mojon.cpp.s
 
 ej_modulos/spritePersonaje.o: ej_modulos/spritePersonaje.cpp.o
 
@@ -554,6 +689,9 @@ help:
 	@echo "... ej_modulos/AnimationDarkrai.o"
 	@echo "... ej_modulos/AnimationDarkrai.i"
 	@echo "... ej_modulos/AnimationDarkrai.s"
+	@echo "... ej_modulos/AnimationKinder.o"
+	@echo "... ej_modulos/AnimationKinder.i"
+	@echo "... ej_modulos/AnimationKinder.s"
 	@echo "... ej_modulos/Darkrai.o"
 	@echo "... ej_modulos/Darkrai.i"
 	@echo "... ej_modulos/Darkrai.s"
@@ -569,6 +707,9 @@ help:
 	@echo "... ej_modulos/Jugador.o"
 	@echo "... ej_modulos/Jugador.i"
 	@echo "... ej_modulos/Jugador.s"
+	@echo "... ej_modulos/KinderSorpresa.o"
+	@echo "... ej_modulos/KinderSorpresa.i"
+	@echo "... ej_modulos/KinderSorpresa.s"
 	@echo "... ej_modulos/Mago.o"
 	@echo "... ej_modulos/Mago.i"
 	@echo "... ej_modulos/Mago.s"
@@ -581,12 +722,21 @@ help:
 	@echo "... ej_modulos/Proyectil.o"
 	@echo "... ej_modulos/Proyectil.i"
 	@echo "... ej_modulos/Proyectil.s"
-	@echo "... ej_modulos/mimodulo.o"
-	@echo "... ej_modulos/mimodulo.i"
-	@echo "... ej_modulos/mimodulo.s"
-	@echo "... ej_modulos/mimodulo2.o"
-	@echo "... ej_modulos/mimodulo2.i"
-	@echo "... ej_modulos/mimodulo2.s"
+	@echo "... ej_modulos/bala.o"
+	@echo "... ej_modulos/bala.i"
+	@echo "... ej_modulos/bala.s"
+	@echo "... ej_modulos/cuadradoD.o"
+	@echo "... ej_modulos/cuadradoD.i"
+	@echo "... ej_modulos/cuadradoD.s"
+	@echo "... ej_modulos/cuadradoI.o"
+	@echo "... ej_modulos/cuadradoI.i"
+	@echo "... ej_modulos/cuadradoI.s"
+	@echo "... ej_modulos/lara.o"
+	@echo "... ej_modulos/lara.i"
+	@echo "... ej_modulos/lara.s"
+	@echo "... ej_modulos/mojon.o"
+	@echo "... ej_modulos/mojon.i"
+	@echo "... ej_modulos/mojon.s"
 	@echo "... ej_modulos/spritePersonaje.o"
 	@echo "... ej_modulos/spritePersonaje.i"
 	@echo "... ej_modulos/spritePersonaje.s"

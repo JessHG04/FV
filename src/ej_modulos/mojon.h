@@ -15,17 +15,17 @@ class mojon : public Enemigo{
         int direccion;
         Texture *tex;
         Clock reloj;
-        int numVidas, avansa;
-        mojon();
+        int numVidas, avansa, posx = 0, posxx = 0, x = 0, y = 0;
+        mojon(int, int, int, int);
         ~mojon();
         void Draw(RenderWindow &);
         void Update(mojon*, cuadradoD*, cuadradoI*);
         void cambiarSprite(int);
         void cambiarSpriteDos(int);
-        void perderVida();  
         Sprite getSprite();
-        bool getMuerte();
-        int getNumVidas();
+        void recibeGolpe();
+        void hacerTransparente();
+        void restartSprite();
     private:
         Sprite *sprite;
 };

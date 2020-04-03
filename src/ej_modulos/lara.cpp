@@ -4,6 +4,7 @@
 #include "Enemigo.h"
 #include "cuadradoD.h"
 #include "bala.h"
+#include "mojon.h"
 
 using namespace std;
 using namespace sf;
@@ -15,7 +16,7 @@ using namespace sf;
         fin = false;
         yasta = false;
         tex = new Texture();
-        if (!tex->loadFromFile("resources/401003605_atk.png")) {
+        if (!tex->loadFromFile("resources/Sprites/Lara Croft/401003605_atk.png")) {
             std::cerr << "Error cargando la imagen 401003605_atk.png";
             exit(0);
         } 
@@ -47,35 +48,62 @@ using namespace sf;
         sprite->setScale(1, 1);
     }
 
-    void lara::Update(RenderWindow &window, lara *larita, cuadradoD *cuadri, bala *balera){
+    void lara::Update(RenderWindow &window, lara *larita, cuadradoD *cuadri, mojon *mojonillo){
         float sgs2 = relojb.getElapsedTime().asSeconds();
         float sgs = reloja.getElapsedTime().asSeconds();
-        sgs2 = relojb.getElapsedTime().asSeconds();
-        sgs = reloja.getElapsedTime().asSeconds();
-        if(sgs >= 2 && yasta == false){
-            larita->cambiarSprite(avanza);
+        float sgs3 = relojc.getElapsedTime().asSeconds();
+        float sgs4 = relojd.getElapsedTime().asSeconds();
+        //cout << sgs << endl;
+        if(sgs >= 2){
             avanza++;
-            if(avanza == 3){
-                yasta = true;
-                avanza = 0;
+            larita->cambiarSprite(avanza);
+            if(avanza == 2){
+                // yasta = true;
+                avanza = -1;
             }
             reloja.restart();
         }
         // window.clear();
         // larita->Draw(window);
-        if(sgs2 >= 7.8){
-            if(fin == false){
-                window.draw(balera->devolverSprite());
-                balera->movimientoBala();
-            }
-            larita->restartSprite();
+        if(sgs2 >= coolDownDisparo){
+            balera = new bala();
+            //cout << sgs2 << endl;
+            window.draw(balera->getSprite());
+            relojb.restart();
         }
-        if(fin == false){
-            if(balera->devolverSprite().getGlobalBounds().intersects(cuadri->devolverSprite2().getGlobalBounds())){
-                cout << "Colision con el cuadrado" << endl;
-                delete balera;
-                fin = true;
+        else{
+            if(balera != nullptr){
+                balera->movimientoBala();
+                // larita->cambiarSprite(avanza);
+                window.draw(balera->getSprite());
             }
+        }
+        if(balera != nullptr){
+            if(sgs4 >= 0.3){
+                if(balera->getSprite().getGlobalBounds().intersects(mojonillo->getSprite().getGlobalBounds())){
+                    cout << "Le quita 1 vida al mojon" << endl;
+                    mojonillo->perderVida();
+                    cout << "Mojon: " << mojonillo->getNumVidas() << endl;
+                    mojonillo->hacerTransparente();
+                    balera->hacerTransparente();
+                }
+                else{
+                    mojonillo->restartSprite();
+                }
+                relojd.restart();
+            }
+        }
+        if(sgs3 >= 1) {
+            if(mojonillo->getSprite().getGlobalBounds().intersects(larita->getSprite().getGlobalBounds())){
+                cout << "Le quita 1 vida a lara" << endl;
+                larita->recibeGolpe();
+                cout << "Lara: " << larita->getNumVidas() << endl;
+                sprite->setColor(Color::Transparent);
+            }
+            else{
+                sprite->setColor(Color(255,255,255));
+            }
+            relojc.restart();
         }
     }
 
@@ -83,6 +111,10 @@ using namespace sf;
         window.draw(*sprite);
     }
 
-    Sprite lara::devolverSprite(){
+    void lara::recibeGolpe(){
+        perderVida();
+    }
+
+    Sprite lara::getSprite(){
         return *sprite;
     }

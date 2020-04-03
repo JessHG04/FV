@@ -4,13 +4,13 @@
 using namespace std;
 using namespace sf;
 
-#define kVel 0.05
+#define kVel 0.08
 
 #include "bala.h"
 
     bala::bala(){
         tex = new Texture();
-        if (!tex->loadFromFile("resources/401003605_atk.png")) {
+        if (!tex->loadFromFile("resources/Sprites/Lara Croft/401003605_atk.png")) {
             std::cerr << "Error cargando la imagen 401003605_atk.png";
             exit(0);
         } 
@@ -30,6 +30,10 @@ using namespace sf;
         spriteb->setScale(1, 1);
     }
 
-    Sprite bala::devolverSprite(){
+    void bala::hacerTransparente(){
+        spriteb->setColor(Color::Transparent);
+    }
+
+    Sprite bala::getSprite(){
         return *spriteb;
     }

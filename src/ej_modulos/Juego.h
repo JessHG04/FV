@@ -8,6 +8,8 @@
 #include "bala.h"
 #include "lara.h"
 #include "Darkrai.h"
+#include "mojon.h"
+#include "KinderSorpresa.h"
 
 class Juego{
     public:
@@ -31,6 +33,14 @@ class Juego{
         Map *mapa;
         //creamos enemigo
         Darkrai *darkrai;
+        //Creamos a Lara
+        lara *larita;
+        cuadradoD *cuadra;
+        //Creamos al mojon
+        mojon *mojoncito;
+        cuadradoI *cuadra2;
+        //Creamos a kinder
+        KinderSorpresa *kindercito;
         //Creamos la vista
         sf::View vista;
         //El evento que se recibe

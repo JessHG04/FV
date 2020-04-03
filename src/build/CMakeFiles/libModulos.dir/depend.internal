@@ -4,6 +4,9 @@
 CMakeFiles/libModulos.dir/ej_modulos/AnimationDarkrai.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/AnimationDarkrai.cpp
  /home/jess/Escritorio/FV/src/ej_modulos/AnimationDarkrai.h
+CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o
+ /home/jess/Escritorio/FV/src/ej_modulos/AnimationKinder.cpp
+ /home/jess/Escritorio/FV/src/ej_modulos/AnimationKinder.h
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/AnimationDarkrai.h
  /home/jess/Escritorio/FV/src/ej_modulos/Darkrai.cpp
@@ -19,24 +22,33 @@ CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/AnimationDarkrai.h
+ /home/jess/Escritorio/FV/src/ej_modulos/AnimationKinder.h
  /home/jess/Escritorio/FV/src/ej_modulos/Darkrai.h
  /home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
  /home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
  /home/jess/Escritorio/FV/src/ej_modulos/Juego.cpp
  /home/jess/Escritorio/FV/src/ej_modulos/Juego.h
  /home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
+ /home/jess/Escritorio/FV/src/ej_modulos/KinderSorpresa.h
  /home/jess/Escritorio/FV/src/ej_modulos/Mago.h
  /home/jess/Escritorio/FV/src/ej_modulos/Map.h
  /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
  /home/jess/Escritorio/FV/src/ej_modulos/bala.h
  /home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.h
+ /home/jess/Escritorio/FV/src/ej_modulos/cuadradoI.h
  /home/jess/Escritorio/FV/src/ej_modulos/lara.h
+ /home/jess/Escritorio/FV/src/ej_modulos/mojon.h
  /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
  /home/jess/Escritorio/FV/src/ej_modulos/tinyxml2.h
 CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/Jugador.cpp
  /home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
  /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o
+ /home/jess/Escritorio/FV/src/ej_modulos/AnimationKinder.h
+ /home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
+ /home/jess/Escritorio/FV/src/ej_modulos/KinderSorpresa.cpp
+ /home/jess/Escritorio/FV/src/ej_modulos/KinderSorpresa.h
 CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
  /home/jess/Escritorio/FV/src/ej_modulos/Mago.cpp
@@ -53,12 +65,31 @@ CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.cpp
  /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
  /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
-CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o
- /home/jess/Escritorio/FV/src/ej_modulos/mimodulo.cpp
- /home/jess/Escritorio/FV/src/ej_modulos/mimodulo.h
-CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.o
- /home/jess/Escritorio/FV/src/ej_modulos/mimodulo2.cpp
- /home/jess/Escritorio/FV/src/ej_modulos/mimodulo2.h
+CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o
+ /home/jess/Escritorio/FV/src/ej_modulos/bala.cpp
+ /home/jess/Escritorio/FV/src/ej_modulos/bala.h
+CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o
+ /home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.cpp
+ /home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.h
+CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o
+ /home/jess/Escritorio/FV/src/ej_modulos/cuadradoI.cpp
+ /home/jess/Escritorio/FV/src/ej_modulos/cuadradoI.h
+CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o
+ /home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
+ /home/jess/Escritorio/FV/src/ej_modulos/bala.h
+ /home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.h
+ /home/jess/Escritorio/FV/src/ej_modulos/cuadradoI.h
+ /home/jess/Escritorio/FV/src/ej_modulos/lara.cpp
+ /home/jess/Escritorio/FV/src/ej_modulos/lara.h
+ /home/jess/Escritorio/FV/src/ej_modulos/mojon.h
+CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o
+ /home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
+ /home/jess/Escritorio/FV/src/ej_modulos/bala.h
+ /home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.h
+ /home/jess/Escritorio/FV/src/ej_modulos/cuadradoI.h
+ /home/jess/Escritorio/FV/src/ej_modulos/lara.h
+ /home/jess/Escritorio/FV/src/ej_modulos/mojon.cpp
+ /home/jess/Escritorio/FV/src/ej_modulos/mojon.h
 CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.cpp
  /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h

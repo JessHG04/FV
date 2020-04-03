@@ -1,9 +1,6 @@
 #include "Juego.h"
 #include <SFML/Graphics.hpp>
 
-
-
-
 Juego::Juego(sf::Vector2u resolucion){
     //Creamos una ventana
     ventana = new sf::RenderWindow(sf::VideoMode(resolucion.x,resolucion.y), "Gremory Hole");
@@ -67,7 +64,9 @@ Juego::Juego(sf::Vector2u resolucion){
             if(p1)
                 p1->update();
 
-            darkrai->Update(reloj1->getElapsedTime().asSeconds(),*j1->spr_player);
+            darkrai->Update(reloj1->getElapsedTime().asSeconds());
+            larita->Update(*ventana, larita, cuadra, mojoncito);
+            mojoncito->Update(mojoncito, cuadra, cuadra2);
             dibujar();
             //Si sigue saltando y llega a la posicion de donde salto se para
           
@@ -78,9 +77,9 @@ Juego::Juego(sf::Vector2u resolucion){
                         j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,2));
                     }
                     
-                    if(j1->direccion == der){
-                        j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,3));
-                    }
+                if(j1->direccion == der){
+                    j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,3));
+                }
             }
             
             if(colisionPersTrampa(j1->dirColision)){
@@ -106,7 +105,7 @@ Juego::Juego(sf::Vector2u resolucion){
                 j1->vel_salto = 0;
                 j1->set_velocidad(sf::Vector2f(0,0));
                 if(!j1->inmortal){
-                 if(j1->direccion == izq){
+                    if(j1->direccion == izq){
                         j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,2));
                     }
                     
@@ -143,7 +142,14 @@ void Juego::iniciar(){
     else
         j1 = new Mago(4,4,sf::Vector2i(0,0));
 
-    darkrai = new Darkrai(400,200,25.0f,*j1->spr_player);
+    darkrai = new Darkrai(1500,200,25.0f,*j1->spr_player);
+    larita = new lara();
+    larita->getSprite().setPosition(500,400);
+    cuadra = new cuadradoD();
+    mojoncito = new mojon(700, 450, 650, 750);
+    cuadra2 = new cuadradoI();
+    //Sprite sp();
+    //kindercito = new KinderSorpresa(450, 500, 600, 0.5, *(j1->spr_player), sp, 10);
     j1->set_posicion(sf::Vector2f(47,21*16));
     j1->dirColision = abajo;
     //j1->direccion = quieto;
@@ -163,11 +169,15 @@ void Juego::dibujar(){
     if(p1)
         ventana->draw(p1->get_sprite());
     darkrai->Draw(*ventana);
+    //larita->Draw(*ventana);
+    //mojoncito->Draw(*ventana);
+    /*
     ventana->draw(box);
     box.scale(1.1,1.1);
     box.setPosition(0,16);
     box.setFillColor(sf::Color::Green);
     ventana->draw(box);
+    */
     ventana->display();
 }
 
@@ -390,16 +400,16 @@ bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje
         for(unsigned int y = 0; y < mapa->heightMap; y++){
             for(unsigned int x = 0; x < mapa->widthMap; x++){
                 gid = mapa->tilemap[l][y][x];
-                box.setPosition(sf::Vector2f(x*16, y*16));
+                cajaMapa.setPosition(sf::Vector2f(x*16, y*16));
 
                 if(gid > 0 && direccion == 4 && !colisionando){ //Abajo
                     if(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
-                        if(cajaMapa.getGlobalBounds().intersects(box.getGlobalBounds())){
+                        //if(cajaMapa.getGlobalBounds().intersects(box.getGlobalBounds())){
                             j1->set_posicion(sf::Vector2f(j1->posInicial.x, j1->posInicial.y-1));
                             j1->dirColision = quieto;
                             colisionando = true;
-                            gravedad = false;
-                        }
+                            gravedad = true;
+                        //}
                     }
                 }
                 if(gid > 0 && direccion == 1 && !colisionando){ //Arriba

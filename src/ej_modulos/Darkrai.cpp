@@ -44,10 +44,10 @@ Darkrai::~Darkrai() {
 }
 
 
-void Darkrai::Update(float deltaTime , sf::Sprite &pers) {
+void Darkrai::Update(float deltaTime) {
     sf::Vector2f movimiento(0.0f, 0.0f);
-    this->personaje = &pers;
-    if (personaje  &&  !muerto) {
+
+    if (personaje) {
 
       sf::Vector2i distancia(0, 0);
       sf::Vector2f angulo(0.0f, 0.0f);
@@ -142,6 +142,5 @@ void Darkrai::Draw(sf::RenderWindow& window) {
     esGolpeado = false;
   } else {
     window.draw(*body);
-    window.draw(*boundingBox);
   }
 }

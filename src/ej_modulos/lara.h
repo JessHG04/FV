@@ -3,29 +3,32 @@
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
-//#include "lara.h"
+#include "lara.h"
 #include "Enemigo.h"
 #include "cuadradoD.h"
 #include "bala.h"
+#include "mojon.h"
 
 using namespace std;
 using namespace sf;
 
 class lara : public Enemigo{
     public:
-        int direccion;
         Texture *tex;
-        Clock reloja, relojb;
-        int numVidas, avanza;
-        bool fin, yasta;
+        Clock reloja, relojb, relojc, relojd;
+        int numVidas, avanza = 0;
+        float coolDownDisparo = 6;
+        bool fin, yasta = false, entra = false, entrada = false, esGolpeado = false;
         lara();
         void cambiarSprite(int);
         void restartSprite();
-        Sprite devolverSprite();
+        Sprite getSprite();
         void Draw(RenderWindow &);
-        void Update(RenderWindow &, lara*, cuadradoD*, bala*);
+        void Update(RenderWindow &, lara*, cuadradoD*, mojon*);
+        void recibeGolpe();
     private:
-        Sprite *sprite;        
+        Sprite *sprite;
+        bala *balera = nullptr;        
 };
 
 #endif

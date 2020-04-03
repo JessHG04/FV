@@ -12,9 +12,9 @@ class bala{
         Texture *tex;
         bala();
         void movimientoBala();
-        Sprite devolverSprite();
-    private:
-        Sprite *spriteb;        
+        Sprite getSprite();
+        Sprite *spriteb;
+        void hacerTransparente();      
 };
 
 #endif

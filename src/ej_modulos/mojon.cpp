@@ -3,17 +3,23 @@
 #include "mojon.h"
 #include "cuadradoD.h"
 #include "cuadradoI.h"
+#include "Enemigo.h"
+#include "lara.h"
 
 using namespace std;
 using namespace sf;
 
 #define kVel 10
 
-    mojon::mojon() : Enemigo(6){
+    mojon::mojon(int xx, int yy, int pos1, int pos2) : Enemigo(6){
         direccion = 0;
         avansa = 0;
+        x = xx;
+        y = yy;
+        posx = pos1;
+        posxx = pos2;
         tex = new Texture();
-        if (!tex->loadFromFile("resources/sprite_player.png")) {
+        if (!tex->loadFromFile("resources/Sprites/Mojon/sprite_player.png")) {
             std::cerr << "Error cargando la imagen sprite_player.png";
             exit(0);
         } 
@@ -24,7 +30,7 @@ using namespace sf;
         sprite->setTextureRect(sf::IntRect(15, 164, 18, 50));
         
         // Lo dispongo en el centro de la pantalla
-        sprite->setPosition(320, 240);
+        sprite->setPosition(xx, yy);
     }
 
     mojon::~mojon() {
@@ -36,13 +42,13 @@ using namespace sf;
         if(sgs >= 0.10){
           if(npcMojonazo->direccion == 0){
             npcMojonazo->cambiarSprite(avansa);
-            if(npcMojonazo->getSprite().getGlobalBounds().intersects(cuadradodd->devolverSprite2().getGlobalBounds())){
+            if(npcMojonazo->getSprite().getGlobalBounds().intersects(cuadradodd->devolverSprite2().getGlobalBounds()) || npcMojonazo->getSprite().getPosition().x >= posxx){
               npcMojonazo->direccion = 1;
             }
           }
           else{
             npcMojonazo->cambiarSpriteDos(avansa);
-            if(npcMojonazo->getSprite().getGlobalBounds().intersects(cuadradoii->devolverSprite2().getGlobalBounds())){
+            if(npcMojonazo->getSprite().getGlobalBounds().intersects(cuadradoii->devolverSprite2().getGlobalBounds()) || npcMojonazo->getSprite().getPosition().x <= posx){
               npcMojonazo->direccion = 0;
             }
           }
@@ -163,6 +169,18 @@ using namespace sf;
 
     void mojon::Draw(RenderWindow &window){
         window.draw(*sprite);
+    }
+
+    void mojon::recibeGolpe(){
+        perderVida();
+    }
+
+    void mojon::hacerTransparente(){
+        sprite->setColor(Color::Transparent);
+    }
+
+    void mojon::restartSprite(){
+        sprite->setColor(Color(255,255,255));
     }
 
     Sprite mojon::getSprite(){
