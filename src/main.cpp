@@ -1,72 +1,42 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-
-using namespace std;
-using namespace sf;
-
 #include "include/config.h"
-#include "ej_modulos/mojon.h"
-#include "ej_modulos/cuadradoD.h"
-#include "ej_modulos/cuadradoI.h"
-#include "ej_modulos/Enemigo.h"
-#include "ej_modulos/lara.h"
-#include "ej_modulos/bala.h"
-
-#define kVel 5
+#include "ej_modulos/Menu.h"
+#include "ej_modulos/Juego.h"
+#include "ej_modulos/Jugador.h"
 
 int main() {
-  //Creamos una ventana
-  sf::RenderWindow window(sf::VideoMode(640, 480), "P0. Fundamentos de los Videojuegos. DCCIA");
-  // MOJON
-  // sprite.setColor(sf::Color::Transparent);
-  mojon *npcMojonazo = new mojon(320, 240, 320, 640);
-  mojon *npcMojonazo2 = new mojon(320, 380, 320, 640);
-  cuadradoD *cuadradodd = new cuadradoD();
-  cuadradoI *cuadradoii = new cuadradoI();
-  // LARA CROFT
-  lara *larita = new lara();
-  cuadradoD *cuadri = new cuadradoD();
+    /*sf::RenderWindow window(sf::VideoMode(600,600),"Seleccion personaje - Gremory Hole");
+    Menu menu(window.getSize().x,window.getSize().y);
+    while(window.isOpen()){
+      sf::Event evento;
+      while(window.pollEvent(evento)){
+        switch (evento.type)
+        {
+        case sf::Event::KeyReleased:
+          switch (evento.key.code)
+          {
+          case sf::Keyboard::Up:
+            menu.moveUp();
+            break;
 
-  while (window.isOpen()) {
-    //Bucle de obtención de eventos
-    sf::Event event;
-    while (window.pollEvent(event)) {
-
-      switch (event.type) {
-
-      //Si se recibe el evento de cerrar la ventana la cierro
-      case sf::Event::Closed:
-        window.close();
-        break;
-
-      //Se pulsó una tecla, imprimo su codigo
-      case sf::Event::KeyPressed:
-
-        //Verifico si se pulsa alguna tecla de movimiento
-        switch (event.key.code) {
-        //Tecla ESC para salir
-        case sf::Keyboard::Escape:
-          window.close();
-          break;
-
-        //Cualquier tecla desconocida se imprime por pantalla su código
-        default:
-          std::cout << event.key.code << std::endl;
-          break;
+          case sf::Keyboard::Down:
+            menu.moveDown();  
+            break;
+          
+          }
+          case sf::Event::Closed:
+            window.close();
+            break;
+        
+       
         }
       }
-    }
-    window.clear();
-    npcMojonazo->Update(npcMojonazo, cuadradodd, cuadradoii);
-    npcMojonazo2->Update(npcMojonazo2, cuadradodd, cuadradoii);
-    larita->Update(window, larita, cuadri, npcMojonazo2);
-    npcMojonazo->Draw(window);
-    npcMojonazo2->Draw(window);
-    larita->Draw(window);
-    window.draw(cuadradodd->devolverSprite2());
-    window.draw(cuadradoii->devolverSprite2());
-    window.display();
-  }
+      window.clear();
+      menu.dibujar(window);
+      window.display();
+    }*/
 
-  return 0;
+ Juego *juego = new Juego(sf::Vector2u(960,640));
+ return 0;
 }
