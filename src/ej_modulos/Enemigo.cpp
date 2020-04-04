@@ -12,6 +12,10 @@ Enemigo::~Enemigo() {
     // Destruye su corespondiente NPC
 }
 
+int Enemigo::getNumVidas(){
+    return this->vidas;
+}
+
 void Enemigo::perderVida(){
     if(!muerto){
         vidas--;

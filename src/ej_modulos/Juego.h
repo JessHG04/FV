@@ -19,6 +19,7 @@ class Juego{
         void logica(); // procesa logicas del juego
         void procesar_eventos(); // elementos de entrada, teclado...
         void cortarEventoDash(int distancia);
+        void gestionGravedad();
         bool colisionPersMapa(direcciones direccion); //1 -> Arriba 2-> Izquierda 3-> Drcha 4->Abajo
         bool colisionProyecMapa(direccionProyectil direccion);
         bool colisionPersTrampa(direcciones direccion);

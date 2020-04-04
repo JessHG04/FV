@@ -42,6 +42,7 @@ void spritePersonaje::set_sprite(sf::Texture *textura, int cantidadX1, int canti
     
     tamFrame = sf::Vector2f(textura_actual->getSize().x / cantidadX, textura_actual->getSize().y / cantidadY); //Dimension de cada frame haciendo la operacion    
     frame_actual = frm_act; // cogemos el frame que queremos utilizar
+    //spr_player->setScale(0.5,0.5);
     seleccionar_frame(); 
     sf::RectangleShape box(sf::Vector2f(tamFrame.x-20, tamFrame.y-20));
     cajaColisiones = box;
@@ -60,7 +61,7 @@ void spritePersonaje::animar(){
     }else{
         frame_actual.x = 0;
     }
-     seleccionar_frame(); //selecciono el rectangulo correspondiente al frame
+    seleccionar_frame(); //selecciono el rectangulo correspondiente al frame
 }
 
 void spritePersonaje::set_frameX(int frame){

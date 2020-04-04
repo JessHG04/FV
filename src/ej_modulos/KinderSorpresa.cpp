@@ -20,7 +20,7 @@ KinderSorpresa::KinderSorpresa(int pos1, int pos2, int posy, float speed, sf::Sp
     rangoMovimiento[1] = pos2;
 
     // Cargamos textura...
-    textura.loadFromFile("resources/KinderSorpresa.png");
+    textura.loadFromFile("resources/Sprites/Kinder Sorpresa/KinderSorpresa.png");
     textura.setSmooth(true);
 
     // Creamos sprite y animacion...

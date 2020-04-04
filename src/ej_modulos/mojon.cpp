@@ -37,19 +37,19 @@ using namespace sf;
 
     }
     
-    void mojon::Update(mojon *npcMojonazo, cuadradoD *cuadradodd, cuadradoI *cuadradoii){
+    void mojon::Update(){
         float sgs = reloj.getElapsedTime().asSeconds();
         if(sgs >= 0.10){
-          if(npcMojonazo->direccion == 0){
-            npcMojonazo->cambiarSprite(avansa);
-            if(npcMojonazo->getSprite().getGlobalBounds().intersects(cuadradodd->devolverSprite2().getGlobalBounds()) || npcMojonazo->getSprite().getPosition().x >= posxx){
-              npcMojonazo->direccion = 1;
+          if(this->direccion == 0){
+            this->cambiarSprite(avansa);
+            if(this->getSprite().getPosition().x >= posxx){
+              this->direccion = 1;
             }
           }
           else{
-            npcMojonazo->cambiarSpriteDos(avansa);
-            if(npcMojonazo->getSprite().getGlobalBounds().intersects(cuadradoii->devolverSprite2().getGlobalBounds()) || npcMojonazo->getSprite().getPosition().x <= posx){
-              npcMojonazo->direccion = 0;
+            this->cambiarSpriteDos(avansa);
+            if(this->getSprite().getPosition().x <= posx){
+              this->direccion = 0;
             }
           }
           avansa++;

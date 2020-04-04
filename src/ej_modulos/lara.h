@@ -17,14 +17,14 @@ class lara : public Enemigo{
         Texture *tex;
         Clock reloja, relojb, relojc, relojd;
         int numVidas, avanza = 0;
-        float coolDownDisparo = 6;
+        float coolDownDisparo = 3;
         bool fin, yasta = false, entra = false, entrada = false, esGolpeado = false;
-        lara();
+        lara(int, int);
         void cambiarSprite(int);
         void restartSprite();
         Sprite getSprite();
         void Draw(RenderWindow &);
-        void Update(RenderWindow &, lara*, cuadradoD*, mojon*);
+        void Update(RenderWindow &, mojon*, int, int);
         void recibeGolpe();
     private:
         Sprite *sprite;
