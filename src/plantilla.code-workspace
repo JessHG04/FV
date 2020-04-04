@@ -6,7 +6,7 @@
 	],
 	"settings": {
 		"files.associations": {
-			"ostream": "cpp"
+			"new": "cpp"
 		}
 	}
 }

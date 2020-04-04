@@ -9,29 +9,34 @@ void spritePersonaje::set_sprite(sf::String file, int sprite, int cantidadX1, in
     cantidadX = cantidadX1; //Cantidad de grids en x
     cantidadY = cantidadY1; //Cantidad de grids en y
     sprite_actual = sprite; //Sprite a cargar
+   /*delete txt_player;
+    txt_player = 0;*/
     txt_player = new sf::Texture(); //Textura de imagen
     sf::String cargaArchivo = file + std::to_string(sprite) + ".png"; //Archivo a cargar
 
     //Cargo la textura
     txt_player->loadFromFile(cargaArchivo); //Cargo el recurso desde la ruta
+    /*delete spr_player;
+    spr_player = 0;*/
     spr_player = new sf::Sprite(*txt_player); //Nuevo sprite apartir de textura
-    tamFrame = sf::Vector2f(txt_player->getSize().x / cantidadX, txt_player->getSize().y / cantidadY); //Dimension de cada frame haciendo la operacion
+    spr_player->setOrigin((txt_player->getSize().x / cantidadX) / 2, (txt_player->getSize().y / cantidadY) / 2);
+    tamFrame = sf::Vector2f(txt_player->getSize().x / cantidadX, txt_player->getSize().y / cantidadY); //Dimension de cada frame haciendo la operacion    
     frame_actual = frm_act; // cogemos el frame que queremos utilizar
-    seleccionar_frame();
+    seleccionar_frame(); 
+    sf::RectangleShape box(sf::Vector2f(tamFrame.x-20, tamFrame.y-20));
+    cajaColisiones = box;
+    cajaColisiones.setFillColor(sf::Color::Blue);
 }
 
 void spritePersonaje::seleccionar_frame(){
     sf::IntRect rectangulo(frame_actual.x * tamFrame.x,frame_actual.y * tamFrame.y,tamFrame.x,tamFrame.y); //Construimos el rectangulo del tamaño del frame que queremos
     spr_player->setTextureRect(rectangulo); // le insertamos el recorte al sprite
+    
 }
 
 void spritePersonaje::animar(){
     if(frame_actual.x != (cantidadX-1)){ // si no alcance el ultimo frame
-            frame_actual.x += 1; //incremento un frame
-           
-        
-        
-       
+        frame_actual.x += 1; //incremento un frame
     }else{
         frame_actual.x = 0;
     }

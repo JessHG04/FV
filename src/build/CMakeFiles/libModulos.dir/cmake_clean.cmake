@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/libModulos.dir/ej_modulos/mimodulo.cpp.o"
-  "CMakeFiles/libModulos.dir/ej_modulos/mimodulo2.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o"
@@ -10,6 +8,16 @@ file(REMOVE_RECURSE
   "CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/Map.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/tinyxml2.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/AnimationDarkrai.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o"
   "liblibModulos.pdb"
   "liblibModulos.a"
 )
