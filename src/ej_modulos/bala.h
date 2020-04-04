@@ -10,7 +10,8 @@ using namespace sf;
 class bala{
     public:
         Texture *tex;
-        bala();
+        int xx = 0, yy = 0;
+        bala(int, int);
         void movimientoBala();
         Sprite getSprite();
         Sprite *spriteb;

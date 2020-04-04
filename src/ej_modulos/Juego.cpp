@@ -1,6 +1,9 @@
 #include "Juego.h"
 #include <SFML/Graphics.hpp>
-
+/************************** HACE TODOS LOS COMANDOS A LA VEZ *****************************************/
+/* alias do="cmake -H. -Bbuild && cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole" */
+/*                           Luego simplemente pones do                                            */
+/**************************************************************************************************/
 Juego::Juego(sf::Vector2u resolucion){
     //Creamos una ventana
     ventana = new sf::RenderWindow(sf::VideoMode(resolucion.x,resolucion.y), "Gremory Hole");
@@ -27,7 +30,7 @@ Juego::Juego(sf::Vector2u resolucion){
                     p1 = 0;           
                 }
             }
-            //CUANDO SE REALICE LA COLISION SE ELIMINARA EL PROYECTIL-------------------------------------------
+                //CUANDO SE REALICE LA COLISION SE ELIMINARA EL PROYECTIL-------------------------------------------
               //  if(COLISION)  {
                    // delete p1;
                    // p1 = 0; 
@@ -39,7 +42,7 @@ Juego::Juego(sf::Vector2u resolucion){
             //********************************************* GRAVEDAD *************************************************
             gestionGravedad();
             if(gravedad){
-                j1->vel_salto += 3.0f;
+                j1->vel_salto += 2.5f;
                 
                 if(j1->vel_salto > 0){
                     j1->dirColision = abajo;
@@ -66,18 +69,21 @@ Juego::Juego(sf::Vector2u resolucion){
                 p1->update();
 
             darkrai->Update(reloj1->getElapsedTime().asSeconds());
-            //larita->Update(*ventana, larita, cuadra, mojoncito);
-            //mojoncito->Update(mojoncito, cuadra, cuadra2);
+            larita->Update(*ventana, mojoncito, 1268, 528);
+            mojoncito->Update();
+            kindercito->Update(reloj1->getElapsedTime().asSeconds());
             dibujar();
-            
+            //Si sigue saltando y llega a la posicion de donde salto se para
+          
+              //EN EL JUEGO CAMBIAR ESTA CONDICION POR LA COLISION CON EL MAPA PORQUE PUEDE SER QUE SE SUBA A UNA PLATAFORMA Y NO VUELVA A LA POSICION INICIAL
             if(cronoInmortal->asSeconds() > 2.5 && j1->inmortal){
                 j1->inmortal = false;
                 if(j1->direccion == izq){
-                        j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,2));
+                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
                     }
                     
                 if(j1->direccion == der){
-                    j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,3));
+                    j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                 }
             }
             
@@ -89,11 +95,11 @@ Juego::Juego(sf::Vector2u resolucion){
                     if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
                         gameover = true;
                     if(j1->direccion == izq){
-                        j1->set_sprite(j1->archivo,9,4,4,sf::Vector2i(0,2));
+                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
                     }
                     
                     if(j1->direccion == der){
-                        j1->set_sprite(j1->archivo,9,4,4,sf::Vector2i(0,3));
+                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
                     }
                 }
             }
@@ -105,11 +111,11 @@ Juego::Juego(sf::Vector2u resolucion){
                 j1->set_velocidad(sf::Vector2f(0,0));
                 if(!j1->inmortal){
                     if(j1->direccion == izq){
-                        j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,2));
+                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
                     }
                     
                     if(j1->direccion == der){
-                        j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,3));
+                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                     }
                 }
             }
@@ -142,13 +148,10 @@ void Juego::iniciar(){
         j1 = new Mago(4,4,sf::Vector2i(0,0));
 
     darkrai = new Darkrai(1500,200,25.0f,*j1->spr_player);
-    //larita = new lara();
-    //larita->getSprite().setPosition(500,400);
-    //cuadra = new cuadradoD();
-    //mojoncito = new mojon(700, 450, 650, 750);
-    //cuadra2 = new cuadradoI();
-    //Sprite sp();
-    //kindercito = new KinderSorpresa(450, 500, 600, 0.5, *(j1->spr_player), sp, 10);
+    larita = new lara(73*16, 34*16);
+    mojoncito = new mojon(90*16, 29*16, 81*16, 99*16);
+    Sprite *sp = NULL;
+    kindercito = new KinderSorpresa(90*16, 110*16, 36*16, 0.5, *(j1->spr_player), *sp, 10);
     j1->set_posicion(sf::Vector2f(47,21*16));
     j1->dirColision = abajo;
     //j1->direccion = quieto;
@@ -160,16 +163,14 @@ void Juego::dibujar(){
     ventana->clear();
     sf::RectangleShape box(sf::Vector2f(16, 16));
     box.setFillColor(sf::Color::Red);
-    
     ventana->draw(j1->cajaColisiones);
     ventana->setView(vista); //Camara
     ventana->draw(*mapa);
     ventana->draw(j1->get_sprite());
-    if(p1)
-        ventana->draw(p1->get_sprite());
     darkrai->Draw(*ventana);
-    //larita->Draw(*ventana);
-    //mojoncito->Draw(*ventana);
+    larita->Draw(*ventana);
+    mojoncito->Draw(*ventana);
+    kindercito->Draw(*ventana);
     /*
     ventana->draw(box);
     box.scale(1.1,1.1);
@@ -177,6 +178,8 @@ void Juego::dibujar(){
     box.setFillColor(sf::Color::Green);
     ventana->draw(box);
     */
+    if(p1)
+        ventana->draw(p1->get_sprite());
     ventana->display();
 }
 
@@ -192,7 +195,6 @@ void Juego::procesar_eventos(){
             break;
         case sf::Event::KeyPressed:
             // si se pulsta la tecla izquierda
-            //gravedad = true;
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
                  j1->direccion = izq;
                  j1->dirColision = izq;
@@ -200,7 +202,7 @@ void Juego::procesar_eventos(){
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
                     j1->movimiento = true;
                     //j1->set_frameY(0); 
-                    j1->set_sprite(j1->archivo,2,1,1,sf::Vector2i(0,0));
+                    j1->set_sprite(j1->txt_dash_I,1,1,sf::Vector2i(0,0));
                     j1->set_velocidad(sf::Vector2f(-j1->vel_desp*5,0));
                         
                 }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
@@ -230,7 +232,7 @@ void Juego::procesar_eventos(){
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
                     j1->movimiento = true;
                     //j1->set_frameY(0); 
-                    j1->set_sprite(j1->archivo, 4,1,1,sf::Vector2i(0,0));
+                    j1->set_sprite(j1->txt_dash_D,1,1,sf::Vector2i(0,0));
                     j1->set_velocidad(sf::Vector2f(j1->vel_desp*5,0));
                         
                 }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
@@ -264,7 +266,7 @@ void Juego::procesar_eventos(){
                         j1->posInicial = sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y);
                     //j1->movimiento = true;
                     j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));
-                    //gravedad = true;     
+                        
                 }
             }
                 
@@ -277,12 +279,12 @@ void Juego::procesar_eventos(){
                 //Vemos a que lado esta mirando
                 if(j1->direccion == izq){
                     j1->dirColision = izq;
-                    j1->set_sprite(j1->archivo,2,1,1,sf::Vector2i(0,0));
+                    j1->set_sprite(j1->txt_dash_I,1,1,sf::Vector2i(0,0));
                     j1->set_velocidad(sf::Vector2f(-j1->vel_desp*5,0));
                     //j1->set_posicion(sf::Vector2f(j1->get_posicion().x - j1->vel_desp,(j1->get_posicion().y)));
                 }else{
                     j1->dirColision = der;
-                    j1->set_sprite(j1->archivo,4,1,1,sf::Vector2i(0,0));
+                    j1->set_sprite(j1->txt_dash_D,1,1,sf::Vector2i(0,0));
                     j1->set_velocidad(sf::Vector2f(j1->vel_desp*5,0));
                 }
             }
@@ -313,12 +315,12 @@ void Juego::procesar_eventos(){
                         j1->dirColision = izq;
                         j1->movimiento = true;
                         j1->set_frameY(0); 
-                        j1->set_sprite(j1->archivo,6,3,1,sf::Vector2i(0,0));
+                        j1->set_sprite(j1->txt_ataque_I,3,1,sf::Vector2i(0,0));
                     }else{
                         j1->dirColision = der;
                         j1->movimiento = true;
                         j1->set_frameY(0); 
-                        j1->set_sprite(j1->archivo,7,3,1,sf::Vector2i(0,0));
+                        j1->set_sprite(j1->txt_ataque_D,3,1,sf::Vector2i(0,0));
                     }
                 //j1->set_frameY(0);
                 }
@@ -349,19 +351,19 @@ void Juego::procesar_eventos(){
                     j1->movimiento = false;
                     if(!j1->inmortal){
                         if(j1->direccion == izq){
-                            j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,2));
+                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
                         }
                         
                         if(j1->direccion == der){
-                            j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,3));
+                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                         }
                     }else{
                         if(j1->direccion == izq){
-                            j1->set_sprite(j1->archivo,9,4,4,sf::Vector2i(0,2));
+                            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
                         }
                         
                         if(j1->direccion == der){
-                            j1->set_sprite(j1->archivo,9,4,4,sf::Vector2i(0,3));
+                            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
                         }
                     }
                     j1->set_velocidad(sf::Vector2f(0,0));
@@ -371,9 +373,9 @@ void Juego::procesar_eventos(){
                         j1->movimiento = false;
 
                         if(j1->direccion == izq){
-                            j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,2));
+                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
                         }else{
-                            j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,3));
+                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                         }
                         j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
                     }
@@ -394,6 +396,7 @@ void Juego::gestionGravedad(){
     sf::RectangleShape cajaMapa(sf::Vector2f(16, 16)); //Caja de colision de cada GID del mapa
     sf::RectangleShape box = j1->cajaColisiones;
     box.scale(1.5,1.5); //Se hace un pelín más grande
+    ventana->draw(box);
     for(unsigned int l = 0; l < 1; l++){
         for(unsigned int y = 0; y < mapa->heightMap; y++){
             for(unsigned int x = 0; x < mapa->widthMap; x++){
@@ -420,19 +423,20 @@ void Juego::gestionGravedad(){
             }
         }
     }
+    /*
     if(gravedad){
         std::cout << "Gravedad: True" << std::endl;
     }else{
         std::cout << "Gravedad: False" << std::endl;
-    }
+    }*/
 }
 
 bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje con el mapa
     int gid;
-    bool colisionando = false;
     sf::RectangleShape cajaMapa(sf::Vector2f(16, 16)); //Caja de colision de cada GID del mapa
+    bool colisionando = false;
     sf::RectangleShape box = j1->cajaColisiones;
-    box.scale(1.5,1.5); //Se hace un pelín más grande
+    box.scale(1.1,1.1); //Se hace un pelín más grande
     for(unsigned int l = 0; l < 1; l++){
         for(unsigned int y = 0; y < mapa->heightMap; y++){
             for(unsigned int x = 0; x < mapa->widthMap; x++){
@@ -445,7 +449,7 @@ bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje
                             j1->set_posicion(sf::Vector2f(j1->posInicial.x, j1->posInicial.y-1));
                             j1->dirColision = quieto;
                             colisionando = true;
-                            gravedad = false;
+                            //gravedad = true;
                         }
                     }
                 }
