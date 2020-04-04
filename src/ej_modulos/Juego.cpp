@@ -65,8 +65,8 @@ Juego::Juego(sf::Vector2u resolucion){
                 p1->update();
 
             darkrai->Update(reloj1->getElapsedTime().asSeconds());
-            larita->Update(*ventana, larita, cuadra, mojoncito);
-            mojoncito->Update(mojoncito, cuadra, cuadra2);
+           // larita->Update(*ventana, larita, cuadra, mojoncito);
+            //mojoncito->Update(mojoncito, cuadra, cuadra2);
             dibujar();
             //Si sigue saltando y llega a la posicion de donde salto se para
           
@@ -74,11 +74,11 @@ Juego::Juego(sf::Vector2u resolucion){
             if(cronoInmortal->asSeconds() > 2.5 && j1->inmortal){
                 j1->inmortal = false;
                 if(j1->direccion == izq){
-                        j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,2));
+                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
                     }
                     
                 if(j1->direccion == der){
-                    j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,3));
+                    j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                 }
             }
             
@@ -90,11 +90,11 @@ Juego::Juego(sf::Vector2u resolucion){
                     if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
                         gameover = true;
                     if(j1->direccion == izq){
-                        j1->set_sprite(j1->archivo,9,4,4,sf::Vector2i(0,2));
+                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
                     }
                     
                     if(j1->direccion == der){
-                        j1->set_sprite(j1->archivo,9,4,4,sf::Vector2i(0,3));
+                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
                     }
                 }
             }
@@ -106,11 +106,11 @@ Juego::Juego(sf::Vector2u resolucion){
                 j1->set_velocidad(sf::Vector2f(0,0));
                 if(!j1->inmortal){
                     if(j1->direccion == izq){
-                        j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,2));
+                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
                     }
                     
                     if(j1->direccion == der){
-                        j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,3));
+                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                     }
                 }
             }
@@ -143,11 +143,11 @@ void Juego::iniciar(){
         j1 = new Mago(4,4,sf::Vector2i(0,0));
 
     darkrai = new Darkrai(1500,200,25.0f,*j1->spr_player);
-    larita = new lara();
-    larita->getSprite().setPosition(500,400);
-    cuadra = new cuadradoD();
-    mojoncito = new mojon(700, 450, 650, 750);
-    cuadra2 = new cuadradoI();
+    //larita = new lara();
+    //larita->getSprite().setPosition(500,400);
+    //cuadra = new cuadradoD();
+    //mojoncito = new mojon(700, 450, 650, 750);
+    //cuadra2 = new cuadradoI();
     //Sprite sp();
     //kindercito = new KinderSorpresa(450, 500, 600, 0.5, *(j1->spr_player), sp, 10);
     j1->set_posicion(sf::Vector2f(47,21*16));
@@ -201,7 +201,7 @@ void Juego::procesar_eventos(){
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
                     j1->movimiento = true;
                     //j1->set_frameY(0); 
-                    j1->set_sprite(j1->archivo,2,1,1,sf::Vector2i(0,0));
+                    j1->set_sprite(j1->txt_dash_I,1,1,sf::Vector2i(0,0));
                     j1->set_velocidad(sf::Vector2f(-j1->vel_desp*5,0));
                         
                 }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
@@ -231,7 +231,7 @@ void Juego::procesar_eventos(){
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
                     j1->movimiento = true;
                     //j1->set_frameY(0); 
-                    j1->set_sprite(j1->archivo, 4,1,1,sf::Vector2i(0,0));
+                    j1->set_sprite(j1->txt_dash_D,1,1,sf::Vector2i(0,0));
                     j1->set_velocidad(sf::Vector2f(j1->vel_desp*5,0));
                         
                 }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
@@ -278,12 +278,12 @@ void Juego::procesar_eventos(){
                 //Vemos a que lado esta mirando
                 if(j1->direccion == izq){
                     j1->dirColision = izq;
-                    j1->set_sprite(j1->archivo,2,1,1,sf::Vector2i(0,0));
+                    j1->set_sprite(j1->txt_dash_I,1,1,sf::Vector2i(0,0));
                     j1->set_velocidad(sf::Vector2f(-j1->vel_desp*5,0));
                     //j1->set_posicion(sf::Vector2f(j1->get_posicion().x - j1->vel_desp,(j1->get_posicion().y)));
                 }else{
                     j1->dirColision = der;
-                    j1->set_sprite(j1->archivo,4,1,1,sf::Vector2i(0,0));
+                    j1->set_sprite(j1->txt_dash_D,1,1,sf::Vector2i(0,0));
                     j1->set_velocidad(sf::Vector2f(j1->vel_desp*5,0));
                 }
             }
@@ -314,12 +314,12 @@ void Juego::procesar_eventos(){
                         j1->dirColision = izq;
                         j1->movimiento = true;
                         j1->set_frameY(0); 
-                        j1->set_sprite(j1->archivo,6,3,1,sf::Vector2i(0,0));
+                        j1->set_sprite(j1->txt_ataque_I,3,1,sf::Vector2i(0,0));
                     }else{
                         j1->dirColision = der;
                         j1->movimiento = true;
                         j1->set_frameY(0); 
-                        j1->set_sprite(j1->archivo,7,3,1,sf::Vector2i(0,0));
+                        j1->set_sprite(j1->txt_ataque_D,3,1,sf::Vector2i(0,0));
                     }
                 //j1->set_frameY(0);
                 }
@@ -350,19 +350,19 @@ void Juego::procesar_eventos(){
                     j1->movimiento = false;
                     if(!j1->inmortal){
                         if(j1->direccion == izq){
-                            j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,2));
+                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
                         }
                         
                         if(j1->direccion == der){
-                            j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,3));
+                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                         }
                     }else{
                         if(j1->direccion == izq){
-                            j1->set_sprite(j1->archivo,9,4,4,sf::Vector2i(0,2));
+                            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
                         }
                         
                         if(j1->direccion == der){
-                            j1->set_sprite(j1->archivo,9,4,4,sf::Vector2i(0,3));
+                            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
                         }
                     }
                     j1->set_velocidad(sf::Vector2f(0,0));
@@ -372,9 +372,9 @@ void Juego::procesar_eventos(){
                         j1->movimiento = false;
 
                         if(j1->direccion == izq){
-                            j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,2));
+                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
                         }else{
-                            j1->set_sprite(j1->archivo,1,4,4,sf::Vector2i(0,3));
+                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                         }
                         j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
                     }
