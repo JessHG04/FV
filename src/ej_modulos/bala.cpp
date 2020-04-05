@@ -34,6 +34,10 @@ using namespace sf;
         spriteb->setColor(Color::Transparent);
     }
 
+    void bala::Draw(RenderWindow &window){
+        window.draw(*spriteb);
+    }
+
     Sprite bala::getSprite(){
         return *spriteb;
     }

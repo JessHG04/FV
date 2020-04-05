@@ -15,7 +15,8 @@ class bala{
         void movimientoBala();
         Sprite getSprite();
         Sprite *spriteb;
-        void hacerTransparente();      
+        void hacerTransparente();
+        void Draw(RenderWindow&);    
 };
 
 #endif

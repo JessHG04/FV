@@ -5,6 +5,9 @@
 #include "cuadradoD.h"
 #include "bala.h"
 #include "mojon.h"
+#include "Juego.h"
+#include "spritePersonaje.h"
+#include "Jugador.h"
 
 using namespace std;
 using namespace sf;
@@ -30,17 +33,23 @@ using namespace sf;
         sprite->setPosition(xx, yy);
     }
 
-    void lara::cambiarSprite(int x){
+    void lara::cambiarSprite(int x, spritePersonaje *spritep){
         if(x == 0){
             sprite->setTextureRect(sf::IntRect(31, 12, 47, 52));
         }
-        if(x == 1){
+        else if(x == 1){
             sprite->setTextureRect(sf::IntRect(228, 12, 73, 52));
         }
-        if(x == 2){
+        else{
             sprite->setTextureRect(sf::IntRect(115, 12, 78, 52));
         }
-        sprite->setScale(1, 1);
+
+        if(spritep->getSprite().getPosition().x < this->getSprite().getPosition().x){
+            sprite->setScale(1, 1);
+        }
+        else{
+            sprite->setScale(-1, 1);
+        }
     }
 
     void lara::restartSprite(){
@@ -49,7 +58,7 @@ using namespace sf;
     }
 
     // x se refiere a la x de la bala, y es 100 mas que la x de lara
-    void lara::Update(RenderWindow &window, mojon *mojonillo, int x, int y){
+    void lara::Update(RenderWindow &window, spritePersonaje *spritep, int x, int y){
         float sgs2 = relojb.getElapsedTime().asSeconds();
         float sgs = reloja.getElapsedTime().asSeconds();
         float sgs3 = relojc.getElapsedTime().asSeconds();
@@ -57,7 +66,7 @@ using namespace sf;
         //cout << sgs << endl;
         if(sgs >= 1){
             avanza++;
-            this->cambiarSprite(avanza);
+            this->cambiarSprite(avanza, spritep);
             if(avanza == 2){
                 // yasta = true;
                 avanza = -1;
@@ -69,32 +78,33 @@ using namespace sf;
         if(sgs2 >= coolDownDisparo){
             balera = new bala(x, y);
             //cout << sgs2 << endl;
-            window.draw(balera->getSprite());
+            //cout << balera << endl;
+            balera->Draw(window);
             relojb.restart();
         }
         else{
             if(balera != nullptr){
                 balera->movimientoBala();
-                window.draw(balera->getSprite());
+                balera->Draw(window);
             }
         }
         if(balera != nullptr){
             if(sgs4 >= 0.2){
-                if(balera->getSprite().getGlobalBounds().intersects(mojonillo->getSprite().getGlobalBounds())){
-                    cout << "Le quita 1 vida al mojon" << endl;
-                    mojonillo->perderVida();
-                    cout << "Mojon: " << mojonillo->getNumVidas() << endl;
-                    mojonillo->hacerTransparente();
+                if(balera->getSprite().getGlobalBounds().intersects(spritep->getSprite().getGlobalBounds())){
+                    cout << "Le quita 1 vida al personaje" << endl;
+                    //mojonillo->perderVida();
+                    //cout << "Mojon: " << mojonillo->getNumVidas() << endl;
+                    //mojonillo->hacerTransparente();
                     balera->hacerTransparente();
                 }
                 else{
-                    mojonillo->restartSprite();
+                    //mojonillo->restartSprite();
                 }
                 relojd.restart();
             }
         }
         if(sgs3 >= 1) {
-            if(mojonillo->getSprite().getGlobalBounds().intersects(this->getSprite().getGlobalBounds())){
+            if(spritep->getSprite().getGlobalBounds().intersects(this->getSprite().getGlobalBounds())){
                 cout << "Le quita 1 vida a lara" << endl;
                 this->recibeGolpe();
                 cout << "Lara: " << this->getNumVidas() << endl;

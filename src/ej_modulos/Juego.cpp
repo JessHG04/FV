@@ -69,7 +69,7 @@ Juego::Juego(sf::Vector2u resolucion){
                 p1->update();
 
             darkrai->Update(reloj1->getElapsedTime().asSeconds());
-            larita->Update(*ventana, mojoncito, 1268, 528);
+            larita->Update(*ventana, j1, 1268, 528);
             mojoncito->Update();
             kindercito->Update(reloj1->getElapsedTime().asSeconds());
             dibujar();
@@ -149,6 +149,7 @@ void Juego::iniciar(){
 
     darkrai = new Darkrai(1500,200,25.0f,*j1->spr_player);
     larita = new lara(73*16, 34*16);
+    //balera = new bala((73*16)+100, 34*16);
     mojoncito = new mojon(90*16, 29*16, 81*16, 99*16);
     Sprite *sp = NULL;
     kindercito = new KinderSorpresa(90*16, 110*16, 36*16, 0.5, *(j1->spr_player), *sp, 10);
@@ -169,6 +170,7 @@ void Juego::dibujar(){
     ventana->draw(j1->get_sprite());
     darkrai->Draw(*ventana);
     larita->Draw(*ventana);
+    //balera->Draw(*ventana);
     mojoncito->Draw(*ventana);
     kindercito->Draw(*ventana);
     /*

@@ -73,3 +73,7 @@ void spritePersonaje::set_frameY(int frame){
         frame_actual.y = frame;
         seleccionar_frame();
 }
+
+sf::Sprite spritePersonaje::getSprite(){
+    return *spr_player;
+}
