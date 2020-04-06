@@ -221,6 +221,12 @@ bala.h
 /home/jess/Escritorio/FV/src/ej_modulos/bala.h
 mojon.h
 /home/jess/Escritorio/FV/src/ej_modulos/mojon.h
+Juego.h
+/home/jess/Escritorio/FV/src/ej_modulos/Juego.h
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/lara.h
 SFML/Graphics.hpp
@@ -237,6 +243,10 @@ bala.h
 /home/jess/Escritorio/FV/src/ej_modulos/bala.h
 mojon.h
 /home/jess/Escritorio/FV/src/ej_modulos/mojon.h
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/mojon.cpp
 SFML/Graphics.hpp
