@@ -61,7 +61,8 @@ using namespace sf;
     }
 
     // x se refiere a la x de la bala, y es 100 mas que la x de lara
-    void lara::Update(RenderWindow &window, spritePersonaje *spritep, int x, int y){
+    bool lara::Update(RenderWindow &window, spritePersonaje *spritep, int x, int y){
+        bool disparo = false;
         float sgs2 = relojb.getElapsedTime().asSeconds();
         float sgs = reloja.getElapsedTime().asSeconds();
         float sgs3 = relojc.getElapsedTime().asSeconds();
@@ -125,11 +126,12 @@ using namespace sf;
         if(balera != nullptr){
             if(sgs4 >= 0.2){
                 if(balera->getSprite()->getGlobalBounds().intersects(spritep->getSprite().getGlobalBounds())){
-                    cout << "Le quita 1 vida al personaje" << endl;
+                    //cout << "Le quita 1 vida al personaje" << endl;
                     //mojonillo->perderVida();
                     //cout << "Mojon: " << mojonillo->getNumVidas() << endl;
                     //mojonillo->hacerTransparente();
                     balera->hacerTransparente();
+                    disparo = true;
                 }
                 else{
                     //mojonillo->restartSprite();
@@ -152,6 +154,7 @@ using namespace sf;
             relojc.restart();
         }
         */
+       return disparo;
     }
 
     void lara::Draw(RenderWindow &window){

@@ -1,9 +1,9 @@
 #include "Juego.h"
 #include <SFML/Graphics.hpp>
-/************************** HACE TODOS LOS COMANDOS A LA VEZ *****************************************/
-/* alias do="cmake -H. -Bbuild && cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole" */
-/*                           Luego simplemente pones do                                            */
-/**************************************************************************************************/
+/******************************* HACE TODOS LOS COMANDOS A LA VEZ ************************************/
+/* alias do="cmake -H. -Bbuild && cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole"  */
+/*                                  Luego simplemente pones do                                       */
+/*****************************************************************************************************/
 Juego::Juego(sf::Vector2u resolucion){
     //Creamos una ventana
     ventana = new sf::RenderWindow(sf::VideoMode(resolucion.x,resolucion.y), "Gremory Hole");
@@ -69,7 +69,22 @@ Juego::Juego(sf::Vector2u resolucion){
                 p1->update();
 
             darkrai->Update(reloj1->getElapsedTime().asSeconds());
-            larita->Update(*ventana, j1, (73*16 + 100), (34*16));
+            if(larita->Update(*ventana, j1, (73*16 + 100), (34*16))){
+                if(!j1->inmortal){ 
+                    relojInmortal->restart();
+                    j1->inmortal = true;
+                    j1->vida --;
+                    if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
+                        gameover = true;
+                    if(j1->direccion == izq){
+                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
+                    }
+                    
+                    if(j1->direccion == der){
+                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+                    }
+                }
+            }
             mojoncito->Update();
             kindercito->Update(reloj1->getElapsedTime().asSeconds());
             dibujar();
