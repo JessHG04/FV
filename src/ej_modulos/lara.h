@@ -17,9 +17,10 @@ using namespace sf;
 class lara : public Enemigo{
     public:
         Texture *tex;
-        Clock reloja, relojb, relojc, relojd;
+        Clock reloja, relojb, relojc, relojd, reloje, relojf;
+        bool dispara = false, lado = false, es = false;
         int numVidas, avanza = 0;
-        float coolDownDisparo = 3;
+        float coolDownDisparo = 1.5;
         bool fin, yasta = false, entra = false, entrada = false, esGolpeado = false;
         lara(int, int);
         void cambiarSprite(int, spritePersonaje*);
@@ -28,6 +29,7 @@ class lara : public Enemigo{
         void Draw(RenderWindow &);
         void Update(RenderWindow &, spritePersonaje*, int, int);
         void recibeGolpe();
+        bala getBala();
     private:
         Sprite *sprite;
         bala *balera = nullptr;        

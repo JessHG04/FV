@@ -4,11 +4,11 @@
 using namespace std;
 using namespace sf;
 
-#define kVel 0.08
+#define kVel 20
 
 #include "bala.h"
 
-    bala::bala(int xx, int yy){
+    bala::bala(){
         tex = new Texture();
         if (!tex->loadFromFile("resources/Sprites/Lara Croft/401003605_atk.png")) {
             std::cerr << "Error cargando la imagen 401003605_atk.png";
@@ -21,12 +21,18 @@ using namespace sf;
         spriteb->setTextureRect(sf::IntRect(120, 18, 22, 14));
         
         // Lo dispongo a la derecha de la pantalla
-        spriteb->setPosition(xx, yy);
+        //spriteb->setPosition(xx, yy);
     }
 
-    void bala::movimientoBala(){
+    void bala::movimientoBalaIz(){
         spriteb->setTextureRect(sf::IntRect(120, 18, 22, 14));
         spriteb->move(-kVel, 0);
+        spriteb->setScale(1, 1);
+    }
+
+    void bala::movimientoBalaDe(){
+        spriteb->setTextureRect(sf::IntRect(120, 18, 22, 14));
+        spriteb->move(kVel, 0);
         spriteb->setScale(1, 1);
     }
 
@@ -38,6 +44,11 @@ using namespace sf;
         window.draw(*spriteb);
     }
 
-    Sprite bala::getSprite(){
-        return *spriteb;
+    void bala::restartSprite(){
+        spriteb->setColor(Color(255,255,255));
+    }
+
+
+    Sprite *bala::getSprite(){
+        return spriteb;
     }

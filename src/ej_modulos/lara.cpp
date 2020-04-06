@@ -31,6 +31,7 @@ using namespace sf;
         
         // Lo dispongo en el centro de la pantalla
         sprite->setPosition(xx, yy);
+        balera = new bala();
     }
 
     void lara::cambiarSprite(int x, spritePersonaje *spritep){
@@ -46,9 +47,11 @@ using namespace sf;
 
         if(spritep->getSprite().getPosition().x < this->getSprite().getPosition().x){
             sprite->setScale(1, 1);
+            lado = false;
         }
         else{
             sprite->setScale(-1, 1);
+            lado = true;
         }
     }
 
@@ -63,8 +66,10 @@ using namespace sf;
         float sgs = reloja.getElapsedTime().asSeconds();
         float sgs3 = relojc.getElapsedTime().asSeconds();
         float sgs4 = relojd.getElapsedTime().asSeconds();
+        float sgs5 = reloje.getElapsedTime().asSeconds();
+        float sgs6 = relojf.getElapsedTime().asSeconds();
         //cout << sgs << endl;
-        if(sgs >= 1){
+        if(sgs >= 0.5){
             avanza++;
             this->cambiarSprite(avanza, spritep);
             if(avanza == 2){
@@ -76,21 +81,50 @@ using namespace sf;
         // window.clear();
         // larita->Draw(window);
         if(sgs2 >= coolDownDisparo){
-            balera = new bala(x, y);
+            // balera = new bala(x, y);
+            balera->restartSprite();
+            if(lado == false){
+                balera->getSprite()->setPosition(x, y);
+            }
+            else{
+                balera->getSprite()->setPosition(x+50, y);
+            }
+            /*
+            if(es == false){
+                cout << balera->getSprite()->getPosition().x << endl;
+                cout << this->getSprite().getPosition().x << endl;
+                es = true;
+            }
+            */
+            dispara = true;
             //cout << sgs2 << endl;
             //cout << balera << endl;
-            balera->Draw(window);
+            // balera->Draw(window);
             relojb.restart();
         }
         else{
             if(balera != nullptr){
-                balera->movimientoBala();
-                balera->Draw(window);
+                if(lado == false){
+                    balera->movimientoBalaIz();
+                    /*
+                    if(balera->getSprite()->getPosition().x <= (this->getSprite().getPosition().x+100)){
+                        balera->movimientoBalaIz();
+                    }
+                    else{
+                        balera->getSprite()->setPosition(x, y);
+                        balera->movimientoBalaDe();
+                    }
+                    //balera->Draw(window);
+                    */
+                }
+                else{
+                     balera->movimientoBalaDe();
+                }
             }
         }
         if(balera != nullptr){
             if(sgs4 >= 0.2){
-                if(balera->getSprite().getGlobalBounds().intersects(spritep->getSprite().getGlobalBounds())){
+                if(balera->getSprite()->getGlobalBounds().intersects(spritep->getSprite().getGlobalBounds())){
                     cout << "Le quita 1 vida al personaje" << endl;
                     //mojonillo->perderVida();
                     //cout << "Mojon: " << mojonillo->getNumVidas() << endl;
@@ -103,6 +137,8 @@ using namespace sf;
                 relojd.restart();
             }
         }
+        // Funcionalidad que sera anyadida en el proximo hito
+        /*
         if(sgs3 >= 1) {
             if(spritep->getSprite().getGlobalBounds().intersects(this->getSprite().getGlobalBounds())){
                 cout << "Le quita 1 vida a lara" << endl;
@@ -115,6 +151,7 @@ using namespace sf;
             }
             relojc.restart();
         }
+        */
     }
 
     void lara::Draw(RenderWindow &window){
@@ -127,4 +164,8 @@ using namespace sf;
 
     Sprite lara::getSprite(){
         return *sprite;
+    }
+
+    bala lara::getBala(){
+        return *balera;
     }
