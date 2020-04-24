@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.1)
-project(MiJuego)
+project(GremoryHole)
 
 #Añadir tantos subdirectorios como se necesiten
 #En cada subdirectorio debe haber un fichero CMakeLists.txt
