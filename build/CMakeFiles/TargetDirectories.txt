@@ -1,6 +1,0 @@
-/home/alex/Desktop/FV/build/CMakeFiles/rebuild_cache.dir
-/home/alex/Desktop/FV/build/CMakeFiles/GremoryHole.dir
-/home/alex/Desktop/FV/build/CMakeFiles/edit_cache.dir
-/home/alex/Desktop/FV/build/CMakeFiles/libModulos.dir
-/home/alex/Desktop/FV/build/ej_modulos/CMakeFiles/edit_cache.dir
-/home/alex/Desktop/FV/build/ej_modulos/CMakeFiles/rebuild_cache.dir
