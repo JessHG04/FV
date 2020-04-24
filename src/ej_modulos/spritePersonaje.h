@@ -26,6 +26,7 @@ class spritePersonaje{
         void set_frameY(int frame); // modifica el frame actual en columna
         void animar(); //--------------------------------ANIMACION-----------------------------------------------
         sf::Sprite getSprite();
+
         // Sprite que va a usar
         int cantidadX;
         int cantidadY;

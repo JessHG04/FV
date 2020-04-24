@@ -10,7 +10,6 @@
 #include "Darkrai.h"
 #include "mojon.h"
 #include "KinderSorpresa.h"
-#include "bala.h"
 
 class Juego{
     public:
@@ -37,7 +36,6 @@ class Juego{
         Darkrai *darkrai;
         //Creamos a Lara
         lara *larita;
-        bala *balera;
         cuadradoD *cuadra;
         //Creamos al mojon
         mojon *mojoncito;

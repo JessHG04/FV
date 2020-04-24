@@ -1,9 +1,9 @@
 #include "Juego.h"
 #include <SFML/Graphics.hpp>
-/************************** HACE TODOS LOS COMANDOS A LA VEZ *****************************************/
-/* alias do="cmake -H. -Bbuild && cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole" */
-/*                           Luego simplemente pones do                                            */
-/**************************************************************************************************/
+/******************************* HACE TODOS LOS COMANDOS A LA VEZ ************************************/
+/* alias do="cmake -H. -Bbuild && cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole"  */
+/*                                  Luego simplemente pones do                                       */
+/*****************************************************************************************************/
 Juego::Juego(sf::Vector2u resolucion){
     //Creamos una ventana
     ventana = new sf::RenderWindow(sf::VideoMode(resolucion.x,resolucion.y), "Gremory Hole");
@@ -41,7 +41,7 @@ Juego::Juego(sf::Vector2u resolucion){
             // Si sigue saltando la gravedad le sigue afectando
             //********************************************* GRAVEDAD *************************************************
             gestionGravedad();
-            if(gravedad){
+            if(gravedad || j1->saltando){
                 j1->vel_salto += 2.5f;
                 
                 if(j1->vel_salto > 0){
@@ -69,7 +69,22 @@ Juego::Juego(sf::Vector2u resolucion){
                 p1->update();
 
             darkrai->Update(reloj1->getElapsedTime().asSeconds());
-            larita->Update(*ventana, j1, (73*16)+100, 34*16);
+            if(larita->Update(*ventana, j1, (73*16 + 100), (34*16))){
+                if(!j1->inmortal){ 
+                    relojInmortal->restart();
+                    j1->inmortal = true;
+                    j1->vida --;
+                    if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
+                        gameover = true;
+                    if(j1->direccion == izq){
+                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
+                    }
+                    
+                    if(j1->direccion == der){
+                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+                    }
+                }
+            }
             mojoncito->Update();
             kindercito->Update(reloj1->getElapsedTime().asSeconds());
             dibujar();
@@ -119,6 +134,7 @@ Juego::Juego(sf::Vector2u resolucion){
                     }
                 }
             }
+
             reloj1->restart();
             //Camara - Extremo derecho, normal, extremo izquierdo
             if(j1->get_posicion().x >= (mapa->widthMap * 16 - resolucion.x /2)){
@@ -149,11 +165,9 @@ void Juego::iniciar(){
 
     darkrai = new Darkrai(1500,200,25.0f,*j1->spr_player);
     larita = new lara(73*16, 34*16);
-    // larita = new lara(300, 21*16);
-    //balera = new bala((73*16)+100, 34*16);
     mojoncito = new mojon(90*16, 29*16, 81*16, 99*16);
     Sprite *sp = NULL;
-    kindercito = new KinderSorpresa(90*16, 110*16, 36*16, 0.5, *(j1->spr_player), *sp, 10);
+    kindercito = new KinderSorpresa(90*16, 110*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
     j1->set_posicion(sf::Vector2f(47,21*16));
     j1->dirColision = abajo;
     //j1->direccion = quieto;
@@ -163,9 +177,13 @@ void Juego::iniciar(){
 
 void Juego::dibujar(){
     ventana->clear();
-    sf::RectangleShape box(sf::Vector2f(16, 16));
-    box.setFillColor(sf::Color::Red);
+    /*
+    sf::RectangleShape box = j1->cajaColisiones;
+    box.scale(1,1.05); //Se hace un pelín más grande
+    box.setFillColor(sf::Color::Green);
+    ventana->draw(box);
     ventana->draw(j1->cajaColisiones);
+    */
     ventana->setView(vista); //Camara
     ventana->draw(*mapa);
     ventana->draw(j1->get_sprite());
@@ -174,16 +192,9 @@ void Juego::dibujar(){
     if(larita->dispara == true){
         larita->getBala().Draw(*ventana);
     }
-    //balera->Draw(*ventana);
     mojoncito->Draw(*ventana);
     kindercito->Draw(*ventana);
-    /*
-    ventana->draw(box);
-    box.scale(1.1,1.1);
-    box.setPosition(0,16);
-    box.setFillColor(sf::Color::Green);
-    ventana->draw(box);
-    */
+    
     if(p1)
         ventana->draw(p1->get_sprite());
     ventana->display();
@@ -400,41 +411,26 @@ void Juego::procesar_eventos(){
 void Juego::gestionGravedad(){
     int gid;
     sf::RectangleShape cajaMapa(sf::Vector2f(16, 16)); //Caja de colision de cada GID del mapa
-    sf::RectangleShape box = j1->cajaColisiones;
-    box.scale(1.5,1.5); //Se hace un pelín más grande
-    ventana->draw(box);
+    sf::RectangleShape box = j1->cajaColisiones; // sensor 1
+    sf::RectangleShape box2 = j1->cajaColisiones2; // sensor 2
+    //box2.setPosition(box.getPosition().x,box.getPosition().y + j1->tamFrame.y + 5);
+
+    gravedad = true;
+
     for(unsigned int l = 0; l < 1; l++){
         for(unsigned int y = 0; y < mapa->heightMap; y++){
             for(unsigned int x = 0; x < mapa->widthMap; x++){
                 gid = mapa->tilemap[l][y][x];
+
                 cajaMapa.setPosition(sf::Vector2f(x*16, y*16));
-                //FALSE, FALSE -> GRAVEDAD = TRUE
-                if(!(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds()))){
-                    if(!(cajaMapa.getGlobalBounds().intersects(box.getGlobalBounds()))){
-                        gravedad = true;
-                    }
-                }
-                //TRUE, TRUE -> GRAVEDAD = FALSE, MOVIMIENTO HACIA ARRIBA
-                if(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
-                    if(cajaMapa.getGlobalBounds().intersects(box.getGlobalBounds())){
+                if(gid > 0)
+                    if(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones2.getGlobalBounds())){ 
                         gravedad = false;
                     }
-                }
-                //TRUE, FALSE -> NO HACE NADA/NO GRAVEDAD
-                if(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
-                    if(!(cajaMapa.getGlobalBounds().intersects(box.getGlobalBounds()))){
-                        gravedad = false;
-                    }
-                }
+
             }
         }
     }
-    /*
-    if(gravedad){
-        std::cout << "Gravedad: True" << std::endl;
-    }else{
-        std::cout << "Gravedad: False" << std::endl;
-    }*/
 }
 
 bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje con el mapa
@@ -442,20 +438,19 @@ bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje
     sf::RectangleShape cajaMapa(sf::Vector2f(16, 16)); //Caja de colision de cada GID del mapa
     bool colisionando = false;
     sf::RectangleShape box = j1->cajaColisiones;
-    box.scale(1.1,1.1); //Se hace un pelín más grande
+    box.scale(1,1.05); //Se hace un pelín más grande
     for(unsigned int l = 0; l < 1; l++){
         for(unsigned int y = 0; y < mapa->heightMap; y++){
             for(unsigned int x = 0; x < mapa->widthMap; x++){
                 gid = mapa->tilemap[l][y][x];
                 cajaMapa.setPosition(sf::Vector2f(x*16, y*16));
-
+            
                 if(gid > 0 && direccion == 4 && !colisionando){ //Abajo
                     if(cajaMapa.getGlobalBounds().intersects(box.getGlobalBounds())){
                         if(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
                             j1->set_posicion(sf::Vector2f(j1->posInicial.x, j1->posInicial.y-1));
                             j1->dirColision = quieto;
                             colisionando = true;
-                            //gravedad = true;
                         }
                     }
                 }
@@ -467,7 +462,6 @@ bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje
                             j1->dirColision = abajo;
                         j1->vel_salto = 0;
                         colisionando = true;
-                        //gravedad = true;
                     }
                 }
                 if(gid > 0 && direccion == 2 && !colisionando){ //Izquierda
@@ -477,7 +471,6 @@ bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje
                         if(j1->saltando)
                             j1->dirColision = abajo;
                         colisionando = true;
-                        //gravedad = true;
                     }
                 }
                 if(gid > 0 && direccion == 3 && !colisionando){ //Derecha
@@ -487,17 +480,8 @@ bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje
                         if(j1->saltando)
                             j1->dirColision = abajo;
                         colisionando = true;
-                        //gravedad = true;
                     }
                 }
-                /*
-                if(gravedad && !j1->saltando && cajaMapa.getGlobalBounds().intersects(box2.getGlobalBounds())){
-                    //j1->saltando = true;  // EL FALLO ESTA AQUIIIIIIIIIIIIIIIIIIIIIIIIIIII
-                    j1->dirColision = abajo;
-                    gravedad = false;
-                    std::cout << "Hola estoy fallando" << std::endl;
-                }
-                */
             }
         }
     }
@@ -507,12 +491,12 @@ bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje
 bool Juego::colisionProyecMapa(direccionProyectil direccion){ //La colision del proyectil con el mapa
     int gid;
     bool colisionando = false;
+    sf::RectangleShape box(sf::Vector2f(16, 16));
 
     for(unsigned int l = 0; l < 1; l++){
         for(unsigned int y = 0; y < mapa->heightMap; y++){
             for(unsigned int x = 0; x < mapa->widthMap; x++){
                 gid = mapa->tilemap[l][y][x];
-                sf::RectangleShape box(sf::Vector2f(16, 16));
                 box.setPosition(sf::Vector2f(x*16, y*16));
 
                 if(gid > 0 && direccion == 1 && !colisionando){ //Izquierda
@@ -533,12 +517,12 @@ bool Juego::colisionProyecMapa(direccionProyectil direccion){ //La colision del 
 
 bool Juego::colisionPersTrampa(direcciones direccion){ //La colision del personaje con la trampa
     int gid;
+    sf::RectangleShape box(sf::Vector2f(16, 16));
     bool colisionando = false;
     for(unsigned int l = 0; l < 1; l++){
         for(unsigned int y = 0; y < mapa->heightMap; y++){
             for(unsigned int x = 0; x < mapa->widthMap; x++){
                 gid = mapa->tilemap[l][y][x]; // Es el id + 1
-                sf::RectangleShape box(sf::Vector2f(16, 16));
                 box.setPosition(sf::Vector2f(x*16, y*16));
 
                 if(gid == 144 && direccion == 1 && !colisionando){ //Arriba

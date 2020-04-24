@@ -27,7 +27,7 @@ class lara : public Enemigo{
         void restartSprite();
         Sprite getSprite();
         void Draw(RenderWindow &);
-        void Update(RenderWindow &, spritePersonaje*, int, int);
+        bool Update(RenderWindow &, spritePersonaje*, int, int);
         void recibeGolpe();
         bala getBala();
     private:
