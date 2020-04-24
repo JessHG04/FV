@@ -41,7 +41,7 @@ Juego::Juego(sf::Vector2u resolucion){
             // Si sigue saltando la gravedad le sigue afectando
             //********************************************* GRAVEDAD *************************************************
             gestionGravedad();
-            if(gravedad){
+            if(gravedad || j1->saltando){
                 j1->vel_salto += 2.5f;
                 
                 if(j1->vel_salto > 0){
@@ -411,42 +411,26 @@ void Juego::procesar_eventos(){
 void Juego::gestionGravedad(){
     int gid;
     sf::RectangleShape cajaMapa(sf::Vector2f(16, 16)); //Caja de colision de cada GID del mapa
-    sf::RectangleShape box = j1->cajaColisiones;
-    box.scale(1,1.05); //Se hace un pelín más grande
+    sf::RectangleShape box = j1->cajaColisiones; // sensor 1
+    sf::RectangleShape box2 = j1->cajaColisiones2; // sensor 2
+    //box2.setPosition(box.getPosition().x,box.getPosition().y + j1->tamFrame.y + 5);
+
+    gravedad = true;
+
     for(unsigned int l = 0; l < 1; l++){
         for(unsigned int y = 0; y < mapa->heightMap; y++){
             for(unsigned int x = 0; x < mapa->widthMap; x++){
                 gid = mapa->tilemap[l][y][x];
+
                 cajaMapa.setPosition(sf::Vector2f(x*16, y*16));
-                //FALSE, FALSE -> GRAVEDAD = TRUE
-                if(!(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds()))){
-                    if(!(cajaMapa.getGlobalBounds().intersects(box.getGlobalBounds()))){
-                        gravedad = true;
-                    }
-                }
-                //TRUE, TRUE -> GRAVEDAD = FALSE, MOVIMIENTO HACIA ARRIBA
-                if(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
-                    if(cajaMapa.getGlobalBounds().intersects(box.getGlobalBounds())){
-                        gravedad = false;
-                        //j1->set_posicion(sf::Vector2f(j1->posInicial.x, j1->posInicial.y-1));
-                    }
-                }
-                //TRUE, FALSE -> NO HACE NADA/NO GRAVEDAD
-                if(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
-                    if(!(cajaMapa.getGlobalBounds().intersects(box.getGlobalBounds()))){
+                if(gid > 0)
+                    if(cajaMapa.getGlobalBounds().intersects(j1->cajaColisiones2.getGlobalBounds())){ 
                         gravedad = false;
                     }
-                }
+
             }
         }
     }
-    /*
-    if(gravedad){
-        std::cout << "Gravedad: True" << std::endl;
-    }else{
-        std::cout << "Gravedad: False" << std::endl;
-    }
-    */
 }
 
 bool Juego::colisionPersMapa(direcciones direccion){ //La colision del personaje con el mapa
