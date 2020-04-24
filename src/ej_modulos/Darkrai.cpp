@@ -47,7 +47,7 @@ Darkrai::~Darkrai() {
 void Darkrai::Update(float deltaTime) {
     sf::Vector2f movimiento(0.0f, 0.0f);
 
-    if (personaje  &&  !muerto) {
+    if (personaje) {
 
       sf::Vector2i distancia(0, 0);
       sf::Vector2f angulo(0.0f, 0.0f);
