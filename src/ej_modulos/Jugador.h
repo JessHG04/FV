@@ -47,6 +47,7 @@ class Jugador : public spritePersonaje{
         direcciones direccion;
         direcciones dirColision;
         bool inmortal = false;
+        sf::RectangleShape cajaColisiones2;
 
     private:
         //spritePersonaje * spriteJugador;

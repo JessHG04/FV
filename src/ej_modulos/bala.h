@@ -10,12 +10,15 @@ using namespace sf;
 class bala{
     public:
         Texture *tex;
-        int xx = 0, yy = 0;
-        bala(int, int);
-        void movimientoBala();
-        Sprite getSprite();
         Sprite *spriteb;
-        void hacerTransparente();      
+        int xx = 0, yy = 0;
+        bala();
+        void movimientoBalaIz();
+        void movimientoBalaDe();
+        Sprite *getSprite();
+        void hacerTransparente();
+        void restartSprite();
+        void Draw(RenderWindow&);    
 };
 
 #endif
