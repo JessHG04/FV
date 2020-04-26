@@ -11,9 +11,16 @@
 #include "mojon.h"
 #include "KinderSorpresa.h"
 
+#define kUpdateTime 1000/15
+
 class Juego{
+
     public:
+        static Juego* getInstancia(sf::Vector2u );
+
+    protected:
         Juego(sf::Vector2u tam_pantalla);
+        ~Juego();
         void iniciar(); //Inicia variables y diferentes aspectos
         void dibujar(); //dibujar elementos
         void logica(); // procesa logicas del juego
@@ -25,6 +32,7 @@ class Juego{
         bool colisionPersTrampa(direcciones direccion);
         
     private:
+        static Juego* juego;
         bool gameover = false;
         //Creamos al jugador
         Jugador *j1;
@@ -48,9 +56,10 @@ class Juego{
         sf::Event *evento;
         // La ventana de nuestro juego
         sf::RenderWindow *ventana;
+        float deltaTime; // IMPRESCINDIBLE
         //Creamos el reloj
         sf::Clock *reloj1;
-        sf::Time *crono1;
+        sf::Clock *reloj2;
         sf::Clock *relojInmortal;
         sf::Time *cronoInmortal;
         int fps;

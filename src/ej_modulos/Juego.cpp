@@ -4,6 +4,20 @@
 /* alias do="cmake -H. -Bbuild && cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole"  */
 /*                                  Luego simplemente pones do                                       */
 /*****************************************************************************************************/
+
+// Inicializamos la unica instancia
+Juego* Juego::juego = NULL;
+
+Juego* Juego::getInstancia(sf::Vector2u tamano) {
+
+    if (juego == NULL) {
+        juego = new Juego(tamano);
+    }
+    return juego;
+}
+
+
+
 Juego::Juego(sf::Vector2u resolucion){
     //Creamos una ventana
     ventana = new sf::RenderWindow(sf::VideoMode(resolucion.x,resolucion.y), "Gremory Hole");
@@ -14,145 +28,162 @@ Juego::Juego(sf::Vector2u resolucion){
     vista.setViewport(sf::FloatRect(0, 0, 1.0f, 1.0f));
     sf::Vector2f pos_vista(resolucion.x / 2 , resolucion.y / 2);
 
+    sf::Time inicioUpdate = reloj1->getElapsedTime();
+
     // ************************************ BUCLE DEL JUEGO *************************************************************************
     while(gameover != true){
-        *crono1 = reloj1->getElapsedTime(); // Obtener tiempo transcurrido 
-        *cronoInmortal = relojInmortal->getElapsedTime(); // Obtener tiempo transcurrido 
+        
+        // Bucle tipo 3 : Temporizador
+        if (reloj1->getElapsedTime().asMilliseconds() - inicioUpdate.asMilliseconds()  >  kUpdateTime) {
+            deltaTime    = reloj2->restart().asSeconds();
+            inicioUpdate = reloj1->getElapsedTime();
+        }
+        
         j1->posInicial = j1->get_posicion();
-        if(crono1->asSeconds() > 0.08){ // comparamos si el tiempo transcurrido es 1 fps (1 frame) si es asi ejecuttamos un instante
-            while(ventana->pollEvent(*evento)){
-                procesar_eventos();
-            }
+        while(ventana->pollEvent(*evento)){
+            procesar_eventos();
+        }
 
-            if(p1){
-                if(colisionProyecMapa(p1->dirColision)){
-                    delete p1;        
-                    p1 = 0;           
-                }
+        if(p1){
+            if(colisionProyecMapa(p1->dirColision)){
+                delete p1;        
+                p1 = 0;           
             }
-                //CUANDO SE REALICE LA COLISION SE ELIMINARA EL PROYECTIL-------------------------------------------
-              //  if(COLISION)  {
-                   // delete p1;
-                   // p1 = 0; 
-               // }
-            //Si es mago nunca se para
-             //if(instanceof<Mago>(j1))
-                //j1->movimiento = true;
-            // Si sigue saltando la gravedad le sigue afectando
-            //********************************************* GRAVEDAD *************************************************
-            gestionGravedad();
-            if(gravedad || j1->saltando){
-                j1->vel_salto += 2.5f;
-                
-                if(j1->vel_salto > 0){
-                    j1->dirColision = abajo;
-                }else{
-                    j1->dirColision = arriba;
-                }
-                
-                if(!j1->movimiento)
-                    j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));
-                else if(j1->direccion == izq)
-                    j1->set_velocidad(sf::Vector2f(-j1->vel_desp,j1->vel_salto));
-                else if(j1->direccion == der)
-                    j1->set_velocidad(sf::Vector2f(j1->vel_desp,j1->vel_salto));
+        }
+            //CUANDO SE REALICE LA COLISION SE ELIMINARA EL PROYECTIL-------------------------------------------
+            //  if(COLISION)  {
+                // delete p1;
+                // p1 = 0; 
+            // }
+        //Si es mago nunca se para
+            //if(instanceof<Mago>(j1))
+            //j1->movimiento = true;
+        // Si sigue saltando la gravedad le sigue afectando
+        //********************************************* GRAVEDAD *************************************************
+        gestionGravedad();
+        if(gravedad || j1->saltando){
+            j1->vel_salto += 2.5f;
+            
+            if(j1->vel_salto > 0){
+                j1->dirColision = abajo;
+            }else{
+                j1->dirColision = arriba;
             }
+            
+            if(!j1->movimiento)
+                j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));
+            else if(j1->direccion == izq)
+                j1->set_velocidad(sf::Vector2f(-j1->vel_desp,j1->vel_salto));
+            else if(j1->direccion == der)
+                j1->set_velocidad(sf::Vector2f(j1->vel_desp,j1->vel_salto));
+        }
 
-            if(j1->movimiento || j1->inmortal){
-                j1->animar();
-            }
-             if(p1)
-                p1->animar();
-
-            j1->update();
+        if(j1->movimiento || j1->inmortal){
+            j1->animar();
+        }
             if(p1)
-                p1->update();
+            p1->animar();
 
-            darkrai->Update(reloj1->getElapsedTime().asSeconds());
-            if(larita->Update(*ventana, j1, (73*16 + 100), (34*16))){
-                if(!j1->inmortal){ 
-                    relojInmortal->restart();
-                    j1->inmortal = true;
-                    j1->vida --;
-                    if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
-                        gameover = true;
-                    if(j1->direccion == izq){
-                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
-                    }
-                    
-                    if(j1->direccion == der){
-                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
-                    }
+        j1->update();
+        if(p1)
+            p1->update();
+
+        darkrai->Update(reloj1->getElapsedTime().asSeconds());
+        if(larita->Update(*ventana, j1, (73*16 + 100), (34*16))){
+            if(!j1->inmortal){ 
+                relojInmortal->restart();
+                j1->inmortal = true;
+                j1->vida --;
+                if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
+                    gameover = true;
+                if(j1->direccion == izq){
+                    j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
+                }
+                
+                if(j1->direccion == der){
+                    j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
                 }
             }
-            mojoncito->Update();
-            kindercito->Update(reloj1->getElapsedTime().asSeconds());
-            dibujar();
-            //Si sigue saltando y llega a la posicion de donde salto se para
-          
-              //EN EL JUEGO CAMBIAR ESTA CONDICION POR LA COLISION CON EL MAPA PORQUE PUEDE SER QUE SE SUBA A UNA PLATAFORMA Y NO VUELVA A LA POSICION INICIAL
-            if(cronoInmortal->asSeconds() > 2.5 && j1->inmortal){
-                j1->inmortal = false;
+        }
+        mojoncito->Update();
+        kindercito->Update(reloj1->getElapsedTime().asSeconds());
+        dibujar();
+        //Si sigue saltando y llega a la posicion de donde salto se para
+        
+            //EN EL JUEGO CAMBIAR ESTA CONDICION POR LA COLISION CON EL MAPA PORQUE PUEDE SER QUE SE SUBA A UNA PLATAFORMA Y NO VUELVA A LA POSICION INICIAL
+        if(cronoInmortal->asSeconds() > 2.5 && j1->inmortal){
+            j1->inmortal = false;
+            if(j1->direccion == izq){
+                    j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
+                }
+                
+            if(j1->direccion == der){
+                j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
+            }
+        }
+        
+        if(colisionPersTrampa(j1->dirColision)){
+            if(!j1->inmortal){ 
+                relojInmortal->restart();
+                j1->inmortal = true;
+                j1->vida --;
+                if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
+                    gameover = true;
                 if(j1->direccion == izq){
-                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
-                    }
-                    
+                    j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
+                }
+                
+                if(j1->direccion == der){
+                    j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+                }
+            }
+        }
+        
+        if(colisionPersMapa(j1->dirColision)){
+            j1->saltando = false;
+            j1->movimiento = false;
+            j1->vel_salto = 0;
+            j1->set_velocidad(sf::Vector2f(0,0));
+            if(!j1->inmortal){
+                if(j1->direccion == izq){
+                    j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
+                }
+                
                 if(j1->direccion == der){
                     j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                 }
             }
-            
-            if(colisionPersTrampa(j1->dirColision)){
-                if(!j1->inmortal){ 
-                    relojInmortal->restart();
-                    j1->inmortal = true;
-                    j1->vida --;
-                    if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
-                        gameover = true;
-                    if(j1->direccion == izq){
-                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
-                    }
-                    
-                    if(j1->direccion == der){
-                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
-                    }
-                }
-            }
-            
-            if(colisionPersMapa(j1->dirColision)){
-                j1->saltando = false;
-                j1->movimiento = false;
-                j1->vel_salto = 0;
-                j1->set_velocidad(sf::Vector2f(0,0));
-                if(!j1->inmortal){
-                    if(j1->direccion == izq){
-                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
-                    }
-                    
-                    if(j1->direccion == der){
-                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
-                    }
-                }
-            }
-
-            reloj1->restart();
-            //Camara - Extremo derecho, normal, extremo izquierdo
-            if(j1->get_posicion().x >= (mapa->widthMap * 16 - resolucion.x /2)){
-                pos_vista.x = mapa->widthMap * 16 - resolucion.x /2;
-            }else if(j1->get_posicion().x > resolucion.x / 2){
-                pos_vista.x = j1->get_posicion().x;
-            }else{
-                pos_vista.x = resolucion.x / 2;
-            }
-            vista.setCenter(pos_vista);
         }
+
+        reloj1->restart();
+        //Camara - Extremo derecho, normal, extremo izquierdo
+        if(j1->get_posicion().x >= (mapa->widthMap * 16 - resolucion.x /2)){
+            pos_vista.x = mapa->widthMap * 16 - resolucion.x /2;
+        }else if(j1->get_posicion().x > resolucion.x / 2){
+            pos_vista.x = j1->get_posicion().x;
+        }else{
+            pos_vista.x = resolucion.x / 2;
+        }
+        vista.setCenter(pos_vista);
     }
 }
 //******************************************* FIN DEL BUCLE DEL JUEGO ************************************************************
+
+
+
+// LIBERACION DE TODA LA MEMORIA DEL JUEGO
+/*Juego::~Juego {
+    delete reloj1;
+    reloj1 = NULL;
+    delete reloj2;
+    reloj2 = NULL;
+}*/
+
+
 void Juego::iniciar(){
     fps = 60;
     reloj1 = new sf::Clock();
-    crono1 = new sf::Time();
+    reloj2 = new sf::Clock();
     relojInmortal = new sf::Clock();
     cronoInmortal = new sf::Time();
     mapa = new Map();
