@@ -26,6 +26,7 @@ Juego::Juego(sf::Vector2u resolucion){
 
             if(p1){
                 if(colisionProyecMapa(p1->dirColision)){
+                    //p1->~Proyectil();
                     delete p1;        
                     p1 = 0;           
                 }
@@ -500,12 +501,12 @@ bool Juego::colisionProyecMapa(direccionProyectil direccion){ //La colision del 
                 box.setPosition(sf::Vector2f(x*16, y*16));
 
                 if(gid > 0 && direccion == 1 && !colisionando){ //Izquierda
-                    if(box.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
+                    if(box.getGlobalBounds().intersects(p1->get_sprite().getGlobalBounds())){
                         colisionando = true;
                     }
                 }
                 if(gid > 0 && direccion == 2 && !colisionando){ //Derecha
-                    if(box.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
+                    if(box.getGlobalBounds().intersects(p1->get_sprite().getGlobalBounds())){
                         colisionando = true;
                     }
                 }                

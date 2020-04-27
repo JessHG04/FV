@@ -12,7 +12,7 @@ Proyectil::~Proyectil(){
     
 }
 void Proyectil::update(){ //Actuaiza fisicas del jugador
-   
+        cajaColisiones.setPosition(get_posicion().x - tamFrame.x/2, get_posicion().y - tamFrame.y/2);
         set_translacion(velocidad);
     
 }

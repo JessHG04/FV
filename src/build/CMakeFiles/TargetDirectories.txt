@@ -1,6 +1,6 @@
-/home/jess/Escritorio/FV/src/build/CMakeFiles/rebuild_cache.dir
-/home/jess/Escritorio/FV/src/build/CMakeFiles/GremoryHole.dir
-/home/jess/Escritorio/FV/src/build/CMakeFiles/edit_cache.dir
-/home/jess/Escritorio/FV/src/build/CMakeFiles/libModulos.dir
-/home/jess/Escritorio/FV/src/build/ej_modulos/CMakeFiles/edit_cache.dir
-/home/jess/Escritorio/FV/src/build/ej_modulos/CMakeFiles/rebuild_cache.dir
+/home/juan/Escritorio/FV/src/build/CMakeFiles/rebuild_cache.dir
+/home/juan/Escritorio/FV/src/build/CMakeFiles/GremoryHole.dir
+/home/juan/Escritorio/FV/src/build/CMakeFiles/edit_cache.dir
+/home/juan/Escritorio/FV/src/build/CMakeFiles/libModulos.dir
+/home/juan/Escritorio/FV/src/build/ej_modulos/CMakeFiles/edit_cache.dir
+/home/juan/Escritorio/FV/src/build/ej_modulos/CMakeFiles/rebuild_cache.dir
