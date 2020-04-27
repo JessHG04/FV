@@ -6,91 +6,91 @@
 
 #IncludeRegexTransform: 
 
-/home/juan/Escritorio/FV/src/ej_modulos/AnimationDarkrai.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/AnimationDarkrai.h
 SFML/Graphics.hpp
 -
 
-/home/juan/Escritorio/FV/src/ej_modulos/AnimationKinder.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/AnimationKinder.h
 SFML/Graphics.hpp
 -
 
-/home/juan/Escritorio/FV/src/ej_modulos/Darkrai.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Darkrai.h
 SFML/Graphics.hpp
 -
 Enemigo.h
-/home/juan/Escritorio/FV/src/ej_modulos/Enemigo.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Enemigo.h
 AnimationDarkrai.h
-/home/juan/Escritorio/FV/src/ej_modulos/AnimationDarkrai.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/AnimationDarkrai.h
 
-/home/juan/Escritorio/FV/src/ej_modulos/Enemigo.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Enemigo.h
 SFML/Graphics.hpp
 -
 iostream
 -
 
-/home/juan/Escritorio/FV/src/ej_modulos/Guerrera.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Guerrera.h
 SFML/Graphics.hpp
 -
 Jugador.h
-/home/juan/Escritorio/FV/src/ej_modulos/Jugador.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Jugador.h
 iostream
 -
 string
 -
 
-/home/juan/Escritorio/FV/src/ej_modulos/Juego.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Juego.h
 SFML/Graphics.hpp
 -
 Mago.h
-/home/juan/Escritorio/FV/src/ej_modulos/Mago.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Mago.h
 Guerrera.h
-/home/juan/Escritorio/FV/src/ej_modulos/Guerrera.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Guerrera.h
 Proyectil.h
-/home/juan/Escritorio/FV/src/ej_modulos/Proyectil.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Proyectil.h
 Map.h
-/home/juan/Escritorio/FV/src/ej_modulos/Map.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Map.h
 Enemigo.h
-/home/juan/Escritorio/FV/src/ej_modulos/Enemigo.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Enemigo.h
 bala.h
-/home/juan/Escritorio/FV/src/ej_modulos/bala.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/bala.h
 lara.h
-/home/juan/Escritorio/FV/src/ej_modulos/lara.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/lara.h
 Darkrai.h
-/home/juan/Escritorio/FV/src/ej_modulos/Darkrai.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Darkrai.h
 mojon.h
-/home/juan/Escritorio/FV/src/ej_modulos/mojon.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/mojon.h
 KinderSorpresa.h
-/home/juan/Escritorio/FV/src/ej_modulos/KinderSorpresa.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/KinderSorpresa.h
 
-/home/juan/Escritorio/FV/src/ej_modulos/Jugador.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Jugador.h
 SFML/Graphics.hpp
 -
 spritePersonaje.h
-/home/juan/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/spritePersonaje.h
 iostream
 -
 string
 -
 
-/home/juan/Escritorio/FV/src/ej_modulos/KinderSorpresa.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/KinderSorpresa.h
 SFML/Graphics.hpp
 -
 Enemigo.h
-/home/juan/Escritorio/FV/src/ej_modulos/Enemigo.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Enemigo.h
 AnimationKinder.h
-/home/juan/Escritorio/FV/src/ej_modulos/AnimationKinder.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/AnimationKinder.h
 
-/home/juan/Escritorio/FV/src/ej_modulos/Mago.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Mago.h
 SFML/Graphics.hpp
 -
 Jugador.h
-/home/juan/Escritorio/FV/src/ej_modulos/Jugador.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Jugador.h
 iostream
 -
 string
 -
 
-/home/juan/Escritorio/FV/src/ej_modulos/Map.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Map.h
 SFML/Graphics.hpp
 -
 iostream
@@ -100,73 +100,73 @@ stdio.h
 stdlib.h
 -
 tinyxml2.h
-/home/juan/Escritorio/FV/src/ej_modulos/tinyxml2.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/tinyxml2.h
 
-/home/juan/Escritorio/FV/src/ej_modulos/Menu.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Menu.h
 SFML/Graphics.hpp
--
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/SFML/Graphics.hpp
 
-/home/juan/Escritorio/FV/src/ej_modulos/Proyectil.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Proyectil.h
 SFML/Graphics.hpp
 -
 spritePersonaje.h
-/home/juan/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/spritePersonaje.h
 
-/home/juan/Escritorio/FV/src/ej_modulos/bala.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/bala.h
 SFML/Graphics.hpp
 -
 iostream
 -
 
-/home/juan/Escritorio/FV/src/ej_modulos/cuadradoD.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/cuadradoD.h
 SFML/Graphics.hpp
 -
 iostream
 -
 
-/home/juan/Escritorio/FV/src/ej_modulos/cuadradoI.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/cuadradoI.h
 SFML/Graphics.hpp
 -
 iostream
 -
 
-/home/juan/Escritorio/FV/src/ej_modulos/lara.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/lara.h
 SFML/Graphics.hpp
 -
 iostream
 -
 lara.h
-/home/juan/Escritorio/FV/src/ej_modulos/lara.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/lara.h
 Enemigo.h
-/home/juan/Escritorio/FV/src/ej_modulos/Enemigo.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Enemigo.h
 cuadradoD.h
-/home/juan/Escritorio/FV/src/ej_modulos/cuadradoD.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/cuadradoD.h
 bala.h
-/home/juan/Escritorio/FV/src/ej_modulos/bala.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/bala.h
 mojon.h
-/home/juan/Escritorio/FV/src/ej_modulos/mojon.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/mojon.h
 spritePersonaje.h
-/home/juan/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/spritePersonaje.h
 Jugador.h
-/home/juan/Escritorio/FV/src/ej_modulos/Jugador.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Jugador.h
 
-/home/juan/Escritorio/FV/src/ej_modulos/mojon.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/mojon.h
 SFML/Graphics.hpp
 -
 iostream
 -
 Enemigo.h
-/home/juan/Escritorio/FV/src/ej_modulos/Enemigo.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Enemigo.h
 cuadradoD.h
-/home/juan/Escritorio/FV/src/ej_modulos/cuadradoD.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/cuadradoD.h
 cuadradoI.h
-/home/juan/Escritorio/FV/src/ej_modulos/cuadradoI.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/cuadradoI.h
 
-/home/juan/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/spritePersonaje.h
 SFML/Graphics.hpp
 -
 
-/home/juan/Escritorio/FV/src/ej_modulos/tinyxml2.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/tinyxml2.h
 ctype.h
 -
 limits.h
@@ -196,19 +196,21 @@ android/log.h
 assert.h
 -
 
-/home/juan/Escritorio/FV/src/include/config.h
+/home/juan/Escritorio/FV-colisiones/src/include/config.h
 
-/home/juan/Escritorio/FV/src/main.cpp
+/home/juan/Escritorio/FV-colisiones/src/main.cpp
 SFML/Graphics.hpp
+-
+SFML/Audio.hpp
 -
 iostream
 -
 include/config.h
-/home/juan/Escritorio/FV/src/include/config.h
+/home/juan/Escritorio/FV-colisiones/src/include/config.h
 ej_modulos/Menu.h
-/home/juan/Escritorio/FV/src/ej_modulos/Menu.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Menu.h
 ej_modulos/Juego.h
-/home/juan/Escritorio/FV/src/ej_modulos/Juego.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Juego.h
 ej_modulos/Jugador.h
-/home/juan/Escritorio/FV/src/ej_modulos/Jugador.h
+/home/juan/Escritorio/FV-colisiones/src/ej_modulos/Jugador.h
 

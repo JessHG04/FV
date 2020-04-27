@@ -1,4 +1,4 @@
-# Install script for directory: /home/juan/Escritorio/FV/src/ej_modulos
+# Install script for directory: /home/juan/Escritorio/FV-colisiones/src/ej_modulos
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

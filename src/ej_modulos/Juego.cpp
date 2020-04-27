@@ -4,9 +4,9 @@
 /* alias do="cmake -H. -Bbuild && cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole"  */
 /*                                  Luego simplemente pones do                                       */
 /*****************************************************************************************************/
-Juego::Juego(sf::Vector2u resolucion){
+Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
     //Creamos una ventana
-    ventana = new sf::RenderWindow(sf::VideoMode(resolucion.x,resolucion.y), "Gremory Hole");
+    ventana = window;
     //Iniciamos el juego
     iniciar();
     //Camara
