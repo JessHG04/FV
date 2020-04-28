@@ -19,7 +19,7 @@ target_sources(libModulos PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/bala.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/AnimationKinder.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/KinderSorpresa.cpp"
-
+    "${CMAKE_CURRENT_SOURCE_DIR}/Portal.cpp"
 )
 
 #Y donde se encuentran los .h

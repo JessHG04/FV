@@ -1,7 +1,7 @@
 #include "Juego.h"
 #include <SFML/Graphics.hpp>
 /******************************* HACE TODOS LOS COMANDOS A LA VEZ ************************************/
-/* alias do="cmake -H. -Bbuild && cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole"  */
+/* alias do="cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole"                       */
 /*                                  Luego simplemente pones do                                       */
 /*****************************************************************************************************/
 Juego::Juego(sf::Vector2u resolucion){
@@ -87,6 +87,7 @@ Juego::Juego(sf::Vector2u resolucion){
             }
             mojoncito->Update();
             kindercito->Update(reloj1->getElapsedTime().asSeconds());
+            portal->Update();
             dibujar();
             //Si sigue saltando y llega a la posicion de donde salto se para
           
@@ -168,6 +169,7 @@ void Juego::iniciar(){
     mojoncito = new mojon(90*16, 29*16, 81*16, 99*16);
     Sprite *sp = NULL;
     kindercito = new KinderSorpresa(90*16, 110*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
+    portal = new Portal(171*16, 31*16);
     j1->set_posicion(sf::Vector2f(47,21*16));
     j1->dirColision = abajo;
     //j1->direccion = quieto;
@@ -186,9 +188,9 @@ void Juego::dibujar(){
     */
     ventana->setView(vista); //Camara
     ventana->draw(*mapa);
-    ventana->draw(j1->get_sprite());
     darkrai->Draw(*ventana);
     larita->Draw(*ventana);
+    portal->Draw(*ventana);
     if(larita->dispara == true){
         larita->getBala().Draw(*ventana);
     }
@@ -197,6 +199,7 @@ void Juego::dibujar(){
     
     if(p1)
         ventana->draw(p1->get_sprite());
+        ventana->draw(j1->get_sprite());
     ventana->display();
 }
 

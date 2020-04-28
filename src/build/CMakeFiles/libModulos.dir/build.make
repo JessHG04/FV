@@ -513,6 +513,30 @@ CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o.provides: CMakeFiles/l
 CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o
 
 
+CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o: ../ej_modulos/Portal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Portal.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jess/Escritorio/FV/src/ej_modulos/Portal.cpp > CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jess/Escritorio/FV/src/ej_modulos/Portal.cpp -o CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o
+
+
 # Object files for target libModulos
 libModulos_OBJECTS = \
 "CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o" \
@@ -533,7 +557,8 @@ libModulos_OBJECTS = \
 "CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o" \
-"CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o"
+"CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o" \
+"CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o"
 
 # External object files for target libModulos
 libModulos_EXTERNAL_OBJECTS =
@@ -557,9 +582,10 @@ liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/build.make
 liblibModulos.a: CMakeFiles/libModulos.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Linking CXX static library liblibModulos.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX static library liblibModulos.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/libModulos.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/libModulos.dir/link.txt --verbose=$(VERBOSE)
 
@@ -587,6 +613,7 @@ CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/cuadrad
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o.requires
 
 .PHONY : CMakeFiles/libModulos.dir/requires
 

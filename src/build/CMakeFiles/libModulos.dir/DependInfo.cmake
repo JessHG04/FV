@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/jess/Escritorio/FV/src/ej_modulos/Mago.cpp" "/home/jess/Escritorio/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o"
   "/home/jess/Escritorio/FV/src/ej_modulos/Map.cpp" "/home/jess/Escritorio/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/Map.cpp.o"
   "/home/jess/Escritorio/FV/src/ej_modulos/Menu.cpp" "/home/jess/Escritorio/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o"
+  "/home/jess/Escritorio/FV/src/ej_modulos/Portal.cpp" "/home/jess/Escritorio/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o"
   "/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.cpp" "/home/jess/Escritorio/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o"
   "/home/jess/Escritorio/FV/src/ej_modulos/bala.cpp" "/home/jess/Escritorio/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o"
   "/home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.cpp" "/home/jess/Escritorio/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o"

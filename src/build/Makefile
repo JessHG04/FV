@@ -433,6 +433,33 @@ ej_modulos/Menu.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.s
 .PHONY : ej_modulos/Menu.cpp.s
 
+ej_modulos/Portal.o: ej_modulos/Portal.cpp.o
+
+.PHONY : ej_modulos/Portal.o
+
+# target to build an object file
+ej_modulos/Portal.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o
+.PHONY : ej_modulos/Portal.cpp.o
+
+ej_modulos/Portal.i: ej_modulos/Portal.cpp.i
+
+.PHONY : ej_modulos/Portal.i
+
+# target to preprocess a source file
+ej_modulos/Portal.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.i
+.PHONY : ej_modulos/Portal.cpp.i
+
+ej_modulos/Portal.s: ej_modulos/Portal.cpp.s
+
+.PHONY : ej_modulos/Portal.s
+
+# target to generate assembly for a file
+ej_modulos/Portal.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.s
+.PHONY : ej_modulos/Portal.cpp.s
+
 ej_modulos/Proyectil.o: ej_modulos/Proyectil.cpp.o
 
 .PHONY : ej_modulos/Proyectil.o
@@ -719,6 +746,9 @@ help:
 	@echo "... ej_modulos/Menu.o"
 	@echo "... ej_modulos/Menu.i"
 	@echo "... ej_modulos/Menu.s"
+	@echo "... ej_modulos/Portal.o"
+	@echo "... ej_modulos/Portal.i"
+	@echo "... ej_modulos/Portal.s"
 	@echo "... ej_modulos/Proyectil.o"
 	@echo "... ej_modulos/Proyectil.i"
 	@echo "... ej_modulos/Proyectil.s"

@@ -10,6 +10,7 @@
 #include "Darkrai.h"
 #include "mojon.h"
 #include "KinderSorpresa.h"
+#include "Portal.h"
 
 class Juego{
     public:
@@ -42,6 +43,8 @@ class Juego{
         cuadradoI *cuadra2;
         //Creamos a kinder
         KinderSorpresa *kindercito;
+        //Creamos el portal
+        Portal *portal;
         //Creamos la vista
         sf::View vista;
         //El evento que se recibe
