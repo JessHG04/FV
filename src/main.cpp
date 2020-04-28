@@ -9,29 +9,29 @@
 int main() {
 	sf::RenderWindow *window;
 	window = new sf::RenderWindow(sf::VideoMode(960,640),"Gremory Hole");
-
 	Menu menu(400, 700);
 	sf::Font font;
 	sf::Texture fondo;
 
-	if (!fondo.loadFromFile("menufondo.jpg"))
+	if (!fondo.loadFromFile("menufondo.png"))
 	{
-		// handle error
+    std::cout << "Error cargando imagen de fondo de menú" << std::endl;
 	}
 
 	sf::Sprite fondito;
 	fondito.setTexture(fondo);
+	fondito.setScale(1.4,1.4);
 
-	if (!font.loadFromFile("arial.ttf"))
+	if (!font.loadFromFile("darkforest.ttf"))
 	{
-		// handle error
+		std::cout << "Error cargando la fuente del menu" << std::endl;
 	}
 
 	sf::Music musicaMenu;
 	
 	if (!musicaMenu.openFromFile("menucancion.ogg"))
 	{
-		// handle error
+		std::cout << "Error cargando sonido de fondo de menú" << std::endl;
 	}
 
 	musicaMenu.play();
@@ -42,9 +42,17 @@ int main() {
 	sf::Text text;
 	text.setFont(font);
 	text.setString("GREMORY HOLE");
-	text.setColor(sf::Color::Blue);
-	text.setCharacterSize(45);
-	text.setPosition(sf::Vector2f(300 / 6, 200 / 10));
+	text.setColor(sf::Color::White);
+	text.setCharacterSize(120);
+	text.setPosition(sf::Vector2f(130, 200 / 10));
+
+	//Empresa
+	sf::Text empresa;
+	empresa.setFont(font);
+	empresa.setString(" © Doubtful Machine");
+	empresa.setColor(sf::Color::White);
+	empresa.setCharacterSize(20);
+	empresa.setPosition(sf::Vector2f(10, 600));
 	bool entra = false;
 
 	while (window->isOpen()){
@@ -79,6 +87,7 @@ int main() {
 				break;
 
 			case sf::Event::Closed:
+
 				window->close();
 
 				break;
@@ -89,6 +98,7 @@ int main() {
 		window->clear();
 		window->draw(fondito);
 		window->draw(text);
+		window->draw(empresa);
 		menu.draw(*window);
 		window->display();
 

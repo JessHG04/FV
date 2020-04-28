@@ -10,6 +10,8 @@
 #include "Darkrai.h"
 #include "mojon.h"
 #include "KinderSorpresa.h"
+#include "Interfaz.h"
+
 
 class Juego{
     public:
@@ -53,6 +55,10 @@ class Juego{
         sf::Time *crono1;
         sf::Clock *relojInmortal;
         sf::Time *cronoInmortal;
+
+        //Creamos el texto para el HUD
+        Interfaz *interfaz;
+        
         int fps;
         bool esGuerrera = false;
         bool gravedad = true;

@@ -20,11 +20,16 @@ CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o: ../ej_modulos/Guerrera.h
 CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o: ../ej_modulos/Jugador.h
 CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o: ../ej_modulos/spritePersonaje.h
 
+CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o: ../ej_modulos/Interfaz.cpp
+CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o: ../ej_modulos/Interfaz.h
+CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o: ../ej_modulos/spritePersonaje.h
+
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/AnimationDarkrai.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/AnimationKinder.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Darkrai.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Enemigo.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Guerrera.h
+CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Interfaz.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Juego.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Juego.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Jugador.h
@@ -61,6 +66,9 @@ CMakeFiles/libModulos.dir/ej_modulos/Map.cpp.o: ../ej_modulos/tinyxml2.h
 CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o: ../ej_modulos/Menu.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o: ../ej_modulos/Menu.h
 
+CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o: ../ej_modulos/Portal.cpp
+CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o: ../ej_modulos/Portal.h
+
 CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o: ../ej_modulos/Proyectil.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o: ../ej_modulos/Proyectil.h
 CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o: ../ej_modulos/spritePersonaje.h
@@ -79,6 +87,7 @@ CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/AnimationKinder.h
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/Darkrai.h
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/Enemigo.h
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/Guerrera.h
+CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/Interfaz.h
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/Juego.h
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/Jugador.h
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/KinderSorpresa.h

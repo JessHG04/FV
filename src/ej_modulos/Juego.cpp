@@ -140,11 +140,18 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
             //Camara - Extremo derecho, normal, extremo izquierdo
             if(j1->get_posicion().x >= (mapa->widthMap * 16 - resolucion.x /2)){
                 pos_vista.x = mapa->widthMap * 16 - resolucion.x /2;
+                
             }else if(j1->get_posicion().x > resolucion.x / 2){
                 pos_vista.x = j1->get_posicion().x;
             }else{
-                pos_vista.x = resolucion.x / 2;
+                pos_vista.x = resolucion.x / 2; 
             }
+
+            for(int i = 0;  i < j1->vida; i++){
+                interfaz->spr_vida[i]->setPosition(95 + i * 30 + pos_vista.x - resolucion.x /2,interfaz->spr_vida[i]->getPosition().y);
+            }
+            interfaz->spr_cara->setPosition(100 + pos_vista.x - resolucion.x /2,interfaz->spr_cara->getPosition().y);
+            interfaz->nombre2.setPosition(100 + pos_vista.x - resolucion.x /2,interfaz->nombre2.getPosition().y);
             vista.setCenter(pos_vista);
         }
     }
@@ -156,14 +163,18 @@ void Juego::iniciar(){
     crono1 = new sf::Time();
     relojInmortal = new sf::Clock();
     cronoInmortal = new sf::Time();
+    p1 = 0;
     mapa = new Map();
     mapa->mapMatrix();
     mapa->load("resources/Mapas/Tileset.png", sf::Vector2u(16,16), mapa->tilemap, mapa->widthMap, mapa->heightMap, mapa->numLayers);
-    if(esGuerrera)
+    if(esGuerrera){
         j1 = new Guerrera(4,4,sf::Vector2i(0,0));
-    else
+        interfaz = new Interfaz(1);
+    }
+    else{
         j1 = new Mago(4,4,sf::Vector2i(0,0));
-
+        interfaz = new Interfaz(2);
+    }
     darkrai = new Darkrai(1500,200,25.0f,*j1->spr_player);
     larita = new lara(73*16, 34*16);
     mojoncito = new mojon(90*16, 29*16, 81*16, 99*16);
@@ -174,6 +185,9 @@ void Juego::iniciar(){
     //j1->direccion = quieto;
     j1->vel_salto = 0;
     evento = new sf::Event();
+
+
+    
 }
 
 void Juego::dibujar(){
@@ -198,6 +212,16 @@ void Juego::dibujar(){
     
     if(p1)
         ventana->draw(p1->get_sprite());
+    
+
+    if(interfaz){
+        ventana->draw(interfaz->nombre2);
+        ventana->draw(*interfaz->spr_cara);
+        for(int i = 0; i < j1->vida; i++){
+            ventana->draw(*interfaz->spr_vida[i]);
+        }
+    }
+
     ventana->display();
 }
 

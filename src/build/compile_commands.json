@@ -1,0 +1,112 @@
+[
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/GremoryHole.dir/main.cpp.o -c /home/juan/Escritorio/src/main.cpp",
+  "file": "/home/juan/Escritorio/src/main.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o -c /home/juan/Escritorio/src/ej_modulos/Menu.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/Menu.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o -c /home/juan/Escritorio/src/ej_modulos/Juego.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/Juego.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o -c /home/juan/Escritorio/src/ej_modulos/Jugador.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/Jugador.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o -c /home/juan/Escritorio/src/ej_modulos/spritePersonaje.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/spritePersonaje.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o -c /home/juan/Escritorio/src/ej_modulos/Guerrera.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/Guerrera.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o -c /home/juan/Escritorio/src/ej_modulos/Mago.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/Mago.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o -c /home/juan/Escritorio/src/ej_modulos/Proyectil.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/Proyectil.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Map.cpp.o -c /home/juan/Escritorio/src/ej_modulos/Map.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/Map.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/tinyxml2.cpp.o -c /home/juan/Escritorio/src/ej_modulos/tinyxml2.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/tinyxml2.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o -c /home/juan/Escritorio/src/ej_modulos/Enemigo.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/Enemigo.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o -c /home/juan/Escritorio/src/ej_modulos/Darkrai.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/Darkrai.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/AnimationDarkrai.cpp.o -c /home/juan/Escritorio/src/ej_modulos/AnimationDarkrai.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/AnimationDarkrai.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o -c /home/juan/Escritorio/src/ej_modulos/lara.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/lara.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o -c /home/juan/Escritorio/src/ej_modulos/mojon.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/mojon.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o -c /home/juan/Escritorio/src/ej_modulos/cuadradoI.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/cuadradoI.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o -c /home/juan/Escritorio/src/ej_modulos/cuadradoD.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/cuadradoD.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o -c /home/juan/Escritorio/src/ej_modulos/bala.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/bala.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o -c /home/juan/Escritorio/src/ej_modulos/AnimationKinder.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/AnimationKinder.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o -c /home/juan/Escritorio/src/ej_modulos/KinderSorpresa.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/KinderSorpresa.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o -c /home/juan/Escritorio/src/ej_modulos/Portal.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/Portal.cpp"
+},
+{
+  "directory": "/home/juan/Escritorio/src/build",
+  "command": "/usr/bin/g++-5    -I/home/juan/Escritorio/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o -c /home/juan/Escritorio/src/ej_modulos/Interfaz.cpp",
+  "file": "/home/juan/Escritorio/src/ej_modulos/Interfaz.cpp"
+}
+]
