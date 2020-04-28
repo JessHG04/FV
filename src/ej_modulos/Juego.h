@@ -13,7 +13,7 @@
 
 class Juego{
     public:
-        Juego(sf::Vector2u tam_pantalla);
+        Juego(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana);
         void iniciar(); //Inicia variables y diferentes aspectos
         void dibujar(); //dibujar elementos
         void logica(); // procesa logicas del juego

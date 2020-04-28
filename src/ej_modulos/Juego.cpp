@@ -4,9 +4,9 @@
 /* alias do="cmake -H. -Bbuild && cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole"  */
 /*                                  Luego simplemente pones do                                       */
 /*****************************************************************************************************/
-Juego::Juego(sf::Vector2u resolucion){
+Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
     //Creamos una ventana
-    ventana = new sf::RenderWindow(sf::VideoMode(resolucion.x,resolucion.y), "Gremory Hole");
+    ventana = window;
     //Iniciamos el juego
     iniciar();
     //Camara
@@ -26,6 +26,7 @@ Juego::Juego(sf::Vector2u resolucion){
 
             if(p1){
                 if(colisionProyecMapa(p1->dirColision)){
+                    //p1->~Proyectil();
                     delete p1;        
                     p1 = 0;           
                 }
@@ -155,6 +156,7 @@ void Juego::iniciar(){
     crono1 = new sf::Time();
     relojInmortal = new sf::Clock();
     cronoInmortal = new sf::Time();
+    p1 = 0;
     mapa = new Map();
     mapa->mapMatrix();
     mapa->load("resources/Mapas/Tileset.png", sf::Vector2u(16,16), mapa->tilemap, mapa->widthMap, mapa->heightMap, mapa->numLayers);
@@ -500,12 +502,12 @@ bool Juego::colisionProyecMapa(direccionProyectil direccion){ //La colision del 
                 box.setPosition(sf::Vector2f(x*16, y*16));
 
                 if(gid > 0 && direccion == 1 && !colisionando){ //Izquierda
-                    if(box.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
+                    if(box.getGlobalBounds().intersects(p1->get_sprite().getGlobalBounds())){
                         colisionando = true;
                     }
                 }
                 if(gid > 0 && direccion == 2 && !colisionando){ //Derecha
-                    if(box.getGlobalBounds().intersects(j1->cajaColisiones.getGlobalBounds())){
+                    if(box.getGlobalBounds().intersects(p1->get_sprite().getGlobalBounds())){
                         colisionando = true;
                     }
                 }                
