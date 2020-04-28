@@ -1,6 +1,4 @@
 #pragma once
-//#ifndef MAP_H
-//#define MAP_H
 
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -18,11 +16,10 @@ class Map : public sf::Drawable, public sf::Transformable{
         sf::VertexArray vertex;
         sf::Texture tile;
         
-
     public:
-        Map(); //Constructor
+        Map();
         virtual ~Map();
-        void mapMatrix(); //Guardar datos del mapa
+        void mapMatrix(int); //Guardar datos del mapa
         bool load(const std::string& path, sf::Vector2u tileSize, int*** level, unsigned int witdh, unsigned int heigth, int numLayer);
         void draw(sf::RenderTarget& target, sf::RenderStates states) const;
         tinyxml2::XMLElement *data;
@@ -34,5 +31,3 @@ class Map : public sf::Drawable, public sf::Transformable{
         int widthTile;
         int heightTile;
 };
-
-//#endif

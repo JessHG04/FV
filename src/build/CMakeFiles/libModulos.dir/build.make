@@ -57,9 +57,33 @@ include CMakeFiles/libModulos.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/libModulos.dir/flags.make
 
+CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o: ../ej_modulos/Menu.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Menu.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jess/Escritorio/FV/src/ej_modulos/Menu.cpp > CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jess/Escritorio/FV/src/ej_modulos/Menu.cpp -o CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o
+
+
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Juego.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Juego.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.i: cmake_force
@@ -83,7 +107,7 @@ CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o.provides.build: CMakeFiles/libM
 
 CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o: ../ej_modulos/Jugador.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Jugador.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.i: cmake_force
@@ -107,7 +131,7 @@ CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o.provides.build: CMakeFiles/li
 
 CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o: ../ej_modulos/spritePersonaje.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.i: cmake_force
@@ -131,7 +155,7 @@ CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o.provides.build: CMake
 
 CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o: ../ej_modulos/Guerrera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Guerrera.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.i: cmake_force
@@ -155,7 +179,7 @@ CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o.provides.build: CMakeFiles/l
 
 CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o: ../ej_modulos/Mago.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Mago.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.i: cmake_force
@@ -179,7 +203,7 @@ CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o.provides.build: CMakeFiles/libMo
 
 CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o: CMakeFiles/libModulos.dir/flags.make
 CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o: ../ej_modulos/Proyectil.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.cpp
 
 CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.i: cmake_force
@@ -199,30 +223,6 @@ CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o.provides: CMakeFiles/libMod
 .PHONY : CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o.provides
 
 CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o
-
-
-CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o: CMakeFiles/libModulos.dir/flags.make
-CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o: ../ej_modulos/Menu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Menu.cpp
-
-CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jess/Escritorio/FV/src/ej_modulos/Menu.cpp > CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.i
-
-CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jess/Escritorio/FV/src/ej_modulos/Menu.cpp -o CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.s
-
-CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.requires:
-
-.PHONY : CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.requires
-
-CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.requires
-	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.provides.build
-.PHONY : CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.provides
-
-CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o
 
 
 CMakeFiles/libModulos.dir/ej_modulos/Map.cpp.o: CMakeFiles/libModulos.dir/flags.make
@@ -539,13 +539,13 @@ CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o.provides.build: CMakeFiles/lib
 
 # Object files for target libModulos
 libModulos_OBJECTS = \
+"CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o" \
-"CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/Map.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/tinyxml2.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o" \
@@ -563,13 +563,13 @@ libModulos_OBJECTS = \
 # External object files for target libModulos
 libModulos_EXTERNAL_OBJECTS =
 
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o
-liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Map.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/tinyxml2.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o
@@ -594,13 +594,13 @@ CMakeFiles/libModulos.dir/build: liblibModulos.a
 
 .PHONY : CMakeFiles/libModulos.dir/build
 
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o.requires
-CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Map.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/tinyxml2.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o.requires
