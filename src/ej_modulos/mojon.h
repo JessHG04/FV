@@ -4,8 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Enemigo.h"
-#include "cuadradoD.h"
-#include "cuadradoI.h"
+#include "Proyectil.h"
 
 using namespace std;
 using namespace sf;
@@ -22,6 +21,7 @@ class mojon : public Enemigo{
         void Update();
         void cambiarSprite(int);
         void cambiarSpriteDos(int);
+        void colisionProyectil(Proyectil *);
         Sprite getSprite();
         void recibeGolpe();
         void hacerTransparente();

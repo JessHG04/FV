@@ -124,12 +124,6 @@ SFML/Graphics.hpp
 iostream
 -
 
-/home/pascual/Escritorio/FV/src/ej_modulos/cuadradoI.h
-SFML/Graphics.hpp
--
-iostream
--
-
 /home/pascual/Escritorio/FV/src/ej_modulos/lara.h
 SFML/Graphics.hpp
 -
@@ -157,10 +151,8 @@ iostream
 -
 Enemigo.h
 /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.h
-cuadradoD.h
-/home/pascual/Escritorio/FV/src/ej_modulos/cuadradoD.h
-cuadradoI.h
-/home/pascual/Escritorio/FV/src/ej_modulos/cuadradoI.h
+Proyectil.h
+/home/pascual/Escritorio/FV/src/ej_modulos/Proyectil.h
 
 /home/pascual/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 SFML/Graphics.hpp

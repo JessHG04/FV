@@ -39,7 +39,6 @@ class Juego{
         cuadradoD *cuadra;
         //Creamos al mojon
         mojon *mojoncito;
-        cuadradoI *cuadra2;
         //Creamos a kinder
         KinderSorpresa *kindercito;
         //Creamos la vista
