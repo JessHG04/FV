@@ -601,13 +601,6 @@ void Juego::limpiarMapa(){
 
 void Juego::crearPortal(){
     delete portal;
-    if(level != 1){
-        delete j1;
-        if(esGuerrera)
-            j1 = new Guerrera(4,4,sf::Vector2i(0,0));
-        else
-            j1 = new Mago(4,4,sf::Vector2i(0,0));
-    }
     
     if(level == 1){
         portal = new Portal(145*16, 9*16);

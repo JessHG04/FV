@@ -12,7 +12,7 @@ class Jugador : public spritePersonaje{
         //Constructor
         Jugador();
         //Destructor
-        ~Jugador();
+        //~Jugador();
 
         // Obtener el sprite del jugador
         sf::Sprite get_sprite(){ 
