@@ -25,10 +25,18 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
             }
 
             if(p1){
-                if(colisionProyecMapa(p1->dirColision)){
-                    //p1->~Proyectil();
-                    delete p1;        
-                    p1 = 0;           
+                if(p1 != nullptr){
+                    if(colisionProyecMapa(p1->dirColision)){
+                        //p1->~Proyectil();
+                        delete p1;        
+                        p1 = 0;           
+                    }
+                }
+                if(p1 != nullptr){
+                    if(mojoncito->colisionProyectil(p1)){
+                        delete p1;        
+                        p1 = 0;
+                    }
                 }
             }
                 //CUANDO SE REALICE LA COLISION SE ELIMINARA EL PROYECTIL-------------------------------------------

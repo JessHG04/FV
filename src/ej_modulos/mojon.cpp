@@ -38,26 +38,62 @@ using namespace sf;
     }
     
     void mojon::Update(){
-        float sgs = reloj.getElapsedTime().asSeconds();
-        if(sgs >= 0.10){
-          if(this->direccion == 0){
-            this->cambiarSprite(avansa);
-            if(this->getSprite().getPosition().x >= posxx){
-              this->direccion = 1;
+        if(restartear == true){
+            impactado.restart();
+            restartear = false;
+        }
+        this->impactoProyectil();
+        if(golpeado == false){
+            float sgs = reloj.getElapsedTime().asSeconds();
+            if(sgs >= 0.10){
+            if(this->direccion == 0){
+                this->cambiarSprite(avansa);
+                if(this->getSprite().getPosition().x >= posxx){
+                this->direccion = 1;
+                }
             }
-          }
-          else{
-            this->cambiarSpriteDos(avansa);
-            if(this->getSprite().getPosition().x <= posx){
-              this->direccion = 0;
+            else{
+                this->cambiarSpriteDos(avansa);
+                if(this->getSprite().getPosition().x <= posx){
+                this->direccion = 0;
+                }
             }
-          }
-          avansa++;
-          if(avansa == 4){
-            avansa = 0;
-          }
-          reloj.restart();
-        }   
+            avansa++;
+            if(avansa == 4){
+                avansa = 0;
+            }
+            reloj.restart();
+            }   
+        }
+    }
+
+    bool mojon::colisionProyectil(Proyectil *p1){
+        bool x = false;
+        if(p1->get_sprite().getGlobalBounds().intersects(sprite->getGlobalBounds()) && golpeado == false){
+            cout << "Ta chocando broder" << endl;
+            x = true;
+            golpeado = true;
+            restartear = true;           
+        }
+        return x;
+    }
+
+    void mojon::impactoProyectil(){
+        float sgs = impactado.getElapsedTime().asSeconds();
+        if(golpeado == true){
+            if(contando % 2 == 0){
+                sprite->setColor(Color::Red);
+                contando++;
+            }
+            else{
+                this->hacerTransparente();
+                contando++;
+            }
+            if(sgs >= 1){
+                this->restartSprite();
+                golpeado = false;
+            }
+        }
     }
 
     void mojon::cambiarSprite(int x){
@@ -98,12 +134,6 @@ using namespace sf;
             sprite->move(-kVel, 0);
         }
         sprite->setScale(1, 1);
-    }
-
-    void mojon::colisionProyectil(Proyectil *p){
-        if(p->get_sprite().getGlobalBounds().intersects(sprite->getGlobalBounds())){
-            cout << "Esta colisionando" << endl;
-        }
     }
 
     void mojon::Draw(RenderWindow &window){

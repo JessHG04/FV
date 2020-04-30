@@ -13,15 +13,18 @@ class mojon : public Enemigo{
     public:
         int direccion;
         Texture *tex;
-        Clock reloj;
+        Clock reloj, impactado;
         int numVidas, avansa, posx = 0, posxx = 0, x = 0, y = 0;
+        int contando = 0;
+        bool golpeado = false, restartear = false;
         mojon(int, int, int, int);
         ~mojon();
         void Draw(RenderWindow &);
         void Update();
         void cambiarSprite(int);
         void cambiarSpriteDos(int);
-        void colisionProyectil(Proyectil *);
+        bool colisionProyectil(Proyectil *);
+        void impactoProyectil();
         Sprite getSprite();
         void recibeGolpe();
         void hacerTransparente();
