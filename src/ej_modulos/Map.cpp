@@ -135,5 +135,11 @@ void Map::draw(sf::RenderTarget& target, sf::RenderStates states) const{
 }
 
 Map::~Map(){
-
+    vertex.clear();
+    widthMap = 0;
+    heightMap = 0;
+    numLayers = 0;
+    widthTile = 0;
+    heightTile = 0;
+    delete tilemap;
 }

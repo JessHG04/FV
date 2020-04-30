@@ -24,7 +24,6 @@ class Map : public sf::Drawable, public sf::Transformable{
         void draw(sf::RenderTarget& target, sf::RenderStates states) const;
         tinyxml2::XMLElement *data;
         int ***tilemap;
-        int **gidMatrix;
         int widthMap;
         int heightMap;
         int numLayers;

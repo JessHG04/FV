@@ -27,11 +27,14 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
             //Pasar de Nivel
             colisionPersPortal();
             if(!cargar && level <= maxLevels){
+                limpiarMapa();
                 std::cout<< "Nivel: " << level << std::endl;
                 mapa = new Map();
                 mapa->mapMatrix(level);
                 mapa->load("resources/Mapas/Tileset.png", sf::Vector2u(16,16), mapa->tilemap, mapa->widthMap, mapa->heightMap, mapa->numLayers);
                 cargar = true;
+                crearPortal();
+                crearEnemigos();
             }
             if(level > maxLevels){
                 gameover = true;
@@ -184,10 +187,12 @@ void Juego::iniciar(){
     Sprite *sp = NULL;
     kindercito = new KinderSorpresa(90*16, 110*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
     portal = new Portal(170*16,31*16);
+    
     j1->set_posicion(sf::Vector2f(47,21*16));
     j1->dirColision = abajo;
     //j1->direccion = quieto;
     j1->vel_salto = 0;
+    
     evento = new sf::Event();
 }
 
@@ -588,4 +593,60 @@ void Juego::colisionPersPortal(){
         level++;
         cargar = false;
     }
+}
+
+void Juego::limpiarMapa(){
+
+}
+
+void Juego::crearPortal(){
+    delete portal;
+    if(level != 1){
+        delete j1;
+        if(esGuerrera)
+            j1 = new Guerrera(4,4,sf::Vector2i(0,0));
+        else
+            j1 = new Mago(4,4,sf::Vector2i(0,0));
+    }
+    
+    if(level == 1){
+        portal = new Portal(145*16, 9*16);
+        j1->set_posicion(sf::Vector2f(4*16,27*16));
+        j1->dirColision = abajo;
+        j1->vel_salto = 0;
+    }
+    if(level == 2){
+        portal = new Portal(53*16, 32*16);
+        j1->set_posicion(sf::Vector2f(5*16,33*16));
+        j1->dirColision = abajo;
+        j1->vel_salto = 0;
+    }
+    if(level == 3){
+        portal = new Portal(171*16, 25*16);
+        j1->set_posicion(sf::Vector2f(3*16,27*16));
+        j1->dirColision = abajo;
+        j1->vel_salto = 0;
+    }
+    if(level == 4){
+        portal = new Portal(53*16, 32*16);
+        j1->set_posicion(sf::Vector2f(5*16,33*16));
+        j1->dirColision = abajo;
+        j1->vel_salto = 0;
+    }
+    if(level == 5){
+        portal = new Portal(170*16, 23*16);
+        j1->set_posicion(sf::Vector2f(4*16,9*16));
+        j1->dirColision = abajo;
+        j1->vel_salto = 0;
+    }
+    if(level == 6){
+        portal = new Portal(53*16, 32*16);
+        j1->set_posicion(sf::Vector2f(5*16,33*16));
+        j1->dirColision = abajo;
+        j1->vel_salto = 0;
+    }
+}
+
+void Juego::crearEnemigos(){
+
 }

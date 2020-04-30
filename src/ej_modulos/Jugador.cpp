@@ -13,3 +13,7 @@ void Jugador::update(){ //Actuaiza fisicas del jugador
         cajaColisiones2.setPosition(get_posicion().x , get_posicion().y + tamFrame.y/2 - 8);
     //}
 }
+
+Jugador::~Jugador(){
+    delete spr_player;
+}

@@ -20,6 +20,10 @@ Portal::Portal(int x, int y){
     cajaColision.setPosition(sprite->getPosition().x - 64, sprite->getPosition().y - 64);
 }
 
+Portal::~Portal(){
+    delete sprite;
+}
+
 sf::RectangleShape Portal::getCaja(){
     return cajaColision;
 }

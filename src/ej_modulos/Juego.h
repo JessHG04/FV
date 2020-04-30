@@ -21,9 +21,9 @@ class Juego{
         void procesar_eventos(); // elementos de entrada, teclado...
         void cortarEventoDash(int distancia);
         void gestionGravedad();
-        void crearEnemigos(int);
-        void crearPortal(int);
-        void limpiarMapa(int);
+        void crearEnemigos();
+        void crearPortal();
+        void limpiarMapa();
         void colisionPersPortal();
         bool colisionPersMapa(direcciones direccion); //1 -> Arriba 2-> Izquierda 3-> Drcha 4->Abajo
         bool colisionProyecMapa(direccionProyectil direccion);
@@ -35,32 +35,30 @@ class Juego{
         //Creamos al jugador
         Jugador *j1;
         //Creamos el proyectil de eugyn
-        Proyectil *p1;
+        Proyectil *p1 = NULL;
         //Creamos el mapa
-        Map *mapa;
+        Map *mapa = NULL;
         //creamos enemigo
         Darkrai *darkrai;
-        //Creamos a Lara
-        lara *larita;
-        cuadradoD *cuadra;
+        //Creamos a Lara 
+        lara *larita = NULL;
         //Creamos al mojon
-        mojon *mojoncito;
-        cuadradoI *cuadra2;
+        mojon *mojoncito = NULL;
         //Creamos el portal
-        Portal *portal;
+        Portal *portal = NULL;
         //Creamos a kinder
-        KinderSorpresa *kindercito;
+        KinderSorpresa *kindercito = NULL;
         //Creamos la vista
         sf::View vista;
         //El evento que se recibe
-        sf::Event *evento;
+        sf::Event *evento = NULL;
         // La ventana de nuestro juego
-        sf::RenderWindow *ventana;
+        sf::RenderWindow *ventana = NULL;
         //Creamos el reloj
-        sf::Clock *reloj1;
-        sf::Time *crono1;
-        sf::Clock *relojInmortal;
-        sf::Time *cronoInmortal;
+        sf::Clock *reloj1 = NULL;
+        sf::Time *crono1 = NULL;
+        sf::Clock *relojInmortal = NULL;
+        sf::Time *cronoInmortal = NULL;
         int fps;
         bool esGuerrera = false;
         bool gravedad = true;
