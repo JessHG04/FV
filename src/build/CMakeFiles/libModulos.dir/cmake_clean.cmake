@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o"

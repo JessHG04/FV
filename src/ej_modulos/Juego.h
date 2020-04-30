@@ -15,7 +15,7 @@
 
 class Juego{
     public:
-        Juego(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana);
+        Juego(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana, int idPersonaje);
         void iniciar(); //Inicia variables y diferentes aspectos
         void dibujar(); //dibujar elementos
         void logica(); // procesa logicas del juego
@@ -61,5 +61,6 @@ class Juego{
         
         int fps;
         bool esGuerrera = false;
+        int personajeSelec = 0;
         bool gravedad = true;
 };

@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/juan/Escritorio/src
+CMAKE_SOURCE_DIR = /home/loli/Desktop/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/juan/Escritorio/src/build
+CMAKE_BINARY_DIR = /home/loli/Desktop/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/juan/Escritorio/src/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/juan/Escritorio/src/build/CMakeFiles /home/juan/Escritorio/src/build/ej_modulos/CMakeFiles/progress.marks
-	cd /home/juan/Escritorio/src/build && $(MAKE) -f CMakeFiles/Makefile2 ej_modulos/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan/Escritorio/src/build/CMakeFiles 0
+	cd /home/loli/Desktop/src/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/loli/Desktop/src/build/CMakeFiles /home/loli/Desktop/src/build/ej_modulos/CMakeFiles/progress.marks
+	cd /home/loli/Desktop/src/build && $(MAKE) -f CMakeFiles/Makefile2 ej_modulos/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/loli/Desktop/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/juan/Escritorio/src/build && $(MAKE) -f CMakeFiles/Makefile2 ej_modulos/clean
+	cd /home/loli/Desktop/src/build && $(MAKE) -f CMakeFiles/Makefile2 ej_modulos/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,17 +97,17 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/juan/Escritorio/src/build && $(MAKE) -f CMakeFiles/Makefile2 ej_modulos/preinstall
+	cd /home/loli/Desktop/src/build && $(MAKE) -f CMakeFiles/Makefile2 ej_modulos/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/juan/Escritorio/src/build && $(MAKE) -f CMakeFiles/Makefile2 ej_modulos/preinstall
+	cd /home/loli/Desktop/src/build && $(MAKE) -f CMakeFiles/Makefile2 ej_modulos/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/juan/Escritorio/src/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/loli/Desktop/src/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Help Target
@@ -129,6 +129,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/juan/Escritorio/src/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/loli/Desktop/src/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

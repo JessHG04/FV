@@ -66,6 +66,9 @@ CMakeFiles/libModulos.dir/ej_modulos/Map.cpp.o: ../ej_modulos/tinyxml2.h
 CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o: ../ej_modulos/Menu.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o: ../ej_modulos/Menu.h
 
+CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o: ../ej_modulos/MenuSeleccionPersonaje.cpp
+CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o: ../ej_modulos/MenuSeleccionPersonaje.h
+
 CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o: ../ej_modulos/Portal.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o: ../ej_modulos/Portal.h
 

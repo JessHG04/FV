@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/juan/Escritorio/src
+CMAKE_SOURCE_DIR = /home/loli/Desktop/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/juan/Escritorio/src/build
+CMAKE_BINARY_DIR = /home/loli/Desktop/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan/Escritorio/src/build/CMakeFiles /home/juan/Escritorio/src/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/loli/Desktop/src/build/CMakeFiles /home/loli/Desktop/src/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/juan/Escritorio/src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/loli/Desktop/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -460,6 +460,33 @@ ej_modulos/Menu.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.s
 .PHONY : ej_modulos/Menu.cpp.s
 
+ej_modulos/MenuSeleccionPersonaje.o: ej_modulos/MenuSeleccionPersonaje.cpp.o
+
+.PHONY : ej_modulos/MenuSeleccionPersonaje.o
+
+# target to build an object file
+ej_modulos/MenuSeleccionPersonaje.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o
+.PHONY : ej_modulos/MenuSeleccionPersonaje.cpp.o
+
+ej_modulos/MenuSeleccionPersonaje.i: ej_modulos/MenuSeleccionPersonaje.cpp.i
+
+.PHONY : ej_modulos/MenuSeleccionPersonaje.i
+
+# target to preprocess a source file
+ej_modulos/MenuSeleccionPersonaje.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.i
+.PHONY : ej_modulos/MenuSeleccionPersonaje.cpp.i
+
+ej_modulos/MenuSeleccionPersonaje.s: ej_modulos/MenuSeleccionPersonaje.cpp.s
+
+.PHONY : ej_modulos/MenuSeleccionPersonaje.s
+
+# target to generate assembly for a file
+ej_modulos/MenuSeleccionPersonaje.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.s
+.PHONY : ej_modulos/MenuSeleccionPersonaje.cpp.s
+
 ej_modulos/Portal.o: ej_modulos/Portal.cpp.o
 
 .PHONY : ej_modulos/Portal.o
@@ -776,6 +803,9 @@ help:
 	@echo "... ej_modulos/Menu.o"
 	@echo "... ej_modulos/Menu.i"
 	@echo "... ej_modulos/Menu.s"
+	@echo "... ej_modulos/MenuSeleccionPersonaje.o"
+	@echo "... ej_modulos/MenuSeleccionPersonaje.i"
+	@echo "... ej_modulos/MenuSeleccionPersonaje.s"
 	@echo "... ej_modulos/Portal.o"
 	@echo "... ej_modulos/Portal.i"
 	@echo "... ej_modulos/Portal.s"

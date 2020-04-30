@@ -1,6 +1,7 @@
 #Especificar donde se encuentran los ficheros cpp a compilar
 target_sources(libModulos PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/Menu.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/MenuSeleccionPersonaje.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/Juego.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/Jugador.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/spritePersonaje.cpp"

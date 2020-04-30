@@ -4,9 +4,21 @@
 /* alias do="cmake -H. -Bbuild && cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole"  */
 /*                                  Luego simplemente pones do                                       */
 /*****************************************************************************************************/
-Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
+Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje){
     //Creamos una ventana
     ventana = window;
+
+    //Seleccion de personaje
+    if(idPersonaje == 1){
+        personajeSelec = 1;
+        esGuerrera = true;
+    }   
+
+    if(idPersonaje == 2){
+        personajeSelec = 2;
+        esGuerrera = false;
+    }   
+    
     //Iniciamos el juego
     iniciar();
     //Camara
@@ -43,7 +55,7 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
             //********************************************* GRAVEDAD *************************************************
             gestionGravedad();
             if(gravedad || j1->saltando){
-                j1->vel_salto += 2.5f;
+                j1->vel_salto += 3.5f;
                 
                 if(j1->vel_salto > 0){
                     j1->dirColision = abajo;
@@ -77,12 +89,23 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
                     j1->vida --;
                     if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
                         gameover = true;
-                    if(j1->direccion == izq){
-                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
-                    }
-                    
-                    if(j1->direccion == der){
-                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+
+                    if(esGuerrera == false){
+                        if(j1->direccion == izq){
+                            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
+                        }
+                        
+                        if(j1->direccion == der){
+                            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+                        }
+                    }else{
+                        if(j1->direccion == izq){
+                            j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,2));
+                        }
+                        
+                        if(j1->direccion == der){
+                            j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,3));
+                        }
                     }
                 }
             }
@@ -94,12 +117,23 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
               //EN EL JUEGO CAMBIAR ESTA CONDICION POR LA COLISION CON EL MAPA PORQUE PUEDE SER QUE SE SUBA A UNA PLATAFORMA Y NO VUELVA A LA POSICION INICIAL
             if(cronoInmortal->asSeconds() > 2.5 && j1->inmortal){
                 j1->inmortal = false;
-                if(j1->direccion == izq){
-                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
+
+                if(esGuerrera == false){
+                    if(j1->direccion == izq){
+                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
+                        }
+                        
+                    if(j1->direccion == der){
+                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                     }
-                    
-                if(j1->direccion == der){
-                    j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
+                }else{
+                    if(j1->direccion == izq){
+                            j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
+                        }
+                        
+                    if(j1->direccion == der){
+                        j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
+                    }
                 }
             }
             
@@ -107,15 +141,26 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
                 if(!j1->inmortal){ 
                     relojInmortal->restart();
                     j1->inmortal = true;
-                    j1->vida --;
+                    j1->vida--;
                     if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
                         gameover = true;
-                    if(j1->direccion == izq){
-                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
-                    }
-                    
-                    if(j1->direccion == der){
-                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+
+                    if(esGuerrera == false){
+                        if(j1->direccion == izq){
+                            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
+                        }
+                        
+                        if(j1->direccion == der){
+                            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+                        }
+                    }else{
+                        if(j1->direccion == izq){
+                            j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,2));
+                        }
+                        
+                        if(j1->direccion == der){
+                            j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,3));
+                        }
                     }
                 }
             }
@@ -125,13 +170,24 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
                 j1->movimiento = false;
                 j1->vel_salto = 0;
                 j1->set_velocidad(sf::Vector2f(0,0));
+
                 if(!j1->inmortal){
-                    if(j1->direccion == izq){
-                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
-                    }
-                    
-                    if(j1->direccion == der){
-                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
+                    if(esGuerrera == false){
+                        if(j1->direccion == izq){
+                                j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
+                            }
+                            
+                        if(j1->direccion == der){
+                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
+                        }
+                    }else{
+                        if(j1->direccion == izq){
+                                j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
+                            }
+                            
+                        if(j1->direccion == der){
+                            j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
+                        }
                     }
                 }
             }
@@ -167,14 +223,15 @@ void Juego::iniciar(){
     mapa = new Map();
     mapa->mapMatrix();
     mapa->load("resources/Mapas/Tileset.png", sf::Vector2u(16,16), mapa->tilemap, mapa->widthMap, mapa->heightMap, mapa->numLayers);
+
     if(esGuerrera){
         j1 = new Guerrera(4,4,sf::Vector2i(0,0));
-        interfaz = new Interfaz(1);
-    }
-    else{
+        interfaz = new Interfaz(personajeSelec);
+    }else{
         j1 = new Mago(4,4,sf::Vector2i(0,0));
-        interfaz = new Interfaz(2);
+        interfaz = new Interfaz(personajeSelec);
     }
+
     darkrai = new Darkrai(1500,200,25.0f,*j1->spr_player);
     larita = new lara(73*16, 34*16);
     mojoncito = new mojon(90*16, 29*16, 81*16, 99*16);
@@ -244,7 +301,12 @@ void Juego::procesar_eventos(){
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
                     j1->movimiento = true;
                     //j1->set_frameY(0); 
-                    j1->set_sprite(j1->txt_dash_I,1,1,sf::Vector2i(0,0));
+                    if(esGuerrera == false){
+                        j1->set_sprite(j1->txt_dash_I,1,1,sf::Vector2i(0,0));
+                    }else{
+                        j1->set_sprite(j1->txt_dash_I2,1,1,sf::Vector2i(0,0));
+                    }
+                    
                     j1->set_velocidad(sf::Vector2f(-j1->vel_desp*5,0));
                         
                 }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
@@ -273,8 +335,13 @@ void Juego::procesar_eventos(){
                 j1->dirColision = der;
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
                     j1->movimiento = true;
-                    //j1->set_frameY(0); 
-                    j1->set_sprite(j1->txt_dash_D,1,1,sf::Vector2i(0,0));
+                    //j1->set_frameY(0);
+                    if(esGuerrera == false){
+                        j1->set_sprite(j1->txt_dash_D,1,1,sf::Vector2i(0,0));
+                    }else{
+                        j1->set_sprite(j1->txt_dash_D2,1,1,sf::Vector2i(0,0));
+                    } 
+
                     j1->set_velocidad(sf::Vector2f(j1->vel_desp*5,0));
                         
                 }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
@@ -321,12 +388,21 @@ void Juego::procesar_eventos(){
                 //Vemos a que lado esta mirando
                 if(j1->direccion == izq){
                     j1->dirColision = izq;
-                    j1->set_sprite(j1->txt_dash_I,1,1,sf::Vector2i(0,0));
+                    if(esGuerrera == false){
+                        j1->set_sprite(j1->txt_dash_I,1,1,sf::Vector2i(0,0));
+                    }else{
+                        j1->set_sprite(j1->txt_dash_I2,1,1,sf::Vector2i(0,0));
+                    }
+
                     j1->set_velocidad(sf::Vector2f(-j1->vel_desp*5,0));
                     //j1->set_posicion(sf::Vector2f(j1->get_posicion().x - j1->vel_desp,(j1->get_posicion().y)));
                 }else{
                     j1->dirColision = der;
-                    j1->set_sprite(j1->txt_dash_D,1,1,sf::Vector2i(0,0));
+                    if(esGuerrera == false){
+                        j1->set_sprite(j1->txt_dash_D,1,1,sf::Vector2i(0,0));
+                    }else{
+                        j1->set_sprite(j1->txt_dash_D2,1,1,sf::Vector2i(0,0));
+                    }
                     j1->set_velocidad(sf::Vector2f(j1->vel_desp*5,0));
                 }
             }
@@ -392,32 +468,61 @@ void Juego::procesar_eventos(){
                 }else if(evento->key.code == (sf::Keyboard::Z)){
                     j1->movimiento = false;
                     if(!j1->inmortal){
-                        if(j1->direccion == izq){
-                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
-                        }
-                        
-                        if(j1->direccion == der){
-                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
+                        if(esGuerrera == false){
+                            if(j1->direccion == izq){
+                                j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
+                            }
+                            
+                            if(j1->direccion == der){
+                                j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
+                            }
+                        }else{
+                            if(j1->direccion == izq){
+                                j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
+                            }
+                            
+                            if(j1->direccion == der){
+                                j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
+                            }
                         }
                     }else{
-                        if(j1->direccion == izq){
-                            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
-                        }
-                        
-                        if(j1->direccion == der){
-                            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+                        if(esGuerrera == false){
+                            if(j1->direccion == izq){
+                                j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
+                            }
+                            
+                            if(j1->direccion == der){
+                                j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+                            }
+                        }else{
+                            if(j1->direccion == izq){
+                                j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,2));
+                            }
+                            
+                            if(j1->direccion == der){
+                                j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,3));
+                            }
                         }
                     }
                     j1->set_velocidad(sf::Vector2f(0,0));
                     j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
                 }else if(evento->key.code == (sf::Keyboard::Space)){
-                    if(esGuerrera){
+                    if(esGuerrera == false){
                         j1->movimiento = false;
 
                         if(j1->direccion == izq){
                             j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
                         }else{
                             j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
+                        }
+                        j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
+                    }else{
+                        j1->movimiento = false;
+
+                        if(j1->direccion == izq){
+                            j1->set_sprite(j1->txt_player,24,4,sf::Vector2i(0,2));
+                        }else{
+                            j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
                         }
                         j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
                     }
