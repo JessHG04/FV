@@ -1,0 +1,107 @@
+[
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/GremoryHole.dir/main.cpp.o -c /home/jess/Escritorio/FV/src/main.cpp",
+  "file": "/home/jess/Escritorio/FV/src/main.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Menu.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/Menu.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Juego.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/Juego.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Jugador.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/Jugador.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/spritePersonaje.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Guerrera.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/Guerrera.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Mago.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/Mago.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Map.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Map.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/Map.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/tinyxml2.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/tinyxml2.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/tinyxml2.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Enemigo.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/Enemigo.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Darkrai.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/Darkrai.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/AnimationDarkrai.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/AnimationDarkrai.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/AnimationDarkrai.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/lara.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/lara.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/mojon.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/mojon.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/cuadradoI.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/cuadradoI.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/cuadradoD.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/bala.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/bala.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/AnimationKinder.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/AnimationKinder.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/KinderSorpresa.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/KinderSorpresa.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Portal.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/Portal.cpp"
+}
+]

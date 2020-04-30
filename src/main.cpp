@@ -91,6 +91,7 @@ int main() {
 		if(entra == true){
 			window->clear();
 			Juego *juego = new Juego(sf::Vector2u(960,640), window);
+			entra = false;
 		}
 			
 	}

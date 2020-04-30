@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 /******************************* HACE TODOS LOS COMANDOS A LA VEZ ************************************/
 /* alias do="cmake -H. -Bbuild && cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole"  */
+/*            alias do="cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole"            */
 /*                                  Luego simplemente pones do                                       */
 /*****************************************************************************************************/
 Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
@@ -23,6 +24,18 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
             while(ventana->pollEvent(*evento)){
                 procesar_eventos();
             }
+            //Pasar de Nivel
+            colisionPersPortal();
+            if(!cargar && level <= maxLevels){
+                std::cout<< "Nivel: " << level << std::endl;
+                mapa = new Map();
+                mapa->mapMatrix(level);
+                mapa->load("resources/Mapas/Tileset.png", sf::Vector2u(16,16), mapa->tilemap, mapa->widthMap, mapa->heightMap, mapa->numLayers);
+                cargar = true;
+            }
+            if(level > maxLevels){
+                gameover = true;
+            }
 
             if(p1){
                 if(colisionProyecMapa(p1->dirColision)){
@@ -41,6 +54,7 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
                 //j1->movimiento = true;
             // Si sigue saltando la gravedad le sigue afectando
             //********************************************* GRAVEDAD *************************************************
+            
             gestionGravedad();
             if(gravedad || j1->saltando){
                 j1->vel_salto += 2.5f;
@@ -158,9 +172,7 @@ void Juego::iniciar(){
     relojInmortal = new sf::Clock();
     cronoInmortal = new sf::Time();
     p1 = 0;
-    mapa = new Map();
-    mapa->mapMatrix(level);
-    mapa->load("resources/Mapas/Tileset.png", sf::Vector2u(16,16), mapa->tilemap, mapa->widthMap, mapa->heightMap, mapa->numLayers);
+    
     if(esGuerrera)
         j1 = new Guerrera(4,4,sf::Vector2i(0,0));
     else
@@ -171,8 +183,7 @@ void Juego::iniciar(){
     mojoncito = new mojon(90*16, 29*16, 81*16, 99*16);
     Sprite *sp = NULL;
     kindercito = new KinderSorpresa(90*16, 110*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
-    //portal = new Portal(170*16,31*16);
-    portal = new Portal(14*16, 32*16);
+    portal = new Portal(170*16,31*16);
     j1->set_posicion(sf::Vector2f(47,21*16));
     j1->dirColision = abajo;
     //j1->direccion = quieto;
@@ -191,7 +202,7 @@ void Juego::dibujar(){
     */
     ventana->setView(vista); //Camara
     ventana->draw(*mapa);
-    ventana->draw(portal->getCaja());
+    //ventana->draw(portal->getCaja());
     portal->Draw(*ventana);
     
     darkrai->Draw(*ventana);
@@ -216,9 +227,19 @@ void Juego::procesar_eventos(){
     {
         case sf::Event::Closed:
             exit(1);
+            //ventana->close();
             break;
         case sf::Event::KeyPressed:
             // si se pulsta la tecla izquierda
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+                exit(1);
+                //ventana->close();
+                break;
+            }
+            if(sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
+                level++;
+                cargar = false;
+            }
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
                  j1->direccion = izq;
                  j1->dirColision = izq;
@@ -560,4 +581,11 @@ bool Juego::colisionPersTrampa(direcciones direccion){ //La colision del persona
         }
     }
     return colisionando;
+}
+
+void Juego::colisionPersPortal(){
+    if(j1->cajaColisiones.getGlobalBounds().intersects(portal->getCaja().getGlobalBounds())){
+        level++;
+        cargar = false;
+    }
 }

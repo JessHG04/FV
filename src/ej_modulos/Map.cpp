@@ -9,17 +9,21 @@ Map::Map(){
 }
 
 void Map::mapMatrix(int level){
-    widthMap = 0;
-    heightMap = 0;
-    numLayers = 0;
-    widthTile = 0;
-    heightTile = 0;
-    vertex.clear();
-
+ 
     tinyxml2::XMLDocument doc;
 
     if(level == 1){
         doc.LoadFile("resources/Mapas/Mazmorra1.tmx");
+    }else if(level == 2){
+        doc.LoadFile("resources/Mapas/Boss1.tmx");
+    }else if(level == 3){
+        doc.LoadFile("resources/Mapas/Mazmorra2.tmx");
+    }else if(level == 4){
+        doc.LoadFile("resources/Mapas/Boss2.tmx");
+    }else if(level == 5){
+        doc.LoadFile("resources/Mapas/Mazmorra3.tmx");
+    }else if(level == 6){
+        doc.LoadFile("resources/Mapas/Boss3.tmx");
     }
 
     //Dimensiones del mapa y tiles

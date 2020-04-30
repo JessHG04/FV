@@ -21,12 +21,17 @@ class Juego{
         void procesar_eventos(); // elementos de entrada, teclado...
         void cortarEventoDash(int distancia);
         void gestionGravedad();
+        void crearEnemigos(int);
+        void crearPortal(int);
+        void limpiarMapa(int);
+        void colisionPersPortal();
         bool colisionPersMapa(direcciones direccion); //1 -> Arriba 2-> Izquierda 3-> Drcha 4->Abajo
         bool colisionProyecMapa(direccionProyectil direccion);
         bool colisionPersTrampa(direcciones direccion);
         
     private:
         bool gameover = false;
+        std::vector <Enemigo *> enemigos;
         //Creamos al jugador
         Jugador *j1;
         //Creamos el proyectil de eugyn
@@ -60,5 +65,6 @@ class Juego{
         bool esGuerrera = false;
         bool gravedad = true;
         int level = 1;
+        int maxLevels = 6;
         bool cargar = false;
 };
