@@ -37,7 +37,7 @@ using namespace sf;
 
     }
     
-    void mojon::Update(){
+    void mojon::Update(float nada){
         float sgs = reloj.getElapsedTime().asSeconds();
         if(sgs >= 0.10){
           if(this->direccion == 0){

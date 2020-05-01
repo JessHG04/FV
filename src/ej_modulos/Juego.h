@@ -20,18 +20,20 @@ class Juego{
         void logica(); // procesa logicas del juego
         void procesar_eventos(); // elementos de entrada, teclado...
         void cortarEventoDash(int distancia);
+        void impacto();
         void gestionGravedad();
         void crearEnemigos();
         void crearPortal();
-        void limpiarMapa();
         void colisionPersPortal();
         bool colisionPersMapa(direcciones direccion); //1 -> Arriba 2-> Izquierda 3-> Drcha 4->Abajo
         bool colisionProyecMapa(direccionProyectil direccion);
         bool colisionPersTrampa(direcciones direccion);
         
     private:
+        Sprite *sp = NULL; //Segundo sprite al que persigue Kinder
         bool gameover = false;
         std::vector <Enemigo *> enemigos;
+        int totalEnemigos;
         //Creamos al jugador
         Jugador *j1;
         //Creamos el proyectil de eugyn
@@ -39,15 +41,23 @@ class Juego{
         //Creamos el mapa
         Map *mapa = NULL;
         //creamos enemigo
-        Darkrai *darkrai;
-        //Creamos a Lara 
-        lara *larita = NULL;
+        Darkrai *darkrai1 = NULL;
+        Darkrai *darkrai2 = NULL;
+        Darkrai *darkrai3 = NULL;
         //Creamos al mojon
-        mojon *mojoncito = NULL;
+        mojon *mojoncito1 = NULL;
+        mojon *mojoncito2 = NULL;
+        mojon *mojoncito3 = NULL;
+        //Creamos a kinder
+        KinderSorpresa *kindercito1 = NULL;
+        KinderSorpresa *kindercito2 = NULL;
+        KinderSorpresa *kindercito3 = NULL;
+        //Creamos a Lara 
+        lara *larita1 = NULL;
+        lara *larita2 = NULL;
+        lara *larita3 = NULL;
         //Creamos el portal
         Portal *portal = NULL;
-        //Creamos a kinder
-        KinderSorpresa *kindercito = NULL;
         //Creamos la vista
         sf::View vista;
         //El evento que se recibe

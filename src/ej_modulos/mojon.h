@@ -19,7 +19,7 @@ class mojon : public Enemigo{
         mojon(int, int, int, int);
         ~mojon();
         void Draw(RenderWindow &);
-        void Update();
+        void Update(float);
         void cambiarSprite(int);
         void cambiarSpriteDos(int);
         Sprite getSprite();

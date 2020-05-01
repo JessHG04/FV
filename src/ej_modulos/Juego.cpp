@@ -27,14 +27,14 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
             //Pasar de Nivel
             colisionPersPortal();
             if(!cargar && level <= maxLevels){
-                limpiarMapa();
+                crearPortal();
+                crearEnemigos();
                 std::cout<< "Nivel: " << level << std::endl;
                 mapa = new Map();
                 mapa->mapMatrix(level);
                 mapa->load("resources/Mapas/Tileset.png", sf::Vector2u(16,16), mapa->tilemap, mapa->widthMap, mapa->heightMap, mapa->numLayers);
                 cargar = true;
-                crearPortal();
-                crearEnemigos();
+               
             }
             if(level > maxLevels){
                 gameover = true;
@@ -85,26 +85,20 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
             j1->update();
             if(p1)
                 p1->update();
-
-            darkrai->Update(reloj1->getElapsedTime().asSeconds());
-            if(larita->Update(*ventana, j1, (73*16 + 100), (34*16))){
-                if(!j1->inmortal){ 
-                    relojInmortal->restart();
-                    j1->inmortal = true;
-                    j1->vida --;
-                    if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
-                        gameover = true;
-                    if(j1->direccion == izq){
-                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
-                    }
-                    
-                    if(j1->direccion == der){
-                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+            //UPDATES ENEMIGOS
+            for(int x = 0; x < enemigos.size(); x++){
+                if(enemigos[x] != NULL){
+                    if(x < 9){
+                        enemigos[x]->Update(reloj1->getElapsedTime().asSeconds());
                     }
                 }
             }
-            mojoncito->Update();
-            kindercito->Update(reloj1->getElapsedTime().asSeconds());
+
+            if(larita1 != NULL){
+                if(larita1->Update(*ventana, j1, (83*16+100), (20*16))){ ///Cambiar las x e y del update
+                    impacto();
+                }
+            }
             portal->Update();
             dibujar();
             //Si sigue saltando y llega a la posicion de donde salto se para
@@ -181,11 +175,10 @@ void Juego::iniciar(){
     else
         j1 = new Mago(4,4,sf::Vector2i(0,0));
 
-    darkrai = new Darkrai(1500,200,25.0f,*j1->spr_player);
-    larita = new lara(73*16, 34*16);
-    mojoncito = new mojon(90*16, 29*16, 81*16, 99*16);
-    Sprite *sp = NULL;
-    kindercito = new KinderSorpresa(90*16, 110*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
+    //darkrai = new Darkrai(1500,200,25.0f,*j1->spr_player);
+    
+    //mojoncito = new mojon(90*16, 29*16, 81*16, 99*16);
+    //kindercito = new KinderSorpresa(90*16, 110*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
     portal = new Portal(170*16,31*16);
     
     j1->set_posicion(sf::Vector2f(47,21*16));
@@ -209,14 +202,20 @@ void Juego::dibujar(){
     ventana->draw(*mapa);
     //ventana->draw(portal->getCaja());
     portal->Draw(*ventana);
-    
-    darkrai->Draw(*ventana);
-    larita->Draw(*ventana);
-    if(larita->dispara == true){
-        larita->getBala().Draw(*ventana);
+    for(int x = 0; x < enemigos.size(); x++){
+        if(enemigos[x] != NULL){
+            enemigos[x]->Draw(*ventana);
+        }
     }
-    mojoncito->Draw(*ventana);
-    kindercito->Draw(*ventana);
+    //darkrai->Draw(*ventana);
+    /*if(larita1 != NULL){
+        larita1->Draw(*ventana);
+    }*/
+    if(larita1 != NULL && larita1->dispara == true){
+        larita1->getBala().Draw(*ventana);
+    }
+   //mojoncito->Draw(*ventana);
+    //kindercito->Draw(*ventana);
     ventana->draw(j1->get_sprite());
     if(p1)
         ventana->draw(p1->get_sprite());
@@ -595,8 +594,21 @@ void Juego::colisionPersPortal(){
     }
 }
 
-void Juego::limpiarMapa(){
-
+void Juego::impacto(){
+    if(!j1->inmortal){ 
+        relojInmortal->restart();
+        j1->inmortal = true;
+        j1->vida --;
+        if(j1->vida == 0)
+            gameover = true;
+        if(j1->direccion == izq){
+            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
+        }
+        
+        if(j1->direccion == der){
+            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+        }
+    }
 }
 
 void Juego::crearPortal(){
@@ -641,5 +653,49 @@ void Juego::crearPortal(){
 }
 
 void Juego::crearEnemigos(){
+    darkrai1 = NULL;
+    darkrai2 = NULL;
+    darkrai3 = NULL;
+    mojoncito1 = NULL;
+    mojoncito2 = NULL;
+    mojoncito3 = NULL;
+    kindercito1 = NULL;
+    kindercito2 = NULL;
+    kindercito3 = NULL;
+    larita1 = NULL;
+    larita2 = NULL;
+    larita3 = NULL;
+    enemigos.clear();
+    if(level == 1){
+        mojoncito1 = new mojon(60*16, 38*16, 55*16, 68*16);
+        kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
+        larita1 = new lara(83*16, 20*16);
+        enemigos.push_back(NULL);
+        enemigos.push_back(NULL);
+        enemigos.push_back(NULL);
+        enemigos.push_back(mojoncito1);
+        enemigos.push_back(NULL);
+        enemigos.push_back(NULL);
+        enemigos.push_back(kindercito1);
+        enemigos.push_back(NULL);
+        enemigos.push_back(NULL);
+        enemigos.push_back(larita1);
+        enemigos.push_back(NULL);
+        enemigos.push_back(NULL);
+    }
+    if(level == 2){
 
+    }
+    if(level == 3){
+
+    }
+    if(level == 4){
+
+    }
+    if(level == 5){
+
+    }
+    if(level == 6){
+
+    }
 }
