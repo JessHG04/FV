@@ -33,6 +33,7 @@ class Juego{
         Sprite *sp = NULL; //Segundo sprite al que persigue Kinder
         bool gameover = false;
         std::vector <Enemigo *> enemigos;
+        //POSICIONES: D1 - D2 - D3 - M1 - M2 - M3 - K1 - K2 - K3 - L1 - L2 - L3
         int totalEnemigos;
         //Creamos al jugador
         Jugador *j1;

@@ -94,8 +94,23 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
                 }
             }
 
-            if(larita1 != NULL){
+            if(larita1 != NULL && level == 1){
                 if(larita1->Update(*ventana, j1, (83*16+100), (20*16))){ ///Cambiar las x e y del update
+                    impacto();
+                }
+            }
+            if(larita1 != NULL && level == 3){
+                if(larita1->Update(*ventana, j1, (6*16+100), (12*16))){ ///Cambiar las x e y del update
+                    impacto();
+                }
+            }
+            if(larita2 != NULL && level == 3){
+                if(larita2->Update(*ventana, j1, (111*16+100), (14*16))){ ///Cambiar las x e y del update
+                    impacto();
+                }
+            }
+            if(larita3 != NULL){
+                if(larita3->Update(*ventana, j1, (83*16+100), (20*16))){ ///Cambiar las x e y del update
                     impacto();
                 }
             }
@@ -213,6 +228,12 @@ void Juego::dibujar(){
     }*/
     if(larita1 != NULL && larita1->dispara == true){
         larita1->getBala().Draw(*ventana);
+    }
+    if(larita2 != NULL && larita2->dispara == true){
+        larita2->getBala().Draw(*ventana);
+    }
+    if(larita3 != NULL && larita3->dispara == true){
+        larita3->getBala().Draw(*ventana);
     }
    //mojoncito->Draw(*ventana);
     //kindercito->Draw(*ventana);
@@ -667,10 +688,11 @@ void Juego::crearEnemigos(){
     larita3 = NULL;
     enemigos.clear();
     if(level == 1){
+        darkrai1 = new Darkrai(125*16, 6*16, 25.0f, *j1->spr_player);
         mojoncito1 = new mojon(60*16, 38*16, 55*16, 68*16);
         kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
         larita1 = new lara(83*16, 20*16);
-        enemigos.push_back(NULL);
+        enemigos.push_back(darkrai1);
         enemigos.push_back(NULL);
         enemigos.push_back(NULL);
         enemigos.push_back(mojoncito1);
@@ -687,7 +709,25 @@ void Juego::crearEnemigos(){
 
     }
     if(level == 3){
-
+        darkrai1 = new Darkrai(51*16, 6*16, 25.0f, *j1->spr_player);
+        darkrai2 = new Darkrai(172*16, 6*16, 25.0f, *j1->spr_player);
+        mojoncito1 = new mojon(43*16, 29*16, 40*16, 48*16);
+        mojoncito2 = new mojon(138*16, 26*16, 132*16, 146*16);
+        kindercito1 = new KinderSorpresa(73*16, 99*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
+        larita1 = new lara(6*16, 12*16);
+        larita2 = new lara(111*16, 14*16);
+        enemigos.push_back(darkrai1);
+        enemigos.push_back(darkrai2);
+        enemigos.push_back(NULL);
+        enemigos.push_back(mojoncito1);
+        enemigos.push_back(mojoncito2);
+        enemigos.push_back(NULL);
+        enemigos.push_back(kindercito1);
+        enemigos.push_back(NULL);
+        enemigos.push_back(NULL);
+        enemigos.push_back(larita1);
+        enemigos.push_back(larita2);
+        enemigos.push_back(NULL);
     }
     if(level == 4){
 
