@@ -32,8 +32,27 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
                         p1 = 0;           
                     }
                 }
+                // Colision proyectil con el mojon
                 if(p1 != nullptr){
                     if(mojoncito->colisionProyectil(p1)){
+                        delete p1;        
+                        p1 = 0;
+                    }
+                }
+                if(p1 != nullptr){
+                    if(larita->colisionProyectil(p1)){
+                        delete p1;        
+                        p1 = 0;
+                    }
+                }
+                if(p1 != nullptr){
+                    if(darkrai->colisionProyectil(p1)){
+                        delete p1;        
+                        p1 = 0;
+                    }
+                }
+                if(p1 != nullptr){
+                    if(kindercito->colisionProyectil(p1)){
                         delete p1;        
                         p1 = 0;
                     }

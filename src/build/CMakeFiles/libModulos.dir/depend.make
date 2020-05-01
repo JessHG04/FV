@@ -11,6 +11,8 @@ CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/AnimationDarkr
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Darkrai.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Darkrai.h
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Enemigo.h
+CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Proyectil.h
+CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/spritePersonaje.h
 
 CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o: ../ej_modulos/Enemigo.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o: ../ej_modulos/Enemigo.h
@@ -47,6 +49,8 @@ CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o: ../ej_modulos/Animati
 CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o: ../ej_modulos/Enemigo.h
 CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o: ../ej_modulos/KinderSorpresa.cpp
 CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o: ../ej_modulos/KinderSorpresa.h
+CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o: ../ej_modulos/Proyectil.h
+CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o: ../ej_modulos/spritePersonaje.h
 
 CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o: ../ej_modulos/Jugador.h
 CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o: ../ej_modulos/Mago.cpp

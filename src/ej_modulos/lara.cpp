@@ -56,105 +56,94 @@ using namespace sf;
     }
 
     void lara::restartSprite(){
-        sprite->setTextureRect(sf::IntRect(31, 12, 47, 52));
-        sprite->setScale(1, 1);
+        sprite->setColor(Color(255,255,255));
     }
 
     // x se refiere a la x de la bala, y es 100 mas que la x de lara
     bool lara::Update(RenderWindow &window, spritePersonaje *spritep, int x, int y){
-        bool disparo = false;
-        float sgs2 = relojb.getElapsedTime().asSeconds();
-        float sgs = reloja.getElapsedTime().asSeconds();
-        float sgs3 = relojc.getElapsedTime().asSeconds();
-        float sgs4 = relojd.getElapsedTime().asSeconds();
-        float sgs5 = reloje.getElapsedTime().asSeconds();
-        float sgs6 = relojf.getElapsedTime().asSeconds();
-        //cout << sgs << endl;
-        if(sgs >= 0.5){
-            avanza++;
-            this->cambiarSprite(avanza, spritep);
-            if(avanza == 2){
-                // yasta = true;
-                avanza = -1;
-            }
-            reloja.restart();
+        if(restartear == true){
+            impactado.restart();
+            restartear = false;
         }
-        // window.clear();
-        // larita->Draw(window);
-        if(sgs2 >= coolDownDisparo){
-            // balera = new bala(x, y);
-            balera->restartSprite();
-            if(lado == false){
-                balera->getSprite()->setPosition(x, y);
+        this->impactoProyectil();
+        if(golpeado == false){
+            disparo = false;
+            float sgs2 = relojb.getElapsedTime().asSeconds();
+            float sgs = reloja.getElapsedTime().asSeconds();
+            float sgs3 = relojc.getElapsedTime().asSeconds();
+            float sgs4 = relojd.getElapsedTime().asSeconds();
+            float sgs5 = reloje.getElapsedTime().asSeconds();
+            float sgs6 = relojf.getElapsedTime().asSeconds();
+            if(sgs >= 0.5){
+                avanza++;
+                this->cambiarSprite(avanza, spritep);
+                if(avanza == 2){
+                    avanza = -1;
+                }
+                reloja.restart();
+            }
+            if(sgs2 >= coolDownDisparo){
+                balera->restartSprite();
+                if(lado == false){
+                    balera->getSprite()->setPosition(x, y);
+                }
+                else{
+                    balera->getSprite()->setPosition(x+50, y);
+                }
+                dispara = true;
+                relojb.restart();
             }
             else{
-                balera->getSprite()->setPosition(x+50, y);
-            }
-            /*
-            if(es == false){
-                cout << balera->getSprite()->getPosition().x << endl;
-                cout << this->getSprite().getPosition().x << endl;
-                es = true;
-            }
-            */
-            dispara = true;
-            //cout << sgs2 << endl;
-            //cout << balera << endl;
-            // balera->Draw(window);
-            relojb.restart();
-        }
-        else{
-            if(balera != nullptr){
-                if(lado == false){
-                    balera->movimientoBalaIz();
-                    /*
-                    if(balera->getSprite()->getPosition().x <= (this->getSprite().getPosition().x+100)){
+                if(balera != nullptr){
+                    if(lado == false){
                         balera->movimientoBalaIz();
                     }
                     else{
-                        balera->getSprite()->setPosition(x, y);
                         balera->movimientoBalaDe();
                     }
-                    //balera->Draw(window);
-                    */
                 }
-                else{
-                     balera->movimientoBalaDe();
+            }
+            if(balera != nullptr){
+                if(sgs4 >= 0.2){
+                    if(balera->getSprite()->getGlobalBounds().intersects(spritep->getSprite().getGlobalBounds())){
+                        balera->hacerTransparente();
+                        disparo = true;
+                    }
+                    else{
+                    }
+                    relojd.restart();
                 }
             }
         }
-        if(balera != nullptr){
-            if(sgs4 >= 0.2){
-                if(balera->getSprite()->getGlobalBounds().intersects(spritep->getSprite().getGlobalBounds())){
-                    //cout << "Le quita 1 vida al personaje" << endl;
-                    //mojonillo->perderVida();
-                    //cout << "Mojon: " << mojonillo->getNumVidas() << endl;
-                    //mojonillo->hacerTransparente();
-                    balera->hacerTransparente();
-                    disparo = true;
-                }
-                else{
-                    //mojonillo->restartSprite();
-                }
-                relojd.restart();
-            }
+       return disparo;
+    }
+
+    bool lara::colisionProyectil(Proyectil *p1){
+        bool x = false;
+        if(p1->get_sprite().getGlobalBounds().intersects(sprite->getGlobalBounds()) && golpeado == false){
+            x = true;
+            golpeado = true;
+            restartear = true;           
         }
-        // Funcionalidad que sera anyadida en el proximo hito
-        /*
-        if(sgs3 >= 1) {
-            if(spritep->getSprite().getGlobalBounds().intersects(this->getSprite().getGlobalBounds())){
-                cout << "Le quita 1 vida a lara" << endl;
-                this->recibeGolpe();
-                cout << "Lara: " << this->getNumVidas() << endl;
-                sprite->setColor(Color::Transparent);
+        return x;
+    }
+
+    void lara::impactoProyectil(){
+        float sgs = impactado.getElapsedTime().asSeconds();
+        if(golpeado == true){
+            if(contando % 2 == 0){
+                sprite->setColor(Color::Red);
+                contando++;
             }
             else{
-                sprite->setColor(Color(255,255,255));
+                this->hacerTransparente();
+                contando++;
             }
-            relojc.restart();
+            if(sgs >= 1){
+                this->restartSprite();
+                golpeado = false;
+            }
         }
-        */
-       return disparo;
     }
 
     void lara::Draw(RenderWindow &window){
@@ -163,6 +152,10 @@ using namespace sf;
 
     void lara::recibeGolpe(){
         perderVida();
+    }
+
+    void lara::hacerTransparente(){
+        sprite->setColor(Color::Transparent);
     }
 
     Sprite lara::getSprite(){

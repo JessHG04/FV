@@ -12,6 +12,8 @@ CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o
  /home/pascual/Escritorio/FV/src/ej_modulos/Darkrai.cpp
  /home/pascual/Escritorio/FV/src/ej_modulos/Darkrai.h
  /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.h
+ /home/pascual/Escritorio/FV/src/ej_modulos/Proyectil.h
+ /home/pascual/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o
  /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.cpp
  /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.h
@@ -48,6 +50,8 @@ CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o
  /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.h
  /home/pascual/Escritorio/FV/src/ej_modulos/KinderSorpresa.cpp
  /home/pascual/Escritorio/FV/src/ej_modulos/KinderSorpresa.h
+ /home/pascual/Escritorio/FV/src/ej_modulos/Proyectil.h
+ /home/pascual/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o
  /home/pascual/Escritorio/FV/src/ej_modulos/Jugador.h
  /home/pascual/Escritorio/FV/src/ej_modulos/Mago.cpp
