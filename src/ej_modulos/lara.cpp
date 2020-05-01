@@ -31,7 +31,7 @@ using namespace sf;
         
         // Lo dispongo en el centro de la pantalla
         sprite->setPosition(xx, yy);
-        balera = new bala();
+        //balera = new bala();
     }
 
     void lara::cambiarSprite(int x, spritePersonaje *spritep){
@@ -83,12 +83,11 @@ using namespace sf;
                 reloja.restart();
             }
             if(sgs2 >= coolDownDisparo){
-                balera->restartSprite();
                 if(lado == false){
-                    balera->getSprite()->setPosition(x, y);
+                    balera = new bala(x, y);
                 }
                 else{
-                    balera->getSprite()->setPosition(x+50, y);
+                    balera = new bala(x + 50, y);
                 }
                 dispara = true;
                 relojb.restart();
@@ -96,10 +95,20 @@ using namespace sf;
             else{
                 if(balera != nullptr){
                     if(lado == false){
-                        balera->movimientoBalaIz();
+                        if(balera->getSprite()->getPosition().x > x){
+                            balera->movimientoBalaDe();
+                        }
+                        else{
+                            balera->movimientoBalaIz();
+                        }
                     }
                     else{
-                        balera->movimientoBalaDe();
+                        if(balera->getSprite()->getPosition().x < x){
+                            balera->movimientoBalaIz();
+                        }
+                        else{
+                            balera->movimientoBalaDe();
+                        }
                     }
                 }
             }
