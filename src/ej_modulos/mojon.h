@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Enemigo.h"
 #include "Proyectil.h"
+#include "spritePersonaje.h"
 
 using namespace std;
 using namespace sf;
@@ -25,10 +26,12 @@ class mojon : public Enemigo{
         void cambiarSpriteDos(int);
         bool colisionProyectil(Proyectil *);
         void impactoProyectil();
+        bool colisionProtagonista(spritePersonaje *);
         Sprite getSprite();
         void recibeGolpe();
         void hacerTransparente();
         void restartSprite();
+        bool morir();
     private:
         Sprite *sprite;
 };

@@ -130,15 +130,15 @@ sf::RectangleShape Darkrai::getBoundingBox() {
 }
 
 bool Darkrai::colisionProyectil(Proyectil *p1){
-        bool x = false;
-        if(p1->get_sprite().getGlobalBounds().intersects(body->getGlobalBounds()) && golpeado == false){
-            cout << "Ta chocando broder" << endl;
-            x = true;
-            golpeado = true;
-            restartear = true;           
-        }
-        return x;
+    bool x = false;
+    if(p1->get_sprite().getGlobalBounds().intersects(body->getGlobalBounds()) && golpeado == false){
+        this->perderVida();
+        x = true;
+        golpeado = true;
+        restartear = true;           
     }
+    return x;
+}
 
 void Darkrai::impactoProyectil(){
     float sgs = impactado.getElapsedTime().asSeconds();
@@ -152,19 +152,33 @@ void Darkrai::impactoProyectil(){
             contando++;
         }
         if(sgs >= 1){
-            cout << "Entra aqui";
             this->restartSprite();
             golpeado = false;
         }
     }
 }
 
+bool Darkrai::colisionProtagonista(spritePersonaje *sp){
+  bool x = false;
+  if(boundingBox->getGlobalBounds().intersects(sp->getSprite().getGlobalBounds())){
+    x = true;
+  }
+  return x;
+}
 
 void Darkrai::recibeGolpe() {
   if (!esGolpeado) {
     esGolpeado = true;
     this->perderVida();
   }
+}
+
+bool Darkrai::morir(){
+  bool x = false;
+  if(this->getMuerte()){
+    x = true;
+  }
+  return x;
 }
 
 void Darkrai::hacerTransparente(){

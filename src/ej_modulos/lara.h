@@ -22,7 +22,7 @@ class lara : public Enemigo{
         bool dispara = false, lado = false, es = false, disparo = false;
         int numVidas, avanza = 0;
         int contando = 0;
-        float coolDownDisparo = 1.5;
+        float coolDownDisparo = 1;
         bool fin, yasta = false, entra = false, entrada = false, esGolpeado = false, golpeado = false, restartear = false;
         lara(int, int);
         void cambiarSprite(int, spritePersonaje*);
@@ -31,6 +31,7 @@ class lara : public Enemigo{
         void Draw(RenderWindow &);
         bool Update(RenderWindow &, spritePersonaje*, int, int);
         bool colisionProyectil(Proyectil *);
+        bool morir();
         void impactoProyectil();
         void recibeGolpe();
         void hacerTransparente();

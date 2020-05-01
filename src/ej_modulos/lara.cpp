@@ -36,9 +36,21 @@ using namespace sf;
 
     void lara::cambiarSprite(int x, spritePersonaje *spritep){
         if(x == 0){
-            sprite->setTextureRect(sf::IntRect(31, 12, 47, 52));
+            sprite->setTextureRect(sf::IntRect(142, 350, 34, 52));
         }
         else if(x == 1){
+            sprite->setTextureRect(sf::IntRect(243, 286, 43, 52));
+        }
+        else if(x == 2){
+            sprite->setTextureRect(sf::IntRect(33, 351, 37, 52));
+        }
+        else if(x == 3){
+            sprite->setTextureRect(sf::IntRect(243, 286, 43, 52));
+        }
+        else if(x == 4){
+            sprite->setTextureRect(sf::IntRect(31, 12, 47, 52));
+        }
+        else if(x == 5){
             sprite->setTextureRect(sf::IntRect(228, 12, 73, 52));
         }
         else{
@@ -74,10 +86,10 @@ using namespace sf;
             float sgs4 = relojd.getElapsedTime().asSeconds();
             float sgs5 = reloje.getElapsedTime().asSeconds();
             float sgs6 = relojf.getElapsedTime().asSeconds();
-            if(sgs >= 0.5){
+            if(sgs >= 0.1){
                 avanza++;
                 this->cambiarSprite(avanza, spritep);
-                if(avanza == 2){
+                if(avanza == 7){
                     avanza = -1;
                 }
                 reloja.restart();
@@ -130,6 +142,7 @@ using namespace sf;
     bool lara::colisionProyectil(Proyectil *p1){
         bool x = false;
         if(p1->get_sprite().getGlobalBounds().intersects(sprite->getGlobalBounds()) && golpeado == false){
+            this->perderVida();
             x = true;
             golpeado = true;
             restartear = true;           
@@ -153,6 +166,14 @@ using namespace sf;
                 golpeado = false;
             }
         }
+    }
+
+    bool lara::morir(){
+        bool x = false;
+        if(this->getMuerte()){
+            x = true;
+        }
+        return x;
     }
 
     void lara::Draw(RenderWindow &window){

@@ -23,7 +23,6 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
             while(ventana->pollEvent(*evento)){
                 procesar_eventos();
             }
-
             if(p1){
                 if(p1 != nullptr){
                     if(colisionProyecMapa(p1->dirColision)){
@@ -32,41 +31,9 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
                         p1 = 0;           
                     }
                 }
-                // Colision proyectil con el mojon
-                if(p1 != nullptr){
-                    if(mojoncito->colisionProyectil(p1)){
-                        delete p1;        
-                        p1 = 0;
-                    }
-                }
-                if(p1 != nullptr){
-                    if(larita->colisionProyectil(p1)){
-                        delete p1;        
-                        p1 = 0;
-                    }
-                }
-                if(p1 != nullptr){
-                    if(darkrai->colisionProyectil(p1)){
-                        delete p1;        
-                        p1 = 0;
-                    }
-                }
-                if(p1 != nullptr){
-                    if(kindercito->colisionProyectil(p1)){
-                        delete p1;        
-                        p1 = 0;
-                    }
-                }
+                this->colisionProyectilEnemigos();
             }
                 //CUANDO SE REALICE LA COLISION SE ELIMINARA EL PROYECTIL-------------------------------------------
-              //  if(COLISION)  {
-                   // delete p1;
-                   // p1 = 0; 
-               // }
-            //Si es mago nunca se para
-             //if(instanceof<Mago>(j1))
-                //j1->movimiento = true;
-            // Si sigue saltando la gravedad le sigue afectando
             //********************************************* GRAVEDAD *************************************************
             gestionGravedad();
             if(gravedad || j1->saltando){
@@ -96,25 +63,16 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
             if(p1)
                 p1->update();
 
-            darkrai->Update(reloj1->getElapsedTime().asSeconds());
-            if(larita->Update(*ventana, j1, (73*16 + 100), (34*16))){
-                if(!j1->inmortal){ 
-                    relojInmortal->restart();
-                    j1->inmortal = true;
-                    j1->vida --;
-                    if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
-                        gameover = true;
-                    if(j1->direccion == izq){
-                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
-                    }
-                    
-                    if(j1->direccion == der){
-                        j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
-                    }
-                }
+            if(!muerteDarkrai){
+                darkrai->Update(reloj1->getElapsedTime().asSeconds());
             }
-            mojoncito->Update();
-            kindercito->Update(reloj1->getElapsedTime().asSeconds());
+            this->colisionesProtagonista();
+            if(!muerteMojon){
+                mojoncito->Update();
+            }
+            if(!muerteKinder){
+                kindercito->Update(reloj1->getElapsedTime().asSeconds());
+            }
             dibujar();
             //Si sigue saltando y llega a la posicion de donde salto se para
           
@@ -162,7 +120,7 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
                     }
                 }
             }
-
+            this->muerteNPCs();
             reloj1->restart();
             //Camara - Extremo derecho, normal, extremo izquierdo
             if(j1->get_posicion().x >= (mapa->widthMap * 16 - resolucion.x /2)){
@@ -216,13 +174,23 @@ void Juego::dibujar(){
     ventana->setView(vista); //Camara
     ventana->draw(*mapa);
     ventana->draw(j1->get_sprite());
-    darkrai->Draw(*ventana);
-    larita->Draw(*ventana);
-    if(larita->dispara == true){
-        larita->getBala().Draw(*ventana);
+    if(!muerteDarkrai){
+        darkrai->Draw(*ventana);
     }
-    mojoncito->Draw(*ventana);
-    kindercito->Draw(*ventana);
+    if(!muerteLara){
+        larita->Draw(*ventana);
+    }
+    if(!muerteLara){
+        if(larita->dispara == true){
+            larita->getBala().Draw(*ventana);
+        }
+    }
+    if(!muerteMojon){
+        mojoncito->Draw(*ventana);
+    }
+    if(!muerteKinder){
+        kindercito->Draw(*ventana);
+    }
     
     if(p1)
         ventana->draw(p1->get_sprite());
@@ -582,4 +550,110 @@ bool Juego::colisionPersTrampa(direcciones direccion){ //La colision del persona
         }
     }
     return colisionando;
+}
+
+void Juego::quitarVida(){
+    if(!j1->inmortal){ 
+        relojInmortal->restart();
+        j1->inmortal = true;
+        j1->vida --;
+        if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
+            gameover = true;
+        if(j1->direccion == izq){
+            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
+        }
+        
+        if(j1->direccion == der){
+            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+        }
+    }
+}
+
+void Juego::colisionesProtagonista(){
+    if(!muerteLara){
+        if(larita->Update(*ventana, j1, (73*16 + 100), (34*16))){
+            this->quitarVida();
+        }
+    }
+    if(!muerteDarkrai){
+        if(darkrai->colisionProtagonista(j1)){
+            this->quitarVida();
+        }
+    }
+    if(!muerteMojon){
+        if(mojoncito->colisionProtagonista(j1)){
+            this->quitarVida();
+        }
+    }
+    if(!muerteKinder){
+        if(kindercito->colisionProtagonista(j1)){
+            this->quitarVida();
+        }
+    }
+}
+
+void Juego::colisionProyectilEnemigos(){
+    // Colision proyectil con mojon
+    if(p1 != nullptr){
+        if(!muerteMojon){
+            if(mojoncito->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+    // Colision proyectil con lara
+    if(p1 != nullptr){
+        if(!muerteLara){
+            if(larita->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+    // Colision proyectil con darkrai
+    if(p1 != nullptr){
+        if(!muerteDarkrai){
+            if(darkrai->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+    // Colision proyectil con kinderSorpresa
+    if(p1 != nullptr){
+        if(!muerteKinder){
+            if(kindercito->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+}
+
+void Juego::muerteNPCs(){
+    if(!muerteMojon){
+        if(mojoncito->morir()){
+            delete mojoncito;
+            muerteMojon = true;
+        }
+    }
+    if(!muerteDarkrai){
+        if(darkrai->morir()){
+            delete darkrai;
+            muerteDarkrai = true;
+        }
+    }
+    if(!muerteLara){
+        if(larita->morir()){
+            delete larita;
+            muerteLara = true;
+        }
+    }
+    if(!muerteKinder){
+        if(kindercito->morir()){
+            delete kindercito;
+            muerteKinder = true;
+        }
+    }
 }

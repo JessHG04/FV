@@ -23,6 +23,8 @@ AnimationDarkrai.h
 /home/pascual/Escritorio/FV/src/ej_modulos/AnimationDarkrai.h
 Proyectil.h
 /home/pascual/Escritorio/FV/src/ej_modulos/Proyectil.h
+spritePersonaje.h
+/home/pascual/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
 /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.h
 SFML/Graphics.hpp
@@ -83,6 +85,8 @@ AnimationKinder.h
 /home/pascual/Escritorio/FV/src/ej_modulos/AnimationKinder.h
 Proyectil.h
 /home/pascual/Escritorio/FV/src/ej_modulos/Proyectil.h
+spritePersonaje.h
+/home/pascual/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
 /home/pascual/Escritorio/FV/src/ej_modulos/Mago.h
 SFML/Graphics.hpp
@@ -159,6 +163,8 @@ Enemigo.h
 /home/pascual/Escritorio/FV/src/ej_modulos/Enemigo.h
 Proyectil.h
 /home/pascual/Escritorio/FV/src/ej_modulos/Proyectil.h
+spritePersonaje.h
+/home/pascual/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
 /home/pascual/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 SFML/Graphics.hpp

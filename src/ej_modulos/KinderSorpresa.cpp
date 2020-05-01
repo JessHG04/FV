@@ -205,14 +205,15 @@ bool KinderSorpresa::estaEnRango(sf::Sprite *p) {
 }
 
 bool KinderSorpresa::colisionProyectil(Proyectil *p1){
-        bool x = false;
-        if(p1->get_sprite().getGlobalBounds().intersects(boundingBox->getGlobalBounds()) && golpeado == false){
-            x = true;
-            golpeado = true;
-            restartear = true;           
-        }
-        return x;
+    bool x = false;
+    if(p1->get_sprite().getGlobalBounds().intersects(boundingBox->getGlobalBounds()) && golpeado == false){
+        this->perderVida();
+        x = true;
+        golpeado = true;
+        restartear = true;           
     }
+    return x;
+}
 
 void KinderSorpresa::impactoProyectil(){
     float sgs = impactado.getElapsedTime().asSeconds();
@@ -232,6 +233,13 @@ void KinderSorpresa::impactoProyectil(){
     }
 }
 
+bool KinderSorpresa::colisionProtagonista(spritePersonaje *sp){
+    bool x = false;
+    if(boundingBox->getGlobalBounds().intersects(sp->getSprite().getGlobalBounds())){
+        x = true;
+    }
+    return x;
+}
 
 void KinderSorpresa::recibeGolpe() {
     if (!esGolpeado) {
@@ -240,6 +248,13 @@ void KinderSorpresa::recibeGolpe() {
     }
 }
 
+bool KinderSorpresa::morir(){
+    bool x = false;
+    if(this->getMuerte()){
+        x = true;
+    }
+    return x;
+}
 
 void KinderSorpresa::Draw(RenderWindow &window) {
     if (esGolpeado) {

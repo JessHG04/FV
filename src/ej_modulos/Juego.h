@@ -23,6 +23,10 @@ class Juego{
         bool colisionPersMapa(direcciones direccion); //1 -> Arriba 2-> Izquierda 3-> Drcha 4->Abajo
         bool colisionProyecMapa(direccionProyectil direccion);
         bool colisionPersTrampa(direcciones direccion);
+        void quitarVida();
+        void colisionesProtagonista();
+        void colisionProyectilEnemigos();
+        void muerteNPCs();
         
     private:
         bool gameover = false;
@@ -55,4 +59,5 @@ class Juego{
         int fps;
         bool esGuerrera = false;
         bool gravedad = true;
+        bool muerteMojon = false, muerteDarkrai = false, muerteLara = false, muerteKinder = false;
 };

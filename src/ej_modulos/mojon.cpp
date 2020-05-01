@@ -70,7 +70,8 @@ using namespace sf;
     bool mojon::colisionProyectil(Proyectil *p1){
         bool x = false;
         if(p1->get_sprite().getGlobalBounds().intersects(sprite->getGlobalBounds()) && golpeado == false){
-            cout << "Ta chocando broder" << endl;
+            this->perderVida();
+            //cout << "Num vidas: " << this->getNumVidas() << endl;
             x = true;
             golpeado = true;
             restartear = true;           
@@ -94,6 +95,14 @@ using namespace sf;
                 golpeado = false;
             }
         }
+    }
+
+    bool mojon::colisionProtagonista(spritePersonaje *sp){
+        bool x = false;
+        if(sprite->getGlobalBounds().intersects(sp->getSprite().getGlobalBounds())){
+            x = true;
+        }
+        return x;
     }
 
     void mojon::cambiarSprite(int x){
@@ -134,6 +143,14 @@ using namespace sf;
             sprite->move(-kVel, 0);
         }
         sprite->setScale(1, 1);
+    }
+
+    bool mojon::morir(){
+        bool x = false;
+        if(this->getMuerte()){
+            x = true;
+        }
+        return x;
     }
 
     void mojon::Draw(RenderWindow &window){

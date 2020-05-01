@@ -4,6 +4,7 @@
 #include "Enemigo.h"
 #include "AnimationDarkrai.h"
 #include "Proyectil.h"
+#include "spritePersonaje.h"
 
 class Darkrai : public Enemigo {
 
@@ -16,6 +17,8 @@ class Darkrai : public Enemigo {
         void recibeGolpe();
         bool colisionProyectil(Proyectil *);
         void impactoProyectil();
+        bool colisionProtagonista(spritePersonaje *);
+        bool morir();
         void hacerTransparente();
         void restartSprite();
         sf::Sprite* getSprite();
