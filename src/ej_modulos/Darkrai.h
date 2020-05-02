@@ -1,8 +1,10 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include <math.h>
 #include "Enemigo.h"
 #include "AnimationDarkrai.h"
+
 
 class Darkrai : public Enemigo {
 
@@ -27,4 +29,5 @@ class Darkrai : public Enemigo {
         sf::Sprite *personaje;
         AnimationDarkrai *animacion;
         bool esGolpeado = false;
+        bool follow = false;
 };

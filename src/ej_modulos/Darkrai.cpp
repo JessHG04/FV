@@ -46,14 +46,15 @@ Darkrai::~Darkrai() {
 
 void Darkrai::Update(float deltaTime) {
     sf::Vector2f movimiento(0.0f, 0.0f);
+    sf::Vector2i distancia(0, 0);
 
-    if (personaje) {
+    // Distancia de perseguimiento y vision...
+    distancia.x = abs(body->getPosition().x) - abs(personaje->getPosition().x);
 
-      sf::Vector2i distancia(0, 0);
+    if (follow) {
       sf::Vector2f angulo(0.0f, 0.0f);
 
       // Calculamos la distancia...
-      distancia.x = abs(body->getPosition().x) - abs(personaje->getPosition().x);
       distancia.y = abs(body->getPosition().y) - abs(personaje->getPosition().y);
 
       if (distancia.x > 0) {
@@ -97,6 +98,11 @@ void Darkrai::Update(float deltaTime) {
           }
         }
 
+      }
+    } else {
+
+      if (abs(distancia.x) < 300.f) {
+        follow = true;
       }
     }
 

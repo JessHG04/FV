@@ -29,6 +29,8 @@ Darkrai.h
 /home/alex/Desktop/FV/src/ej_modulos/Darkrai.h
 SFML/Graphics.hpp
 -
+math.h
+-
 Enemigo.h
 /home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
 AnimationDarkrai.h
