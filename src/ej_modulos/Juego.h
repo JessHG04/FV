@@ -23,14 +23,16 @@ class Juego{
         void impacto();
         void gestionGravedad();
         void crearEnemigos();
-        void crearPortal();
+        void crearPortal(); //Crear el portal, reseteo de personaje y fondo
         void colisionPersPortal();
         bool colisionPersMapa(direcciones direccion); //1 -> Arriba 2-> Izquierda 3-> Drcha 4->Abajo
         bool colisionProyecMapa(direccionProyectil direccion);
         bool colisionPersTrampa(direcciones direccion);
         
     private:
-        Sprite *sp = NULL; //Segundo sprite al que persigue Kinder
+        sf::Sprite *sp = NULL; //Segundo sprite al que persigue Kinder
+        sf::Texture textFondo;
+        sf::Sprite fondo;
         bool gameover = false;
         std::vector <Enemigo *> enemigos;
         //POSICIONES: D1 - D2 - D3 - M1 - M2 - M3 - K1 - K2 - K3 - L1 - L2 - L3

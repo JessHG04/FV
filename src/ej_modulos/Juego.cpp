@@ -25,7 +25,9 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
                 procesar_eventos();
             }
             //Pasar de Nivel
-            colisionPersPortal();
+            if(portal != NULL){
+                colisionPersPortal();
+            }
             if(!cargar && level <= maxLevels){
                 crearPortal();
                 crearEnemigos();
@@ -88,37 +90,45 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
             //UPDATES ENEMIGOS
             for(int x = 0; x < enemigos.size(); x++){
                 if(enemigos[x] != NULL){
-                    if(x < 9){
+                    if(x < 9){ //Hace todos los updates menos los de Lara porque tiene otros parámetros
                         enemigos[x]->Update(reloj1->getElapsedTime().asSeconds());
                     }
                 }
             }
 
             if(larita1 != NULL && level == 1){
-                if(larita1->Update(*ventana, j1, (83*16+100), (20*16))){ ///Cambiar las x e y del update
+                if(larita1->Update(*ventana, j1, (83*16+100), (20*16))){ 
                     impacto();
                 }
             }
             if(larita1 != NULL && level == 3){
-                if(larita1->Update(*ventana, j1, (6*16+100), (12*16))){ ///Cambiar las x e y del update
+                if(larita1->Update(*ventana, j1, (6*16+100), (12*16))){ 
                     impacto();
                 }
             }
             if(larita2 != NULL && level == 3){
-                if(larita2->Update(*ventana, j1, (111*16+100), (14*16))){ ///Cambiar las x e y del update
+                if(larita2->Update(*ventana, j1, (111*16+100), (14*16))){ 
+                    impacto();
+                }
+            }
+            if(larita1 != NULL && level == 5){
+                if(larita1->Update(*ventana, j1, (54*16+100), (16*16))){ 
+                    impacto();
+                }
+            }
+            if(larita2 != NULL && level == 5){
+                if(larita2->Update(*ventana, j1, (79*16+100), (10*16))){ 
                     impacto();
                 }
             }
             if(larita3 != NULL){
-                if(larita3->Update(*ventana, j1, (83*16+100), (20*16))){ ///Cambiar las x e y del update
+                if(larita3->Update(*ventana, j1, (83*16+100), (20*16))){ 
                     impacto();
                 }
             }
             portal->Update();
             dibujar();
-            //Si sigue saltando y llega a la posicion de donde salto se para
           
-              //EN EL JUEGO CAMBIAR ESTA CONDICION POR LA COLISION CON EL MAPA PORQUE PUEDE SER QUE SE SUBA A UNA PLATAFORMA Y NO VUELVA A LA POSICION INICIAL
             if(cronoInmortal->asSeconds() > 2.5 && j1->inmortal){
                 j1->inmortal = false;
                 if(j1->direccion == izq){
@@ -175,6 +185,7 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
             vista.setCenter(pos_vista);
         }
     }
+    ventana->close();
 }
 //******************************************* FIN DEL BUCLE DEL JUEGO ************************************************************
 void Juego::iniciar(){
@@ -188,14 +199,7 @@ void Juego::iniciar(){
     if(esGuerrera)
         j1 = new Guerrera(4,4,sf::Vector2i(0,0));
     else
-        j1 = new Mago(4,4,sf::Vector2i(0,0));
-
-    //darkrai = new Darkrai(1500,200,25.0f,*j1->spr_player);
-    
-    //mojoncito = new mojon(90*16, 29*16, 81*16, 99*16);
-    //kindercito = new KinderSorpresa(90*16, 110*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
-    portal = new Portal(170*16,31*16);
-    
+        j1 = new Mago(4,4,sf::Vector2i(0,0));  
     j1->set_posicion(sf::Vector2f(47,21*16));
     j1->dirColision = abajo;
     //j1->direccion = quieto;
@@ -214,6 +218,7 @@ void Juego::dibujar(){
     ventana->draw(j1->cajaColisiones);
     */
     ventana->setView(vista); //Camara
+    ventana->draw(fondo);
     ventana->draw(*mapa);
     //ventana->draw(portal->getCaja());
     portal->Draw(*ventana);
@@ -640,37 +645,56 @@ void Juego::crearPortal(){
         j1->set_posicion(sf::Vector2f(4*16,27*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
+        if(!textFondo.loadFromFile("resources/fondo1.jpg")){
+    	    std::cout << "Error cargando imagen de fondo de la mazmorra 1" << std::endl;
+	    }
     }
     if(level == 2){
         portal = new Portal(53*16, 32*16);
         j1->set_posicion(sf::Vector2f(5*16,33*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
+        if(!textFondo.loadFromFile("resources/boss1.jpg")){
+    	    std::cout << "Error cargando imagen de fondo del boss 1" << std::endl;
+	    }
     }
     if(level == 3){
         portal = new Portal(171*16, 25*16);
         j1->set_posicion(sf::Vector2f(3*16,27*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
+        if(!textFondo.loadFromFile("resources/fondo2.jpg")){
+    	    std::cout << "Error cargando imagen de fondo de la mazmorra 2" << std::endl;
+	    }
     }
     if(level == 4){
         portal = new Portal(53*16, 32*16);
         j1->set_posicion(sf::Vector2f(5*16,33*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
+        if(!textFondo.loadFromFile("resources/boss1.jpg")){
+    	    std::cout << "Error cargando imagen de fondo del boss 2" << std::endl;
+	    }
     }
     if(level == 5){
         portal = new Portal(170*16, 23*16);
         j1->set_posicion(sf::Vector2f(4*16,9*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
+        if(!textFondo.loadFromFile("resources/fondo3.png")){
+    	    std::cout << "Error cargando imagen de fondo de la mazmorra 3" << std::endl;
+	    }
     }
     if(level == 6){
         portal = new Portal(53*16, 32*16);
         j1->set_posicion(sf::Vector2f(5*16,33*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
+        if(!textFondo.loadFromFile("resources/boss1.png")){
+    	    std::cout << "Error cargando imagen de fondo del boss 3" << std::endl;
+	    }
     }
+    fondo.setTexture(textFondo);
 }
 
 void Juego::crearEnemigos(){
@@ -692,18 +716,6 @@ void Juego::crearEnemigos(){
         mojoncito1 = new mojon(60*16, 38*16, 55*16, 68*16);
         kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
         larita1 = new lara(83*16, 20*16);
-        enemigos.push_back(darkrai1);
-        enemigos.push_back(NULL);
-        enemigos.push_back(NULL);
-        enemigos.push_back(mojoncito1);
-        enemigos.push_back(NULL);
-        enemigos.push_back(NULL);
-        enemigos.push_back(kindercito1);
-        enemigos.push_back(NULL);
-        enemigos.push_back(NULL);
-        enemigos.push_back(larita1);
-        enemigos.push_back(NULL);
-        enemigos.push_back(NULL);
     }
     if(level == 2){
 
@@ -716,26 +728,31 @@ void Juego::crearEnemigos(){
         kindercito1 = new KinderSorpresa(73*16, 99*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
         larita1 = new lara(6*16, 12*16);
         larita2 = new lara(111*16, 14*16);
-        enemigos.push_back(darkrai1);
-        enemigos.push_back(darkrai2);
-        enemigos.push_back(NULL);
-        enemigos.push_back(mojoncito1);
-        enemigos.push_back(mojoncito2);
-        enemigos.push_back(NULL);
-        enemigos.push_back(kindercito1);
-        enemigos.push_back(NULL);
-        enemigos.push_back(NULL);
-        enemigos.push_back(larita1);
-        enemigos.push_back(larita2);
-        enemigos.push_back(NULL);
     }
     if(level == 4){
 
     }
     if(level == 5){
-
+        darkrai1 = new Darkrai(101*16, 12*16, 25.0f, *j1->spr_player);
+        mojoncito1 = new mojon (9*16, 39*16, 4*16, 15*16);
+        mojoncito2 = new mojon(69*16, 41*16, 65*16, 76*16);
+        kindercito1 = new KinderSorpresa(85*16, 103*16, 34*16, 40.0, *(j1->spr_player), *sp, 10);
+        larita1 = new lara(54*16, 16*16);
+        larita2 = new lara (79*16, 10*16);
     }
     if(level == 6){
 
     }
+    enemigos.push_back(darkrai1);
+    enemigos.push_back(darkrai2);
+    enemigos.push_back(darkrai3);
+    enemigos.push_back(mojoncito1);
+    enemigos.push_back(mojoncito2);
+    enemigos.push_back(mojoncito3);
+    enemigos.push_back(kindercito1);
+    enemigos.push_back(kindercito2);
+    enemigos.push_back(kindercito3);
+    enemigos.push_back(larita1);
+    enemigos.push_back(larita2);
+    enemigos.push_back(larita3);
 }
