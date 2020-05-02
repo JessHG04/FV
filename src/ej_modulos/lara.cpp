@@ -53,9 +53,13 @@ using namespace sf;
         }
         else if(x == 4){
             shoot = false;
-            sprite->setTextureRect(sf::IntRect(31, 12, 47, 52));
+            sprite->setTextureRect(sf::IntRect(143, 288, 52, 52));
         }
         else if(x == 5){
+            shoot = false;
+            sprite->setTextureRect(sf::IntRect(31, 12, 47, 52));
+        }
+        else if(x == 6){
             shoot = false;
             sprite->setTextureRect(sf::IntRect(228, 12, 73, 52));
         }
@@ -87,16 +91,12 @@ using namespace sf;
         this->impactoProyectil();
         if(golpeado == false){
             disparo = false;
-            float sgs2 = relojb.getElapsedTime().asSeconds();
             float sgs = reloja.getElapsedTime().asSeconds();
-            float sgs3 = relojc.getElapsedTime().asSeconds();
             float sgs4 = relojd.getElapsedTime().asSeconds();
-            float sgs5 = reloje.getElapsedTime().asSeconds();
-            float sgs6 = relojf.getElapsedTime().asSeconds();
             if(sgs >= 0.1){
                 avanza++;
                 this->cambiarSprite(avanza, spritep);
-                if(avanza == 7){
+                if(avanza == 8){
                     avanza = -1;
                 }
                 reloja.restart();
@@ -110,7 +110,6 @@ using namespace sf;
                     balera = new bala(x + 32, y);
                 }
                 dispara = true;
-                relojb.restart();
             }
             else{
                 if(balera != nullptr){
