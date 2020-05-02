@@ -36,24 +36,31 @@ using namespace sf;
 
     void lara::cambiarSprite(int x, spritePersonaje *spritep){
         if(x == 0){
+            shoot = false;
             sprite->setTextureRect(sf::IntRect(142, 350, 34, 52));
         }
         else if(x == 1){
+            shoot = false;
             sprite->setTextureRect(sf::IntRect(243, 286, 43, 52));
         }
         else if(x == 2){
+            shoot = false;
             sprite->setTextureRect(sf::IntRect(33, 351, 37, 52));
         }
         else if(x == 3){
+            shoot = false;
             sprite->setTextureRect(sf::IntRect(243, 286, 43, 52));
         }
         else if(x == 4){
+            shoot = false;
             sprite->setTextureRect(sf::IntRect(31, 12, 47, 52));
         }
         else if(x == 5){
+            shoot = false;
             sprite->setTextureRect(sf::IntRect(228, 12, 73, 52));
         }
         else{
+            shoot = true;
             sprite->setTextureRect(sf::IntRect(115, 12, 78, 52));
         }
 
@@ -94,12 +101,13 @@ using namespace sf;
                 }
                 reloja.restart();
             }
-            if(sgs2 >= coolDownDisparo){
+            //if(sgs2 >= coolDownDisparo){
+            if(shoot == true){
                 if(lado == false){
                     balera = new bala(x, y);
                 }
                 else{
-                    balera = new bala(x + 50, y);
+                    balera = new bala(x + 32, y);
                 }
                 dispara = true;
                 relojb.restart();
@@ -135,6 +143,9 @@ using namespace sf;
                     relojd.restart();
                 }
             }
+        }
+        else{
+            balera->hacerTransparente();
         }
        return disparo;
     }

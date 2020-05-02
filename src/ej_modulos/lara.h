@@ -19,7 +19,7 @@ class lara : public Enemigo{
     public:
         Texture *tex;
         Clock reloja, relojb, relojc, relojd, reloje, relojf, impactado;
-        bool dispara = false, lado = false, es = false, disparo = false;
+        bool dispara = false, lado = false, es = false, disparo = false, shoot = false;
         int numVidas, avanza = 0;
         int contando = 0;
         float coolDownDisparo = 1;

@@ -169,8 +169,8 @@ void Juego::dibujar(){
     box.scale(1,1.05); //Se hace un pelín más grande
     box.setFillColor(sf::Color::Green);
     ventana->draw(box);
-    ventana->draw(j1->cajaColisiones);
     */
+    ventana->draw(j1->cajaColisiones);
     ventana->setView(vista); //Camara
     ventana->draw(*mapa);
     ventana->draw(j1->get_sprite());
