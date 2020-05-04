@@ -4,6 +4,7 @@
 CMakeFiles/GremoryHole.dir/main.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/AnimationDarkrai.h
  /home/jess/Escritorio/FV/src/ej_modulos/AnimationKinder.h
+ /home/jess/Escritorio/FV/src/ej_modulos/Boss.h
  /home/jess/Escritorio/FV/src/ej_modulos/Darkrai.h
  /home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
  /home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
@@ -15,8 +16,16 @@ CMakeFiles/GremoryHole.dir/main.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/Map.h
  /home/jess/Escritorio/FV/src/ej_modulos/Menu.h
  /home/jess/Escritorio/FV/src/ej_modulos/MenuSeleccionPersonaje.h
+ /home/jess/Escritorio/FV/src/ej_modulos/NPC.h
+ /home/jess/Escritorio/FV/src/ej_modulos/PersonajeBoss.h
+ /home/jess/Escritorio/FV/src/ej_modulos/PersonajeNPC.h
+ /home/jess/Escritorio/FV/src/ej_modulos/PoderTrueno.h
  /home/jess/Escritorio/FV/src/ej_modulos/Portal.h
  /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+ /home/jess/Escritorio/FV/src/ej_modulos/SpriteBoss.h
+ /home/jess/Escritorio/FV/src/ej_modulos/SpriteNPC.h
+ /home/jess/Escritorio/FV/src/ej_modulos/SpriteTrueno.h
+ /home/jess/Escritorio/FV/src/ej_modulos/Trueno.h
  /home/jess/Escritorio/FV/src/ej_modulos/bala.h
  /home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.h
  /home/jess/Escritorio/FV/src/ej_modulos/lara.h

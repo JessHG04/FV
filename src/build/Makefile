@@ -190,6 +190,33 @@ ej_modulos/AnimationKinder.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.s
 .PHONY : ej_modulos/AnimationKinder.cpp.s
 
+ej_modulos/Boss.o: ej_modulos/Boss.cpp.o
+
+.PHONY : ej_modulos/Boss.o
+
+# target to build an object file
+ej_modulos/Boss.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o
+.PHONY : ej_modulos/Boss.cpp.o
+
+ej_modulos/Boss.i: ej_modulos/Boss.cpp.i
+
+.PHONY : ej_modulos/Boss.i
+
+# target to preprocess a source file
+ej_modulos/Boss.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.i
+.PHONY : ej_modulos/Boss.cpp.i
+
+ej_modulos/Boss.s: ej_modulos/Boss.cpp.s
+
+.PHONY : ej_modulos/Boss.s
+
+# target to generate assembly for a file
+ej_modulos/Boss.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.s
+.PHONY : ej_modulos/Boss.cpp.s
+
 ej_modulos/Darkrai.o: ej_modulos/Darkrai.cpp.o
 
 .PHONY : ej_modulos/Darkrai.o
@@ -487,6 +514,114 @@ ej_modulos/MenuSeleccionPersonaje.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.s
 .PHONY : ej_modulos/MenuSeleccionPersonaje.cpp.s
 
+ej_modulos/NPC.o: ej_modulos/NPC.cpp.o
+
+.PHONY : ej_modulos/NPC.o
+
+# target to build an object file
+ej_modulos/NPC.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o
+.PHONY : ej_modulos/NPC.cpp.o
+
+ej_modulos/NPC.i: ej_modulos/NPC.cpp.i
+
+.PHONY : ej_modulos/NPC.i
+
+# target to preprocess a source file
+ej_modulos/NPC.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.i
+.PHONY : ej_modulos/NPC.cpp.i
+
+ej_modulos/NPC.s: ej_modulos/NPC.cpp.s
+
+.PHONY : ej_modulos/NPC.s
+
+# target to generate assembly for a file
+ej_modulos/NPC.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.s
+.PHONY : ej_modulos/NPC.cpp.s
+
+ej_modulos/PersonajeBoss.o: ej_modulos/PersonajeBoss.cpp.o
+
+.PHONY : ej_modulos/PersonajeBoss.o
+
+# target to build an object file
+ej_modulos/PersonajeBoss.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o
+.PHONY : ej_modulos/PersonajeBoss.cpp.o
+
+ej_modulos/PersonajeBoss.i: ej_modulos/PersonajeBoss.cpp.i
+
+.PHONY : ej_modulos/PersonajeBoss.i
+
+# target to preprocess a source file
+ej_modulos/PersonajeBoss.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.i
+.PHONY : ej_modulos/PersonajeBoss.cpp.i
+
+ej_modulos/PersonajeBoss.s: ej_modulos/PersonajeBoss.cpp.s
+
+.PHONY : ej_modulos/PersonajeBoss.s
+
+# target to generate assembly for a file
+ej_modulos/PersonajeBoss.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.s
+.PHONY : ej_modulos/PersonajeBoss.cpp.s
+
+ej_modulos/PersonajeNPC.o: ej_modulos/PersonajeNPC.cpp.o
+
+.PHONY : ej_modulos/PersonajeNPC.o
+
+# target to build an object file
+ej_modulos/PersonajeNPC.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o
+.PHONY : ej_modulos/PersonajeNPC.cpp.o
+
+ej_modulos/PersonajeNPC.i: ej_modulos/PersonajeNPC.cpp.i
+
+.PHONY : ej_modulos/PersonajeNPC.i
+
+# target to preprocess a source file
+ej_modulos/PersonajeNPC.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.i
+.PHONY : ej_modulos/PersonajeNPC.cpp.i
+
+ej_modulos/PersonajeNPC.s: ej_modulos/PersonajeNPC.cpp.s
+
+.PHONY : ej_modulos/PersonajeNPC.s
+
+# target to generate assembly for a file
+ej_modulos/PersonajeNPC.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.s
+.PHONY : ej_modulos/PersonajeNPC.cpp.s
+
+ej_modulos/PoderTrueno.o: ej_modulos/PoderTrueno.cpp.o
+
+.PHONY : ej_modulos/PoderTrueno.o
+
+# target to build an object file
+ej_modulos/PoderTrueno.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o
+.PHONY : ej_modulos/PoderTrueno.cpp.o
+
+ej_modulos/PoderTrueno.i: ej_modulos/PoderTrueno.cpp.i
+
+.PHONY : ej_modulos/PoderTrueno.i
+
+# target to preprocess a source file
+ej_modulos/PoderTrueno.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.i
+.PHONY : ej_modulos/PoderTrueno.cpp.i
+
+ej_modulos/PoderTrueno.s: ej_modulos/PoderTrueno.cpp.s
+
+.PHONY : ej_modulos/PoderTrueno.s
+
+# target to generate assembly for a file
+ej_modulos/PoderTrueno.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.s
+.PHONY : ej_modulos/PoderTrueno.cpp.s
+
 ej_modulos/Portal.o: ej_modulos/Portal.cpp.o
 
 .PHONY : ej_modulos/Portal.o
@@ -540,6 +675,114 @@ ej_modulos/Proyectil.s: ej_modulos/Proyectil.cpp.s
 ej_modulos/Proyectil.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.s
 .PHONY : ej_modulos/Proyectil.cpp.s
+
+ej_modulos/SpriteBoss.o: ej_modulos/SpriteBoss.cpp.o
+
+.PHONY : ej_modulos/SpriteBoss.o
+
+# target to build an object file
+ej_modulos/SpriteBoss.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o
+.PHONY : ej_modulos/SpriteBoss.cpp.o
+
+ej_modulos/SpriteBoss.i: ej_modulos/SpriteBoss.cpp.i
+
+.PHONY : ej_modulos/SpriteBoss.i
+
+# target to preprocess a source file
+ej_modulos/SpriteBoss.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.i
+.PHONY : ej_modulos/SpriteBoss.cpp.i
+
+ej_modulos/SpriteBoss.s: ej_modulos/SpriteBoss.cpp.s
+
+.PHONY : ej_modulos/SpriteBoss.s
+
+# target to generate assembly for a file
+ej_modulos/SpriteBoss.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.s
+.PHONY : ej_modulos/SpriteBoss.cpp.s
+
+ej_modulos/SpriteNPC.o: ej_modulos/SpriteNPC.cpp.o
+
+.PHONY : ej_modulos/SpriteNPC.o
+
+# target to build an object file
+ej_modulos/SpriteNPC.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o
+.PHONY : ej_modulos/SpriteNPC.cpp.o
+
+ej_modulos/SpriteNPC.i: ej_modulos/SpriteNPC.cpp.i
+
+.PHONY : ej_modulos/SpriteNPC.i
+
+# target to preprocess a source file
+ej_modulos/SpriteNPC.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.i
+.PHONY : ej_modulos/SpriteNPC.cpp.i
+
+ej_modulos/SpriteNPC.s: ej_modulos/SpriteNPC.cpp.s
+
+.PHONY : ej_modulos/SpriteNPC.s
+
+# target to generate assembly for a file
+ej_modulos/SpriteNPC.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.s
+.PHONY : ej_modulos/SpriteNPC.cpp.s
+
+ej_modulos/SpriteTrueno.o: ej_modulos/SpriteTrueno.cpp.o
+
+.PHONY : ej_modulos/SpriteTrueno.o
+
+# target to build an object file
+ej_modulos/SpriteTrueno.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o
+.PHONY : ej_modulos/SpriteTrueno.cpp.o
+
+ej_modulos/SpriteTrueno.i: ej_modulos/SpriteTrueno.cpp.i
+
+.PHONY : ej_modulos/SpriteTrueno.i
+
+# target to preprocess a source file
+ej_modulos/SpriteTrueno.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.i
+.PHONY : ej_modulos/SpriteTrueno.cpp.i
+
+ej_modulos/SpriteTrueno.s: ej_modulos/SpriteTrueno.cpp.s
+
+.PHONY : ej_modulos/SpriteTrueno.s
+
+# target to generate assembly for a file
+ej_modulos/SpriteTrueno.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.s
+.PHONY : ej_modulos/SpriteTrueno.cpp.s
+
+ej_modulos/Trueno.o: ej_modulos/Trueno.cpp.o
+
+.PHONY : ej_modulos/Trueno.o
+
+# target to build an object file
+ej_modulos/Trueno.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o
+.PHONY : ej_modulos/Trueno.cpp.o
+
+ej_modulos/Trueno.i: ej_modulos/Trueno.cpp.i
+
+.PHONY : ej_modulos/Trueno.i
+
+# target to preprocess a source file
+ej_modulos/Trueno.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.i
+.PHONY : ej_modulos/Trueno.cpp.i
+
+ej_modulos/Trueno.s: ej_modulos/Trueno.cpp.s
+
+.PHONY : ej_modulos/Trueno.s
+
+# target to generate assembly for a file
+ej_modulos/Trueno.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.s
+.PHONY : ej_modulos/Trueno.cpp.s
 
 ej_modulos/bala.o: ej_modulos/bala.cpp.o
 
@@ -773,6 +1016,9 @@ help:
 	@echo "... ej_modulos/AnimationKinder.o"
 	@echo "... ej_modulos/AnimationKinder.i"
 	@echo "... ej_modulos/AnimationKinder.s"
+	@echo "... ej_modulos/Boss.o"
+	@echo "... ej_modulos/Boss.i"
+	@echo "... ej_modulos/Boss.s"
 	@echo "... ej_modulos/Darkrai.o"
 	@echo "... ej_modulos/Darkrai.i"
 	@echo "... ej_modulos/Darkrai.s"
@@ -806,12 +1052,36 @@ help:
 	@echo "... ej_modulos/MenuSeleccionPersonaje.o"
 	@echo "... ej_modulos/MenuSeleccionPersonaje.i"
 	@echo "... ej_modulos/MenuSeleccionPersonaje.s"
+	@echo "... ej_modulos/NPC.o"
+	@echo "... ej_modulos/NPC.i"
+	@echo "... ej_modulos/NPC.s"
+	@echo "... ej_modulos/PersonajeBoss.o"
+	@echo "... ej_modulos/PersonajeBoss.i"
+	@echo "... ej_modulos/PersonajeBoss.s"
+	@echo "... ej_modulos/PersonajeNPC.o"
+	@echo "... ej_modulos/PersonajeNPC.i"
+	@echo "... ej_modulos/PersonajeNPC.s"
+	@echo "... ej_modulos/PoderTrueno.o"
+	@echo "... ej_modulos/PoderTrueno.i"
+	@echo "... ej_modulos/PoderTrueno.s"
 	@echo "... ej_modulos/Portal.o"
 	@echo "... ej_modulos/Portal.i"
 	@echo "... ej_modulos/Portal.s"
 	@echo "... ej_modulos/Proyectil.o"
 	@echo "... ej_modulos/Proyectil.i"
 	@echo "... ej_modulos/Proyectil.s"
+	@echo "... ej_modulos/SpriteBoss.o"
+	@echo "... ej_modulos/SpriteBoss.i"
+	@echo "... ej_modulos/SpriteBoss.s"
+	@echo "... ej_modulos/SpriteNPC.o"
+	@echo "... ej_modulos/SpriteNPC.i"
+	@echo "... ej_modulos/SpriteNPC.s"
+	@echo "... ej_modulos/SpriteTrueno.o"
+	@echo "... ej_modulos/SpriteTrueno.i"
+	@echo "... ej_modulos/SpriteTrueno.s"
+	@echo "... ej_modulos/Trueno.o"
+	@echo "... ej_modulos/Trueno.i"
+	@echo "... ej_modulos/Trueno.s"
 	@echo "... ej_modulos/bala.o"
 	@echo "... ej_modulos/bala.i"
 	@echo "... ej_modulos/bala.s"

@@ -155,7 +155,17 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                     impacto();
                 }
             }
-            
+            //BOSS PROYECTIL
+            if(pBoss != NULL)
+                pBoss->animar();
+            if(bossFinal != NULL)
+                bossFinal->updateBoss();
+            if(pBoss != NULL)
+                pBoss->update();
+            if(bossFinal != NULL)
+                bossLanza();
+            if(bossFinal != NULL)
+                bossTrueno();
             portal->Update();
             dibujar();
           
@@ -259,6 +269,10 @@ void Juego::iniciar(){
     crono1 = new sf::Time();
     relojInmortal = new sf::Clock();
     cronoInmortal = new sf::Time();
+    relojBoss = new sf::Clock();
+    cronoBoss = new sf::Time();
+    relojTrueno = new sf::Clock();
+    cronoTrueno = new sf::Time();
     p1 = 0;
     
     if(esGuerrera){
@@ -297,6 +311,32 @@ void Juego::dibujar(){
     if(larita3 != NULL && larita3->dispara == true){
         larita3->getBala().Draw(*ventana);
     }
+    //---------NPC-------------
+    if(npc != NULL){
+        ventana->draw(npc->getSpriteEne());
+        ventana->draw(npc->cajaColisionesNPC);
+    }
+    //elijo la imagen dependiendo de la variable auxiliar (numero de monologo)
+    if(npc != NULL){
+        if(conversacionInicial.size()>0){
+            for(int i = 0; i < conversacionInicial.size(); i++){
+                if(variableAuxiliar==0){
+                    ventana->draw(conversacionInicial[0]);
+                }else if(variableAuxiliar==100){
+                    ventana->draw(conversacionInicial[1]);
+                }else if(variableAuxiliar==200){
+                    ventana->draw(conversacionInicial[2]);
+                }else if(variableAuxiliar==300){
+                    ventana->draw(conversacionInicial[3]);
+                }
+            }
+        }
+    }
+    //---------BOSS-------------
+    if(bossFinal != NULL){
+        ventana->draw(bossFinal->getSpriteBoss());
+        ventana->draw(bossFinal->cajaColisionesBoss);
+    }
    
     ventana->draw(j1->cajaColisiones);
     ventana->draw(j1->cajaColisiones2);
@@ -304,7 +344,20 @@ void Juego::dibujar(){
     ventana->draw(j1->get_sprite());
     if(p1)
         ventana->draw(p1->get_sprite());
+    //Boss proyectil
+    if(pBoss)
+        ventana->draw(pBoss->get_sprite());
 
+    //Boss trueno
+    if(trueno != NULL){
+        ventana->draw(trueno->getSpriteEne());
+        ventana->draw(trueno->cajaColisionesNPC);
+    }
+    if(trueno2 != NULL){
+        ventana->draw(trueno2->getSpriteEne());
+        ventana->draw(trueno2->cajaColisionesNPC);
+    }
+    
     if(interfaz){
         ventana->draw(interfaz->nombre2);
         ventana->draw(*interfaz->spr_cara);
@@ -458,6 +511,19 @@ void Juego::procesar_eventos(){
                     }
                     
                 }
+
+//------------------------NPC INICIO---------------------------------------------------------------------------------------
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
+                //compruebo la posicion cerca del NPC - SI CAMBIAMOS LA POSICIÓN DEL NPC, REVISAR EL IF DEL RANGO
+                if(npc != NULL){
+                    std::cout << "Posicion X: " << npc->getPosicionEne().x - j1->get_posicion().x <<  std::endl;
+                    std::cout << "Posicion Y: " << j1->get_posicion().y-npc->getPosicionEne().y << std::endl;
+                    if(npc->getPosicionEne().x - j1->get_posicion().x >=30 && npc->getPosicionEne().x - j1->get_posicion().x<=60 && j1->get_posicion().y-npc->getPosicionEne().y <= 15 && j1->get_posicion().y-npc->getPosicionEne().y >= 5){
+                        //aumento para que cambie a la siguiente imagen
+                        variableAuxiliar+=100;
+                    }
+                }
+            }
     //------------------------ATAQUE-------------------------------------------------------------------------------------------
                 else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
                     if(!esGuerrera){
@@ -815,12 +881,38 @@ void Juego::crearEnemigos(){
     larita1 = NULL;
     larita2 = NULL;
     larita3 = NULL;
+    npc = NULL;
+    bossFinal = NULL;
+    trueno = NULL;
+    trueno2 = NULL;
     enemigos.clear();
     if(level == 1){
         darkrai1 = new Darkrai(125*16, 6*16, 25.0f, *j1->spr_player);
         mojoncito1 = new mojon(60*16, 38*16, 55*16, 68*16);
         kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
         larita1 = new lara(83*16, 20*16);
+        //NPC
+        //inicializo NPC
+        npc = new PersonajeNPC(4, 10, sf::Vector2i(0,0));
+        npc -> cambiarPosicionEne(sf::Vector2f(290,310));
+        npc->movimientoEne=false;
+        npc->cambiarFrameYNPC(0);
+        npc->setVelEne(sf::Vector2f(0.0, 0.0));
+        npc->updateEne();
+
+        //anyado todas las imagenes del monologo del NPC
+        conver1.loadFromFile("resources/Sprites/conversacion/conver1.png");
+        conversacionInicial.push_back(sf::Sprite(conver1));
+        conver2.loadFromFile("resources/Sprites/conversacion/conver2.png");
+        conversacionInicial.push_back(sf::Sprite(conver2));
+        conver3.loadFromFile("resources/Sprites/conversacion/conver3.png");
+        conversacionInicial.push_back(sf::Sprite(conver3));
+        conver3.loadFromFile("resources/Sprites/conversacion/conver4.png");
+        conversacionInicial.push_back(sf::Sprite(conver4));
+        for(int i = 0; i < conversacionInicial.size(); i++){
+            //conversacionInicial[i].setScale(1.5, 1.5);
+            conversacionInicial[i].setPosition(sf::Vector2f(200,320));
+        }
     }
     if(level == 2){  //Mojon hacerlo grandesico y más fuertote
         mojoncito1 = new mojon(43*16, 42*16, 4*16, 55*16);
@@ -847,7 +939,28 @@ void Juego::crearEnemigos(){
         larita2 = new lara (79*16, 10*16);
     }
     if(level == 6){
+        //BOSS
+        bossFinal = new PersonajeBoss(4, 10, sf::Vector2i(0,0));
+        bossFinal -> cambiarPosicionBoss(sf::Vector2f(330,440));
+        bossFinal->movimientoBoss=false;
+        bossFinal->cambiarFrameYBoss(2);
+        bossFinal->direccionBoss=izquierdaBoss;
+        bossFinal->setVelBoss(sf::Vector2f(0.0, 0.0));
+        bossFinal->updateBoss();    
+        //inicializo rayo
+        trueno = new Trueno(4, 2, sf::Vector2i(0,0));
+        trueno -> cambiarPosicionEne(sf::Vector2f(200,300));
+        trueno->movimientoEne=false;
+        trueno->cambiarFrameYNPC(0);
+        trueno->setVelEne(sf::Vector2f(0.0, 0.0));
+        trueno->updateEne();
 
+        trueno2 = new Trueno(4, 2, sf::Vector2i(0,0));
+        trueno2 -> cambiarPosicionEne(sf::Vector2f(400,300));
+        trueno2->movimientoEne=false;
+        trueno2->cambiarFrameYNPC(0);
+        trueno2->setVelEne(sf::Vector2f(0.0, 0.0));
+        trueno2->updateEne();
     }
     enemigos.push_back(darkrai1);
     enemigos.push_back(darkrai2);
@@ -997,4 +1110,61 @@ void Juego::detenerDash(){
     }
     j1->set_velocidad(sf::Vector2f(0,0));
     j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
+}
+
+//BOSS lanzamiento proyectil
+void Juego::bossLanza(){
+
+    *cronoBoss = relojBoss->getElapsedTime();
+    int valor = rand() % 2; 
+    //cada cierto tiempo el boss lanza un proyectil
+    if(cronoBoss->asSeconds()>2.4){
+            if(valor==0){
+                pBoss = new Proyectil(4,1,sf::Vector2i(0,0));
+
+                //si mira en direccion derecha, lanzara el proyectil hacia la izquierda
+                if(bossFinal->direccionBoss == der)
+                    pBoss->dirColision = derecha;
+                else
+                    pBoss->dirColision = izquierda;
+                pBoss->posicionInicial = sf::Vector2f(pBoss->get_posicion().x,pBoss->get_posicion().y);
+                
+                //si mira en direccion izquierda, lanzara el proyectil hacia la izquierda
+                if(bossFinal->direccionBoss == izq){
+
+                    pBoss->set_posicion(sf::Vector2f(bossFinal->getPosicionBoss().x-20,bossFinal->getPosicionBoss().y));
+                    pBoss->set_velocidad(sf::Vector2f(-pBoss->vel_desp,0));
+                }
+                else{
+                    pBoss->set_posicion(sf::Vector2f(bossFinal->getPosicionBoss().x+20,bossFinal->getPosicionBoss().y));
+                    pBoss->set_velocidad(sf::Vector2f(pBoss->vel_desp,0));
+                }
+            }else if(valor==1){
+                //trueno->animarMuerteNPC();
+            }
+        //reinicio de reloj
+        relojBoss->restart();
+    }
+}
+
+
+//BOSS lanza trueno
+
+//BOSS lanzamiento proyectil
+void Juego::bossTrueno(){
+
+    *cronoTrueno = relojTrueno->getElapsedTime();
+    int valor = rand() % 2; 
+
+    //cada cierto tiempo el boss lanza un proyectil
+    if(cronoTrueno->asSeconds()>0.3){
+        if(valor==0){
+            trueno->animarNPC();
+        }else if(valor==1){
+            trueno2->animarMuerteNPC();
+        }
+            
+        //reinicio de reloj
+        relojTrueno->restart();
+    }
 }

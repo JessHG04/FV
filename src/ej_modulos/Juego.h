@@ -12,6 +12,15 @@
 #include "KinderSorpresa.h"
 #include "Portal.h"
 #include "Interfaz.h"
+#include "NPC.h"
+#include "SpriteNPC.h"
+#include "PersonajeNPC.h"
+#include "Trueno.h"
+#include "Boss.h"
+#include "PersonajeBoss.h"
+#include "SpriteBoss.h"
+#include "SpriteTrueno.h"
+#include "PoderTrueno.h"
 
 class Juego{
     public:
@@ -64,6 +73,26 @@ class Juego{
         lara *larita1 = NULL;
         lara *larita2 = NULL;
         lara *larita3 = NULL;
+        //NPC
+        NPC *npc = NULL;
+        sf::Texture conver1;
+        sf::Texture conver2;
+        sf::Texture conver3;
+        sf::Texture conver4;
+        std::vector<sf::Sprite> conversacionInicial;
+        int variableAuxiliar = 0;
+        //BOSS
+        Boss *bossFinal = NULL;
+        void bossLanza();
+        void bossTrueno();
+        PoderTrueno *trueno = NULL;
+        PoderTrueno *trueno2 = NULL;
+        sf::Clock *relojBoss;
+        sf::Time *cronoBoss;
+        sf::Clock *relojTrueno;
+        sf::Time *cronoTrueno;
+        Proyectil *pBoss = NULL;
+        std::vector<sf::IntRect> posiciones;
         //Creamos el portal
         Portal *portal = NULL;
         //Creamos la vista
@@ -79,6 +108,7 @@ class Juego{
         sf::Time *cronoInmortal = NULL;
         //Creamos el texto para el HUD
         Interfaz *interfaz;
+
         int personajeSelec = 0;
         int fps;
         bool esGuerrera = false;
