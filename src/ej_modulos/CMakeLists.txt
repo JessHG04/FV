@@ -20,6 +20,8 @@ target_sources(libModulos PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/AnimationKinder.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/KinderSorpresa.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/Portal.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/MenuSeleccionPersonaje.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Interfaz.cpp"
     
 )
 

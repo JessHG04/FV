@@ -271,6 +271,33 @@ ej_modulos/Guerrera.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.s
 .PHONY : ej_modulos/Guerrera.cpp.s
 
+ej_modulos/Interfaz.o: ej_modulos/Interfaz.cpp.o
+
+.PHONY : ej_modulos/Interfaz.o
+
+# target to build an object file
+ej_modulos/Interfaz.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o
+.PHONY : ej_modulos/Interfaz.cpp.o
+
+ej_modulos/Interfaz.i: ej_modulos/Interfaz.cpp.i
+
+.PHONY : ej_modulos/Interfaz.i
+
+# target to preprocess a source file
+ej_modulos/Interfaz.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.i
+.PHONY : ej_modulos/Interfaz.cpp.i
+
+ej_modulos/Interfaz.s: ej_modulos/Interfaz.cpp.s
+
+.PHONY : ej_modulos/Interfaz.s
+
+# target to generate assembly for a file
+ej_modulos/Interfaz.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.s
+.PHONY : ej_modulos/Interfaz.cpp.s
+
 ej_modulos/Juego.o: ej_modulos/Juego.cpp.o
 
 .PHONY : ej_modulos/Juego.o
@@ -432,6 +459,33 @@ ej_modulos/Menu.s: ej_modulos/Menu.cpp.s
 ej_modulos/Menu.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.s
 .PHONY : ej_modulos/Menu.cpp.s
+
+ej_modulos/MenuSeleccionPersonaje.o: ej_modulos/MenuSeleccionPersonaje.cpp.o
+
+.PHONY : ej_modulos/MenuSeleccionPersonaje.o
+
+# target to build an object file
+ej_modulos/MenuSeleccionPersonaje.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o
+.PHONY : ej_modulos/MenuSeleccionPersonaje.cpp.o
+
+ej_modulos/MenuSeleccionPersonaje.i: ej_modulos/MenuSeleccionPersonaje.cpp.i
+
+.PHONY : ej_modulos/MenuSeleccionPersonaje.i
+
+# target to preprocess a source file
+ej_modulos/MenuSeleccionPersonaje.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.i
+.PHONY : ej_modulos/MenuSeleccionPersonaje.cpp.i
+
+ej_modulos/MenuSeleccionPersonaje.s: ej_modulos/MenuSeleccionPersonaje.cpp.s
+
+.PHONY : ej_modulos/MenuSeleccionPersonaje.s
+
+# target to generate assembly for a file
+ej_modulos/MenuSeleccionPersonaje.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.s
+.PHONY : ej_modulos/MenuSeleccionPersonaje.cpp.s
 
 ej_modulos/Portal.o: ej_modulos/Portal.cpp.o
 
@@ -728,6 +782,9 @@ help:
 	@echo "... ej_modulos/Guerrera.o"
 	@echo "... ej_modulos/Guerrera.i"
 	@echo "... ej_modulos/Guerrera.s"
+	@echo "... ej_modulos/Interfaz.o"
+	@echo "... ej_modulos/Interfaz.i"
+	@echo "... ej_modulos/Interfaz.s"
 	@echo "... ej_modulos/Juego.o"
 	@echo "... ej_modulos/Juego.i"
 	@echo "... ej_modulos/Juego.s"
@@ -746,6 +803,9 @@ help:
 	@echo "... ej_modulos/Menu.o"
 	@echo "... ej_modulos/Menu.i"
 	@echo "... ej_modulos/Menu.s"
+	@echo "... ej_modulos/MenuSeleccionPersonaje.o"
+	@echo "... ej_modulos/MenuSeleccionPersonaje.i"
+	@echo "... ej_modulos/MenuSeleccionPersonaje.s"
 	@echo "... ej_modulos/Portal.o"
 	@echo "... ej_modulos/Portal.i"
 	@echo "... ej_modulos/Portal.s"

@@ -103,5 +103,15 @@
   "directory": "/home/jess/Escritorio/FV/src/build",
   "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Portal.cpp",
   "file": "/home/jess/Escritorio/FV/src/ej_modulos/Portal.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/MenuSeleccionPersonaje.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/MenuSeleccionPersonaje.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/Interfaz.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/Interfaz.cpp"
 }
 ]

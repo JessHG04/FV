@@ -11,10 +11,11 @@
 #include "mojon.h"
 #include "KinderSorpresa.h"
 #include "Portal.h"
+#include "Interfaz.h"
 
 class Juego{
     public:
-        Juego(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana);
+        Juego(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana, int idPersonaje);
         void iniciar(); //Inicia variables y diferentes aspectos
         void dibujar(); //dibujar elementos
         void logica(); // procesa logicas del juego
@@ -32,6 +33,7 @@ class Juego{
         void colisionesProtagonista();
         void colisionProyectilEnemigos();
         void muerteNPCs();
+        void detenerDash();
         
     private:
         sf::Sprite *sp = NULL; //Segundo sprite al que persigue Kinder
@@ -76,6 +78,9 @@ class Juego{
         sf::Time *crono1 = NULL;
         sf::Clock *relojInmortal = NULL;
         sf::Time *cronoInmortal = NULL;
+        //Creamos el texto para el HUD
+        Interfaz *interfaz;
+        int personajeSelec = 0;
         int fps;
         bool esGuerrera = false;
         bool gravedad = true;

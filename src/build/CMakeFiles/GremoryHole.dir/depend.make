@@ -6,12 +6,14 @@ CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/AnimationKinder.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Darkrai.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Enemigo.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Guerrera.h
+CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Interfaz.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Juego.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Jugador.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/KinderSorpresa.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Mago.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Map.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Menu.h
+CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/MenuSeleccionPersonaje.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Portal.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Proyectil.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/bala.h

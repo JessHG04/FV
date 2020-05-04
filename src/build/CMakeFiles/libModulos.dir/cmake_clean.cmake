@@ -19,6 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o"
   "liblibModulos.pdb"
   "liblibModulos.a"
 )
