@@ -49,6 +49,13 @@ class Jugador : public spritePersonaje{
         bool inmortal = false;
         sf::RectangleShape cajaColisiones2;
 
+        //-----------------------------------------DASH------------------------------------------
+        bool dash = false;
+        sf::Clock *termina_dash;
+        sf::Clock *recarga_dash;
+        sf::Time *crono_termina_dash;
+        sf::Time *crono_recarga_dash;
+
     private:
         //spritePersonaje * spriteJugador;
         //Posicion del jugador
