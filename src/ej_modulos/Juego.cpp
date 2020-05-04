@@ -43,11 +43,14 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
             }
 
             if(p1){
-                if(colisionProyecMapa(p1->dirColision)){
-                    //p1->~Proyectil();
-                    delete p1;        
-                    p1 = 0;           
+               if(p1 != nullptr){
+                    if(colisionProyecMapa(p1->dirColision)){
+                        //p1->~Proyectil();
+                        delete p1;        
+                        p1 = 0;           
+                    }
                 }
+                this->colisionProyectilEnemigos();
             }
                 //CUANDO SE REALICE LA COLISION SE ELIMINARA EL PROYECTIL-------------------------------------------
               //  if(COLISION)  {
@@ -87,9 +90,10 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
             j1->update();
             if(p1)
                 p1->update();
+            this->colisionesProtagonista();
             //UPDATES ENEMIGOS
             for(int x = 0; x < enemigos.size(); x++){
-                if(enemigos[x] != NULL){
+                if(enemigos[x] != NULL){ //otro if enemigos[x] -> muerto
                     if(x < 9){ //Hace todos los updates menos los de Lara porque tiene otros parámetros
                         enemigos[x]->Update(reloj1->getElapsedTime().asSeconds());
                     }
@@ -172,7 +176,7 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window){
                     }
                 }
             }
-
+            this->muerteNPCs();
             reloj1->restart();
             //Camara - Extremo derecho, normal, extremo izquierdo
             if(j1->get_posicion().x >= (mapa->widthMap * 16 - resolucion.x /2)){
@@ -755,4 +759,110 @@ void Juego::crearEnemigos(){
     enemigos.push_back(larita1);
     enemigos.push_back(larita2);
     enemigos.push_back(larita3);
+}
+
+void Juego::quitarVida(){
+    if(!j1->inmortal){ 
+        relojInmortal->restart();
+        j1->inmortal = true;
+        j1->vida --;
+        if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
+            gameover = true;
+        if(j1->direccion == izq){
+            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
+        }
+        
+        if(j1->direccion == der){
+            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+        }
+    }
+}
+
+void Juego::colisionesProtagonista(){ //REVISAR
+    if(!muerteLara){
+        if(larita1->Update(*ventana, j1, (83*16 + 100), (20*16))){
+            this->quitarVida();
+        }
+    }
+    if(!muerteDarkrai){
+        if(darkrai1->colisionProtagonista(j1)){
+            this->quitarVida();
+        }
+    }
+    if(!muerteMojon){
+        if(mojoncito1->colisionProtagonista(j1)){
+            this->quitarVida();
+        }
+    }
+    if(!muerteKinder){
+        if(kindercito1->colisionProtagonista(j1)){
+            this->quitarVida();
+        }
+    }
+}
+
+void Juego::colisionProyectilEnemigos(){
+    // Colision proyectil con mojon
+    if(p1 != nullptr){
+        if(!muerteMojon){
+            if(mojoncito1->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+    // Colision proyectil con lara
+    if(p1 != nullptr){
+        if(!muerteLara){
+            if(larita1->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+    // Colision proyectil con darkrai
+    if(p1 != nullptr){
+        if(!muerteDarkrai){
+            if(darkrai1->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+    // Colision proyectil con kinderSorpresa
+    if(p1 != nullptr){
+        if(!muerteKinder){
+            if(kindercito1->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+}
+
+void Juego::muerteNPCs(){
+    if(!muerteMojon){
+        if(mojoncito1->morir()){
+            delete mojoncito1;
+            muerteMojon = true;
+        }
+    }
+    if(!muerteDarkrai){
+        if(darkrai1->morir()){
+            delete darkrai1;
+            muerteDarkrai = true;
+        }
+    }
+    if(!muerteLara){
+        if(larita1->morir()){
+            delete larita1;
+            muerteLara = true;
+        }
+    }
+    if(!muerteKinder){
+        if(kindercito1->morir()){
+            delete kindercito1;
+            muerteKinder = true;
+        }
+    }
 }

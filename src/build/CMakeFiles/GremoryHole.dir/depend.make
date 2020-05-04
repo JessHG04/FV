@@ -16,7 +16,6 @@ CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Portal.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Proyectil.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/bala.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/cuadradoD.h
-CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/cuadradoI.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/lara.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/mojon.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/spritePersonaje.h

@@ -28,6 +28,10 @@ class Juego{
         bool colisionPersMapa(direcciones direccion); //1 -> Arriba 2-> Izquierda 3-> Drcha 4->Abajo
         bool colisionProyecMapa(direccionProyectil direccion);
         bool colisionPersTrampa(direcciones direccion);
+        void quitarVida();
+        void colisionesProtagonista();
+        void colisionProyectilEnemigos();
+        void muerteNPCs();
         
     private:
         sf::Sprite *sp = NULL; //Segundo sprite al que persigue Kinder
@@ -78,4 +82,5 @@ class Juego{
         int level = 1;
         int maxLevels = 6;
         bool cargar = false;
+        bool muerteMojon = false, muerteDarkrai = false, muerteLara = false, muerteKinder = false;
 };
