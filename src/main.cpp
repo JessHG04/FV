@@ -215,12 +215,12 @@ int main() {
 
 			//Guerrera seleccionada
 			if(idPersonaje == 1){
-				Juego *juego = new Juego(sf::Vector2u(960, 640), window, 1);
+				Juego *juego = Juego::getInstancia(sf::Vector2u(960, 640), window, 1);
 			}
 
 			//Mago seleccionado
 			if(idPersonaje == 2){
-				Juego *juego = new Juego(sf::Vector2u(960, 640), window, 2);
+				Juego *juego = Juego::getInstancia(sf::Vector2u(960, 640), window, 2);
 			}
 		}	
 	}

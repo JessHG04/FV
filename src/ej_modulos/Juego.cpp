@@ -5,6 +5,18 @@
 /*            alias do="cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole"            */
 /*                                  Luego simplemente pones do                                       */
 /*****************************************************************************************************/
+
+Juego* Juego::juego = NULL;
+
+// Creamos la unica instancia del juego
+Juego* Juego::getInstancia(sf::Vector2u resolucion,sf::RenderWindow *window, int id) {
+    if (juego == NULL) {
+        juego = new Juego(resolucion, window, id);
+    }
+    return juego;
+}
+
+
 Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje){
     //Creamos una ventana
     ventana = window;

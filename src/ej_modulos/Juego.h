@@ -23,7 +23,11 @@
 #include "PoderTrueno.h"
 
 class Juego{
+
     public:
+        static Juego* getInstancia(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana, int idPersonaje);
+
+    protected:
         Juego(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana, int idPersonaje);
         void iniciar(); //Inicia variables y diferentes aspectos
         void dibujar(); //dibujar elementos
@@ -44,6 +48,7 @@ class Juego{
         void detenerDash();
         
     private:
+        static Juego* juego;
         sf::Sprite *sp = NULL; //Segundo sprite al que persigue Kinder
         sf::Texture textFondo;
         sf::Sprite fondo;
