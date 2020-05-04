@@ -8,7 +8,7 @@ using namespace sf;
 
 #include "bala.h"
 
-    bala::bala(){
+    bala::bala(int xx, int yy){
         tex = new Texture();
         if (!tex->loadFromFile("resources/Sprites/Lara Croft/401003605_atk.png")) {
             std::cerr << "Error cargando la imagen 401003605_atk.png";
@@ -21,7 +21,7 @@ using namespace sf;
         spriteb->setTextureRect(sf::IntRect(120, 18, 22, 14));
         
         // Lo dispongo a la derecha de la pantalla
-        //spriteb->setPosition(xx, yy);
+        spriteb->setPosition(xx, yy);
     }
 
     void bala::movimientoBalaIz(){
