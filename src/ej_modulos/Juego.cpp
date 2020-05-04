@@ -29,6 +29,22 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window, int idPersonaje){
     while(gameover != true){
         *crono1 = reloj1->getElapsedTime(); // Obtener tiempo transcurrido 
         *cronoInmortal = relojInmortal->getElapsedTime(); // Obtener tiempo transcurrido 
+        //********************************************* DASH ************************************************* 
+        *j1->crono_termina_dash = j1->termina_dash->getElapsedTime();
+        *j1->crono_recarga_dash = j1->recarga_dash->getElapsedTime();
+
+    
+        if(j1->dash){
+            if(j1->direccion == izq)
+                j1->set_velocidad(sf::Vector2f(-j1->vel_desp*3,0));
+            else
+                j1->set_velocidad(sf::Vector2f(j1->vel_desp*3,0));
+            if(j1->crono_termina_dash->asSeconds() > 0.5){
+                detenerDash();
+                j1->dash = false;
+                j1->recarga_dash->restart();
+            }                    
+        }
         j1->posInicial = j1->get_posicion();
         if(crono1->asSeconds() > 0.08){ // comparamos si el tiempo transcurrido es 1 fps (1 frame) si es asi ejecuttamos un instante
             while(ventana->pollEvent(*evento)){
@@ -74,7 +90,7 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window, int idPersonaje){
             //********************************************* GRAVEDAD *************************************************
             
             gestionGravedad();
-            if(gravedad || j1->saltando){
+            if((gravedad || j1->saltando) && !j1->dash){ // concicion no cae con el dash
                 j1->vel_salto += 2.5f;
                 
                 if(j1->vel_salto > 0){
@@ -109,7 +125,7 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window, int idPersonaje){
                     }
                 }
             }
-
+            
             if(larita1 != NULL && level == 1){
                 if(larita1->Update(*ventana, j1, (83*16+100), (20*16))){ 
                     impacto();
@@ -140,6 +156,7 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window, int idPersonaje){
                     impacto();
                 }
             }
+            
             portal->Update();
             dibujar();
           
@@ -261,14 +278,7 @@ void Juego::iniciar(){
 }
 
 void Juego::dibujar(){
-    ventana->clear();
-    /*
-    sf::RectangleShape box = j1->cajaColisiones;
-    box.scale(1,1.05); //Se hace un pelín más grande
-    box.setFillColor(sf::Color::Green);
-    ventana->draw(box);
-    ventana->draw(j1->cajaColisiones);
-    */
+    ventana->clear();    
     ventana->setView(vista); //Camara
     ventana->draw(fondo);
     ventana->draw(*mapa);
@@ -279,10 +289,6 @@ void Juego::dibujar(){
             enemigos[x]->Draw(*ventana);
         }
     }
-    //darkrai->Draw(*ventana);
-    /*if(larita1 != NULL){
-        larita1->Draw(*ventana);
-    }*/
     if(larita1 != NULL && larita1->dispara == true){
         larita1->getBala().Draw(*ventana);
     }
@@ -292,8 +298,10 @@ void Juego::dibujar(){
     if(larita3 != NULL && larita3->dispara == true){
         larita3->getBala().Draw(*ventana);
     }
-   //mojoncito->Draw(*ventana);
-    //kindercito->Draw(*ventana);
+   
+    ventana->draw(j1->cajaColisiones);
+    ventana->draw(j1->cajaColisiones2);
+    
     ventana->draw(j1->get_sprite());
     if(p1)
         ventana->draw(p1->get_sprite());
@@ -314,234 +322,235 @@ void Juego::dibujar(){
 }*/
 
 void Juego::procesar_eventos(){
-    switch (evento->type)
-    {
-        case sf::Event::Closed:
-            exit(1);
-            //ventana->close();
-            break;
-        case sf::Event::KeyPressed:
-            // si se pulsta la tecla izquierda
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+    if(!j1->dash){
+        switch (evento->type)
+        {
+            case sf::Event::Closed:
                 exit(1);
                 //ventana->close();
                 break;
-            }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
-                level++;
-                cargar = false;
-            }
-            if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-                 j1->direccion = izq;
-                 j1->dirColision = izq;
+            case sf::Event::KeyPressed:
+                // si se pulsta la tecla izquierda
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)){
+                    exit(1);
+                    //ventana->close();
+                    break;
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
+                    level++;
+                    cargar = false;
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
+                    j1->direccion = izq;
+                    j1->dirColision = izq;
 
-                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
-                    //if(j1->crono_recarga_dash->asSeconds() > 0.5){ 
-                        j1->movimiento = true;
-                        //j1->set_frameY(0); 
-                        if(esGuerrera == false){
-                            j1->set_sprite(j1->txt_dash_I,1,1,sf::Vector2i(0,0));
-                        }else{
-                            j1->set_sprite(j1->txt_dash_I2,1,1,sf::Vector2i(0,0));
+                    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
+                        if(j1->crono_recarga_dash->asSeconds() > 0.5){ 
+                            j1->movimiento = true;
+                            //j1->set_frameY(0); 
+                            if(esGuerrera == false){
+                                j1->set_sprite(j1->txt_dash_I,1,1,sf::Vector2i(0,0));
+                            }else{
+                                j1->set_sprite(j1->txt_dash_I2,1,1,sf::Vector2i(0,0));
+                            }
+                            j1->termina_dash->restart();
+                            j1->dash = true;
                         }
-                        //j1->termina_dash->restart();
-                        //j1->dash = true;
-                    //}
-                }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+                    }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+                            if(!j1->saltando){
+                                j1->vel_salto = -30.0f;
+                                j1->saltando = true;
+                                j1->dirColision = arriba;
+                                if (j1->movimiento != true)
+                                    j1->posInicial = sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y);
+                                //j1->movimiento = true;
+                                j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));     
+                            }
+                    }else{
+                        j1->movimiento = true;
+                        //j1->direccion = izq;
+                        j1->set_frameY(2); 
+                        j1->set_velocidad(sf::Vector2f(-j1->vel_desp,0));
+                        //j1->set_posicion(sf::Vector2f(j1->get_posicion().x - j1->vel_desp,(j1->get_posicion().y)));
+                    }
+                        
+                    }
+                
+                // si se pulsa la tecla derecha
+                else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
+                    j1->direccion = der;
+                    j1->dirColision = der;
+                    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
+                        if(j1->crono_recarga_dash->asSeconds() > 0.5){
+                            j1->movimiento = true;
+                            //j1->set_frameY(0);
+                            if(esGuerrera == false){
+                                j1->set_sprite(j1->txt_dash_D,1,1,sf::Vector2i(0,0));
+                            }else{
+                                j1->set_sprite(j1->txt_dash_D2,1,1,sf::Vector2i(0,0));
+                            } 
+
+                            j1->dash = true;
+                            j1->termina_dash->restart();
+                        }     
+                    }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
                         if(!j1->saltando){
                             j1->vel_salto = -30.0f;
                             j1->saltando = true;
-                            j1->dirColision = arriba;
+                            j1->dirColision = der;
                             if (j1->movimiento != true)
                                 j1->posInicial = sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y);
                             //j1->movimiento = true;
                             j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));     
                         }
-                }else{
-                    j1->movimiento = true;
-                    //j1->direccion = izq;
-                    j1->set_frameY(2); 
-                    j1->set_velocidad(sf::Vector2f(-j1->vel_desp,0));
-                    //j1->set_posicion(sf::Vector2f(j1->get_posicion().x - j1->vel_desp,(j1->get_posicion().y)));
-                }
+                    }else{
+                        j1->movimiento = true;
+                        //j1->direccion = izq;
+                        j1->set_frameY(3); 
+                        j1->set_velocidad(sf::Vector2f(j1->vel_desp,0));
+                        //j1->set_posicion(sf::Vector2f(j1->get_posicion().x - j1->vel_desp,(j1->get_posicion().y)));
+                    }
+                    
                     
                 }
-            
-            // si se pulsa la tecla derecha
-            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-                j1->direccion = der;
-                j1->dirColision = der;
-                if(sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
-                    //if(j1->crono_recarga_dash->asSeconds() > 0.5){
-                        j1->movimiento = true;
-                        //j1->set_frameY(0);
-                        if(esGuerrera == false){
-                            j1->set_sprite(j1->txt_dash_D,1,1,sf::Vector2i(0,0));
-                        }else{
-                            j1->set_sprite(j1->txt_dash_D2,1,1,sf::Vector2i(0,0));
-                        } 
 
-                        //j1->dash = true;
-                        //j1->termina_dash->restart();
-                    //}     
-                }else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+    //--------------------------SALTO----------------------------------------------------------------------------------------
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
                     if(!j1->saltando){
                         j1->vel_salto = -30.0f;
                         j1->saltando = true;
-                        j1->dirColision = der;
+                        j1->dirColision = arriba;
                         if (j1->movimiento != true)
                             j1->posInicial = sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y);
                         //j1->movimiento = true;
-                        j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));     
-                    }
-                }else{
-                    j1->movimiento = true;
-                    //j1->direccion = izq;
-                    j1->set_frameY(3); 
-                    j1->set_velocidad(sf::Vector2f(j1->vel_desp,0));
-                    //j1->set_posicion(sf::Vector2f(j1->get_posicion().x - j1->vel_desp,(j1->get_posicion().y)));
-                }
-                
-                
-            }
-
-//--------------------------SALTO----------------------------------------------------------------------------------------
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-                if(!j1->saltando){
-                    j1->vel_salto = -30.0f;
-                    j1->saltando = true;
-                    j1->dirColision = arriba;
-                    if (j1->movimiento != true)
-                        j1->posInicial = sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y);
-                    //j1->movimiento = true;
-                    j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));
-                        
-                }
-            }
-                
-//--------------------------DASH-----------------------------------------------------------------------------------------
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
-                //if(j1->crono_recarga_dash->asSeconds() > 0.5){
-                    j1->movimiento = true;
-                    j1->set_frameY(0); 
-                    //j1->dash = true;  // meter en todos los press z dash y quitar el desplazamiento
-                    //j1->termina_dash->restart();
-                    
-
-                    //Vemos a que lado esta mirando
-                    if(j1->direccion == izq){
-                        j1->dirColision = izq;
-                        if(esGuerrera == false){
-                            j1->set_sprite(j1->txt_dash_I,1,1,sf::Vector2i(0,0));
-                        }else{
-                            j1->set_sprite(j1->txt_dash_I2,1,1,sf::Vector2i(0,0));
-                        }
-
-                        
-                        //j1->set_posicion(sf::Vector2f(j1->get_posicion().x - j1->vel_desp,(j1->get_posicion().y)));
-                    }else{
-                        j1->dirColision = der;
-                        if(esGuerrera == false){
-                            j1->set_sprite(j1->txt_dash_D,1,1,sf::Vector2i(0,0));
-                        }else{
-                            j1->set_sprite(j1->txt_dash_D2,1,1,sf::Vector2i(0,0));
-                        }
-                    }
-                //}
-                
-            }
-//------------------------ATAQUE-------------------------------------------------------------------------------------------
-            else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
-                if(!esGuerrera){
-                    if(!p1){
-                            p1 = new Proyectil(4,1,sf::Vector2i(0,0));
-                            if(j1->direccion == der)
-                                p1->dirColision = derecha;
-                            else
-                                p1->dirColision = izquierda;
-                            p1->posicionInicial = sf::Vector2f(p1->get_posicion().x,p1->get_posicion().y);
+                        j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));
                             
-                            if(j1->direccion == izq){
-                                p1->set_posicion(sf::Vector2f(j1->get_posicion().x-20,j1->get_posicion().y));
-                                p1->set_velocidad(sf::Vector2f(-p1->vel_desp,0));
-                            }
-                            else{
-                                p1->set_posicion(sf::Vector2f(j1->get_posicion().x+20,j1->get_posicion().y));
-                                p1->set_velocidad(sf::Vector2f(p1->vel_desp,0));
-                            }
+                    }
+                }
+                    
+    //--------------------------DASH-----------------------------------------------------------------------------------------
+                else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z)){
+                    if(j1->crono_recarga_dash->asSeconds() > 0.5){
+                        j1->movimiento = true;
+                        j1->set_frameY(0); 
+                        j1->dash = true;  // meter en todos los press z dash y quitar el desplazamiento
+                        j1->termina_dash->restart();
                         
+
+                        //Vemos a que lado esta mirando
+                        if(j1->direccion == izq){
+                            j1->dirColision = izq;
+                            if(esGuerrera == false){
+                                j1->set_sprite(j1->txt_dash_I,1,1,sf::Vector2i(0,0));
+                            }else{
+                                j1->set_sprite(j1->txt_dash_I2,1,1,sf::Vector2i(0,0));
+                            }
+
+                            
+                            //j1->set_posicion(sf::Vector2f(j1->get_posicion().x - j1->vel_desp,(j1->get_posicion().y)));
+                        }else{
+                            j1->dirColision = der;
+                            if(esGuerrera == false){
+                                j1->set_sprite(j1->txt_dash_D,1,1,sf::Vector2i(0,0));
+                            }else{
+                                j1->set_sprite(j1->txt_dash_D2,1,1,sf::Vector2i(0,0));
+                            }
+                        }
+                    }
+                    
+                }
+    //------------------------ATAQUE-------------------------------------------------------------------------------------------
+                else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
+                    if(!esGuerrera){
+                        if(!p1){
+                                p1 = new Proyectil(4,1,sf::Vector2i(0,0));
+                                if(j1->direccion == der)
+                                    p1->dirColision = derecha;
+                                else
+                                    p1->dirColision = izquierda;
+                                p1->posicionInicial = sf::Vector2f(p1->get_posicion().x,p1->get_posicion().y);
+                                
+                                if(j1->direccion == izq){
+                                    p1->set_posicion(sf::Vector2f(j1->get_posicion().x-20,j1->get_posicion().y));
+                                    p1->set_velocidad(sf::Vector2f(-p1->vel_desp,0));
+                                }
+                                else{
+                                    p1->set_posicion(sf::Vector2f(j1->get_posicion().x+20,j1->get_posicion().y));
+                                    p1->set_velocidad(sf::Vector2f(p1->vel_desp,0));
+                                }
+                            
+                        }
+                    }
+                    else{
+                        if(j1->direccion == izq){
+                            j1->dirColision = izq;
+                            j1->movimiento = true;
+                            j1->set_frameY(0); 
+                            j1->set_sprite(j1->txt_ataque_I,3,1,sf::Vector2i(0,0));
+                        }else{
+                            j1->dirColision = der;
+                            j1->movimiento = true;
+                            j1->set_frameY(0); 
+                            j1->set_sprite(j1->txt_ataque_D,3,1,sf::Vector2i(0,0));
+                        }
+                    //j1->set_frameY(0);
                     }
                 }
-                else{
-                    if(j1->direccion == izq){
-                        j1->dirColision = izq;
-                        j1->movimiento = true;
-                        j1->set_frameY(0); 
-                        j1->set_sprite(j1->txt_ataque_I,3,1,sf::Vector2i(0,0));
-                    }else{
-                        j1->dirColision = der;
-                        j1->movimiento = true;
-                        j1->set_frameY(0); 
-                        j1->set_sprite(j1->txt_ataque_D,3,1,sf::Vector2i(0,0));
-                    }
-                //j1->set_frameY(0);
-                }
-            }
+                break;
+
+
+                    /**** TECLAS SIN PULSAR ****/
+
+                case sf::Event::KeyReleased: // si se suelta la tecla
+                        // si se despulsta la tecla izquierda
+                        if(evento->key.code == (sf::Keyboard::Left)){
+                            j1->movimiento = false;
+                            j1->set_frameX(0);
+                            j1->direccion = izq;
+                            j1->set_velocidad(sf::Vector2f(0,0));
+                            //j1->set_posicion(sf::Vector2f(j1->get_posicion().x - kVel,(j1->get_posicion().y)));
+                        }
+                        // si se despulsa la tecla derecha
+                        else if(evento->key.code == (sf::Keyboard::Right)){
+                            j1->movimiento = false;
+                            j1->set_frameX(0);
+                            j1->direccion = der;
+                            j1->set_velocidad(sf::Vector2f(0,0));
+                        
+                            //j1->set_posicion(sf::Vector2f(j1->get_posicion().x + kVel,(j1->get_posicion().y)));
+                        }
+                            
+                                
+                        
+                        else if(evento->key.code == (sf::Keyboard::Space)){
+                            if(esGuerrera == false){
+                                j1->movimiento = false;
+
+                                if(j1->direccion == izq){
+                                    j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
+                                }else{
+                                    j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
+                                }
+                                j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
+                            }else{
+                                j1->movimiento = false;
+
+                                if(j1->direccion == izq){
+                                    j1->set_sprite(j1->txt_player,24,4,sf::Vector2i(0,2));
+                                }else{
+                                    j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
+                                }
+                                j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
+                            }
+                    
+                        }
+                        break;
+            
+            default:
+                    //j1->movimiento = false;
+                    
             break;
-
-
-                /**** TECLAS SIN PULSAR ****/
-
-            case sf::Event::KeyReleased: // si se suelta la tecla
-                    // si se despulsta la tecla izquierda
-                    if(evento->key.code == (sf::Keyboard::Left)){
-                        j1->movimiento = false;
-                        j1->set_frameX(0);
-                        j1->direccion = izq;
-                        j1->set_velocidad(sf::Vector2f(0,0));
-                        //j1->set_posicion(sf::Vector2f(j1->get_posicion().x - kVel,(j1->get_posicion().y)));
-                    }
-                    // si se despulsa la tecla derecha
-                    else if(evento->key.code == (sf::Keyboard::Right)){
-                        j1->movimiento = false;
-                        j1->set_frameX(0);
-                        j1->direccion = der;
-                        j1->set_velocidad(sf::Vector2f(0,0));
-                    
-                        //j1->set_posicion(sf::Vector2f(j1->get_posicion().x + kVel,(j1->get_posicion().y)));
-                    }
-                        
-                            
-                      
-                    else if(evento->key.code == (sf::Keyboard::Space)){
-                        if(esGuerrera == false){
-                            j1->movimiento = false;
-
-                            if(j1->direccion == izq){
-                                j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
-                            }else{
-                                j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
-                            }
-                            j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
-                        }else{
-                            j1->movimiento = false;
-
-                            if(j1->direccion == izq){
-                                j1->set_sprite(j1->txt_player,24,4,sf::Vector2i(0,2));
-                            }else{
-                                j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
-                            }
-                            j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
-                        }
-                
-                    }
-                    break;
-        
-        default:
-                 //j1->movimiento = false;
-                 
-        break;
-
+        }
     }
 }
 
@@ -699,6 +708,7 @@ bool Juego::colisionPersTrampa(direcciones direccion){ //La colision del persona
 }
 
 void Juego::colisionPersPortal(){
+    
     if(j1->cajaColisiones.getGlobalBounds().intersects(portal->getCaja().getGlobalBounds())){
         level++;
         cargar = false;
@@ -812,8 +822,9 @@ void Juego::crearEnemigos(){
         kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
         larita1 = new lara(83*16, 20*16);
     }
-    if(level == 2){
-
+    if(level == 2){  //Mojon hacerlo grandesico y más fuertote
+        mojoncito1 = new mojon(43*16, 42*16, 4*16, 55*16);
+        mojoncito1->getSprite().setScale(2.0, 2.0);
     }
     if(level == 3){
         darkrai1 = new Darkrai(51*16, 6*16, 25.0f, *j1->spr_player);
@@ -852,44 +863,29 @@ void Juego::crearEnemigos(){
     enemigos.push_back(larita3);
 }
 
-void Juego::quitarVida(){
-    if(!j1->inmortal){ 
-        relojInmortal->restart();
-        j1->inmortal = true;
-        j1->vida --;
-        if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
-            gameover = true;
-        if(j1->direccion == izq){
-            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
-        }
-        
-        if(j1->direccion == der){
-            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
-        }
-    }
-}
-
 void Juego::colisionesProtagonista(){ //REVISAR
+    /*
     if(!muerteLara){
         if(larita1->Update(*ventana, j1, (83*16 + 100), (20*16))){
-            this->quitarVida();
+            impacto();
         }
     }
     if(!muerteDarkrai){
         if(darkrai1->colisionProtagonista(j1)){
-            this->quitarVida();
+            impacto();
         }
     }
     if(!muerteMojon){
         if(mojoncito1->colisionProtagonista(j1)){
-            this->quitarVida();
+            impacto();
         }
     }
     if(!muerteKinder){
         if(kindercito1->colisionProtagonista(j1)){
-            this->quitarVida();
+            impacto();
         }
     }
+    */
 }
 
 void Juego::colisionProyectilEnemigos(){
@@ -932,6 +928,7 @@ void Juego::colisionProyectilEnemigos(){
 }
 
 void Juego::muerteNPCs(){
+    /*
     if(!muerteMojon){
         if(mojoncito1->morir()){
             delete mojoncito1;
@@ -956,4 +953,48 @@ void Juego::muerteNPCs(){
             muerteKinder = true;
         }
     }
+    */
+}
+
+void Juego::detenerDash(){
+    j1->movimiento = false;
+    if(!j1->inmortal){
+        if(esGuerrera == false){
+            if(j1->direccion == izq){
+                j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
+            }
+            
+            if(j1->direccion == der){
+                j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
+            }
+        }else{
+            if(j1->direccion == izq){
+                j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
+            }
+            
+            if(j1->direccion == der){
+                j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
+            }
+        }
+    }else{
+        if(esGuerrera == false){
+            if(j1->direccion == izq){
+                j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
+            }
+            
+            if(j1->direccion == der){
+                j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
+            }
+        }else{
+            if(j1->direccion == izq){
+                j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,2));
+            }
+            
+            if(j1->direccion == der){
+                j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,3));
+            }
+        }
+    }
+    j1->set_velocidad(sf::Vector2f(0,0));
+    j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
 }
