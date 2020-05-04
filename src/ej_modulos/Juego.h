@@ -25,6 +25,7 @@ class Juego{
         bool colisionPersMapa(direcciones direccion); //1 -> Arriba 2-> Izquierda 3-> Drcha 4->Abajo
         bool colisionProyecMapa(direccionProyectil direccion);
         bool colisionPersTrampa(direcciones direccion);
+        void detenerDash();
         
     private:
         bool gameover = false;

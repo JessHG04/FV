@@ -1,1 +1,1 @@
-/usr/bin/c++    -std=c++1y -Wall -Wextra   CMakeFiles/GremoryHole.dir/main.cpp.o  -o GremoryHole -rdynamic liblibModulos.a -lsfml-system -lsfml-window -lsfml-graphics -lsfml-network -lsfml-audio 
+/usr/bin/x86_64-linux-gnu-g++-5    -std=c++1y -Wall -Wextra   CMakeFiles/GremoryHole.dir/main.cpp.o  -o GremoryHole -rdynamic liblibModulos.a -lsfml-system -lsfml-window -lsfml-graphics -lsfml-network -lsfml-audio 
