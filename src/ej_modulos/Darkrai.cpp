@@ -46,13 +46,18 @@ Darkrai::~Darkrai() {
 
 void Darkrai::Update(float deltaTime) {
     sf::Vector2f movimiento(0.0f, 0.0f);
+    sf::Vector2i distancia(0, 0);
+
+    // Distancia de perseguimiento y vision...
+    distancia.x = abs(body->getPosition().x) - abs(personaje->getPosition().x);
+
     if(restartear == true){
       impactado.restart();
       restartear = false;
     }
     this->impactoProyectil();
     if(golpeado == false){
-      if (personaje) {
+      if (follow) {
 
         sf::Vector2i distancia(0, 0);
         sf::Vector2f angulo(0.0f, 0.0f);
@@ -103,6 +108,10 @@ void Darkrai::Update(float deltaTime) {
           }
 
         }
+      }else {
+
+      if (abs(distancia.x) < 300.f) {
+        follow = true;
       }
     }
 
@@ -122,6 +131,7 @@ void Darkrai::Update(float deltaTime) {
     // Movemos el collider...
     boundingBox = &boundingSet[rowSheet];
     boundingBox->setPosition(body->getPosition().x, body->getPosition().y-6);
+  }
 }
 
 

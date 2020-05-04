@@ -2027,7 +2027,7 @@
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
-   <tile gid="0"/>
+   <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
@@ -2207,8 +2207,8 @@
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="50"/>
+   <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>
    <tile gid="50"/>

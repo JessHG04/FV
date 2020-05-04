@@ -5,7 +5,7 @@
 /*            alias do="cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole"            */
 /*                                  Luego simplemente pones do                                       */
 /*****************************************************************************************************/
-Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window, int idPersonaje){
+Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje){
     //Creamos una ventana
     ventana = window;
     //Seleccion de personaje
@@ -45,7 +45,6 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window, int idPersonaje){
                 j1->recarga_dash->restart();
             }                    
         }
-        j1->posInicial = j1->get_posicion();
         if(crono1->asSeconds() > 0.08){ // comparamos si el tiempo transcurrido es 1 fps (1 frame) si es asi ejecuttamos un instante
             while(ventana->pollEvent(*evento)){
                 procesar_eventos();
@@ -55,15 +54,15 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window, int idPersonaje){
                 colisionPersPortal();
             }
             if(!cargar && level <= maxLevels){
-                crearPortal();
                 crearEnemigos();
                 std::cout<< "Nivel: " << level << std::endl;
                 mapa = new Map();
                 mapa->mapMatrix(level);
                 mapa->load("resources/Mapas/Tileset.png", sf::Vector2u(16,16), mapa->tilemap, mapa->widthMap, mapa->heightMap, mapa->numLayers);
+                crearPortal();
                 cargar = true;
-               
             }
+            j1->posInicial = j1->get_posicion();
             if(level > maxLevels){
                 gameover = true;
             }
@@ -164,16 +163,16 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window, int idPersonaje){
                 j1->inmortal = false;
                 if(esGuerrera == false){
                     if(j1->direccion == izq){
-                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
-                        }
+                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
+                    }
                         
                     if(j1->direccion == der){
                         j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                     }
                 }else{
                     if(j1->direccion == izq){
-                            j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
-                        }
+                        j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
+                    }
                         
                     if(j1->direccion == der){
                         j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
@@ -216,16 +215,16 @@ Juego::Juego(sf::Vector2u resolucion,sf::RenderWindow *window, int idPersonaje){
                 if(!j1->inmortal){
                     if(esGuerrera == false){
                         if(j1->direccion == izq){
-                                j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
-                            }
+                            j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
+                        }
                             
                         if(j1->direccion == der){
                             j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                         }
                     }else{
                         if(j1->direccion == izq){
-                                j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
-                            }
+                            j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
+                        }
                             
                         if(j1->direccion == der){
                             j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
@@ -269,8 +268,8 @@ void Juego::iniciar(){
         j1 = new Mago(4,4,sf::Vector2i(0,0));
         interfaz = new Interfaz(personajeSelec);
     } 
-    j1->set_posicion(sf::Vector2f(47,21*16));
-    j1->dirColision = abajo;
+    //j1->set_posicion(sf::Vector2f(4*16,27*16));
+    //j1->dirColision = abajo;
     //j1->direccion = quieto;
     j1->vel_salto = 0;
     
@@ -531,7 +530,7 @@ void Juego::procesar_eventos(){
                                 }else{
                                     j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                                 }
-                                j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
+                                //j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
                             }else{
                                 j1->movimiento = false;
 
@@ -540,9 +539,9 @@ void Juego::procesar_eventos(){
                                 }else{
                                     j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
                                 }
-                                j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
+                                
                             }
-                    
+                            j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
                         }
                         break;
             
@@ -757,6 +756,7 @@ void Juego::crearPortal(){
     if(level == 2){
         portal = new Portal(53*16, 32*16);
         j1->set_posicion(sf::Vector2f(5*16,33*16));
+
         j1->dirColision = abajo;
         j1->vel_salto = 0;
         if(!textFondo.loadFromFile("resources/boss1.jpg")){
