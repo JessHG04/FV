@@ -37,4 +37,5 @@ class Darkrai : public Enemigo {
         sf::Sprite *personaje;
         AnimationDarkrai *animacion;
         bool esGolpeado = false;
+        bool follow = false;
 };

@@ -20,6 +20,17 @@ target_sources(libModulos PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/AnimationKinder.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/KinderSorpresa.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/Portal.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/MenuSeleccionPersonaje.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Interfaz.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Boss.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/PersonajeBoss.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/PersonajeNPC.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/PoderTrueno.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/SpriteBoss.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/SpriteNPC.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/SpriteTrueno.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/Trueno.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/NPC.cpp"
     
 )
 

@@ -21,7 +21,7 @@ class mojon : public Enemigo{
         mojon(int, int, int, int);
         ~mojon();
         void Draw(RenderWindow &);
-        void Update();
+        void Update(float nada);
         void cambiarSprite(int);
         void cambiarSpriteDos(int);
         bool colisionProyectil(Proyectil *);

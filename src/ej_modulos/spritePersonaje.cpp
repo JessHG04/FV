@@ -44,7 +44,7 @@ void spritePersonaje::set_sprite(sf::Texture *textura, int cantidadX1, int canti
     frame_actual = frm_act; // cogemos el frame que queremos utilizar
     //spr_player->setScale(0.5,0.5);
     seleccionar_frame(); 
-    sf::RectangleShape box(sf::Vector2f(tamFrame.x-20, tamFrame.y-20));
+    sf::RectangleShape box(sf::Vector2f(tamFrame.x, tamFrame.y));
     cajaColisiones = box;
     cajaColisiones.setFillColor(sf::Color::Blue);
 }

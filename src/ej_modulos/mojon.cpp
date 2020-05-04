@@ -37,7 +37,7 @@ using namespace sf;
 
     }
     
-    void mojon::Update(){
+    void mojon::Update(float nada){
         if(restartear == true){
             impactado.restart();
             restartear = false;
