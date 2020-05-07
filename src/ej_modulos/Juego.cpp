@@ -260,7 +260,6 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             vista.setCenter(pos_vista);
         }
     }
-    ventana->close();
 }
 //******************************************* FIN DEL BUCLE DEL JUEGO ************************************************************
 void Juego::iniciar(){
@@ -369,10 +368,6 @@ void Juego::dibujar(){
     ventana->display();
 }
 
-/*void Juego::logica(){
-
-}*/
-
 void Juego::procesar_eventos(){
     if(!j1->dash){
         switch (evento->type)
@@ -391,6 +386,9 @@ void Juego::procesar_eventos(){
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
                     level++;
                     cargar = false;
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::E)){
+                    nEnemigos = 0;
                 }
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
                     j1->direccion = izq;
@@ -773,11 +771,13 @@ bool Juego::colisionPersTrampa(direcciones direccion){ //La colision del persona
 }
 
 void Juego::colisionPersPortal(){
-    
-    if(j1->cajaColisiones.getGlobalBounds().intersects(portal->getCaja().getGlobalBounds())){
+    if(nEnemigos == 0){
+        if(j1->cajaColisiones.getGlobalBounds().intersects(portal->getCaja().getGlobalBounds())){
         level++;
         cargar = false;
     }
+    }
+    
 }
 
 void Juego::impacto(){
@@ -815,7 +815,7 @@ void Juego::crearPortal(){
         j1->set_posicion(sf::Vector2f(4*16,27*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
-        if(!textFondo.loadFromFile("resources/fondo1.jpg")){
+        if(!textFondo.loadFromFile("resources/Mapas/Fondo1.png")){
     	    std::cout << "Error cargando imagen de fondo de la mazmorra 1" << std::endl;
 	    }
     }
@@ -825,7 +825,7 @@ void Juego::crearPortal(){
 
         j1->dirColision = abajo;
         j1->vel_salto = 0;
-        if(!textFondo.loadFromFile("resources/boss1.jpg")){
+        if(!textFondo.loadFromFile("resources/Mapas/Boss.png")){
     	    std::cout << "Error cargando imagen de fondo del boss 1" << std::endl;
 	    }
     }
@@ -834,7 +834,7 @@ void Juego::crearPortal(){
         j1->set_posicion(sf::Vector2f(3*16,27*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
-        if(!textFondo.loadFromFile("resources/fondo2.jpg")){
+        if(!textFondo.loadFromFile("resources/Mapas/Fondo2.png")){
     	    std::cout << "Error cargando imagen de fondo de la mazmorra 2" << std::endl;
 	    }
     }
@@ -843,7 +843,7 @@ void Juego::crearPortal(){
         j1->set_posicion(sf::Vector2f(5*16,33*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
-        if(!textFondo.loadFromFile("resources/boss1.jpg")){
+        if(!textFondo.loadFromFile("resources/Mapas/Boss.png")){
     	    std::cout << "Error cargando imagen de fondo del boss 2" << std::endl;
 	    }
     }
@@ -852,7 +852,7 @@ void Juego::crearPortal(){
         j1->set_posicion(sf::Vector2f(4*16,9*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
-        if(!textFondo.loadFromFile("resources/fondo3.png")){
+        if(!textFondo.loadFromFile("resources/Mapas/Fondo3.png")){
     	    std::cout << "Error cargando imagen de fondo de la mazmorra 3" << std::endl;
 	    }
     }
@@ -861,7 +861,16 @@ void Juego::crearPortal(){
         j1->set_posicion(sf::Vector2f(5*16,33*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
-        if(!textFondo.loadFromFile("resources/boss1.png")){
+        if(!textFondo.loadFromFile("resources/Mapas/BossFinal3.png")){
+    	    std::cout << "Error cargando imagen de fondo del boss 3" << std::endl;
+	    }
+    }
+    if(level == 7){
+        portal = new Portal(53*16, 32*16);
+        j1->set_posicion(sf::Vector2f(5*16,33*16));
+        j1->dirColision = abajo;
+        j1->vel_salto = 0;
+        if(!textFondo.loadFromFile("resources/Mapas/BossFinal3.png")){
     	    std::cout << "Error cargando imagen de fondo del boss 3" << std::endl;
 	    }
     }
@@ -887,6 +896,7 @@ void Juego::crearEnemigos(){
     trueno2 = NULL;
     enemigos.clear();
     if(level == 1){
+        nEnemigos = 4;
         darkrai1 = new Darkrai(125*16, 6*16, 25.0f, *j1->spr_player);
         mojoncito1 = new mojon(60*16, 38*16, 55*16, 68*16);
         kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
@@ -915,10 +925,12 @@ void Juego::crearEnemigos(){
         }
     }
     if(level == 2){  //Mojon hacerlo grandesico y más fuertote
+        nEnemigos = 1;
         mojoncito1 = new mojon(43*16, 42*16, 4*16, 55*16);
         mojoncito1->getSprite().setScale(2.0, 2.0);
     }
     if(level == 3){
+        nEnemigos = 7;
         darkrai1 = new Darkrai(51*16, 6*16, 25.0f, *j1->spr_player);
         darkrai2 = new Darkrai(172*16, 6*16, 25.0f, *j1->spr_player);
         mojoncito1 = new mojon(43*16, 29*16, 40*16, 48*16);
@@ -928,9 +940,10 @@ void Juego::crearEnemigos(){
         larita2 = new lara(111*16, 14*16);
     }
     if(level == 4){
-
+        nEnemigos = 1;
     }
     if(level == 5){
+        nEnemigos = 6;
         darkrai1 = new Darkrai(101*16, 12*16, 25.0f, *j1->spr_player);
         mojoncito1 = new mojon (9*16, 39*16, 4*16, 15*16);
         mojoncito2 = new mojon(69*16, 41*16, 65*16, 76*16);
@@ -939,6 +952,7 @@ void Juego::crearEnemigos(){
         larita2 = new lara (79*16, 10*16);
     }
     if(level == 6){
+        nEnemigos = 1;
         //BOSS
         bossFinal = new PersonajeBoss(4, 10, sf::Vector2i(0,0));
         bossFinal -> cambiarPosicionBoss(sf::Vector2f(330,440));
@@ -961,6 +975,9 @@ void Juego::crearEnemigos(){
         trueno2->cambiarFrameYNPC(0);
         trueno2->setVelEne(sf::Vector2f(0.0, 0.0));
         trueno2->updateEne();
+    }
+    if(level == 7){
+        nEnemigos = 0;
     }
     enemigos.push_back(darkrai1);
     enemigos.push_back(darkrai2);

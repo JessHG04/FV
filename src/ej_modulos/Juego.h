@@ -113,8 +113,9 @@ class Juego{
         int fps;
         bool esGuerrera = false;
         bool gravedad = true;
+        int nEnemigos = 0;
         int level = 1;
-        int maxLevels = 6;
+        int maxLevels = 7;
         bool cargar = false;
         bool muerteMojon = false, muerteDarkrai = false, muerteLara = false, muerteKinder = false;
 };
