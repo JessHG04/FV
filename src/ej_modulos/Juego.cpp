@@ -357,7 +357,7 @@ void Juego::dibujar(){
         ventana->draw(trueno2->cajaColisionesNPC);
     }
     
-    if(interfaz){
+    if(interfaz && level!=7){
         ventana->draw(interfaz->nombre2);
         ventana->draw(*interfaz->spr_cara);
         for(int i = 0; i < j1->vida; i++){
@@ -812,7 +812,7 @@ void Juego::crearPortal(){
     
     if(level == 1){
         portal = new Portal(145*16, 9*16);
-        j1->set_posicion(sf::Vector2f(4*16,27*16));
+        j1->set_posicion(sf::Vector2f(4*16,26*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
         if(!textFondo.loadFromFile("resources/Mapas/Fondo1.png")){
@@ -821,7 +821,7 @@ void Juego::crearPortal(){
     }
     if(level == 2){
         portal = new Portal(53*16, 32*16);
-        j1->set_posicion(sf::Vector2f(5*16,33*16));
+        j1->set_posicion(sf::Vector2f(5*16,32*16));
 
         j1->dirColision = abajo;
         j1->vel_salto = 0;
@@ -831,7 +831,7 @@ void Juego::crearPortal(){
     }
     if(level == 3){
         portal = new Portal(171*16, 25*16);
-        j1->set_posicion(sf::Vector2f(3*16,27*16));
+        j1->set_posicion(sf::Vector2f(3*16,26*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
         if(!textFondo.loadFromFile("resources/Mapas/Fondo2.png")){
@@ -840,7 +840,7 @@ void Juego::crearPortal(){
     }
     if(level == 4){
         portal = new Portal(53*16, 32*16);
-        j1->set_posicion(sf::Vector2f(5*16,33*16));
+        j1->set_posicion(sf::Vector2f(5*16,32*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
         if(!textFondo.loadFromFile("resources/Mapas/Boss.png")){
@@ -849,7 +849,7 @@ void Juego::crearPortal(){
     }
     if(level == 5){
         portal = new Portal(170*16, 23*16);
-        j1->set_posicion(sf::Vector2f(4*16,9*16));
+        j1->set_posicion(sf::Vector2f(4*16,8*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
         if(!textFondo.loadFromFile("resources/Mapas/Fondo3.png")){
@@ -858,7 +858,7 @@ void Juego::crearPortal(){
     }
     if(level == 6){
         portal = new Portal(53*16, 32*16);
-        j1->set_posicion(sf::Vector2f(5*16,33*16));
+        j1->set_posicion(sf::Vector2f(5*16,32*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
         if(!textFondo.loadFromFile("resources/Mapas/BossFinal3.png")){
@@ -867,10 +867,10 @@ void Juego::crearPortal(){
     }
     if(level == 7){
         portal = new Portal(53*16, 32*16);
-        j1->set_posicion(sf::Vector2f(5*16,33*16));
+        j1->set_posicion(sf::Vector2f(5*16,32*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
-        if(!textFondo.loadFromFile("resources/Mapas/BossFinal3.png")){
+        if(!textFondo.loadFromFile("resources/Mapas/Creditos.png")){
     	    std::cout << "Error cargando imagen de fondo del boss 3" << std::endl;
 	    }
     }
