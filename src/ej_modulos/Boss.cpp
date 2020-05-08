@@ -81,3 +81,11 @@ void Boss::hacerTransparente(){
 void Boss::restartSprite(){
     spriteBoss->setColor(sf::Color(255,255,255));
 }
+
+bool Boss::colisionProtagonista(spritePersonaje *sp){
+    bool x = false;
+    if(spriteBoss->getGlobalBounds().intersects(sp->getSprite().getGlobalBounds())){
+        x = true;
+    }
+    return x;
+}

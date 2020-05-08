@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "Proyectil.h"
+#include "spritePersonaje.h"
 
 
 enum estadosBoss{
@@ -56,6 +57,7 @@ class Boss:public SpriteBoss{
         void restartSprite();
         void hacerTransparente();
         bool morir();
+        bool colisionProtagonista(spritePersonaje *);
 
         sf::Sprite getSpriteBoss(){
             return *spriteBoss;

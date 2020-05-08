@@ -124,7 +124,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                     }
                 }
             }
-            
+
             if(larita1 != NULL && level == 1){
                 if(larita1->Update(*ventana, j1, (83*16+100), (20*16))){ 
                     impacto();
@@ -155,6 +155,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                     impacto();
                 }
             }
+            
             //BOSS PROYECTIL
             if(pBoss != NULL)
                 pBoss->animar();
@@ -243,6 +244,9 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                 }
             }
             this->muerteNPCs();
+            if(danyo){
+                impacto();
+            }
             reloj1->restart();
             //Camara - Extremo derecho, normal, extremo izquierdo
             if(j1->get_posicion().x >= (mapa->widthMap * 16 - resolucion.x /2)){
@@ -271,6 +275,7 @@ void Juego::iniciar(){
     crono1 = new sf::Time();
     relojInmortal = new sf::Clock();
     cronoInmortal = new sf::Time();
+    relojEnemigos = new sf::Clock();
     relojBoss = new sf::Clock();
     cronoBoss = new sf::Time();
     relojTrueno = new sf::Clock();
@@ -392,6 +397,13 @@ void Juego::procesar_eventos(){
                 }
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::E)){
                     nEnemigos = 0;
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::G)){
+                    if(!dios){
+                        dios = true;
+                    }else{
+                        dios = false;
+                    }
                 }
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
                     j1->direccion = izq;
@@ -776,9 +788,9 @@ bool Juego::colisionPersTrampa(direcciones direccion){ //La colision del persona
 void Juego::colisionPersPortal(){
     if(nEnemigos == 0){
         if(j1->cajaColisiones.getGlobalBounds().intersects(portal->getCaja().getGlobalBounds())){
-        level++;
-        cargar = false;
-    }
+            level++;
+            cargar = false;
+        }
     }
     
 }
@@ -787,7 +799,8 @@ void Juego::impacto(){
     if(!j1->inmortal){ 
         relojInmortal->restart();
         j1->inmortal = true;
-        j1->vida --;
+        j1->vida--;
+        std::cout << "Vida: " << j1->vida << std::endl;
         if(j1->vida == 0)
             gameover = true;
         if(esGuerrera == false){
@@ -996,29 +1009,81 @@ void Juego::crearEnemigos(){
     enemigos.push_back(larita3);
 }
 
-void Juego::colisionesProtagonista(){ //REVISAR
-    /*
-    if(!muerteLara){
-        if(larita1->Update(*ventana, j1, (83*16 + 100), (20*16))){
-            impacto();
+void Juego::colisionesProtagonista(){ 
+    float tiempo = relojEnemigos->getElapsedTime().asSeconds();
+    
+    if(tiempo > 1.0){
+        if(darkrai1 != NULL && !muerteDarkrai1){
+            if(darkrai1->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
         }
-    }
-    if(!muerteDarkrai){
-        if(darkrai1->colisionProtagonista(j1)){
-            impacto();
+
+        if(darkrai2 != NULL && !muerteDarkrai2){
+            if(darkrai2->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
         }
-    }
-    if(!muerteMojon){
-        if(mojoncito1->colisionProtagonista(j1)){
-            impacto();
+        
+        if(darkrai3 != NULL && !muerteDarkrai3){
+            if(darkrai3->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
         }
-    }
-    if(!muerteKinder){
-        if(kindercito1->colisionProtagonista(j1)){
-            impacto();
+
+        if(mojoncito1 != NULL && !muerteMojon1){
+            if(mojoncito1->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
         }
+        
+        if(mojoncito2 != NULL && !muerteMojon2){
+            if(mojoncito2->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
+        }
+
+        if(mojoncito3 != NULL && !muerteMojon3){
+            if(mojoncito3->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
+        }
+
+        if(kindercito1 != NULL && !muerteKinder1){
+            if(kindercito1->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
+        }
+
+        if(kindercito2 != NULL && !muerteKinder2){
+            if(kindercito2->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
+        }
+
+        if(kindercito3 != NULL && !muerteKinder3){
+            if(kindercito3->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
+        }
+        
+        if(bossFinal != NULL && !muerteBossFinal){
+            if(bossFinal->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
+        }
+        relojEnemigos->restart();
     }
-    */
 }
 
 void Juego::colisionProyectilEnemigos(){

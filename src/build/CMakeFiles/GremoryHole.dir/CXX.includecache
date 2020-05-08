@@ -27,6 +27,8 @@ vector
 -
 Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Darkrai.h
 SFML/Graphics.hpp
