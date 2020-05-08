@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "Proyectil.h"
 
 
 enum estadosBoss{
@@ -27,6 +28,7 @@ class Boss:public SpriteBoss{
         sf::Vector2f posBoss;
         //velocidad
         sf::Vector2f velBoss;
+        bool restartear = false;
 
     public:
         //constructor
@@ -38,11 +40,22 @@ class Boss:public SpriteBoss{
         bool dobleColision = false;
         int movimientoDesplazaBoss = 0;
         float velDesplazamientoBoss;
-        int vida;
+        int vida = 0;
         direccionesBoss direccionBoss;
         direccionesBoss dirColisionBoss;
         sf::Vector2f posInicialBoss; 
-        
+        sf::Clock impactado;
+        bool golpeado = false;
+        int contando = 0;
+        bool muerto = false;
+        bool colisionProyectil(Proyectil *p1);
+        void impactoProyectil();
+        void perderVida();
+        bool getMuerte();
+        void setMuerte(bool);
+        void restartSprite();
+        void hacerTransparente();
+        bool morir();
 
         sf::Sprite getSpriteBoss(){
             return *spriteBoss;

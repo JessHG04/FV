@@ -37,6 +37,8 @@ string
 -
 vector
 -
+Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Darkrai.cpp
 Darkrai.h
@@ -63,6 +65,8 @@ SFML/Graphics.hpp
 -
 iostream
 -
+Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Guerrera.cpp
 Guerrera.h
