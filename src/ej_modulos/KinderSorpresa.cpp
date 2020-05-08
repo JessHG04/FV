@@ -270,6 +270,7 @@ void KinderSorpresa::hacerTransparente(){
 
 void KinderSorpresa::hacerGrande(){
     body->setScale(10.0, 10.0);
+    //cambiar vida
 }
 
 sf::RectangleShape KinderSorpresa::getBoundingBox() {

@@ -167,6 +167,7 @@ using namespace sf;
 
     void mojon::hacerGrande(){
         sprite->setScale(10.0, 10.0);
+        //Cambiar vida
     }
 
     void mojon::restartSprite(){
