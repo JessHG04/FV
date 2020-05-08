@@ -116,6 +116,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             if(p1)
                 p1->update();
             this->colisionesProtagonista();
+            
             //UPDATES ENEMIGOS
             for(int x = 0; x < enemigos.size(); x++){
                 if(enemigos[x] != NULL){ //otro if enemigos[x] -> muerto
@@ -125,34 +126,46 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                 }
             }
 
-            if(larita1 != NULL && level == 1){
-                if(larita1->Update(*ventana, j1, (83*16+100), (20*16))){ 
-                    impacto();
+            if(larita1 != NULL && !muerteLara1 && level == 1){
+                if(larita1->Update(*ventana, j1, (83*16+100), (20*16))){
+                    if(!dios){
+                        impacto();
+                    }
                 }
             }
-            if(larita1 != NULL && level == 3){
+            if(larita1 != NULL && !muerteLara1 && level == 3){
                 if(larita1->Update(*ventana, j1, (6*16+100), (12*16))){ 
-                    impacto();
+                    if(!dios){
+                        impacto();
+                    }
                 }
             }
-            if(larita2 != NULL && level == 3){
+            if(larita2 != NULL && !muerteLara2 && level == 3){
                 if(larita2->Update(*ventana, j1, (111*16+100), (14*16))){ 
-                    impacto();
+                    if(!dios){
+                        impacto();
+                    }
                 }
             }
-            if(larita1 != NULL && level == 5){
+            if(larita1 != NULL  && !muerteLara1 && level == 5){
                 if(larita1->Update(*ventana, j1, (54*16+100), (16*16))){ 
-                    impacto();
+                    if(!dios){
+                        impacto();
+                    }
                 }
             }
-            if(larita2 != NULL && level == 5){
+            if(larita2 != NULL && !muerteLara2 && level == 5){
                 if(larita2->Update(*ventana, j1, (79*16+100), (10*16))){ 
-                    impacto();
+                    if(!dios){
+                        impacto();
+                    }
                 }
             }
-            if(larita3 != NULL){
+            if(larita3 != NULL && !muerteLara3){
                 if(larita3->Update(*ventana, j1, (83*16+100), (20*16))){ 
-                    impacto();
+                    if(!dios){
+                        impacto();
+                    }
                 }
             }
             
@@ -192,29 +205,8 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             }
             
             if(colisionPersTrampa(j1->dirColision)){
-                if(!j1->inmortal){ 
-                    relojInmortal->restart();
-                    j1->inmortal = true;
-                    j1->vida --;
-                    if(j1->vida == 0)//*******************************************************RESTAMOS VIDA********************************
-                        gameover = true;
-                    if(esGuerrera == false){
-                        if(j1->direccion == izq){
-                            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,2));
-                        }
-                        
-                        if(j1->direccion == der){
-                            j1->set_sprite(j1->txt_herido,4,4,sf::Vector2i(0,3));
-                        }
-                    }else{
-                        if(j1->direccion == izq){
-                            j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,2));
-                        }
-                        
-                        if(j1->direccion == der){
-                            j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,3));
-                        }
-                    }
+                if(!dios){
+                    impacto();
                 }
             }
             
@@ -401,8 +393,10 @@ void Juego::procesar_eventos(){
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::G)){
                     if(!dios){
                         dios = true;
+                        std::cout << "Modo Dios activado" << std::endl;
                     }else{
                         dios = false;
+                        std::cout << "Modo Dios desactivado" << std::endl;
                     }
                 }
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
@@ -894,6 +888,7 @@ void Juego::crearPortal(){
 }
 
 void Juego::crearEnemigos(){
+    muerteDarkrai1, muerteDarkrai2, muerteDarkrai3, muerteMojon1, muerteMojon2, muerteMojon3, muerteKinder1, muerteKinder2, muerteKinder3, muerteLara1, muerteLara2, muerteLara3, muerteBossFinal = false;
     darkrai1 = NULL;
     darkrai2 = NULL;
     darkrai3 = NULL;
@@ -914,7 +909,7 @@ void Juego::crearEnemigos(){
     if(level == 1){
         nEnemigos = 4;
         darkrai1 = new Darkrai(125*16, 6*16, 25.0f, *j1->spr_player);
-        mojoncito1 = new mojon(60*16, 38*16, 55*16, 68*16);
+        mojoncito1 = new mojon(60*16, 38*16, 55*16, 68*16, false);
         kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
         larita1 = new lara(83*16, 20*16);
         //NPC
@@ -942,15 +937,16 @@ void Juego::crearEnemigos(){
     }
     if(level == 2){  //Mojon hacerlo grandesico y más fuertote
         nEnemigos = 1;
-        mojoncito1 = new mojon(43*16, 42*16, 4*16, 55*16);
-        mojoncito1->getSprite().setScale(2.0, 2.0);
+        mojoncito1 = new mojon(43*16, 42*16, 4*16, 55*16, true);
+        std::cout << "Muerte mojon: " << mojoncito1->getMuerte()  << "   " << muerteMojon1 << std::endl;
+        //mojoncito1->getSprite().setScale(2.0, 2.0);
     }
     if(level == 3){
         nEnemigos = 7;
         darkrai1 = new Darkrai(51*16, 6*16, 25.0f, *j1->spr_player);
         darkrai2 = new Darkrai(172*16, 6*16, 25.0f, *j1->spr_player);
-        mojoncito1 = new mojon(43*16, 29*16, 40*16, 48*16);
-        mojoncito2 = new mojon(138*16, 26*16, 132*16, 146*16);
+        mojoncito1 = new mojon(43*16, 29*16, 40*16, 48*16, false);
+        mojoncito2 = new mojon(138*16, 26*16, 132*16, 146*16, false);
         kindercito1 = new KinderSorpresa(73*16, 99*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
         larita1 = new lara(6*16, 12*16);
         larita2 = new lara(111*16, 14*16);
@@ -961,8 +957,8 @@ void Juego::crearEnemigos(){
     if(level == 5){
         nEnemigos = 6;
         darkrai1 = new Darkrai(101*16, 12*16, 25.0f, *j1->spr_player);
-        mojoncito1 = new mojon (9*16, 39*16, 4*16, 15*16);
-        mojoncito2 = new mojon(69*16, 41*16, 65*16, 76*16);
+        mojoncito1 = new mojon (9*16, 39*16, 4*16, 15*16, false);
+        mojoncito2 = new mojon(69*16, 41*16, 65*16, 76*16, false);
         kindercito1 = new KinderSorpresa(85*16, 103*16, 34*16, 40.0, *(j1->spr_player), *sp, 10);
         larita1 = new lara(54*16, 16*16);
         larita2 = new lara (79*16, 10*16);
@@ -1012,7 +1008,7 @@ void Juego::crearEnemigos(){
 void Juego::colisionesProtagonista(){ 
     float tiempo = relojEnemigos->getElapsedTime().asSeconds();
     
-    if(tiempo > 1.0){
+    if(tiempo > 1.0 && !dios){
         if(darkrai1 != NULL && !muerteDarkrai1){
             if(darkrai1->colisionProtagonista(j1)){
                 //impacto();

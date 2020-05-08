@@ -58,7 +58,7 @@ class Juego{
         Proyectil *p1 = NULL;
         //Creamos el mapa
         Map *mapa = NULL;
-        //creamos enemigo
+        //Creamos a Darkrai
         Darkrai *darkrai1 = NULL;
         Darkrai *darkrai2 = NULL;
         Darkrai *darkrai3 = NULL;
