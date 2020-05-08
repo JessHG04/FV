@@ -268,6 +268,10 @@ void KinderSorpresa::hacerTransparente(){
     body->setColor(Color::Transparent);
 }
 
+void KinderSorpresa::hacerGrande(){
+    body->setScale(10.0, 10.0);
+}
+
 sf::RectangleShape KinderSorpresa::getBoundingBox() {
     return *boundingBox;
 }

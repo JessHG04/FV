@@ -872,8 +872,7 @@ void Juego::crearPortal(){
         j1->dirColision = abajo;
         j1->vel_salto = 0;
         if(!textFondo.loadFromFile("resources/Mapas/BossFinal3.png")){
-    	    std::cout << "Error cargando imagen de fondo del boss 3" << std::endl;
-	    }
+ 	    }
     }
     if(level == 7){
         portal = new Portal(53*16, 32*16);
@@ -888,7 +887,19 @@ void Juego::crearPortal(){
 }
 
 void Juego::crearEnemigos(){
-    muerteDarkrai1, muerteDarkrai2, muerteDarkrai3, muerteMojon1, muerteMojon2, muerteMojon3, muerteKinder1, muerteKinder2, muerteKinder3, muerteLara1, muerteLara2, muerteLara3, muerteBossFinal = false;
+    muerteDarkrai1 = false;
+    muerteDarkrai2 = false;
+    muerteDarkrai3 = false;
+    muerteMojon1 = false;
+    muerteMojon2 = false;
+    muerteMojon3 = false;
+    muerteKinder1 = false; 
+    muerteKinder2 = false;
+    muerteKinder3 = false;
+    muerteLara1 = false;
+    muerteLara2 = false;
+    muerteLara3 = false; 
+    muerteBossFinal = false;
     darkrai1 = NULL;
     darkrai2 = NULL;
     darkrai3 = NULL;
@@ -909,7 +920,7 @@ void Juego::crearEnemigos(){
     if(level == 1){
         nEnemigos = 4;
         darkrai1 = new Darkrai(125*16, 6*16, 25.0f, *j1->spr_player);
-        mojoncito1 = new mojon(60*16, 38*16, 55*16, 68*16, false);
+        mojoncito1 = new mojon(60*16, 38*16, 55*16, 68*16);
         kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
         larita1 = new lara(83*16, 20*16);
         //NPC
@@ -937,28 +948,29 @@ void Juego::crearEnemigos(){
     }
     if(level == 2){  //Mojon hacerlo grandesico y más fuertote
         nEnemigos = 1;
-        mojoncito1 = new mojon(43*16, 42*16, 4*16, 55*16, true);
-        std::cout << "Muerte mojon: " << mojoncito1->getMuerte()  << "   " << muerteMojon1 << std::endl;
-        //mojoncito1->getSprite().setScale(2.0, 2.0);
+        mojoncito1 = new mojon(43*16, 42*16, 4*16, 55*16);
+        mojoncito1->hacerGrande();
     }
     if(level == 3){
         nEnemigos = 7;
         darkrai1 = new Darkrai(51*16, 6*16, 25.0f, *j1->spr_player);
         darkrai2 = new Darkrai(172*16, 6*16, 25.0f, *j1->spr_player);
-        mojoncito1 = new mojon(43*16, 29*16, 40*16, 48*16, false);
-        mojoncito2 = new mojon(138*16, 26*16, 132*16, 146*16, false);
+        mojoncito1 = new mojon(43*16, 29*16, 40*16, 48*16);
+        mojoncito2 = new mojon(138*16, 26*16, 132*16, 146*16);
         kindercito1 = new KinderSorpresa(73*16, 99*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
         larita1 = new lara(6*16, 12*16);
         larita2 = new lara(111*16, 14*16);
     }
     if(level == 4){
         nEnemigos = 1;
+        kindercito1 = new KinderSorpresa(4*16, 55*16, 29*16, 50.0, *(j1->spr_player), *sp, 15);
+        kindercito1->hacerGrande();
     }
     if(level == 5){
         nEnemigos = 6;
         darkrai1 = new Darkrai(101*16, 12*16, 25.0f, *j1->spr_player);
-        mojoncito1 = new mojon (9*16, 39*16, 4*16, 15*16, false);
-        mojoncito2 = new mojon(69*16, 41*16, 65*16, 76*16, false);
+        mojoncito1 = new mojon (9*16, 39*16, 4*16, 15*16);
+        mojoncito2 = new mojon(69*16, 41*16, 65*16, 76*16);
         kindercito1 = new KinderSorpresa(85*16, 103*16, 34*16, 40.0, *(j1->spr_player), *sp, 10);
         larita1 = new lara(54*16, 16*16);
         larita2 = new lara (79*16, 10*16);

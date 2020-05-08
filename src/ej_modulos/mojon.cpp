@@ -11,7 +11,7 @@ using namespace sf;
 
 #define kVel 10
 
-    mojon::mojon(int xx, int yy, int pos1, int pos2, bool grande) : Enemigo(6){
+    mojon::mojon(int xx, int yy, int pos1, int pos2) : Enemigo(6){
         direccion = 0;
         avansa = 0;
         x = xx;
@@ -31,10 +31,6 @@ using namespace sf;
         
         // Lo dispongo en el centro de la pantalla
         sprite->setPosition(xx, yy);
-
-        if(grande){
-            sprite->setScale(10.0, 10.0);
-        }
     }
 
     mojon::~mojon() {
@@ -167,6 +163,10 @@ using namespace sf;
 
     void mojon::hacerTransparente(){
         sprite->setColor(Color::Transparent);
+    }
+
+    void mojon::hacerGrande(){
+        sprite->setScale(10.0, 10.0);
     }
 
     void mojon::restartSprite(){
