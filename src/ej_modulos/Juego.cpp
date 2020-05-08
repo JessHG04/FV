@@ -127,32 +127,38 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
 
             if(larita1 != NULL && level == 1){
                 if(larita1->Update(*ventana, j1, (83*16+100), (20*16))){ 
-                    impacto();
+                    relojDanyo->restart();
+                    danyo = true;
                 }
             }
             if(larita1 != NULL && level == 3){
                 if(larita1->Update(*ventana, j1, (6*16+100), (12*16))){ 
-                    impacto();
+                    relojDanyo->restart();
+                    danyo = true;
                 }
             }
             if(larita2 != NULL && level == 3){
                 if(larita2->Update(*ventana, j1, (111*16+100), (14*16))){ 
-                    impacto();
+                    relojDanyo->restart();
+                    danyo = true;
                 }
             }
             if(larita1 != NULL && level == 5){
                 if(larita1->Update(*ventana, j1, (54*16+100), (16*16))){ 
-                    impacto();
+                    relojDanyo->restart();
+                    danyo = true;
                 }
             }
             if(larita2 != NULL && level == 5){
                 if(larita2->Update(*ventana, j1, (79*16+100), (10*16))){ 
-                    impacto();
+                    relojDanyo->restart();
+                    danyo = true;
                 }
             }
             if(larita3 != NULL){
                 if(larita3->Update(*ventana, j1, (83*16+100), (20*16))){ 
-                    impacto();
+                    relojDanyo->restart();
+                    danyo = true;
                 }
             }
             
@@ -246,6 +252,12 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             this->muerteNPCs();
             if(danyo){
                 impacto();
+                danyao = true;
+                float segundetes = relojDanyo->getElapsedTime().asSeconds();
+                if(segundetes > 1.1){
+                    danyo = false;
+                    danyao = false;
+                }
             }
             reloj1->restart();
             //Camara - Extremo derecho, normal, extremo izquierdo
@@ -276,6 +288,7 @@ void Juego::iniciar(){
     relojInmortal = new sf::Clock();
     cronoInmortal = new sf::Time();
     relojEnemigos = new sf::Clock();
+    relojDanyo = new sf::Clock();
     relojBoss = new sf::Clock();
     cronoBoss = new sf::Time();
     relojTrueno = new sf::Clock();
@@ -799,7 +812,9 @@ void Juego::impacto(){
     if(!j1->inmortal){ 
         relojInmortal->restart();
         j1->inmortal = true;
-        j1->vida--;
+        if(!danyao){
+            j1->vida--;
+        }
         std::cout << "Vida: " << j1->vida << std::endl;
         if(j1->vida == 0)
             gameover = true;
@@ -1016,6 +1031,7 @@ void Juego::colisionesProtagonista(){
         if(darkrai1 != NULL && !muerteDarkrai1){
             if(darkrai1->colisionProtagonista(j1)){
                 //impacto();
+                relojDanyo->restart();
                 danyo = true;
             }
         }
@@ -1023,6 +1039,7 @@ void Juego::colisionesProtagonista(){
         if(darkrai2 != NULL && !muerteDarkrai2){
             if(darkrai2->colisionProtagonista(j1)){
                 //impacto();
+                relojDanyo->restart();
                 danyo = true;
             }
         }
@@ -1030,6 +1047,7 @@ void Juego::colisionesProtagonista(){
         if(darkrai3 != NULL && !muerteDarkrai3){
             if(darkrai3->colisionProtagonista(j1)){
                 //impacto();
+                relojDanyo->restart();
                 danyo = true;
             }
         }
@@ -1037,6 +1055,7 @@ void Juego::colisionesProtagonista(){
         if(mojoncito1 != NULL && !muerteMojon1){
             if(mojoncito1->colisionProtagonista(j1)){
                 //impacto();
+                relojDanyo->restart();
                 danyo = true;
             }
         }
@@ -1044,6 +1063,7 @@ void Juego::colisionesProtagonista(){
         if(mojoncito2 != NULL && !muerteMojon2){
             if(mojoncito2->colisionProtagonista(j1)){
                 //impacto();
+                relojDanyo->restart();
                 danyo = true;
             }
         }
@@ -1051,6 +1071,7 @@ void Juego::colisionesProtagonista(){
         if(mojoncito3 != NULL && !muerteMojon3){
             if(mojoncito3->colisionProtagonista(j1)){
                 //impacto();
+                relojDanyo->restart();
                 danyo = true;
             }
         }
@@ -1058,6 +1079,7 @@ void Juego::colisionesProtagonista(){
         if(kindercito1 != NULL && !muerteKinder1){
             if(kindercito1->colisionProtagonista(j1)){
                 //impacto();
+                relojDanyo->restart();
                 danyo = true;
             }
         }
@@ -1065,6 +1087,7 @@ void Juego::colisionesProtagonista(){
         if(kindercito2 != NULL && !muerteKinder2){
             if(kindercito2->colisionProtagonista(j1)){
                 //impacto();
+                relojDanyo->restart();
                 danyo = true;
             }
         }
@@ -1072,6 +1095,7 @@ void Juego::colisionesProtagonista(){
         if(kindercito3 != NULL && !muerteKinder3){
             if(kindercito3->colisionProtagonista(j1)){
                 //impacto();
+                relojDanyo->restart();
                 danyo = true;
             }
         }
@@ -1079,6 +1103,7 @@ void Juego::colisionesProtagonista(){
         if(bossFinal != NULL && !muerteBossFinal){
             if(bossFinal->colisionProtagonista(j1)){
                 //impacto();
+                relojDanyo->restart();
                 danyo = true;
             }
         }

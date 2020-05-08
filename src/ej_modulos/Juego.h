@@ -106,6 +106,7 @@ class Juego{
         sf::Clock *reloj1 = NULL;
         sf::Time *crono1 = NULL;
         sf::Clock *relojInmortal = NULL;
+        sf::Clock *relojDanyo = NULL;
         sf::Time *cronoInmortal = NULL;
         sf::Clock *relojEnemigos = NULL;
         //Creamos el texto para el HUD
@@ -116,7 +117,7 @@ class Juego{
         bool esGuerrera = false;
         bool gravedad = true;
         bool dios = false;
-        bool danyo = false;
+        bool danyo, danyao = false;
         int nEnemigos = 0;
         int level = 1;
         int maxLevels = 7;
