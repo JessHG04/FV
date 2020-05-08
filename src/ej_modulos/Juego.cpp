@@ -124,7 +124,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                     }
                 }
             }
-            
+
             if(larita1 != NULL && level == 1){
                 if(larita1->Update(*ventana, j1, (83*16+100), (20*16))){ 
                     impacto();
@@ -155,6 +155,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                     impacto();
                 }
             }
+            
             //BOSS PROYECTIL
             if(pBoss != NULL)
                 pBoss->animar();
@@ -243,6 +244,9 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                 }
             }
             this->muerteNPCs();
+            if(danyo){
+                impacto();
+            }
             reloj1->restart();
             //Camara - Extremo derecho, normal, extremo izquierdo
             if(j1->get_posicion().x >= (mapa->widthMap * 16 - resolucion.x /2)){
@@ -260,7 +264,9 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             vista.setCenter(pos_vista);
         }
     }
-    ventana->close();
+    pos_vista.x = resolucion.x / 2;
+    vista.setCenter(pos_vista);
+    ventana->setView(vista);
 }
 //******************************************* FIN DEL BUCLE DEL JUEGO ************************************************************
 void Juego::iniciar(){
@@ -269,6 +275,7 @@ void Juego::iniciar(){
     crono1 = new sf::Time();
     relojInmortal = new sf::Clock();
     cronoInmortal = new sf::Time();
+    relojEnemigos = new sf::Clock();
     relojBoss = new sf::Clock();
     cronoBoss = new sf::Time();
     relojTrueno = new sf::Clock();
@@ -358,7 +365,7 @@ void Juego::dibujar(){
         ventana->draw(trueno2->cajaColisionesNPC);
     }
     
-    if(interfaz){
+    if(interfaz && level!=7){
         ventana->draw(interfaz->nombre2);
         ventana->draw(*interfaz->spr_cara);
         for(int i = 0; i < j1->vida; i++){
@@ -368,10 +375,6 @@ void Juego::dibujar(){
     }
     ventana->display();
 }
-
-/*void Juego::logica(){
-
-}*/
 
 void Juego::procesar_eventos(){
     if(!j1->dash){
@@ -391,6 +394,16 @@ void Juego::procesar_eventos(){
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::N)){
                     level++;
                     cargar = false;
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::E)){
+                    nEnemigos = 0;
+                }
+                if(sf::Keyboard::isKeyPressed(sf::Keyboard::G)){
+                    if(!dios){
+                        dios = true;
+                    }else{
+                        dios = false;
+                    }
                 }
                 if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
                     j1->direccion = izq;
@@ -773,18 +786,21 @@ bool Juego::colisionPersTrampa(direcciones direccion){ //La colision del persona
 }
 
 void Juego::colisionPersPortal(){
-    
-    if(j1->cajaColisiones.getGlobalBounds().intersects(portal->getCaja().getGlobalBounds())){
-        level++;
-        cargar = false;
+    if(nEnemigos == 0){
+        if(j1->cajaColisiones.getGlobalBounds().intersects(portal->getCaja().getGlobalBounds())){
+            level++;
+            cargar = false;
+        }
     }
+    
 }
 
 void Juego::impacto(){
     if(!j1->inmortal){ 
         relojInmortal->restart();
         j1->inmortal = true;
-        j1->vida --;
+        j1->vida--;
+        std::cout << "Vida: " << j1->vida << std::endl;
         if(j1->vida == 0)
             gameover = true;
         if(esGuerrera == false){
@@ -812,56 +828,65 @@ void Juego::crearPortal(){
     
     if(level == 1){
         portal = new Portal(145*16, 9*16);
-        j1->set_posicion(sf::Vector2f(4*16,27*16));
+        j1->set_posicion(sf::Vector2f(4*16,26*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
-        if(!textFondo.loadFromFile("resources/fondo1.jpg")){
+        if(!textFondo.loadFromFile("resources/Mapas/Fondo1.png")){
     	    std::cout << "Error cargando imagen de fondo de la mazmorra 1" << std::endl;
 	    }
     }
     if(level == 2){
         portal = new Portal(53*16, 32*16);
-        j1->set_posicion(sf::Vector2f(5*16,33*16));
+        j1->set_posicion(sf::Vector2f(5*16,32*16));
 
         j1->dirColision = abajo;
         j1->vel_salto = 0;
-        if(!textFondo.loadFromFile("resources/boss1.jpg")){
+        if(!textFondo.loadFromFile("resources/Mapas/Boss.png")){
     	    std::cout << "Error cargando imagen de fondo del boss 1" << std::endl;
 	    }
     }
     if(level == 3){
         portal = new Portal(171*16, 25*16);
-        j1->set_posicion(sf::Vector2f(3*16,27*16));
+        j1->set_posicion(sf::Vector2f(3*16,26*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
-        if(!textFondo.loadFromFile("resources/fondo2.jpg")){
+        if(!textFondo.loadFromFile("resources/Mapas/Fondo2.png")){
     	    std::cout << "Error cargando imagen de fondo de la mazmorra 2" << std::endl;
 	    }
     }
     if(level == 4){
         portal = new Portal(53*16, 32*16);
-        j1->set_posicion(sf::Vector2f(5*16,33*16));
+        j1->set_posicion(sf::Vector2f(5*16,32*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
-        if(!textFondo.loadFromFile("resources/boss1.jpg")){
+        if(!textFondo.loadFromFile("resources/Mapas/Boss.png")){
     	    std::cout << "Error cargando imagen de fondo del boss 2" << std::endl;
 	    }
     }
     if(level == 5){
         portal = new Portal(170*16, 23*16);
-        j1->set_posicion(sf::Vector2f(4*16,9*16));
+        j1->set_posicion(sf::Vector2f(4*16,8*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
-        if(!textFondo.loadFromFile("resources/fondo3.png")){
+        if(!textFondo.loadFromFile("resources/Mapas/Fondo3.png")){
     	    std::cout << "Error cargando imagen de fondo de la mazmorra 3" << std::endl;
 	    }
     }
     if(level == 6){
         portal = new Portal(53*16, 32*16);
-        j1->set_posicion(sf::Vector2f(5*16,33*16));
+        j1->set_posicion(sf::Vector2f(5*16,32*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
-        if(!textFondo.loadFromFile("resources/boss1.png")){
+        if(!textFondo.loadFromFile("resources/Mapas/BossFinal3.png")){
+    	    std::cout << "Error cargando imagen de fondo del boss 3" << std::endl;
+	    }
+    }
+    if(level == 7){
+        portal = new Portal(53*16, 32*16);
+        j1->set_posicion(sf::Vector2f(5*16,32*16));
+        j1->dirColision = abajo;
+        j1->vel_salto = 0;
+        if(!textFondo.loadFromFile("resources/Mapas/Creditos.png")){
     	    std::cout << "Error cargando imagen de fondo del boss 3" << std::endl;
 	    }
     }
@@ -887,6 +912,7 @@ void Juego::crearEnemigos(){
     trueno2 = NULL;
     enemigos.clear();
     if(level == 1){
+        nEnemigos = 4;
         darkrai1 = new Darkrai(125*16, 6*16, 25.0f, *j1->spr_player);
         mojoncito1 = new mojon(60*16, 38*16, 55*16, 68*16);
         kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
@@ -915,10 +941,12 @@ void Juego::crearEnemigos(){
         }
     }
     if(level == 2){  //Mojon hacerlo grandesico y más fuertote
+        nEnemigos = 1;
         mojoncito1 = new mojon(43*16, 42*16, 4*16, 55*16);
         mojoncito1->getSprite().setScale(2.0, 2.0);
     }
     if(level == 3){
+        nEnemigos = 7;
         darkrai1 = new Darkrai(51*16, 6*16, 25.0f, *j1->spr_player);
         darkrai2 = new Darkrai(172*16, 6*16, 25.0f, *j1->spr_player);
         mojoncito1 = new mojon(43*16, 29*16, 40*16, 48*16);
@@ -928,9 +956,10 @@ void Juego::crearEnemigos(){
         larita2 = new lara(111*16, 14*16);
     }
     if(level == 4){
-
+        nEnemigos = 1;
     }
     if(level == 5){
+        nEnemigos = 6;
         darkrai1 = new Darkrai(101*16, 12*16, 25.0f, *j1->spr_player);
         mojoncito1 = new mojon (9*16, 39*16, 4*16, 15*16);
         mojoncito2 = new mojon(69*16, 41*16, 65*16, 76*16);
@@ -939,6 +968,7 @@ void Juego::crearEnemigos(){
         larita2 = new lara (79*16, 10*16);
     }
     if(level == 6){
+        nEnemigos = 1;
         //BOSS
         bossFinal = new PersonajeBoss(4, 10, sf::Vector2i(0,0));
         bossFinal -> cambiarPosicionBoss(sf::Vector2f(330,440));
@@ -962,6 +992,9 @@ void Juego::crearEnemigos(){
         trueno2->setVelEne(sf::Vector2f(0.0, 0.0));
         trueno2->updateEne();
     }
+    if(level == 7){
+        nEnemigos = 0;
+    }
     enemigos.push_back(darkrai1);
     enemigos.push_back(darkrai2);
     enemigos.push_back(darkrai3);
@@ -976,63 +1009,201 @@ void Juego::crearEnemigos(){
     enemigos.push_back(larita3);
 }
 
-void Juego::colisionesProtagonista(){ //REVISAR
-    /*
-    if(!muerteLara){
-        if(larita1->Update(*ventana, j1, (83*16 + 100), (20*16))){
-            impacto();
+void Juego::colisionesProtagonista(){ 
+    float tiempo = relojEnemigos->getElapsedTime().asSeconds();
+    
+    if(tiempo > 1.0){
+        if(darkrai1 != NULL && !muerteDarkrai1){
+            if(darkrai1->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
         }
-    }
-    if(!muerteDarkrai){
-        if(darkrai1->colisionProtagonista(j1)){
-            impacto();
+
+        if(darkrai2 != NULL && !muerteDarkrai2){
+            if(darkrai2->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
         }
-    }
-    if(!muerteMojon){
-        if(mojoncito1->colisionProtagonista(j1)){
-            impacto();
+        
+        if(darkrai3 != NULL && !muerteDarkrai3){
+            if(darkrai3->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
         }
-    }
-    if(!muerteKinder){
-        if(kindercito1->colisionProtagonista(j1)){
-            impacto();
+
+        if(mojoncito1 != NULL && !muerteMojon1){
+            if(mojoncito1->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
         }
+        
+        if(mojoncito2 != NULL && !muerteMojon2){
+            if(mojoncito2->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
+        }
+
+        if(mojoncito3 != NULL && !muerteMojon3){
+            if(mojoncito3->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
+        }
+
+        if(kindercito1 != NULL && !muerteKinder1){
+            if(kindercito1->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
+        }
+
+        if(kindercito2 != NULL && !muerteKinder2){
+            if(kindercito2->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
+        }
+
+        if(kindercito3 != NULL && !muerteKinder3){
+            if(kindercito3->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
+        }
+        
+        if(bossFinal != NULL && !muerteBossFinal){
+            if(bossFinal->colisionProtagonista(j1)){
+                //impacto();
+                danyo = true;
+            }
+        }
+        relojEnemigos->restart();
     }
-    */
 }
 
 void Juego::colisionProyectilEnemigos(){
-    // Colision proyectil con mojon
-    if(p1 != nullptr){
-        if(!muerteMojon){
-            if(mojoncito1->colisionProyectil(p1)){
-                delete p1;        
-                p1 = 0;
-            }
-        }
-    }
-    // Colision proyectil con lara
-    if(p1 != nullptr){
-        if(!muerteLara){
-            if(larita1->colisionProyectil(p1)){
-                delete p1;        
-                p1 = 0;
-            }
-        }
-    }
     // Colision proyectil con darkrai
-    if(p1 != nullptr){
-        if(!muerteDarkrai){
+    if(p1 != nullptr && darkrai1 != NULL){
+        if(!muerteDarkrai1){
             if(darkrai1->colisionProyectil(p1)){
                 delete p1;        
                 p1 = 0;
             }
         }
     }
+
+    if(p1 != nullptr && darkrai2 != NULL){
+        if(!muerteDarkrai2){
+            if(darkrai2->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+
+    if(p1 != nullptr && darkrai3 != NULL){
+        if(!muerteDarkrai3){
+            if(darkrai3->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+
+    // Colision proyectil con mojon
+    if(p1 != nullptr && mojoncito1 != NULL){
+        if(!muerteMojon1){
+            if(mojoncito1->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+
+    if(p1 != nullptr && mojoncito2 != NULL){
+        if(!muerteMojon2){
+            if(mojoncito2->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+
+    if(p1 != nullptr && mojoncito3 != NULL){
+        if(!muerteMojon3){
+            if(mojoncito3->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+
+
     // Colision proyectil con kinderSorpresa
-    if(p1 != nullptr){
-        if(!muerteKinder){
+    if(p1 != nullptr && kindercito1 != NULL){
+        if(!muerteKinder1){
             if(kindercito1->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+
+    if(p1 != nullptr && kindercito2 != NULL){
+        if(!muerteKinder2){
+            if(kindercito2->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+
+    if(p1 != nullptr && kindercito3 != NULL){
+        if(!muerteKinder3){
+            if(kindercito3->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+
+    // Colision proyectil con lara
+    if(p1 != nullptr && larita1 != NULL){
+        if(!muerteLara1){
+            if(larita1->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+    
+    if(p1 != nullptr && larita2 != NULL){
+        if(!muerteLara2){
+            if(larita2->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+
+    if(p1 != nullptr && larita3 != NULL){
+        if(!muerteLara3){
+            if(larita3->colisionProyectil(p1)){
+                delete p1;        
+                p1 = 0;
+            }
+        }
+    }
+
+    //Colision proyectil con Boss Final
+    if(p1 != nullptr && bossFinal != NULL){
+        if(!bossFinal){
+            if(bossFinal->colisionProyectil(p1)){
                 delete p1;        
                 p1 = 0;
             }
@@ -1041,32 +1212,151 @@ void Juego::colisionProyectilEnemigos(){
 }
 
 void Juego::muerteNPCs(){
-    /*
-    if(!muerteMojon){
-        if(mojoncito1->morir()){
-            delete mojoncito1;
-            muerteMojon = true;
+    //Muerte Darkrai
+    if(darkrai1 != NULL){
+        if(!muerteDarkrai1){
+            if(darkrai1->morir()){
+                delete darkrai1;        
+                muerteDarkrai1 = true;
+                enemigos[0] = NULL;
+                nEnemigos--;
+            }
         }
     }
-    if(!muerteDarkrai){
-        if(darkrai1->morir()){
-            delete darkrai1;
-            muerteDarkrai = true;
+
+    if(darkrai2 != NULL){
+        if(!muerteDarkrai2){
+            if(darkrai2->morir()){
+                delete darkrai2;        
+                muerteDarkrai2 = true;
+                enemigos[1] = NULL;
+                nEnemigos--;
+            }
         }
     }
-    if(!muerteLara){
-        if(larita1->morir()){
-            delete larita1;
-            muerteLara = true;
+
+    if(darkrai3 != NULL){
+        if(!muerteDarkrai3){
+            if(darkrai3->morir()){
+                delete darkrai3;        
+                muerteDarkrai3 = true;
+                enemigos[2] = NULL;
+                nEnemigos--;
+            }
         }
     }
-    if(!muerteKinder){
-        if(kindercito1->morir()){
-            delete kindercito1;
-            muerteKinder = true;
+    
+    //Muerte Mojon
+    if(mojoncito1 != NULL){
+        if(!muerteMojon1){
+            if(mojoncito1->morir()){
+                delete mojoncito1;        
+                muerteMojon1 = true;
+                enemigos[3] = NULL;
+                nEnemigos--;
+            }
         }
     }
-    */
+
+    if(mojoncito2 != NULL){
+        if(!muerteMojon2){
+            if(mojoncito2->morir()){
+                delete mojoncito2;        
+                muerteMojon2 = true;
+                enemigos[4] = NULL;
+                nEnemigos--;
+            }
+        }
+    }
+
+    if(mojoncito3 != NULL){
+        if(!muerteMojon3){
+            if(mojoncito3->morir()){
+                delete mojoncito3;        
+                muerteMojon3 = true;
+                enemigos[5] = NULL;
+                nEnemigos--;
+            }
+        }
+    }
+
+    //Muerte Kinder
+    if(kindercito1 != NULL){
+        if(!muerteKinder1){
+            if(kindercito1->morir()){
+                delete kindercito1;        
+                muerteKinder1 = true;
+                enemigos[6] = NULL;
+                nEnemigos--;
+            }
+        }
+    }
+
+    if(kindercito2 != NULL){
+        if(!muerteKinder2){
+            if(kindercito2->morir()){
+                delete kindercito2;        
+                muerteKinder2 = true;
+                enemigos[7] = NULL;
+                nEnemigos--;
+            }
+        }
+    }
+
+    if(kindercito3 != NULL){
+        if(!muerteKinder3){
+            if(kindercito3->morir()){
+                delete kindercito3;        
+                muerteKinder3 = true;
+                enemigos[8] = NULL;
+                nEnemigos--;
+            }
+        }
+    }
+
+    //Muerte Lara
+    if(larita1 != NULL){
+        if(!muerteLara1){
+            if(larita1->morir()){
+                delete larita1;        
+                muerteLara1 = true;
+                enemigos[9] = NULL;
+                nEnemigos--;
+            }
+        }
+    }
+
+    if(larita2 != NULL){
+        if(!muerteLara2){
+            if(larita2->morir()){
+                delete larita2;        
+                muerteLara2 = true;
+                enemigos[10] = NULL;
+                nEnemigos--;
+            }
+        }
+    }
+
+    if(larita3 != NULL){
+        if(!muerteLara3){
+            if(larita3->morir()){
+                delete larita3;        
+                muerteLara3 = true;
+                enemigos[11] = NULL;
+                nEnemigos--;
+            }
+        }
+    }
+    //Muerte Boss Final
+    if(bossFinal != NULL){
+        if(!muerteBossFinal){
+            if(bossFinal->morir()){
+                delete bossFinal;        
+                muerteBossFinal = true;
+                nEnemigos--;
+            }
+        }
+    }
 }
 
 void Juego::detenerDash(){

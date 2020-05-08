@@ -10,7 +10,9 @@ CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o
 CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/Boss.cpp
  /home/jess/Escritorio/FV/src/ej_modulos/Boss.h
+ /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
  /home/jess/Escritorio/FV/src/ej_modulos/SpriteBoss.h
+ /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/AnimationDarkrai.h
  /home/jess/Escritorio/FV/src/ej_modulos/Darkrai.cpp
@@ -21,6 +23,8 @@ CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o
 CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/Enemigo.cpp
  /home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
+ /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+ /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/Guerrera.cpp
  /home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
@@ -96,7 +100,9 @@ CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/Boss.h
  /home/jess/Escritorio/FV/src/ej_modulos/PersonajeBoss.cpp
  /home/jess/Escritorio/FV/src/ej_modulos/PersonajeBoss.h
+ /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
  /home/jess/Escritorio/FV/src/ej_modulos/SpriteBoss.h
+ /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o
  /home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
  /home/jess/Escritorio/FV/src/ej_modulos/NPC.h

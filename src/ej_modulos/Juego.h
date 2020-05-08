@@ -50,6 +50,7 @@ class Juego{
         bool gameover = false;
         std::vector <Enemigo *> enemigos;
         //POSICIONES: D1 - D2 - D3 - M1 - M2 - M3 - K1 - K2 - K3 - L1 - L2 - L3
+     
         int totalEnemigos;
         //Creamos al jugador
         Jugador *j1;
@@ -106,6 +107,7 @@ class Juego{
         sf::Time *crono1 = NULL;
         sf::Clock *relojInmortal = NULL;
         sf::Time *cronoInmortal = NULL;
+        sf::Clock *relojEnemigos = NULL;
         //Creamos el texto para el HUD
         Interfaz *interfaz;
 
@@ -113,8 +115,11 @@ class Juego{
         int fps;
         bool esGuerrera = false;
         bool gravedad = true;
+        bool dios = false;
+        bool danyo = false;
+        int nEnemigos = 0;
         int level = 1;
-        int maxLevels = 6;
+        int maxLevels = 7;
         bool cargar = false;
-        bool muerteMojon = false, muerteDarkrai = false, muerteLara = false, muerteKinder = false;
+        bool muerteDarkrai1, muerteDarkrai2, muerteDarkrai3, muerteMojon1, muerteMojon2, muerteMojon3, muerteKinder1, muerteKinder2, muerteKinder3, muerteLara1, muerteLara2, muerteLara3, muerteBossFinal = false;
 };

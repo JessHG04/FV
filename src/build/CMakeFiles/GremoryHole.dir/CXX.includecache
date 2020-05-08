@@ -25,6 +25,10 @@ string
 -
 vector
 -
+Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Darkrai.h
 SFML/Graphics.hpp
@@ -43,6 +47,8 @@ SFML/Graphics.hpp
 -
 iostream
 -
+Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
 SFML/Graphics.hpp

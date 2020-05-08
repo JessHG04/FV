@@ -77,11 +77,11 @@ int main() {
 	sf::Texture eugynTexture;
 
 	if(!mercedeTexture.loadFromFile("resources/Sprites/Merche/100.png")){
-        //ERROR
+        std::cout << "Error cargando icono de Mercedes" << std::endl;
 	}
 
 	if(!eugynTexture.loadFromFile("resources/Sprites/Eugyn/100.png")){
-        //ERROR
+        std::cout << "Error cargando el icono de Eugyn" << std::endl;
 	}
 
 	sf::Sprite mercede(mercedeTexture);
@@ -94,8 +94,10 @@ int main() {
 	bool entra = false; //Empieza el juego
 	bool seleccion = false; //Menu personaje seleccion
 	int idPersonaje = 0; //Id del personaje que selecciono para asi saber que personaje creo al empezar el juego
-
+	bool reiniciar = false;
+	
 	while (window->isOpen()){
+		reiniciar = false;
 		sf::Event event;
 
 		while (window->pollEvent(event)){
@@ -171,7 +173,6 @@ int main() {
 				break;
 
 			case sf::Event::Closed:
-
 				window->close();
 
 				break;
@@ -216,14 +217,22 @@ int main() {
 			//Guerrera seleccionada
 			if(idPersonaje == 1){
 				Juego *juego = new Juego(sf::Vector2u(960, 640), window, 1);
+				reiniciar = true;
 			}
 
 			//Mago seleccionado
 			if(idPersonaje == 2){
 				Juego *juego = new Juego(sf::Vector2u(960, 640), window, 2);
+				reiniciar = true;
 			}
-		}	
+			if(reiniciar){
+				entra = false;
+				seleccion = false;
+				idPersonaje = 0;
+			}
+			
+		}
 	}
-
- return 0;
+	//delete juego;
+	return 0;
 }
