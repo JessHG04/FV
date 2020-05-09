@@ -7,35 +7,60 @@ CMakeFiles/libModulos.dir/ej_modulos/AnimationDarkrai.cpp.o
 CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/AnimationKinder.cpp
  /home/alex/Desktop/FV/src/ej_modulos/AnimationKinder.h
+CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o
+ /home/alex/Desktop/FV/src/ej_modulos/Boss.cpp
+ /home/alex/Desktop/FV/src/ej_modulos/Boss.h
+ /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.h
+ /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/AnimationDarkrai.h
  /home/alex/Desktop/FV/src/ej_modulos/Darkrai.cpp
  /home/alex/Desktop/FV/src/ej_modulos/Darkrai.h
  /home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+ /home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+ /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+ /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/Enemigo.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/Enemigo.cpp
  /home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+ /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+ /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/Guerrera.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/Guerrera.cpp
  /home/alex/Desktop/FV/src/ej_modulos/Guerrera.h
  /home/alex/Desktop/FV/src/ej_modulos/Jugador.h
  /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o
+ /home/alex/Desktop/FV/src/ej_modulos/Interfaz.cpp
+ /home/alex/Desktop/FV/src/ej_modulos/Interfaz.h
+ /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/AnimationDarkrai.h
  /home/alex/Desktop/FV/src/ej_modulos/AnimationKinder.h
+ /home/alex/Desktop/FV/src/ej_modulos/Boss.h
  /home/alex/Desktop/FV/src/ej_modulos/Darkrai.h
  /home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
  /home/alex/Desktop/FV/src/ej_modulos/Guerrera.h
+ /home/alex/Desktop/FV/src/ej_modulos/Interfaz.h
  /home/alex/Desktop/FV/src/ej_modulos/Juego.cpp
  /home/alex/Desktop/FV/src/ej_modulos/Juego.h
  /home/alex/Desktop/FV/src/ej_modulos/Jugador.h
  /home/alex/Desktop/FV/src/ej_modulos/KinderSorpresa.h
  /home/alex/Desktop/FV/src/ej_modulos/Mago.h
  /home/alex/Desktop/FV/src/ej_modulos/Map.h
+ /home/alex/Desktop/FV/src/ej_modulos/NPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/PersonajeBoss.h
+ /home/alex/Desktop/FV/src/ej_modulos/PersonajeNPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.h
+ /home/alex/Desktop/FV/src/ej_modulos/Portal.h
  /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.h
+ /home/alex/Desktop/FV/src/ej_modulos/Trueno.h
  /home/alex/Desktop/FV/src/ej_modulos/bala.h
  /home/alex/Desktop/FV/src/ej_modulos/cuadradoD.h
- /home/alex/Desktop/FV/src/ej_modulos/cuadradoI.h
  /home/alex/Desktop/FV/src/ej_modulos/lara.h
  /home/alex/Desktop/FV/src/ej_modulos/mojon.h
  /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
@@ -49,6 +74,8 @@ CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
  /home/alex/Desktop/FV/src/ej_modulos/KinderSorpresa.cpp
  /home/alex/Desktop/FV/src/ej_modulos/KinderSorpresa.h
+ /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+ /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/Mago.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/Jugador.h
  /home/alex/Desktop/FV/src/ej_modulos/Mago.cpp
@@ -61,12 +88,57 @@ CMakeFiles/libModulos.dir/ej_modulos/Map.cpp.o
 CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/Menu.cpp
  /home/alex/Desktop/FV/src/ej_modulos/Menu.h
+CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o
+ /home/alex/Desktop/FV/src/ej_modulos/MenuSeleccionPersonaje.cpp
+ /home/alex/Desktop/FV/src/ej_modulos/MenuSeleccionPersonaje.h
+CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o
+ /home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+ /home/alex/Desktop/FV/src/ej_modulos/NPC.cpp
+ /home/alex/Desktop/FV/src/ej_modulos/NPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o
+ /home/alex/Desktop/FV/src/ej_modulos/Boss.h
+ /home/alex/Desktop/FV/src/ej_modulos/PersonajeBoss.cpp
+ /home/alex/Desktop/FV/src/ej_modulos/PersonajeBoss.h
+ /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.h
+ /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o
+ /home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+ /home/alex/Desktop/FV/src/ej_modulos/NPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/PersonajeNPC.cpp
+ /home/alex/Desktop/FV/src/ej_modulos/PersonajeNPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o
+ /home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+ /home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.cpp
+ /home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.h
+ /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/Portal.cpp
  /home/alex/Desktop/FV/src/ej_modulos/Portal.h
 CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/Proyectil.cpp
  /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+ /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.cpp
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.h
+CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.cpp
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.h
+CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.cpp
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.h
+CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o
+ /home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+ /home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.h
+ /home/alex/Desktop/FV/src/ej_modulos/Trueno.cpp
+ /home/alex/Desktop/FV/src/ej_modulos/Trueno.h
  /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
 CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/bala.cpp
@@ -80,18 +152,28 @@ CMakeFiles/libModulos.dir/ej_modulos/cuadradoI.cpp.o
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/AnimationDarkrai.h
  /home/alex/Desktop/FV/src/ej_modulos/AnimationKinder.h
+ /home/alex/Desktop/FV/src/ej_modulos/Boss.h
  /home/alex/Desktop/FV/src/ej_modulos/Darkrai.h
  /home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
  /home/alex/Desktop/FV/src/ej_modulos/Guerrera.h
+ /home/alex/Desktop/FV/src/ej_modulos/Interfaz.h
  /home/alex/Desktop/FV/src/ej_modulos/Juego.h
  /home/alex/Desktop/FV/src/ej_modulos/Jugador.h
  /home/alex/Desktop/FV/src/ej_modulos/KinderSorpresa.h
  /home/alex/Desktop/FV/src/ej_modulos/Mago.h
  /home/alex/Desktop/FV/src/ej_modulos/Map.h
+ /home/alex/Desktop/FV/src/ej_modulos/NPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/PersonajeBoss.h
+ /home/alex/Desktop/FV/src/ej_modulos/PersonajeNPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.h
+ /home/alex/Desktop/FV/src/ej_modulos/Portal.h
  /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.h
+ /home/alex/Desktop/FV/src/ej_modulos/Trueno.h
  /home/alex/Desktop/FV/src/ej_modulos/bala.h
  /home/alex/Desktop/FV/src/ej_modulos/cuadradoD.h
- /home/alex/Desktop/FV/src/ej_modulos/cuadradoI.h
  /home/alex/Desktop/FV/src/ej_modulos/lara.cpp
  /home/alex/Desktop/FV/src/ej_modulos/lara.h
  /home/alex/Desktop/FV/src/ej_modulos/mojon.h
@@ -100,6 +182,7 @@ CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o
 CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
  /home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+ /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
  /home/alex/Desktop/FV/src/ej_modulos/bala.h
  /home/alex/Desktop/FV/src/ej_modulos/cuadradoD.h
  /home/alex/Desktop/FV/src/ej_modulos/cuadradoI.h

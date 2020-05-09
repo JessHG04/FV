@@ -537,6 +537,270 @@ CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o.provides: CMakeFiles/libModulo
 CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o
 
 
+CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o: ../ej_modulos/MenuSeleccionPersonaje.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o -c /home/alex/Desktop/FV/src/ej_modulos/MenuSeleccionPersonaje.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/FV/src/ej_modulos/MenuSeleccionPersonaje.cpp > CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/FV/src/ej_modulos/MenuSeleccionPersonaje.cpp -o CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o
+
+
+CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o: ../ej_modulos/Interfaz.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o -c /home/alex/Desktop/FV/src/ej_modulos/Interfaz.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/FV/src/ej_modulos/Interfaz.cpp > CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/FV/src/ej_modulos/Interfaz.cpp -o CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o
+
+
+CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o: ../ej_modulos/Boss.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o -c /home/alex/Desktop/FV/src/ej_modulos/Boss.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/FV/src/ej_modulos/Boss.cpp > CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/FV/src/ej_modulos/Boss.cpp -o CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o
+
+
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o: ../ej_modulos/PersonajeBoss.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o -c /home/alex/Desktop/FV/src/ej_modulos/PersonajeBoss.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/FV/src/ej_modulos/PersonajeBoss.cpp > CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/FV/src/ej_modulos/PersonajeBoss.cpp -o CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o
+
+
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o: ../ej_modulos/PersonajeNPC.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o -c /home/alex/Desktop/FV/src/ej_modulos/PersonajeNPC.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/FV/src/ej_modulos/PersonajeNPC.cpp > CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/FV/src/ej_modulos/PersonajeNPC.cpp -o CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o
+
+
+CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o: ../ej_modulos/PoderTrueno.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o -c /home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.cpp > CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.cpp -o CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o
+
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o: ../ej_modulos/SpriteBoss.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o -c /home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.cpp > CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.cpp -o CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o
+
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o: ../ej_modulos/SpriteNPC.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o -c /home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.cpp > CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.cpp -o CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o
+
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o: ../ej_modulos/SpriteTrueno.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o -c /home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.cpp > CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.cpp -o CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o
+
+
+CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o: ../ej_modulos/Trueno.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o -c /home/alex/Desktop/FV/src/ej_modulos/Trueno.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/FV/src/ej_modulos/Trueno.cpp > CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/FV/src/ej_modulos/Trueno.cpp -o CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o
+
+
+CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o: ../ej_modulos/NPC.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o -c /home/alex/Desktop/FV/src/ej_modulos/NPC.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/FV/src/ej_modulos/NPC.cpp > CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/FV/src/ej_modulos/NPC.cpp -o CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o
+
+
 # Object files for target libModulos
 libModulos_OBJECTS = \
 "CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o" \
@@ -558,7 +822,18 @@ libModulos_OBJECTS = \
 "CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o" \
-"CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o"
+"CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o" \
+"CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o" \
+"CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o" \
+"CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o" \
+"CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o" \
+"CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o" \
+"CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o" \
+"CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o" \
+"CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o" \
+"CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o" \
+"CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o" \
+"CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o"
 
 # External object files for target libModulos
 libModulos_EXTERNAL_OBJECTS =
@@ -583,9 +858,20 @@ liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/bala.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/build.make
 liblibModulos.a: CMakeFiles/libModulos.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/Desktop/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX static library liblibModulos.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/Desktop/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking CXX static library liblibModulos.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/libModulos.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/libModulos.dir/link.txt --verbose=$(VERBOSE)
 
@@ -614,6 +900,17 @@ CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/bala.cp
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/MenuSeleccionPersonaje.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Interfaz.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/PersonajeNPC.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o.requires
 
 .PHONY : CMakeFiles/libModulos.dir/requires
 

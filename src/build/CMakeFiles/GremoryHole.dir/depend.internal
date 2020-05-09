@@ -4,19 +4,30 @@
 CMakeFiles/GremoryHole.dir/main.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/AnimationDarkrai.h
  /home/alex/Desktop/FV/src/ej_modulos/AnimationKinder.h
+ /home/alex/Desktop/FV/src/ej_modulos/Boss.h
  /home/alex/Desktop/FV/src/ej_modulos/Darkrai.h
  /home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
  /home/alex/Desktop/FV/src/ej_modulos/Guerrera.h
+ /home/alex/Desktop/FV/src/ej_modulos/Interfaz.h
  /home/alex/Desktop/FV/src/ej_modulos/Juego.h
  /home/alex/Desktop/FV/src/ej_modulos/Jugador.h
  /home/alex/Desktop/FV/src/ej_modulos/KinderSorpresa.h
  /home/alex/Desktop/FV/src/ej_modulos/Mago.h
  /home/alex/Desktop/FV/src/ej_modulos/Map.h
  /home/alex/Desktop/FV/src/ej_modulos/Menu.h
+ /home/alex/Desktop/FV/src/ej_modulos/MenuSeleccionPersonaje.h
+ /home/alex/Desktop/FV/src/ej_modulos/NPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/PersonajeBoss.h
+ /home/alex/Desktop/FV/src/ej_modulos/PersonajeNPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.h
+ /home/alex/Desktop/FV/src/ej_modulos/Portal.h
  /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.h
+ /home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.h
+ /home/alex/Desktop/FV/src/ej_modulos/Trueno.h
  /home/alex/Desktop/FV/src/ej_modulos/bala.h
  /home/alex/Desktop/FV/src/ej_modulos/cuadradoD.h
- /home/alex/Desktop/FV/src/ej_modulos/cuadradoI.h
  /home/alex/Desktop/FV/src/ej_modulos/lara.h
  /home/alex/Desktop/FV/src/ej_modulos/mojon.h
  /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h

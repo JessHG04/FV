@@ -51,55 +51,64 @@ void Darkrai::Update(float deltaTime) {
     // Distancia de perseguimiento y vision...
     distancia.x = abs(body->getPosition().x) - abs(personaje->getPosition().x);
 
-    if (follow) {
-      sf::Vector2f angulo(0.0f, 0.0f);
+    if(restartear == true){
+      impactado.restart();
+      restartear = false;
+    }
+    this->impactoProyectil();
+    if(golpeado == false){
+      if (follow) {
 
-      // Calculamos la distancia...
-      distancia.y = abs(body->getPosition().y) - abs(personaje->getPosition().y);
+        sf::Vector2i distancia(0, 0);
+        sf::Vector2f angulo(0.0f, 0.0f);
 
-      if (distancia.x > 0) {
-        miraIzquierda = true;
-        movimiento.x -= speed * deltaTime;
-      }
-      if (distancia.x < 0) {
-        miraIzquierda = false;
-        movimiento.x += speed * deltaTime;
-      }
-      if (distancia.y > 0) {
-        rowSheet = 4;
-        movimiento.y -= speed * deltaTime;
-      }
-      if (distancia.y < 0) {
-        rowSheet = 0;
-        movimiento.y += speed * deltaTime;
-      }
+        // Calculamos la distancia...
+        distancia.x = abs(body->getPosition().x) - abs(personaje->getPosition().x);
+        distancia.y = abs(body->getPosition().y) - abs(personaje->getPosition().y);
 
-      // Resolvemos el movimiento diagonal...
-      if (movimiento.x != 0.0f  &&  movimiento.y != 0.0f) {
-
-        // Calculamos el angulo en radianes que forman...
-        angulo.x = atan(abs(distancia.y)/abs(distancia.x));
-        angulo.y = atan(abs(distancia.x)/abs(distancia.y));
-        movimiento.x *= float(cos(angulo.x));
-        movimiento.y *= float(cos(angulo.y));
-
-        // Pasamos los angulos a grados para la orientacion...
-        angulo.x = angulo.x*(180/PI);
-        angulo.y = angulo.y*(180/PI);
-
-        // Orientamos la animacion...
-        if (angulo.x >= 0  &&  angulo.x < 22.5) {
-          rowSheet = 2;
-        } else if (angulo.x < 67.5  &&  angulo.x >= 22.5) {
-          if (movimiento.y > 0) {
-            rowSheet = 1;
-          } else {
-            rowSheet = 3;
-          }
+        if (distancia.x > 0) {
+          miraIzquierda = true;
+          movimiento.x -= speed * deltaTime;
+        }
+        if (distancia.x < 0) {
+          miraIzquierda = false;
+          movimiento.x += speed * deltaTime;
+        }
+        if (distancia.y > 0) {
+          rowSheet = 4;
+          movimiento.y -= speed * deltaTime;
+        }
+        if (distancia.y < 0) {
+          rowSheet = 0;
+          movimiento.y += speed * deltaTime;
         }
 
-      }
-    } else {
+        // Resolvemos el movimiento diagonal...
+        if (movimiento.x != 0.0f  &&  movimiento.y != 0.0f) {
+
+          // Calculamos el angulo en radianes que forman...
+          angulo.x = atan(abs(distancia.y)/abs(distancia.x));
+          angulo.y = atan(abs(distancia.x)/abs(distancia.y));
+          movimiento.x *= float(cos(angulo.x));
+          movimiento.y *= float(cos(angulo.y));
+
+          // Pasamos los angulos a grados para la orientacion...
+          angulo.x = angulo.x*(180/PI);
+          angulo.y = angulo.y*(180/PI);
+
+          // Orientamos la animacion...
+          if (angulo.x >= 0  &&  angulo.x < 22.5) {
+            rowSheet = 2;
+          } else if (angulo.x < 67.5  &&  angulo.x >= 22.5) {
+            if (movimiento.y > 0) {
+              rowSheet = 1;
+            } else {
+              rowSheet = 3;
+            }
+          }
+
+        }
+      }else {
 
       if (abs(distancia.x) < 300.f) {
         follow = true;
@@ -122,6 +131,7 @@ void Darkrai::Update(float deltaTime) {
     // Movemos el collider...
     boundingBox = &boundingSet[rowSheet];
     boundingBox->setPosition(body->getPosition().x, body->getPosition().y-6);
+  }
 }
 
 
@@ -129,6 +139,42 @@ sf::RectangleShape Darkrai::getBoundingBox() {
     return *boundingBox;
 }
 
+bool Darkrai::colisionProyectil(Proyectil *p1){
+    bool x = false;
+    if(p1->get_sprite().getGlobalBounds().intersects(body->getGlobalBounds()) && golpeado == false){
+        this->perderVida();
+        x = true;
+        golpeado = true;
+        restartear = true;           
+    }
+    return x;
+}
+
+void Darkrai::impactoProyectil(){
+    float sgs = impactado.getElapsedTime().asSeconds();
+    if(golpeado == true){
+        if(contando % 2 == 0){
+            body->setColor(Color::Red);
+            contando++;
+        }
+        else{
+            this->hacerTransparente();
+            contando++;
+        }
+        if(sgs >= 1){
+            this->restartSprite();
+            golpeado = false;
+        }
+    }
+}
+
+bool Darkrai::colisionProtagonista(Jugador *j){
+  bool x = false;
+  if(boundingBox->getGlobalBounds().intersects(j->cajaColisiones.getGlobalBounds())){
+    x = true;
+  }
+  return x;
+}
 
 void Darkrai::recibeGolpe() {
   if (!esGolpeado) {
@@ -137,6 +183,21 @@ void Darkrai::recibeGolpe() {
   }
 }
 
+bool Darkrai::morir(){
+  bool x = false;
+  if(this->getMuerte()){
+    x = true;
+  }
+  return x;
+}
+
+void Darkrai::hacerTransparente(){
+    body->setColor(Color::Transparent);
+}
+
+void Darkrai::restartSprite(){
+    body->setColor(Color(255,255,255));
+}
 
 sf::Sprite* Darkrai::getSprite() {
   return body;

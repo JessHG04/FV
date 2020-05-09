@@ -12,7 +12,7 @@ class bala{
         Texture *tex;
         Sprite *spriteb;
         int xx = 0, yy = 0;
-        bala();
+        bala(int, int);
         void movimientoBalaIz();
         void movimientoBalaDe();
         Sprite *getSprite();

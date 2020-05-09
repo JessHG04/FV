@@ -80,106 +80,113 @@ KinderSorpresa::~KinderSorpresa() {
 
 
 void KinderSorpresa::Update(float deltaTime) {
-    sf::Vector2f _distancia1(0.0, 0.0);
-    sf::Vector2f _distancia2(0.0, 0.0);
-    sf::Vector2f _distancia;
-    sf::Sprite *_pj = NULL;
-    int indice = animacion->getIndice();
-    float _desplazamiento = ajustes[indice];
-
-    // Comprobamos el personaje que esta mas cerca...
-    if (personaje1) {
-        _distancia1.x = abs(body->getPosition().x)-abs(personaje1->getPosition().x);
-        _distancia1.y = abs(abs(body->getPosition().y)-abs(personaje1->getPosition().y));
+    if(restartear == true){
+        impactado.restart();
+        restartear = false;
     }
-    if (personaje2) {
-        _distancia2.x = abs(body->getPosition().x)-abs(personaje2->getPosition().x);
-        _distancia2.y = abs(abs(body->getPosition().y)-abs(personaje2->getPosition().y));
-    }
+    this->impactoProyectil();
+    if(golpeado == false){
+        sf::Vector2f _distancia1(0.0, 0.0);
+        sf::Vector2f _distancia2(0.0, 0.0);
+        sf::Vector2f _distancia;
+        sf::Sprite *_pj = NULL;
+        int indice = animacion->getIndice();
+        float _desplazamiento = ajustes[indice];
 
-    // Asignamos fuera la distancia para que siempre se oriente al personaje
-    if (personaje2 != NULL) {
-        bool _rango1 = this->estaEnRango(personaje1),
-             _rango2 = this->estaEnRango(personaje2);
+        // Comprobamos el personaje que esta mas cerca...
+        if (personaje1) {
+            _distancia1.x = abs(body->getPosition().x)-abs(personaje1->getPosition().x);
+            _distancia1.y = abs(abs(body->getPosition().y)-abs(personaje1->getPosition().y));
+        }
+        if (personaje2) {
+            _distancia2.x = abs(body->getPosition().x)-abs(personaje2->getPosition().x);
+            _distancia2.y = abs(abs(body->getPosition().y)-abs(personaje2->getPosition().y));
+        }
 
-        if (_rango1  &&  !_rango2) {
-            _pj = personaje1;
-            _distancia = _distancia1;
-        } else if (!_rango1  &&  _rango2) {
-            _pj = personaje2;
-            _distancia = _distancia2;
-        } else if (!_rango1  &&  !_rango2) {
-            _distancia = (abs(_distancia1.x) > abs(_distancia2.x)) ? _distancia2 : _distancia1;
-        } else {
-            if (abs(_distancia1.x) > abs(_distancia2.x)) {
-                _pj = personaje2;
-                _distancia = _distancia2;
-            } else {
+        // Asignamos fuera la distancia para que siempre se oriente al personaje
+        if (personaje2 != NULL) {
+            bool _rango1 = this->estaEnRango(personaje1),
+                _rango2 = this->estaEnRango(personaje2);
+
+            if (_rango1  &&  !_rango2) {
                 _pj = personaje1;
                 _distancia = _distancia1;
-            }
-        } 
-    } else {
-        _distancia = _distancia1;
-        if (this->estaEnRango(personaje1))
-            _pj = personaje1;
-    }
-
-    // Orientamos personaje...
-    if (_distancia.x < 0.0) {
-        miraIzquierda = false;
-        if (!estaAtacando)
-            body->setScale(-1, 1);
-        _desplazamiento = -_desplazamiento;
-    } else {
-        miraIzquierda = true;
-        if (!estaAtacando)
-            body->setScale(1, 1);
-    }
-    _distancia.x = abs(_distancia.x);
-
-    // Calculamos parametros de accion del NPC
-    ejecuta = 2;
-    if (_pj != NULL  &&  !estaAtacando) {
-
-        // Si kinder esta dentro del rango de ataque...
-        if (_distancia.x > body->getTextureRect().width/3) {
-            if (body->getPosition().x >= rangoMovimiento[0]  &&  body->getPosition().x <= rangoMovimiento[1]) {
-                ejecuta = 1;
-                if (miraIzquierda) {
-                    body->move(-speed*deltaTime, 0);
+            } else if (!_rango1  &&  _rango2) {
+                _pj = personaje2;
+                _distancia = _distancia2;
+            } else if (!_rango1  &&  !_rango2) {
+                _distancia = (abs(_distancia1.x) > abs(_distancia2.x)) ? _distancia2 : _distancia1;
+            } else {
+                if (abs(_distancia1.x) > abs(_distancia2.x)) {
+                    _pj = personaje2;
+                    _distancia = _distancia2;
                 } else {
-                    body->move(speed*deltaTime, 0);
+                    _pj = personaje1;
+                    _distancia = _distancia1;
                 }
-            } else if (body->getPosition().x < rangoMovimiento[0]) {
-                body->setPosition(rangoMovimiento[0], body->getPosition().y);
-            } else if (body->getPosition().x > rangoMovimiento[1]) {
-                body->setPosition(rangoMovimiento[1], body->getPosition().y);
+            } 
+        } else {
+            _distancia = _distancia1;
+            if (this->estaEnRango(personaje1))
+                _pj = personaje1;
+        }
+
+        // Orientamos personaje...
+        if (_distancia.x < 0.0) {
+            miraIzquierda = false;
+            if (!estaAtacando)
+                body->setScale(-1, 1);
+            _desplazamiento = -_desplazamiento;
+        } else {
+            miraIzquierda = true;
+            if (!estaAtacando)
+                body->setScale(1, 1);
+        }
+        _distancia.x = abs(_distancia.x);
+
+        // Calculamos parametros de accion del NPC
+        ejecuta = 2;
+        if (_pj != NULL  &&  !estaAtacando) {
+
+            // Si kinder esta dentro del rango de ataque...
+            if (_distancia.x > body->getTextureRect().width/3) {
+                if (body->getPosition().x >= rangoMovimiento[0]  &&  body->getPosition().x <= rangoMovimiento[1]) {
+                    ejecuta = 1;
+                    if (miraIzquierda) {
+                        body->move(-speed*deltaTime, 0);
+                    } else {
+                        body->move(speed*deltaTime, 0);
+                    }
+                } else if (body->getPosition().x < rangoMovimiento[0]) {
+                    body->setPosition(rangoMovimiento[0], body->getPosition().y);
+                } else if (body->getPosition().x > rangoMovimiento[1]) {
+                    body->setPosition(rangoMovimiento[1], body->getPosition().y);
+                }
+            } else if (relojAtaque.getElapsedTime().asSeconds() > 1.5f) {
+                estaAtacando = true;
             }
-        } else if (relojAtaque.getElapsedTime().asSeconds() > 1.5f) {
-            estaAtacando = true;
         }
-    }
 
-    // Actualizamos animacion...
-    if (estaAtacando) {
-        if (animacion->UpdateAttack(deltaTime)) {
-            estaAtacando = false;
-            relojAtaque.restart();
+        // Actualizamos animacion...
+        if (estaAtacando) {
+            if (animacion->UpdateAttack(deltaTime)) {
+                estaAtacando = false;
+                relojAtaque.restart();
+            }
+        } else {
+            animacion->UpdateMovement(deltaTime, ejecuta);
         }
-    } else {
-        animacion->UpdateMovement(deltaTime, ejecuta);
-    }
-    body->setTextureRect(animacion->getCoordenadasRect());
+        body->setTextureRect(animacion->getCoordenadasRect());
 
-    // Posicionamos y setteamos bounding...
-    if (ejecuta == 1  &&  indice == 1) {
-        indice = 11;
-    }
-    boundingBox = &boundingSet[indice];
-    boundingBox->setPosition(body->getPosition().x-_desplazamiento, body->getPosition().y-17);
+        // Posicionamos y setteamos bounding...
+        if (ejecuta == 1  &&  indice == 1) {
+            indice = 11;
+        }
+        boundingBox = &boundingSet[indice];
+        boundingBox->setPosition(body->getPosition().x-_desplazamiento, body->getPosition().y-17);
 
-    _pj = NULL;
+        _pj = NULL;
+    }
 }
 
 
@@ -197,6 +204,42 @@ bool KinderSorpresa::estaEnRango(sf::Sprite *p) {
     return _devuelve;
 }
 
+bool KinderSorpresa::colisionProyectil(Proyectil *p1){
+    bool x = false;
+    if(p1->get_sprite().getGlobalBounds().intersects(boundingBox->getGlobalBounds()) && golpeado == false){
+        this->perderVida();
+        x = true;
+        golpeado = true;
+        restartear = true;           
+    }
+    return x;
+}
+
+void KinderSorpresa::impactoProyectil(){
+    float sgs = impactado.getElapsedTime().asSeconds();
+    if(golpeado == true){
+        if(contando % 2 == 0){
+            body->setColor(sf::Color::Red);
+            contando++;
+        }
+        else{
+            this->hacerTransparente();
+            contando++;
+        }
+        if(sgs >= 1){
+            body->setColor(sf::Color(255, 255, 255));
+            golpeado = false;
+        }
+    }
+}
+
+bool KinderSorpresa::colisionProtagonista(spritePersonaje *sp){
+    bool x = false;
+    if(boundingBox->getGlobalBounds().intersects(sp->getSprite().getGlobalBounds())){
+        x = true;
+    }
+    return x;
+}
 
 void KinderSorpresa::recibeGolpe() {
     if (!esGolpeado) {
@@ -205,6 +248,13 @@ void KinderSorpresa::recibeGolpe() {
     }
 }
 
+bool KinderSorpresa::morir(){
+    bool x = false;
+    if(this->getMuerte()){
+        x = true;
+    }
+    return x;
+}
 
 void KinderSorpresa::Draw(RenderWindow &window) {
     if (esGolpeado) {
@@ -214,6 +264,14 @@ void KinderSorpresa::Draw(RenderWindow &window) {
     }
 }
 
+void KinderSorpresa::hacerTransparente(){
+    body->setColor(Color::Transparent);
+}
+
+void KinderSorpresa::hacerGrande(){
+    body->setScale(10.0, 10.0);
+    //cambiar vida
+}
 
 sf::RectangleShape KinderSorpresa::getBoundingBox() {
     return *boundingBox;
