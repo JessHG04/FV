@@ -58,7 +58,7 @@ class Juego{
         Proyectil *p1 = NULL;
         //Creamos el mapa
         Map *mapa = NULL;
-        //creamos enemigo
+        //Creamos a Darkrai
         Darkrai *darkrai1 = NULL;
         Darkrai *darkrai2 = NULL;
         Darkrai *darkrai3 = NULL;
@@ -106,9 +106,9 @@ class Juego{
         sf::Clock *reloj1 = NULL;
         sf::Time *crono1 = NULL;
         sf::Clock *relojInmortal = NULL;
-        sf::Clock *relojDanyo = NULL;
         sf::Time *cronoInmortal = NULL;
         sf::Clock *relojEnemigos = NULL;
+        sf::Clock *relojDanyo = NULL;
         //Creamos el texto para el HUD
         Interfaz *interfaz;
 

@@ -42,6 +42,7 @@ class KinderSorpresa : public Enemigo {
         void recibeGolpe();
         bool colisionProtagonista(spritePersonaje *);
         void hacerTransparente();
+        void hacerGrande();
         bool estaEnRango(sf::Sprite *);
         sf::RectangleShape getBoundingBox();
 };
