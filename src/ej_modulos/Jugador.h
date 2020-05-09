@@ -34,7 +34,8 @@ class Jugador : public spritePersonaje{
             velocidad = vel;
         }
 
-        void update();//actualizar fisicas del jugador
+        void update(float delta);//actualizar fisicas del jugador
+        void draw(sf::RenderWindow& window);//actualizar fisicas del jugador
         sf::String archivo;
         bool movimiento = false;
         float vel_desp; // velocidad desplazamiento
@@ -55,6 +56,10 @@ class Jugador : public spritePersonaje{
         sf::Clock *recarga_dash;
         sf::Time *crono_termina_dash;
         sf::Time *crono_recarga_dash;
+        sf::Clock *recarga_proyectil;
+        sf::Time *crono_recarga_proyectil;
+        sf::Clock *termina_proyectil;
+        sf::Time *crono_termina_proyectil;
 
     private:
         //spritePersonaje * spriteJugador;

@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Mago.h"
 #include "Guerrera.h"
 #include "Proyectil.h"
@@ -42,6 +43,7 @@ class Juego{
         void colisionProyectilEnemigos();
         void muerteNPCs();
         void detenerDash();
+        void reiniciar();
         
     private:
         sf::Sprite *sp = NULL; //Segundo sprite al que persigue Kinder
@@ -109,9 +111,35 @@ class Juego{
         sf::Time *cronoInmortal = NULL;
         sf::Clock *relojEnemigos = NULL;
         sf::Clock *relojDanyo = NULL;
+        sf::Clock *relojMuerte = NULL;
+        sf::Time *cronoMuerte = NULL;
         //Creamos el texto para el HUD
         Interfaz *interfaz;
+        //Musica de fondo de cada nivel
+        sf::Music musicaNivel1;
+        sf::Music musicaNivel2;
+        sf::Music musicaNivel3;
+        sf::Music musicaBoss1;
+        sf::Music musicaBoss2;
+        sf::Music musicaBoss3;
+        sf::Music musicaCreditos;
 
+        sf::Font font;
+        sf::Text musicaGuia;
+        sf::Texture text;
+        sf::Texture text2;
+        sf::Sprite sprit;
+
+        //Efectos de sonido
+        sf::Music efectoMagia;
+        sf::Music golpeHacha;
+        sf::Music hasMuertoSonido;
+
+        //Transicion muerte
+        sf::Text hasMuerto;
+        sf::Sprite spriteMuerte;
+        sf::Texture texturaMuerte;
+        sf::Sprite fondoNegro;
         int personajeSelec = 0;
         int fps;
         bool esGuerrera = false;
@@ -123,4 +151,9 @@ class Juego{
         int maxLevels = 7;
         bool cargar = false;
         bool muerteDarkrai1, muerteDarkrai2, muerteDarkrai3, muerteMojon1, muerteMojon2, muerteMojon3, muerteKinder1, muerteKinder2, muerteKinder3, muerteLara1, muerteLara2, muerteLara3, muerteBossFinal = false;
+        bool colisionaProyMapa = true;
+        bool musicaOff = false;
+        bool musicaOn = true;
+        bool muerteMojon = false, muerteDarkrai = false, muerteLara = false, muerteKinder = false;
+        bool muerteTransicion = false;
 };
