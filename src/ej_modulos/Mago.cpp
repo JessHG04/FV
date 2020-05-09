@@ -10,3 +10,16 @@ Mago::Mago(int cantidadX1, int cantidadY1 , sf::Vector2i frm_act){
    
 }
 
+Mago::~Mago() {
+    delete txt_player;
+    delete txt_herido;
+    delete txt_dash_I;
+    delete txt_dash_D;
+    delete txt_player2;
+    delete txt_herido2;
+    delete txt_dash_I2;
+    delete txt_dash_D2;
+    delete txt_ataque_I;
+    delete txt_ataque_D;
+    delete txt_proyectil;
+}

@@ -4,6 +4,7 @@
 class spritePersonaje{
     public: 
         spritePersonaje();
+        virtual ~spritePersonaje();
         
         //Creo el sprite del jugador
         sf::Sprite *spr_player;

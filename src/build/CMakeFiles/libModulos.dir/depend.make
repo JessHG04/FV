@@ -17,6 +17,7 @@ CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/AnimationDarkr
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Darkrai.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Darkrai.h
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Enemigo.h
+CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Guerrera.h
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Jugador.h
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Proyectil.h
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/spritePersonaje.h

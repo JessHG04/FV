@@ -30,12 +30,15 @@ spritePersonaje::spritePersonaje(){
     spr_player = new sf::Sprite(*txt_player); //Nuevo sprite apartir de textura
 }
 
+spritePersonaje::~spritePersonaje() {
+    
+}
+
 void spritePersonaje::set_sprite(sf::Texture *textura, int cantidadX1, int cantidadY1, sf::Vector2i frm_act){
     //Variables
     cantidadX = cantidadX1; //Cantidad de grids en x
     cantidadY = cantidadY1; //Cantidad de grids en y
-   /*delete txt_player;
-    txt_player = 0;*/
+
     textura_actual = textura;
     spr_player->setOrigin((textura_actual->getSize().x / cantidadX) / 2, (textura_actual->getSize().y / cantidadY) / 2);
     spr_player->setTexture(*textura);

@@ -25,7 +25,7 @@ Darkrai::Darkrai(int posx, int posy, float speed, sf::Sprite &personaje) : Enemi
     boundingSet[4].setSize(sf::Vector2f(16, 29));
     for (unsigned int i=0; i<5; i++) {
       boundingSet[i].setOrigin(boundingSet[i].getSize().x/2, boundingSet[i].getSize().y);
-      boundingSet[i].setFillColor(sf::Color::Transparent);
+      boundingSet[i].setFillColor(sf::Color::Red);
     }
 
     // La caja inicial...
@@ -141,7 +141,7 @@ sf::RectangleShape Darkrai::getBoundingBox() {
 
 bool Darkrai::colisionProyectil(Proyectil *p1){
     bool x = false;
-    if(p1->get_sprite().getGlobalBounds().intersects(body->getGlobalBounds()) && golpeado == false){
+    if(p1->get_sprite().getGlobalBounds().intersects(boundingBox->getGlobalBounds()) && golpeado == false){
         this->perderVida();
         x = true;
         golpeado = true;
@@ -153,33 +153,40 @@ bool Darkrai::colisionProyectil(Proyectil *p1){
 void Darkrai::impactoProyectil(){
     float sgs = impactado.getElapsedTime().asSeconds();
     if(golpeado == true){
-        if(contando % 2 == 0){
-            body->setColor(Color::Red);
-            contando++;
-        }
-        else{
-            this->hacerTransparente();
-            contando++;
-        }
-        if(sgs >= 1){
-            this->restartSprite();
-            golpeado = false;
-        }
+      this->recibeGolpe(sgs);
     }
+    
 }
 
-bool Darkrai::colisionProtagonista(Jugador *j){
+bool Darkrai::colisionProtagonista(Jugador *j, bool esGuerrera){
   bool x = false;
-  if(boundingBox->getGlobalBounds().intersects(j->cajaColisiones.getGlobalBounds())){
-    x = true;
+
+  if(boundingBox->getGlobalBounds().intersects(j->spr_player->getGlobalBounds())){
+    if(j->atacando  &&  esGuerrera) {
+      std::cout << "holaaaaaa" << std::endl;
+      golpeado = true;
+      restartear = true;
+      this->perderVida();
+      //j->atacando = false;
+    } else { x = true; }
   }
+
   return x;
 }
 
-void Darkrai::recibeGolpe() {
-  if (!esGolpeado) {
-    esGolpeado = true;
-    this->perderVida();
+void Darkrai::recibeGolpe(float sgs) {
+  
+  if(contando % 2 == 0){
+      body->setColor(Color::Red);
+      contando++;
+  }
+  else{
+      this->hacerTransparente();
+      contando++;
+  }
+  if(sgs >= 1){
+      this->restartSprite();
+      golpeado = false;
   }
 }
 

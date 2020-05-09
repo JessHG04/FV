@@ -5,7 +5,7 @@
 #include "AnimationDarkrai.h"
 #include "Proyectil.h"
 #include "spritePersonaje.h"
-#include "Jugador.h"
+#include "Guerrera.h"
 
 class Darkrai : public Enemigo {
 
@@ -15,10 +15,10 @@ class Darkrai : public Enemigo {
         void Update(float deltaTime);
         void Draw(sf::RenderWindow &);
         sf::RectangleShape getBoundingBox();
-        void recibeGolpe();
+        void recibeGolpe(float );
         bool colisionProyectil(Proyectil *);
         void impactoProyectil();
-        bool colisionProtagonista(Jugador *);
+        bool colisionProtagonista(Jugador *, bool);
         bool morir();
         void hacerTransparente();
         void restartSprite();

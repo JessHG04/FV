@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 
+
 enum estados{parado,andando,muerto};
 enum direcciones{quieto = 0, arriba = 1, izq = 2,der = 3, abajo = 4}; 
 
@@ -12,7 +13,7 @@ class Jugador : public spritePersonaje{
         //Constructor
         Jugador();
         //Destructor
-        //~Jugador();
+        virtual ~Jugador();
 
         // Obtener el sprite del jugador
         sf::Sprite get_sprite(){ 
@@ -33,6 +34,7 @@ class Jugador : public spritePersonaje{
         void set_velocidad(sf::Vector2f vel){
             velocidad = vel;
         }
+        bool atacando = false;
 
         void update();//actualizar fisicas del jugador
         sf::String archivo;
