@@ -103,6 +103,8 @@ SFML/Graphics.hpp
 /home/jess/Escritorio/FV/src/ej_modulos/Juego.h
 SFML/Graphics.hpp
 -
+SFML/Audio.hpp
+-
 Mago.h
 /home/jess/Escritorio/FV/src/ej_modulos/Mago.h
 Guerrera.h
@@ -437,6 +439,8 @@ Jugador.h
 /home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+Map.h
+/home/jess/Escritorio/FV/src/ej_modulos/Map.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/mojon.cpp
 SFML/Graphics.hpp
