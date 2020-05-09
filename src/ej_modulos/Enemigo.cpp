@@ -29,7 +29,13 @@ bool Enemigo::getMuerte(){
     return muerto;
 }
 
+void Enemigo::setMuerte(bool morir){
+    muerto = morir;
+}
 
+bool Enemigo::colisionProyectil(Proyectil *p1){
+    
+}
 void Enemigo::recibeGolpe() {
     // Golpea su corespondiente NPC
 }
