@@ -25,7 +25,13 @@
 
 class Juego{
     public:
+        static Juego* getInstancia(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana, int idPersonaje);
+
+    protected:
         Juego(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana, int idPersonaje);
+        ~Juego(){
+
+        };
         void iniciar(); //Inicia variables y diferentes aspectos
         void dibujar(); //dibujar elementos
         void procesar_eventos(); // elementos de entrada, teclado...
@@ -45,6 +51,7 @@ class Juego{
         void reiniciar();
         
     private:
+        static Juego* juego;
         sf::Sprite *sp = NULL; //Segundo sprite al que persigue Kinder
         sf::Texture textFondo;
         sf::Sprite fondo;

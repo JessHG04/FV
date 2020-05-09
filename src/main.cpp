@@ -304,23 +304,27 @@ int main() {
 			//Guerrera seleccionada
 			if(idPersonaje == 1){
 				musicaMenu.pause();
-				juego = new Juego(sf::Vector2u(960, 640), window, 1);
+				juego = Juego::getInstancia(sf::Vector2u(960, 640), window, 1);
 				reiniciar = true;
 			}
 
 			//Mago seleccionado
 			if(idPersonaje == 2){
 				musicaMenu.pause();
-				juego = new Juego(sf::Vector2u(960, 640), window, 2);
+				juego = Juego::getInstancia(sf::Vector2u(960, 640), window, 2);
 				reiniciar = true;
 			}
+			
 			if(reiniciar){
+				/*
 				musicaMenu.play();
-				delete juego;
-				juego = NULL;
+				//delete juego;
+				//juego = NULL;
 				entra = false;
 				seleccion = false;
 				idPersonaje = 0;
+				*/
+				window->close();
 			}
 			
 		}

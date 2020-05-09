@@ -5,6 +5,17 @@
 /*            alias do="cd build/ && make && mv GremoryHole .. && cd .. && ./GremoryHole"            */
 /*                                  Luego simplemente pones do                                       */
 /*****************************************************************************************************/
+
+Juego* Juego::juego = NULL;
+
+// Creamos la unica instancia del juego
+Juego* Juego::getInstancia(sf::Vector2u resolucion,sf::RenderWindow *window, int id) {
+    if (juego == NULL) {
+        juego = new Juego(resolucion, window, id);
+    }
+    return juego;
+}
+
 Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje){
     //Creamos una ventana
     ventana = window;
@@ -440,6 +451,8 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
     pos_vista.x = resolucion.x / 2;
     vista.setCenter(pos_vista);
     ventana->setView(vista);
+    delete juego;
+    juego = NULL;
 }
 //******************************************* FIN DEL BUCLE DEL JUEGO ************************************************************
 void Juego::iniciar(){
@@ -567,7 +580,7 @@ void Juego::dibujar(){
             ventana->draw(trueno2->cajaColisionesNPC);
         }
         
-        if(interfaz){
+        if(interfaz && level != 7){
             ventana->draw(interfaz->nombre2);
             ventana->draw(*interfaz->spr_cara);
             for(int i = 0; i < j1->vida; i++){
@@ -1233,7 +1246,7 @@ void Juego::crearEnemigos(){
     if(level == 1){
         nEnemigos = 4;
         darkrai1 = new Darkrai(125*16, 6*16, 25.0f, *j1->spr_player);
-        mojoncito1 = new mojon(60*16, 38*16, 55*16, 68*16);
+        mojoncito1 = new mojon(60*16, 38*16, 55*16, 67*16);
         kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 10);
         larita1 = new lara(83*16, 20*16);
         //NPC

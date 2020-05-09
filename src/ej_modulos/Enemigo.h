@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Proyectil.h"
+#include "math.h"
 using namespace std;
 using namespace sf;
 
