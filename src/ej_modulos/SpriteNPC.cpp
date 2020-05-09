@@ -28,7 +28,7 @@ void SpriteNPC::cambiarSpriteNPC(sf::Texture *textura, int n1, int n2, sf::Vecto
     spriteNPC->setTexture(*textura);
     tamFrameNPC = sf::Vector2f(txActualNPC->getSize().x / cantidadXNPC, txActualNPC->getSize().y / cantidadYNPC); //Dimension de cada frame haciendo la operacion    
     frActualNPC = frm; // cogemos el frame que queremos utilizar
-    //spriteNPC->setScale(0.7,0.7);
+    spriteNPC->setScale(0.15,0.15);
     seleccionarFrameNPC(); 
     sf::RectangleShape box(sf::Vector2f(tamFrameNPC.x, tamFrameNPC.y));
     cajaColisionesNPC = box;

@@ -30,6 +30,7 @@ class mojon : public Enemigo{
         Sprite getSprite();
         void recibeGolpe();
         void hacerTransparente();
+        void hacerGrande();
         void restartSprite();
         bool morir();
     private:

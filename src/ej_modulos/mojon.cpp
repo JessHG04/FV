@@ -165,6 +165,11 @@ using namespace sf;
         sprite->setColor(Color::Transparent);
     }
 
+    void mojon::hacerGrande(){
+        sprite->setScale(10.0, 10.0);
+        //Cambiar vida
+    }
+
     void mojon::restartSprite(){
         sprite->setColor(Color(255,255,255));
     }

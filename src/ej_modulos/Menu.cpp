@@ -19,12 +19,17 @@ Menu::Menu(float width, float height)
 	menu[1].setPosition(sf::Vector2f(width + 50, height / (MAX_NUMBER_OF_ITEMS + 5) * 4));
 	menu[1].setCharacterSize(30);
 
+	menu[2].setFont(font);
+	menu[2].setColor(sf::Color::White);
+	menu[2].setString("Controles");
+	menu[2].setPosition(sf::Vector2f(width + 25, 410));
+	menu[2].setCharacterSize(30);
+
 	selectedItemIndex = 0;
 }
 
 
-Menu::~Menu()
-{
+Menu::~Menu(){
 }
 
 void Menu::draw(sf::RenderWindow &window)
