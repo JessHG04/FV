@@ -141,6 +141,21 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             while(ventana->pollEvent(*evento)){
                 procesar_eventos();
             }
+
+            if(muerteNPC==true && npc!=NULL){
+                 if(npc->animarMuerteNPC()==true){
+                     npc = nullptr;
+                     delete npc;
+                 }
+             }
+
+             if(transformacionBoss==true && bossFinal!=NULL){
+                 if(parar == false && bossFinal->animarMuerteBoss()==true){
+                    parar = true;
+                    bossFinal->cambiarFrameXBoss(7);
+                 }
+             }
+             
             //Pasar de Nivel
             if(portal != NULL){
                 colisionPersPortal();
@@ -250,7 +265,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             }
 
             if(larita1 != NULL && !muerteLara1 && level == 1){
-                if(larita1->Update(*ventana, j1, (83*16+100), (20*16))){
+                if(larita1->Update(*ventana, j1, (83*16+100), (20*16), mapa)){
                     if(!dios){
                         relojDanyo->restart();
                         danyo = true;
@@ -258,7 +273,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                 }
             }
             if(larita1 != NULL && !muerteLara1 && level == 3){
-                if(larita1->Update(*ventana, j1, (6*16+100), (12*16))){ 
+                if(larita1->Update(*ventana, j1, (6*16+100), (12*16), mapa)){ 
                     if(!dios){
                         relojDanyo->restart();
                         danyo = true;
@@ -266,7 +281,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                 }
             }
             if(larita2 != NULL && !muerteLara2 && level == 3){
-                if(larita2->Update(*ventana, j1, (111*16+100), (14*16))){ 
+                if(larita2->Update(*ventana, j1, (111*16+100), (14*16), mapa)){ 
                     if(!dios){
                         relojDanyo->restart();
                         danyo = true;
@@ -274,7 +289,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                 }
             }
             if(larita1 != NULL  && !muerteLara1 && level == 5){
-                if(larita1->Update(*ventana, j1, (54*16+100), (16*16))){ 
+                if(larita1->Update(*ventana, j1, (54*16+100), (16*16), mapa)){ 
                     if(!dios){
                         relojDanyo->restart();
                         danyo = true;
@@ -282,7 +297,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                 }
             }
             if(larita2 != NULL && !muerteLara2 && level == 5){
-                if(larita2->Update(*ventana, j1, (79*16+100), (10*16))){ 
+                if(larita2->Update(*ventana, j1, (79*16+100), (10*16), mapa)){ 
                     if(!dios){
                         relojDanyo->restart();
                         danyo = true;
@@ -290,7 +305,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                 }
             }
             if(larita3 != NULL && !muerteLara3){
-                if(larita3->Update(*ventana, j1, (83*16+100), (20*16))){ 
+                if(larita3->Update(*ventana, j1, (83*16+100), (20*16), mapa)){ 
                     if(!dios){
                         relojDanyo->restart();
                         danyo = true;
@@ -508,6 +523,20 @@ void Juego::dibujar(){
                         ventana->draw(conversacionInicial[2]);
                     }else if(variableAuxiliar==300){
                         ventana->draw(conversacionInicial[3]);
+                    }else if(variableAuxiliar==400){
+                        ventana->draw(conversacionInicial[4]);
+                    }else if(variableAuxiliar==500){
+                        ventana->draw(conversacionInicial[5]);
+                    }
+                }
+            }
+        }
+
+        if(bossFinal!=NULL && level == 6){
+            if(conversacionBoss.size()>0){
+                for(int i = 0; i < conversacionBoss.size(); i++){
+                    if(variableAuxiliarBoss==0){
+                        ventana->draw(conversacionBoss[0]);
                     }
                 }
             }
@@ -722,12 +751,26 @@ void Juego::procesar_eventos(){
 //------------------------NPC INICIO---------------------------------------------------------------------------------------
             else if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)){
                 //compruebo la posicion cerca del NPC - SI CAMBIAMOS LA POSICIÓN DEL NPC, REVISAR EL IF DEL RANGO
-                if(npc != NULL){//Revisar rango Eugyn
-                    //std::cout << "Posicion X: " << npc->getPosicionEne().x - j1->get_posicion().x <<  std::endl;
-                    //std::cout << "Posicion Y: " << j1->get_posicion().y-npc->getPosicionEne().y << std::endl;
-                    if(npc->getPosicionEne().x - j1->get_posicion().x >=30 && npc->getPosicionEne().x - j1->get_posicion().x<=60 && j1->get_posicion().y-npc->getPosicionEne().y <= 15 && j1->get_posicion().y-npc->getPosicionEne().y >= 5){
+                if(npc != NULL){
+                    if(npc->getPosicionEne().x - j1->get_posicion().x >=30 && npc->getPosicionEne().x - j1->get_posicion().x<=60 && j1->get_posicion().y-npc->getPosicionEne().y <= 15 && j1->get_posicion().y-npc->getPosicionEne().y >= -5){
                         //aumento para que cambie a la siguiente imagen
                         variableAuxiliar+=100;
+                        if(variableAuxiliar==500){
+                            muerteNPC = true;
+                        }
+                    }
+                }
+                else if(bossFinal != NULL){
+                    if(bossFinal->getPosicionBoss().x - j1->get_posicion().x >=400 && bossFinal->getPosicionBoss().x - j1->get_posicion().x<=550 && j1->get_posicion().y-bossFinal->getPosicionBoss().y <= 100 && j1->get_posicion().y-bossFinal->getPosicionBoss().y >= 20){
+                        //aumento para que cambie a la siguiente imagen
+                        if(variableAuxiliarBoss==0){
+                            variableAuxiliarBoss+=100;
+                            if(variableAuxiliarBoss == 100){
+                                transformacionBoss = true;
+                            }
+                        }else{
+                            variableAuxiliarBoss+=100;
+                        }
                     }
                 }
             }
@@ -1195,25 +1238,28 @@ void Juego::crearEnemigos(){
         larita1 = new lara(83*16, 20*16);
         //NPC
         //inicializo NPC
-        npc = new PersonajeNPC(4, 10, sf::Vector2i(0,0));
-        npc -> cambiarPosicionEne(sf::Vector2f(290,310));
+        npc = new PersonajeNPC(9, 1, sf::Vector2i(0,0));
+        npc -> cambiarPosicionEne(sf::Vector2f(265,320));
         npc->movimientoEne=false;
         npc->cambiarFrameYNPC(0);
         npc->setVelEne(sf::Vector2f(0.0, 0.0));
         npc->updateEne();
 
         //anyado todas las imagenes del monologo del NPC
+        conver0.loadFromFile("resources/Sprites/conversacion/conver0.png");
+        conversacionInicial.push_back(sf::Sprite(conver0));
         conver1.loadFromFile("resources/Sprites/conversacion/conver1.png");
         conversacionInicial.push_back(sf::Sprite(conver1));
         conver2.loadFromFile("resources/Sprites/conversacion/conver2.png");
         conversacionInicial.push_back(sf::Sprite(conver2));
         conver3.loadFromFile("resources/Sprites/conversacion/conver3.png");
         conversacionInicial.push_back(sf::Sprite(conver3));
-        conver3.loadFromFile("resources/Sprites/conversacion/conver4.png");
+        conver4.loadFromFile("resources/Sprites/conversacion/conver4.png");
         conversacionInicial.push_back(sf::Sprite(conver4));
-        for(int i = 0; i < conversacionInicial.size(); i++){
-            //conversacionInicial[i].setScale(1.5, 1.5);
-            conversacionInicial[i].setPosition(sf::Vector2f(200,320));
+        conver5.loadFromFile("resources/Sprites/conversacion/conver5.png");
+        conversacionInicial.push_back(sf::Sprite(conver5));
+        for(int i = 0; i < conversacionInicial.size(); i++){    
+            conversacionInicial[i].setPosition(sf::Vector2f(185,355));
         }
     }
     if(level == 2){  //Mojon hacerlo grandesico y más fuertote
@@ -1248,23 +1294,30 @@ void Juego::crearEnemigos(){
     if(level == 6){
         nEnemigos = 1;
         //BOSS
-        bossFinal = new PersonajeBoss(4, 10, sf::Vector2i(0,0));
-        bossFinal -> cambiarPosicionBoss(sf::Vector2f(330,440));
-        bossFinal->movimientoBoss=false;
-        bossFinal->cambiarFrameYBoss(2);
+        bossFinal = new PersonajeBoss(8, 1, sf::Vector2i(0,0));
+        bossFinal -> cambiarPosicionBoss(sf::Vector2f(660,515)); bossFinal->movimientoBoss=false;
+        //bossFinal->cambiarFrameYBoss(2);
         bossFinal->direccionBoss=izquierdaBoss;
         bossFinal->setVelBoss(sf::Vector2f(0.0, 0.0));
-        bossFinal->updateBoss();    
+        bossFinal->updateBoss();  
+        //conversacion con el boss
+        converBoss.loadFromFile("resources/Sprites/conversacion/converBoss.png");
+        conversacionBoss.push_back(sf::Sprite(converBoss));
+        conver5Boss.loadFromFile("resources/Sprites/conversacion/conver5.png");
+        conversacionBoss.push_back(sf::Sprite(conver5Boss));
+        for(int i = 0; i < conversacionBoss.size(); i++){            
+            conversacionBoss[i].setPosition(sf::Vector2f(580,575));
+        }
         //inicializo rayo
         trueno = new Trueno(4, 2, sf::Vector2i(0,0));
-        trueno -> cambiarPosicionEne(sf::Vector2f(200,300));
+        trueno -> cambiarPosicionEne(sf::Vector2f(280,515));
         trueno->movimientoEne=false;
         trueno->cambiarFrameYNPC(0);
         trueno->setVelEne(sf::Vector2f(0.0, 0.0));
         trueno->updateEne();
 
         trueno2 = new Trueno(4, 2, sf::Vector2i(0,0));
-        trueno2 -> cambiarPosicionEne(sf::Vector2f(400,300));
+        trueno2 -> cambiarPosicionEne(sf::Vector2f(480,315));
         trueno2->movimientoEne=false;
         trueno2->cambiarFrameYNPC(0);
         trueno2->setVelEne(sf::Vector2f(0.0, 0.0));
@@ -1731,18 +1784,21 @@ void Juego::bossLanza(){
 
 //BOSS lanza trueno
 
-//BOSS lanzamiento proyectil
 void Juego::bossTrueno(){
 
     *cronoTrueno = relojTrueno->getElapsedTime();
-    int valor = rand() % 2; 
+    int valor = rand() % 10; 
 
     //cada cierto tiempo el boss lanza un proyectil
-    if(cronoTrueno->asSeconds()>0.3){
+    if(cronoTrueno->asSeconds()>0.1){
         if(valor==0){
-            trueno->animarNPC();
+            if(trueno->animarMuerteNPC()==true){
+
+            }
         }else if(valor==1){
-            trueno2->animarMuerteNPC();
+            if(trueno2->animarMuerteNPC()==true){
+                
+            }
         }
             
         //reinicio de reloj

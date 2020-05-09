@@ -281,6 +281,8 @@ Jugador.h
 /home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+Map.h
+/home/jess/Escritorio/FV/src/ej_modulos/Map.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/mojon.h
 SFML/Graphics.hpp

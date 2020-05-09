@@ -28,7 +28,6 @@ class Juego{
         Juego(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana, int idPersonaje);
         void iniciar(); //Inicia variables y diferentes aspectos
         void dibujar(); //dibujar elementos
-        void logica(); // procesa logicas del juego
         void procesar_eventos(); // elementos de entrada, teclado...
         void cortarEventoDash(int distancia);
         void impacto();
@@ -156,4 +155,16 @@ class Juego{
         bool musicaOn = true;
         bool muerteMojon = false, muerteDarkrai = false, muerteLara = false, muerteKinder = false;
         bool muerteTransicion = false;
+
+        bool muerteNPC = false;
+        bool transformacionBoss = false;
+        bool parar = false;
+        sf::Texture conver0;   
+        sf::Texture conver5;
+        sf::Texture conver5Boss;
+        sf::Texture converBoss;
+        std::vector<sf::Sprite> conversacionBoss;
+        int variableAuxiliarBoss = 0;
+        sf::Texture txCaraBoss;
+        sf::Sprite caraBoss;
 };
