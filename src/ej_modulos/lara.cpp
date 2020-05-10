@@ -178,6 +178,18 @@ using namespace sf;
         }
     }
 
+void lara::colisionProtagonista(Jugador *j, bool esGuerrera){
+
+  if(sprite->getGlobalBounds().intersects(j->spr_player->getGlobalBounds())  &&  !golpeado){
+    if(j->atacando  &&  esGuerrera) {
+      golpeado = true;
+      restartear = true;
+      this->perderVida();
+      //j->atacando = false;
+    } else { x = true; }
+  }
+}
+
     bool lara::morir(){
         bool x = false;
         if(this->getMuerte()){
