@@ -31,5 +31,6 @@ void Jugador::update(float deltaTime){ //Actuaiza fisicas del jugador
 void Jugador::draw(sf::RenderWindow& window) {
  
     window.draw(*spr_player);
-
+    window.draw(cajaColisiones);
+    window.draw(cajaColisiones2);
 }

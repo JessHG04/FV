@@ -24,6 +24,8 @@
 #include "PoderTrueno.h"
 #include "ProyectilBoss.h"
 
+#define tiempoUpdate 1000/15
+
 class Juego{
     public:
         static Juego* getInstancia(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana, int idPersonaje);
@@ -112,6 +114,7 @@ class Juego{
         // La ventana de nuestro juego
         sf::RenderWindow *ventana = NULL;
         //Creamos el reloj
+        float deltaTime;
         sf::Clock *reloj1 = NULL;
         sf::Time *crono1 = NULL;
         sf::Clock *relojInmortal = NULL;

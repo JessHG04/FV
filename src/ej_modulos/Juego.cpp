@@ -115,59 +115,60 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
 
     // ************************************ BUCLE DEL JUEGO *************************************************************************
     while(gameover != true){
-        *crono1 = reloj1->getElapsedTime(); // Obtener tiempo transcurrido 
-        *cronoInmortal = relojInmortal->getElapsedTime(); // Obtener tiempo transcurrido 
-        //********************************************* DASH ************************************************* 
-        *j1->crono_termina_dash = j1->termina_dash->getElapsedTime();
-        *j1->crono_recarga_dash = j1->recarga_dash->getElapsedTime();
-
-        *j1->crono_termina_proyectil = j1->termina_proyectil->getElapsedTime();
-        *j1->crono_recarga_proyectil = j1->recarga_proyectil->getElapsedTime();
-
-        if(j1->dash){
-            if(j1->direccion == izq)
-                j1->set_velocidad(sf::Vector2f(-j1->vel_desp*3,0));
-            else
-                j1->set_velocidad(sf::Vector2f(j1->vel_desp*3,0));
-            if(j1->crono_termina_dash->asSeconds() > 0.5 || colisionPersMapa(j1->direccion)){
-                detenerDash();
-                j1->dash = false;
-                j1->recarga_dash->restart();
-            }               
+        while(ventana->pollEvent(*evento)){
+            procesar_eventos();
         }
+        
+        if (reloj1->getElapsedTime().asMilliseconds() > tiempoUpdate) {
+            deltaTime = reloj1->restart().asSeconds();
+//std::cout << "holaaaaaaaaaaaaaaaaaaaa1" << std::endl;
+            *cronoInmortal = relojInmortal->getElapsedTime(); // Obtener tiempo transcurrido 
+            //********************************************* DASH ************************************************* 
+            *j1->crono_termina_dash = j1->termina_dash->getElapsedTime();
+            *j1->crono_recarga_dash = j1->recarga_dash->getElapsedTime();
 
-        if(p1){
-            if(p1 != nullptr){
-                if(colisionProyecMapa(p1->dirColision) || j1->crono_termina_proyectil->asSeconds() > 1.0){
-                    efectoMagia.pause();
-                    colisionaProyMapa = true;
-                    delete p1;        
-                    p1 = 0;  
-                    j1->recarga_proyectil->restart();        
-                }
+            *j1->crono_termina_proyectil = j1->termina_proyectil->getElapsedTime();
+            *j1->crono_recarga_proyectil = j1->recarga_proyectil->getElapsedTime();
+
+            if(j1->dash){
+                if(j1->direccion == izq)
+                    j1->set_velocidad(sf::Vector2f(-j1->vel_desp*3,0));
+                else
+                    j1->set_velocidad(sf::Vector2f(j1->vel_desp*3,0));
+                if(j1->crono_termina_dash->asSeconds() > 0.5 || colisionPersMapa(j1->direccion)){
+                    detenerDash();
+                    j1->dash = false;
+                    j1->recarga_dash->restart();
+                }               
             }
-            this->colisionProyectilEnemigos();
-        }
 
-        if(crono1->asSeconds() > 0.08){ // comparamos si el tiempo transcurrido es 1 fps (1 frame) si es asi ejecuttamos un instante
-            while(ventana->pollEvent(*evento)){
-                procesar_eventos();
+            if(p1){
+                if(p1 != nullptr){
+                    if(colisionProyecMapa(p1->dirColision) || j1->crono_termina_proyectil->asSeconds() > 1.0){
+                        efectoMagia.pause();
+                        colisionaProyMapa = true;
+                        delete p1;        
+                        p1 = 0;  
+                        j1->recarga_proyectil->restart();        
+                    }
+                }
+                this->colisionProyectilEnemigos();
             }
 
             if(muerteNPC==true && npc!=NULL){
-                 if(npc->animarMuerteNPC()==true){
-                     npc = nullptr;
-                     delete npc;
-                 }
-             }
+                    if(npc->animarMuerteNPC()==true){
+                        npc = nullptr;
+                        delete npc;
+                    }
+                }
 
-             if(transformacionBoss==true && bossFinal!=NULL){
-                 if(parar == false && bossFinal->animarMuerteBoss()==true){
+                if(transformacionBoss==true && bossFinal!=NULL){
+                    if(parar == false && bossFinal->animarMuerteBoss()==true){
                     parar = true;
                     bossFinal->cambiarFrameXBoss(7);
-                 }
-             }
-             
+                    }
+                }
+                
             //Pasar de Nivel
             if(portal != NULL){
                 colisionPersPortal();
@@ -271,7 +272,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             for(int x = 0; x < enemigos.size(); x++){
                 if(enemigos[x] != NULL){ //otro if enemigos[x] -> muerto
                     if(x < 9){ //Hace todos los updates menos los de Lara porque tiene otros parámetros
-                        enemigos[x]->Update(reloj1->getElapsedTime().asSeconds());
+                        enemigos[x]->Update(deltaTime);
                     }
                 }
             }
@@ -329,20 +330,18 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             if (esGuerrera  &&  j1->atacando) {
                 float _tiempo = relojMerche.getElapsedTime().asSeconds();
                 if (_tiempo > 0.40f) {
-                    j1->movimiento = false;
-
                     if(j1->inmortal){
+                        if(j1->direccion == izq){
+                            j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
+                        }else{
+                            j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
+                        }
+                    }else{
                         if(j1->direccion == izq){
                             j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,2));
                         }
                         if(j1->direccion == der){
                             j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,3));
-                        }
-                    }else{
-                        if(j1->direccion == izq){
-                            j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
-                        }else{
-                            j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
                         }
                     }
                     
@@ -395,8 +394,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             if(bossFinal != NULL)
                 bossTrueno();
             portal->Update();
-            dibujar();
-          
+            
             if(cronoInmortal->asSeconds() > 2.5 && j1->inmortal){
                 j1->inmortal = false;
                 if(esGuerrera == false){
@@ -459,7 +457,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                     }
                 } 
             }
-			
+            
             if(trueno2 != nullptr && j1 != nullptr){
                 if(trueno2->colisionProtagonista(j1)){
                     if(!dios){
@@ -498,7 +496,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             
 
             this->muerteNPCs();
-             if(danyo){
+                if(danyo){
                 impacto();
                 danyao = true;
                 float segundetes = relojDanyo->getElapsedTime().asSeconds();
@@ -525,7 +523,6 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                 hasMuertoSonido.setVolume(30);
             }
 
-            reloj1->restart();
             //Camara - Extremo derecho, normal, extremo izquierdo
             if(j1->get_posicion().x >= (mapa->widthMap * 16 - resolucion.x /2)){
                 pos_vista.x = mapa->widthMap * 16 - resolucion.x /2;
@@ -542,12 +539,14 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             musicaGuia.setPosition(25 + pos_vista.x - resolucion.x/2, 600);
             sprit.setPosition(150 + pos_vista.x - resolucion.x/2, 590);
             vista.setCenter(pos_vista);
+
+            *cronoMuerte = relojMuerte->getElapsedTime(); 
+            if(cronoMuerte->asSeconds() > 7.0 && muerteTransicion == true){
+                muerteTransicion = false;
+                reiniciar();
+            }
         }
-        *cronoMuerte = relojMuerte->getElapsedTime(); 
-        if(cronoMuerte->asSeconds() > 7.0 && muerteTransicion == true){
-            muerteTransicion = false;
-            reiniciar();
-        }
+        dibujar();
     }
     musicaCreditos.stop();
     pos_vista.x = resolucion.x / 2;
@@ -1493,7 +1492,7 @@ void Juego::colisionesProtagonista(){
 	    if(larita3 != NULL && !muerteLara3){
             larita3->colisionProtagonista(j1, esGuerrera);
         }
-/*
+
         if(darkrai1 != NULL && !muerteDarkrai1){
             if(darkrai1->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
@@ -1514,7 +1513,7 @@ void Juego::colisionesProtagonista(){
                 danyo = true;
             }
         }
-*/
+
         if(mojoncito1 != NULL && !muerteMojon1){
             if(mojoncito1->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
