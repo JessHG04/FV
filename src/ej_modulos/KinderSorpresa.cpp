@@ -233,12 +233,20 @@ void KinderSorpresa::impactoProyectil(){
     }
 }
 
-bool KinderSorpresa::colisionProtagonista(spritePersonaje *sp){
+bool KinderSorpresa::colisionProtagonista(Jugador *, bool esGuerrera){
     bool x = false;
-    if(boundingBox->getGlobalBounds().intersects(sp->getSprite().getGlobalBounds())){
-        x = true;
-    }
-    return x;
+
+  if(boundingBox->getGlobalBounds().intersects(j->spr_player->getGlobalBounds())  &&  !golpeado){
+    if(j->atacando  &&  esGuerrera) {
+      std::cout << "holaaaaaa" << std::endl;
+      golpeado = true;
+      restartear = true;
+      this->perderVida();
+      //j->atacando = false;
+    } else { x = true; }
+  }
+
+  return x;
 }
 
 void KinderSorpresa::recibeGolpe() {
