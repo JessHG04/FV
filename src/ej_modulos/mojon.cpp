@@ -94,9 +94,9 @@ using namespace sf;
     bool mojon::colisionProtagonista(Jugador *j, bool esGuerrera){
         bool x = false;
 
-          if(sprite->getGlobalBounds().intersects(j->spr_player->getGlobalBounds())  &&  !golpeado){
+          if((sprite->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(sprite->getOrigin()))  &&  !golpeado){
             if(j->atacando  &&  esGuerrera) {
-              std::cout << "holaaaaaa" << std::endl;
+              //std::cout << "holaaaaaa" << std::endl;
               golpeado = true;
               restartear = true;
               this->perderVida();

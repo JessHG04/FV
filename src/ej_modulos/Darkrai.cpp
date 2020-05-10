@@ -161,7 +161,7 @@ void Darkrai::impactoProyectil(){
 bool Darkrai::colisionProtagonista(Jugador *j, bool esGuerrera){
   bool x = false;
 
-  if(boundingBox->getGlobalBounds().intersects(j->spr_player->getGlobalBounds())  &&  !golpeado){
+  if((boundingBox->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(boundingBox->getOrigin()))  &&  !golpeado){
     if(j->atacando  &&  esGuerrera) {
       std::cout << "holaaaaaa" << std::endl;
       golpeado = true;

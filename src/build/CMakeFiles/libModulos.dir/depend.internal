@@ -62,6 +62,7 @@ CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/Trueno.h
  /home/alex/Desktop/FV/src/ej_modulos/bala.h
  /home/alex/Desktop/FV/src/ej_modulos/cuadradoD.h
+ /home/alex/Desktop/FV/src/ej_modulos/cuadradoI.h
  /home/alex/Desktop/FV/src/ej_modulos/lara.h
  /home/alex/Desktop/FV/src/ej_modulos/mojon.h
  /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
@@ -73,6 +74,8 @@ CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o
 CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/AnimationKinder.h
  /home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+ /home/alex/Desktop/FV/src/ej_modulos/Guerrera.h
+ /home/alex/Desktop/FV/src/ej_modulos/Jugador.h
  /home/alex/Desktop/FV/src/ej_modulos/KinderSorpresa.cpp
  /home/alex/Desktop/FV/src/ej_modulos/KinderSorpresa.h
  /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
@@ -175,6 +178,7 @@ CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/Trueno.h
  /home/alex/Desktop/FV/src/ej_modulos/bala.h
  /home/alex/Desktop/FV/src/ej_modulos/cuadradoD.h
+ /home/alex/Desktop/FV/src/ej_modulos/cuadradoI.h
  /home/alex/Desktop/FV/src/ej_modulos/lara.cpp
  /home/alex/Desktop/FV/src/ej_modulos/lara.h
  /home/alex/Desktop/FV/src/ej_modulos/mojon.h
@@ -182,6 +186,7 @@ CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/tinyxml2.h
 CMakeFiles/libModulos.dir/ej_modulos/mojon.cpp.o
  /home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+ /home/alex/Desktop/FV/src/ej_modulos/Guerrera.h
  /home/alex/Desktop/FV/src/ej_modulos/Jugador.h
  /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
  /home/alex/Desktop/FV/src/ej_modulos/bala.h
