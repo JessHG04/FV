@@ -8,8 +8,7 @@
 #include "cuadradoD.h"
 #include "bala.h"
 #include "mojon.h"
-#include "spritePersonaje.h"
-#include "Jugador.h"
+#include "Guerrera.h"
 #include "Proyectil.h"
 
 using namespace std;
@@ -31,6 +30,7 @@ class lara : public Enemigo{
         void Draw(RenderWindow &);
         bool Update(RenderWindow &, spritePersonaje*, int, int);
         bool colisionProyectil(Proyectil *);
+        void colisionProtagonista(Jugador *,bool );
         bool morir();
         void impactoProyectil();
         void recibeGolpe();
