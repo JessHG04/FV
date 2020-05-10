@@ -1069,15 +1069,15 @@ void Juego::colisionesProtagonista(){
     
     if(tiempo > 1.0){
 	    
-	if(larita1 != NULL && !larita1){
+	if(larita1 != NULL && !muerteLara1){
             larita1->colisionProtagonista(j1, esGuerrera);
         }
 	    
-	if(larita2 != NULL && !larita2){
+	if(larita2 != NULL && !muerteLara2){
             larita2->colisionProtagonista(j1, esGuerrera);
         }
 	    
-	if(larita3 != NULL && !larita3){
+	if(larita3 != NULL && !muerteLara3){
             larita3->colisionProtagonista(j1, esGuerrera);
         }
 	    
