@@ -154,6 +154,9 @@ using namespace sf;
     }
 
     void mojon::Draw(RenderWindow &window){
+        if(grande){
+            sprite->setScale(2.0, 2.0);
+        }
         window.draw(*sprite);
     }
 
@@ -166,7 +169,7 @@ using namespace sf;
     }
 
     void mojon::hacerGrande(){
-        sprite->setScale(10.0, 10.0);
+        grande = true;
         //Cambiar vida
     }
 

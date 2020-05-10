@@ -257,6 +257,9 @@ bool KinderSorpresa::morir(){
 }
 
 void KinderSorpresa::Draw(RenderWindow &window) {
+    if(grande){
+        body->setScale(2.0, 2.0);
+    }
     if (esGolpeado) {
         esGolpeado = false;
     } else {
@@ -269,7 +272,7 @@ void KinderSorpresa::hacerTransparente(){
 }
 
 void KinderSorpresa::hacerGrande(){
-    body->setScale(10.0, 10.0);
+    grande = true;
     //cambiar vida
 }
 

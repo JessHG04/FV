@@ -28,6 +28,7 @@ class KinderSorpresa : public Enemigo {
         sf::RectangleShape boundingSet[12];  // Cajas colisionables
         sf::RectangleShape *boundingBox;
         float ajustes[12];
+        bool grande = false;
 
 
     public:

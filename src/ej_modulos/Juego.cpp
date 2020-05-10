@@ -510,13 +510,13 @@ void Juego::dibujar(){
                 enemigos[x]->Draw(*ventana);
             }
         }
-        if(larita1 != NULL && larita1->dispara == true){
+        if(larita1 != NULL && !muerteLara1 && larita1->dispara == true){
             larita1->getBala().Draw(*ventana);
         }
-        if(larita2 != NULL && larita2->dispara == true){
+        if(larita2 != NULL && !muerteLara2 && larita2->dispara == true){
             larita2->getBala().Draw(*ventana);
         }
-        if(larita3 != NULL && larita3->dispara == true){
+        if(larita3 != NULL && !muerteLara3 && larita3->dispara == true){
             larita3->getBala().Draw(*ventana);
         }
         //---------NPC-------------
@@ -1302,7 +1302,7 @@ void Juego::crearEnemigos(){
     }
     if(level == 2){  //Mojon hacerlo grandesico y más fuertote
         nEnemigos = 1;
-        mojoncito1 = new mojon(43*16, 42*16, 4*16, 55*16);
+        mojoncito1 = new mojon(43*16, 53*16, 4*16, 55*16);
         mojoncito1->hacerGrande();
     }
     if(level == 3){
@@ -1317,7 +1317,7 @@ void Juego::crearEnemigos(){
     }
     if(level == 4){
         nEnemigos = 1;
-        kindercito1 = new KinderSorpresa(4*16, 55*16, 29*16, 50.0, *(j1->spr_player), *sp, 15);
+        kindercito1 = new KinderSorpresa(4*16, 55*16, 38*16, 50.0, *(j1->spr_player), *sp, 15);
         kindercito1->hacerGrande();
     }
     if(level == 5){
