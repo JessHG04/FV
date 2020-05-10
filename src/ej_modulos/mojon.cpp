@@ -1,10 +1,4 @@
-#include <SFML/Graphics.hpp>
-#include <iostream>
 #include "mojon.h"
-#include "cuadradoD.h"
-#include "cuadradoI.h"
-#include "Enemigo.h"
-#include "lara.h"
 
 using namespace std;
 using namespace sf;
@@ -97,12 +91,20 @@ using namespace sf;
         }
     }
 
-    bool mojon::colisionProtagonista(spritePersonaje *sp){
+    bool mojon::colisionProtagonista(Jugador *j, bool esGuerrera){
         bool x = false;
-        if(sprite->getGlobalBounds().intersects(sp->getSprite().getGlobalBounds())){
-            x = true;
-        }
-        return x;
+
+          if(sprite->getGlobalBounds().intersects(j->spr_player->getGlobalBounds())  &&  !golpeado){
+            if(j->atacando  &&  esGuerrera) {
+              std::cout << "holaaaaaa" << std::endl;
+              golpeado = true;
+              restartear = true;
+              this->perderVida();
+              //j->atacando = false;
+            } else { x = true; }
+          }
+
+          return x;
     }
 
     void mojon::cambiarSprite(int x){
