@@ -2,7 +2,7 @@
 using namespace std;
 #include <iostream>
 
-//constrcutor   
+//constructor   
 SpriteTrueno::SpriteTrueno(){
     //textura de imagen
     txNPC = new sf::Texture();
@@ -82,4 +82,12 @@ void SpriteTrueno::cambiarFrameYNPC(int frame){
     //cambio frame n y
     frActualNPC.y = frame;
     seleccionarFrameNPC();
+}
+
+bool SpriteTrueno::colisionProtagonista(spritePersonaje *sp){
+    bool x = false;
+    if(spriteNPC->getGlobalBounds().intersects(sp->getSprite().getGlobalBounds())){
+        x = true;
+    }
+    return x;
 }

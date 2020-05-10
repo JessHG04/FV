@@ -33,7 +33,7 @@ class KinderSorpresa : public Enemigo {
 
     public:
 
-        KinderSorpresa(int ,int ,int ,float , sf::Sprite& ,sf::Sprite& ,int );
+        KinderSorpresa(int ,int ,int ,float , sf::Sprite& ,sf::Sprite& ,int, bool);
         ~KinderSorpresa();
         void Update(float );
         bool colisionProyectil(Proyectil *);

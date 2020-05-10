@@ -12,6 +12,7 @@ spritePersonaje::spritePersonaje(){
     txt_ataque_D = new sf::Texture(); //Textura de imagen
     txt_ataque_I = new sf::Texture(); //Textura de imagen
     txt_proyectil = new sf::Texture();
+    txt_proyectilBoss = new sf::Texture();
 
     //Cargo la textura
     txt_player->loadFromFile("resources/Sprites/Eugyn/" + std::to_string(1) + ".png"); //Cargo el recurso desde la ruta
@@ -25,6 +26,7 @@ spritePersonaje::spritePersonaje(){
     txt_ataque_D->loadFromFile("resources/Sprites/Merche/"+ std::to_string(7) + ".png"); //Cargo el recurso desde la ruta
     txt_ataque_I->loadFromFile("resources/Sprites/Merche/"+ std::to_string(6) + ".png"); //Cargo el recurso desde la ruta
     txt_proyectil->loadFromFile("resources/Sprites/Proyectil/" + std::to_string(1) + ".png"); 
+    txt_proyectilBoss->loadFromFile("resources/Sprites/ProyectilBoss/" + std::to_string(1) + ".png"); //Cargo el recurso desde la ruta
     /*delete spr_player;
     spr_player = 0;*/
     spr_player = new sf::Sprite(*txt_player); //Nuevo sprite apartir de textura

@@ -31,6 +31,7 @@ target_sources(libModulos PRIVATE
     "${CMAKE_CURRENT_SOURCE_DIR}/SpriteTrueno.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/Trueno.cpp"
     "${CMAKE_CURRENT_SOURCE_DIR}/NPC.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/ProyectilBoss.cpp"
     
 )
 

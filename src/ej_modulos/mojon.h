@@ -19,7 +19,7 @@ class mojon : public Enemigo{
         int contando = 0;
         bool golpeado = false, restartear = false;
         bool grande = false;
-        mojon(int, int, int, int);
+        mojon(int, int, int, int, bool);
         ~mojon();
         void Draw(RenderWindow &);
         void Update(float nada);

@@ -30,6 +30,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o"
   "CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o"
+  "CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o"
   "liblibModulos.pdb"
   "liblibModulos.a"
 )
