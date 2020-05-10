@@ -1068,6 +1068,19 @@ void Juego::colisionesProtagonista(){
     float tiempo = relojEnemigos->getElapsedTime().asSeconds();
     
     if(tiempo > 1.0){
+	    
+	if(larita1 != NULL && !larita1){
+            larita1->colisionProtagonista(j1, esGuerrera);
+        }
+	    
+	if(larita2 != NULL && !larita2){
+            larita2->colisionProtagonista(j1, esGuerrera);
+        }
+	    
+	if(larita3 != NULL && !larita3){
+            larita3->colisionProtagonista(j1, esGuerrera);
+        }
+	    
         if(darkrai1 != NULL && !muerteDarkrai1){
             if(darkrai1->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
@@ -1090,42 +1103,42 @@ void Juego::colisionesProtagonista(){
         }
 
         if(mojoncito1 != NULL && !muerteMojon1){
-            if(mojoncito1->colisionProtagonista(j1)){
+            if(mojoncito1->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
         }
         
         if(mojoncito2 != NULL && !muerteMojon2){
-            if(mojoncito2->colisionProtagonista(j1)){
+            if(mojoncito2->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
         }
 
         if(mojoncito3 != NULL && !muerteMojon3){
-            if(mojoncito3->colisionProtagonista(j1)){
+            if(mojoncito3->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
         }
 
         if(kindercito1 != NULL && !muerteKinder1){
-            if(kindercito1->colisionProtagonista(j1)){
+            if(kindercito1->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
         }
 
         if(kindercito2 != NULL && !muerteKinder2){
-            if(kindercito2->colisionProtagonista(j1)){
+            if(kindercito2->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
         }
 
         if(kindercito3 != NULL && !muerteKinder3){
-            if(kindercito3->colisionProtagonista(j1)){
+            if(kindercito3->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
