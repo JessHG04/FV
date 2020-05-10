@@ -184,4 +184,13 @@ class Juego{
         bool colisionBossJugador();
         bool colisionProyectilBossMapa();
         void movimientoBoss();
+
+        //CREAMOS ITEM
+        sf::Sprite itemVida;
+        sf::Sprite itemVida2;
+        sf::Texture itemTextura;
+
+        sf::Music cogerItem;
+        bool dibujarItem = true;
+        int random = 0;
 };

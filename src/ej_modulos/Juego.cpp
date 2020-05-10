@@ -70,6 +70,12 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
 		std::cout << "Error cargando sonido de fondo de menú" << std::endl;
 	}
 
+    //ITEM VIDA
+    if (!cogerItem.openFromFile("cogerItem.wav"))
+    {
+        std::cout << "Error cargando sonido de coger item" << std::endl;
+    }
+
     if(level == 1){
         musicaNivel1.play();
         musicaNivel1.setVolume(30);
@@ -134,6 +140,54 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                 j1->dash = false;
                 j1->recarga_dash->restart();
             }               
+        }
+
+        if(j1->get_sprite().getGlobalBounds().intersects(itemVida.getGlobalBounds())){
+            if(esGuerrera){
+                if(j1->vida < 5){
+                    cogerItem.play();
+                    cogerItem.setPlayingOffset(sf::seconds(0.5));
+                    cogerItem.setVolume(40);
+                    dibujarItem == false;
+                    itemVida.setPosition(-200, -200); 
+                    j1->vida++;
+                    //SUMAR UNA VIDA
+                }
+            }else{
+                if(j1->vida < 3){
+                    cogerItem.play();
+                    cogerItem.setPlayingOffset(sf::seconds(0.5));
+                    cogerItem.setVolume(40);
+                    dibujarItem == false;
+                    itemVida.setPosition(-200, -200); 
+                    j1->vida++;
+                    //SUMAR UNA VIDA
+                }
+            }
+        }
+
+         if(j1->get_sprite().getGlobalBounds().intersects(itemVida2.getGlobalBounds())){
+            if(esGuerrera){
+                if(j1->vida < 5){
+                    cogerItem.play();
+                    cogerItem.setPlayingOffset(sf::seconds(0.5));
+                    cogerItem.setVolume(40);
+                    dibujarItem == false;
+                    itemVida2.setPosition(-200, -200); 
+                    j1->vida++;
+                    //SUMAR UNA VIDA
+                }
+            }else{
+                if(j1->vida < 3){
+                    cogerItem.play();
+                    cogerItem.setPlayingOffset(sf::seconds(0.5));
+                    cogerItem.setVolume(40);
+                    dibujarItem == false;
+                    itemVida2.setPosition(-200, -200); 
+                    j1->vida++;
+                    //SUMAR UNA VIDA
+                }
+            }
         }
 
         if(p1){
@@ -597,6 +651,16 @@ void Juego::iniciar(){
     j1->vel_salto = 0;
     j1->cajaColisiones3.setSize(sf::Vector2f(j1->tamFrame.x/2,j1->tamFrame.y - j1->tamFrame.y/4));
     evento = new sf::Event();
+
+    //ITEM VIDA ***
+    if(!itemTextura.loadFromFile("resources/Pocion.png")){
+        std::cout << "Error cargando la textura del item 3" << std::endl;
+    } 
+
+    itemVida.setTexture(itemTextura);
+    itemVida.setScale(0.02, 0.02);
+    itemVida2.setTexture(itemTextura);
+    itemVida2.setScale(0.02, 0.02);
 }
 
 void Juego::dibujar(){
@@ -608,7 +672,7 @@ void Juego::dibujar(){
         ventana->draw(*mapa);
         //ventana->draw(portal->getCaja());
         portal->Draw(*ventana);
-
+        
         for(int x = 0; x < enemigos.size(); x++){
             if(enemigos[x] != NULL){
                 enemigos[x]->Draw(*ventana);
@@ -695,7 +759,10 @@ void Juego::dibujar(){
                     ventana->draw(*interfaz->spr_vida[i]);
             }
         }
-
+        if(level == 1 || level == 3 || level == 5){
+            ventana->draw(itemVida);
+            ventana->draw(itemVida2);
+        }
         ventana->draw(musicaGuia);
         ventana->draw(sprit);
     }
@@ -713,6 +780,7 @@ void Juego::dibujar(){
         ventana->draw(spriteMuerte);
         
     }
+    
     
     ventana->display();
 }
@@ -1274,6 +1342,8 @@ void Juego::crearPortal(){
         j1->set_posicion(sf::Vector2f(4*16,26*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
+        itemVida.setPosition(57*16, 10*16);
+        itemVida2.setPosition(118*16, 23*16);
         if(!textFondo.loadFromFile("resources/Mapas/Fondo1.png")){
     	    std::cout << "Error cargando imagen de fondo de la mazmorra 1" << std::endl;
 	    }
@@ -1281,7 +1351,6 @@ void Juego::crearPortal(){
     if(level == 2){
         portal = new Portal(53*16, 32*16);
         j1->set_posicion(sf::Vector2f(5*16,32*16));
-
         j1->dirColision = abajo;
         j1->vel_salto = 0;
         if(!textFondo.loadFromFile("resources/Mapas/Boss.png")){
@@ -1293,6 +1362,8 @@ void Juego::crearPortal(){
         j1->set_posicion(sf::Vector2f(3*16,26*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
+        itemVida.setPosition(60*16, 22*16);
+        itemVida2.setPosition(153*16, 8*16);
         if(!textFondo.loadFromFile("resources/Mapas/Fondo2.png")){
     	    std::cout << "Error cargando imagen de fondo de la mazmorra 2" << std::endl;
 	    }
@@ -1311,6 +1382,8 @@ void Juego::crearPortal(){
         j1->set_posicion(sf::Vector2f(4*16,8*16));
         j1->dirColision = abajo;
         j1->vel_salto = 0;
+        itemVida.setPosition(57*16, 27*16);
+        itemVida2.setPosition(163*16, 11*16);
         if(!textFondo.loadFromFile("resources/Mapas/Fondo3.png")){
     	    std::cout << "Error cargando imagen de fondo de la mazmorra 3" << std::endl;
 	    }
@@ -1401,6 +1474,7 @@ void Juego::crearEnemigos(){
     if(level == 2){  //Mojon hacerlo grandesico y más fuertote
         nEnemigos = 1;
         mojoncito1 = new mojon(43*16, 53*16, 4*16, 52*16, true);
+        //mojoncito1->hacerGrande();
     }
     if(level == 3){
         nEnemigos = 7;
@@ -1408,7 +1482,7 @@ void Juego::crearEnemigos(){
         darkrai2 = new Darkrai(172*16, 6*16, 25.0f, *j1->spr_player);
         mojoncito1 = new mojon(43*16, 29*16, 39*16, 47*16, false);
         mojoncito2 = new mojon(138*16, 26*16, 131*16, 145*16, false);
-        kindercito1 = new KinderSorpresa(73*16, 99*16, 36*16, 40.0, *(j1->spr_player), *sp, 10, false);
+        kindercito1 = new KinderSorpresa(73*16, 99*16, 36*16, 40.0, *(j1->spr_player), *sp, 5, false);
         larita1 = new lara(6*16, 12*16);
         larita2 = new lara(111*16, 14*16);
     }
@@ -2004,6 +2078,11 @@ void Juego::reiniciar(){
     spriteMuerte.setPosition(350 , 300);
     musicaGuia.setString("Musica: ON");
     sprit.setTexture(text);
+    //ITEM VIDA
+    itemVida.setTexture(itemTextura);
+    itemVida.setScale(0.25, 0.3);
+    itemVida2.setTexture(itemTextura);
+    itemVida2.setScale(0.25, 0.3);
 
     if(esGuerrera){
         j1->vida = 5;

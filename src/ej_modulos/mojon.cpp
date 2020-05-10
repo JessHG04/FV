@@ -1,4 +1,10 @@
+#include <SFML/Graphics.hpp>
+#include <iostream>
 #include "mojon.h"
+#include "cuadradoD.h"
+#include "cuadradoI.h"
+#include "Enemigo.h"
+#include "lara.h"
 
 using namespace std;
 using namespace sf;
@@ -23,8 +29,10 @@ using namespace sf;
         sprite->setOrigin(24, 189);
         //Cojo el sprite que me interesa por defecto del sheet
         sprite->setTextureRect(sf::IntRect(15, 164, 18, 50));
+        
         // Lo dispongo en el centro de la pantalla
         sprite->setPosition(xx, yy);
+        
         if(grande){
             sprite->setScale(2.0, 2.0);
         }
@@ -87,7 +95,7 @@ using namespace sf;
                 this->hacerTransparente();
                 contando++;
             }
-            if(sgs >= 1.0f){
+            if(sgs >= 1){
                 this->restartSprite();
                 golpeado = false;
             }
@@ -97,19 +105,27 @@ using namespace sf;
     bool mojon::colisionProtagonista(Jugador *j, bool esGuerrera){
         bool x = false;
 
-          if((sprite->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(sprite->getOrigin()))  &&  !golpeado){
+        if((sprite->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(sprite->getOrigin()))  &&  !golpeado){
             if(j->atacando  &&  esGuerrera) {
-              //std::cout << "holaaaaaa" << std::endl;
-              golpeado = true;
-              restartear = true;
-              this->perderVida();
-              //j->atacando = false;
+            //std::cout << "holaaaaaa" << std::endl;
+            golpeado = true;
+            restartear = true;
+            this->perderVida();
+            //j->atacando = false;
             } else { x = true; }
-          }
+        }
 
-          return x;
+        return x;
+        }
+    /*
+    bool mojon::colisionProtagonista(spritePersonaje *sp){
+        bool x = false;
+        if(sprite->getGlobalBounds().intersects(sp->getSprite().getGlobalBounds())){
+            x = true;
+        }
+        return x;
     }
-
+*/
     void mojon::cambiarSprite(int x){
         if(x == 0){
             sprite->setTextureRect(sf::IntRect(2, 114, 62, 54));
@@ -127,7 +143,11 @@ using namespace sf;
             sprite->setTextureRect(sf::IntRect(194, 115, 61, 53));
             sprite->move(kVel, 0);
         }
-        sprite->setScale(1, 1);
+        if(grande){
+            sprite->setScale(2.0, 2.0);
+        }else{
+            sprite->setScale(1, 1);
+        }
     }
 
     void mojon::cambiarSpriteDos(int x){
@@ -147,7 +167,11 @@ using namespace sf;
             sprite->setTextureRect(sf::IntRect(193, 59, 61, 53));
             sprite->move(-kVel, 0);
         }
-        sprite->setScale(1, 1);
+        if(grande){
+            sprite->setScale(2.0, 2.0);
+        }else{
+            sprite->setScale(1, 1);
+        }
     }
 
     bool mojon::morir(){
@@ -171,7 +195,7 @@ using namespace sf;
     }
 
     void mojon::hacerGrande(){
-        sprite->setScale(10.0, 10.0);
+        //grande = true;
         //Cambiar vida
     }
 
