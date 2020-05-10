@@ -5,6 +5,7 @@
 #include "AnimationKinder.h"
 #include "Proyectil.h"
 #include "spritePersonaje.h"
+#include "Guerrera.h"
 
 class KinderSorpresa : public Enemigo {
 
@@ -40,7 +41,7 @@ class KinderSorpresa : public Enemigo {
         bool morir();
         void Draw(RenderWindow &);
         void recibeGolpe();
-        bool colisionProtagonista(spritePersonaje *);
+        bool colisionProtagonista(Jugador *,bool );
         void hacerTransparente();
         void hacerGrande();
         bool estaEnRango(sf::Sprite *);
