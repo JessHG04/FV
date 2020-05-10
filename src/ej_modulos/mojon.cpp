@@ -84,7 +84,7 @@ using namespace sf;
                 this->hacerTransparente();
                 contando++;
             }
-            if(sgs >= 1){
+            if(sgs >= 1.0f){
                 this->restartSprite();
                 golpeado = false;
             }

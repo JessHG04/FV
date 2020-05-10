@@ -163,7 +163,7 @@ bool Darkrai::colisionProtagonista(Jugador *j, bool esGuerrera){
 
   if((boundingBox->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(boundingBox->getOrigin()))  &&  !golpeado){
     if(j->atacando  &&  esGuerrera) {
-      std::cout << "holaaaaaa" << std::endl;
+      //std::cout << "holaaaaaa" << std::endl;
       golpeado = true;
       restartear = true;
       this->perderVida();
