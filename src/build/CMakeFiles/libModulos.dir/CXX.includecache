@@ -181,6 +181,8 @@ Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+Guerrera.h
+/home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Mago.cpp
 Mago.h
@@ -451,30 +453,16 @@ bala.h
 /home/jess/Escritorio/FV/src/ej_modulos/bala.h
 mojon.h
 /home/jess/Escritorio/FV/src/ej_modulos/mojon.h
-spritePersonaje.h
-/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
-Jugador.h
-/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
+Guerrera.h
+/home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
 Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 Map.h
 /home/jess/Escritorio/FV/src/ej_modulos/Map.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/mojon.cpp
-SFML/Graphics.hpp
--
-iostream
--
 mojon.h
 /home/jess/Escritorio/FV/src/ej_modulos/mojon.h
-cuadradoD.h
-/home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.h
-cuadradoI.h
-/home/jess/Escritorio/FV/src/ej_modulos/cuadradoI.h
-Enemigo.h
-/home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
-lara.h
-/home/jess/Escritorio/FV/src/ej_modulos/lara.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/mojon.h
 SFML/Graphics.hpp
@@ -487,6 +475,14 @@ Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+cuadradoD.h
+/home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.h
+cuadradoI.h
+/home/jess/Escritorio/FV/src/ej_modulos/cuadradoI.h
+lara.h
+/home/jess/Escritorio/FV/src/ej_modulos/lara.h
+Guerrera.h
+/home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.cpp
 spritePersonaje.h

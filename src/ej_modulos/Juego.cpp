@@ -324,6 +324,56 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                     }
                 }
             }
+
+            //Animacion ataque de Mercedes
+            if (esGuerrera  &&  j1->atacando) {
+                float _tiempo = relojMerche.getElapsedTime().asSeconds();
+                if (_tiempo > 0.40f) {
+                    j1->movimiento = false;
+
+                    if(j1->inmortal){
+                        if(j1->direccion == izq){
+                            j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,2));
+                        }
+                        if(j1->direccion == der){
+                            j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,3));
+                        }
+                    }else{
+                        if(j1->direccion == izq){
+                            j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
+                        }else{
+                            j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
+                        }
+                    }
+                    
+                    j1->atacando = false;
+                    j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
+                } else {
+                    if(j1->direccion == izq){
+                        j1->dirColision = izq;
+                        j1->movimiento = true;
+                        j1->set_frameY(0); 
+                        if (_tiempo > 0.12f  &&  _tiempo < 0.30f) {
+                            j1->set_sprite(j1->txt_ataque_I,3,1,sf::Vector2i(1,0));
+                        } else if (_tiempo > 0.30f) {
+                            j1->set_sprite(j1->txt_ataque_I,3,1,sf::Vector2i(2,0));
+                        } else {
+                            j1->set_sprite(j1->txt_ataque_I,3,1,sf::Vector2i(0,0));
+                        }
+                    }else{
+                        j1->dirColision = der;
+                        j1->movimiento = true;
+                        j1->set_frameY(0);
+                        if (_tiempo > 0.12f  &&  _tiempo < 0.30f) {
+                            j1->set_sprite(j1->txt_ataque_D,3,1,sf::Vector2i(1,0));
+                        } else if (_tiempo > 0.30f) {
+                            j1->set_sprite(j1->txt_ataque_D,3,1,sf::Vector2i(0,0));
+                        } else {
+                            j1->set_sprite(j1->txt_ataque_D,3,1,sf::Vector2i(2,0));
+                        }
+                    }
+                }
+            }
             
             //BOSS PROYECTIL
             if(!proyBoss){
@@ -848,7 +898,6 @@ void Juego::procesar_eventos(){
     //------------------------ATAQUE-------------------------------------------------------------------------------------------
                 else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Space)){
                     if(!esGuerrera){
-                        
                         if(!p1 && j1->crono_recarga_proyectil->asSeconds() > 1.0){
                             if(colisionaProyMapa == true){
                                 efectoMagia.play();
@@ -875,11 +924,13 @@ void Juego::procesar_eventos(){
                         }
                     }
                     else{
-                        if(!j1->atacando && j1->crono_recarga_proyectil->asSeconds() > 1.0){
+                        if(!j1->atacando /*&& j1->crono_recarga_proyectil->asSeconds() > 1.0*/){
                             golpeHacha.play();
                             golpeHacha.setPlayingOffset(sf::seconds(0.1));
                             golpeHacha.setVolume(30);
-
+                            j1->atacando = true;
+                            relojMerche.restart();
+                            /*
                             if(j1->direccion == izq){
                                 j1->dirColision = izq;
                                 j1->movimiento = true;
@@ -914,6 +965,7 @@ void Juego::procesar_eventos(){
                                 
                             }
                             j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
+                            */
                         }
                     //j1->set_frameY(0);
                     }
@@ -993,8 +1045,6 @@ void Juego::procesar_eventos(){
                         
                             //j1->set_posicion(sf::Vector2f(j1->get_posicion().x + kVel,(j1->get_posicion().y)));
                         }
-                            
-                                
                         
                         else if(evento->key.code == (sf::Keyboard::Space)){
                             if(esGuerrera == false){
@@ -1005,18 +1055,7 @@ void Juego::procesar_eventos(){
                                 }else{
                                     j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
                                 }
-                                //j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
-                            }else{
-                                j1->movimiento = false;
-
-                                if(j1->direccion == izq){
-                                    j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
-                                }else{
-                                    j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
-                                }
-                                
                             }
-                            j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
                         }
                         break;
             
@@ -1442,64 +1481,77 @@ void Juego::colisionesProtagonista(){
     float tiempo = relojEnemigos->getElapsedTime().asSeconds();
     
     if(tiempo > 1.0 && !dios){
+        
+        if(larita1 != NULL && !muerteLara1){
+            larita1->colisionProtagonista(j1, esGuerrera);
+        }
+	    
+	    if(larita2 != NULL && !muerteLara2){
+            larita2->colisionProtagonista(j1, esGuerrera);
+        }
+	    
+	    if(larita3 != NULL && !muerteLara3){
+            larita3->colisionProtagonista(j1, esGuerrera);
+        }
+/*
         if(darkrai1 != NULL && !muerteDarkrai1){
-            if(darkrai1->colisionProtagonista(j1)){
+            if(darkrai1->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
         }
 
         if(darkrai2 != NULL && !muerteDarkrai2){
-            if(darkrai2->colisionProtagonista(j1)){
+            if(darkrai2->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
         }
         
         if(darkrai3 != NULL && !muerteDarkrai3){
-            if(darkrai3->colisionProtagonista(j1)){
+            if(darkrai3->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
         }
-
+*/
         if(mojoncito1 != NULL && !muerteMojon1){
-            if(mojoncito1->colisionProtagonista(j1)){
+            if(mojoncito1->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
         }
         
         if(mojoncito2 != NULL && !muerteMojon2){
-            if(mojoncito2->colisionProtagonista(j1)){
+            if(mojoncito2->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
         }
 
         if(mojoncito3 != NULL && !muerteMojon3){
-            if(mojoncito3->colisionProtagonista(j1)){
+            if(mojoncito3->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
         }
 
         if(kindercito1 != NULL && !muerteKinder1){
-            if(kindercito1->colisionProtagonista(j1)){
+            if(kindercito1->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
         }
 
         if(kindercito2 != NULL && !muerteKinder2){
-            if(kindercito2->colisionProtagonista(j1)){
+            if(kindercito2->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
         }
 
         if(kindercito3 != NULL && !muerteKinder3){
-            if(kindercito3->colisionProtagonista(j1)){
+            if(kindercito3->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
@@ -2001,6 +2053,7 @@ void Juego::movimientoBoss(){
         int valor = rand() % 2; 
         if(valor==0 && empiezaLaBatalla){
             bossFinal->direccionBoss = izquierdaBoss;
+            
             bossFinal->setVelBoss(Vector2f(-bossFinal->velDesplazamientoBoss, 0.0));
         }else if(valor==1 && empiezaLaBatalla){
             bossFinal->direccionBoss = derechaBoss;

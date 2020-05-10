@@ -1,8 +1,8 @@
 #include "KinderSorpresa.h"
 
-KinderSorpresa::KinderSorpresa(int pos1, int pos2, int posy, float speed, sf::Sprite &_pj1, sf::Sprite &_pj2, int vidas, bool grandesico) : Enemigo(vidas) {
+KinderSorpresa::KinderSorpresa(int pos1, int pos2, int posy, float speed, sf::Sprite &_pj1, sf::Sprite &_pj2, int vidas, bool grandesito) : Enemigo(vidas) {
     this->speed = speed;
-    grande = grandesico;
+    grande = grandesito;
     // Asignamos los personajes que tiene que perseguir...
     if (&_pj1) {
         personaje1 = &_pj1;
@@ -233,12 +233,20 @@ void KinderSorpresa::impactoProyectil(){
     }
 }
 
-bool KinderSorpresa::colisionProtagonista(spritePersonaje *sp){
+bool KinderSorpresa::colisionProtagonista(Jugador *j, bool esGuerrera){
     bool x = false;
-    if(boundingBox->getGlobalBounds().intersects(sp->getSprite().getGlobalBounds())){
-        x = true;
-    }
-    return x;
+
+  if((boundingBox->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(boundingBox->getOrigin()))  &&  !golpeado){
+    if(j->atacando  &&  esGuerrera) {
+      //std::cout << "holaaaaaa" << std::endl;
+      golpeado = true;
+      restartear = true;
+      this->perderVida();
+      //j->atacando = false;
+    } else { x = true; }
+  }
+
+  return x;
 }
 
 void KinderSorpresa::recibeGolpe() {
@@ -257,9 +265,6 @@ bool KinderSorpresa::morir(){
 }
 
 void KinderSorpresa::Draw(RenderWindow &window) {
-    /*if(grande){
-        body->setScale(2.0, 2.0);
-    }*/
     if (esGolpeado) {
         esGolpeado = false;
     } else {
@@ -272,7 +277,7 @@ void KinderSorpresa::hacerTransparente(){
 }
 
 void KinderSorpresa::hacerGrande(){
-    //grande = true;
+    body->setScale(10.0, 10.0);
     //cambiar vida
 }
 

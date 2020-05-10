@@ -122,6 +122,7 @@ class Juego{
         sf::Time *cronoMuerte = NULL;
         sf::Clock *relojBossMover = NULL;
         sf::Time *cronoBossMover = NULL;
+        sf::Clock relojMerche;
         //Creamos el texto para el HUD
         Interfaz *interfaz;
         //Musica de fondo de cada nivel
