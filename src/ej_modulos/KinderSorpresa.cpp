@@ -1,8 +1,8 @@
 #include "KinderSorpresa.h"
 
-KinderSorpresa::KinderSorpresa(int pos1, int pos2, int posy, float speed, sf::Sprite &_pj1, sf::Sprite &_pj2, int vidas) : Enemigo(vidas) {
+KinderSorpresa::KinderSorpresa(int pos1, int pos2, int posy, float speed, sf::Sprite &_pj1, sf::Sprite &_pj2, int vidas, bool grandesico) : Enemigo(vidas) {
     this->speed = speed;
-
+    grande = grandesico;
     // Asignamos los personajes que tiene que perseguir...
     if (&_pj1) {
         personaje1 = &_pj1;
@@ -257,6 +257,9 @@ bool KinderSorpresa::morir(){
 }
 
 void KinderSorpresa::Draw(RenderWindow &window) {
+    /*if(grande){
+        body->setScale(2.0, 2.0);
+    }*/
     if (esGolpeado) {
         esGolpeado = false;
     } else {
@@ -269,7 +272,7 @@ void KinderSorpresa::hacerTransparente(){
 }
 
 void KinderSorpresa::hacerGrande(){
-    body->setScale(10.0, 10.0);
+    //grande = true;
     //cambiar vida
 }
 

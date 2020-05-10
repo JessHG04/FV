@@ -49,6 +49,8 @@ class Jugador : public spritePersonaje{
         direcciones dirColision;
         bool inmortal = false;
         sf::RectangleShape cajaColisiones2;
+        sf::RectangleShape cajaColisiones3;
+        bool atacando = false;
 
         //-----------------------------------------DASH------------------------------------------
         bool dash = false;

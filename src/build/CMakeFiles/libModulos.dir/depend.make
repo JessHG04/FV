@@ -53,6 +53,7 @@ CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/PersonajeNPC.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/PoderTrueno.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Portal.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/Proyectil.h
+CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/ProyectilBoss.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/SpriteBoss.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/SpriteNPC.h
 CMakeFiles/libModulos.dir/ej_modulos/Juego.cpp.o: ../ej_modulos/SpriteTrueno.h
@@ -123,6 +124,10 @@ CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o: ../ej_modulos/Proyectil.cp
 CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o: ../ej_modulos/Proyectil.h
 CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o: ../ej_modulos/spritePersonaje.h
 
+CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o: ../ej_modulos/ProyectilBoss.cpp
+CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o: ../ej_modulos/ProyectilBoss.h
+CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o: ../ej_modulos/spritePersonaje.h
+
 CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o: ../ej_modulos/SpriteBoss.cpp
 CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o: ../ej_modulos/SpriteBoss.h
 
@@ -131,6 +136,7 @@ CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o: ../ej_modulos/SpriteNPC.h
 
 CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o: ../ej_modulos/SpriteTrueno.cpp
 CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o: ../ej_modulos/SpriteTrueno.h
+CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o: ../ej_modulos/spritePersonaje.h
 
 CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o: ../ej_modulos/Jugador.h
 CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o: ../ej_modulos/PoderTrueno.h
@@ -166,6 +172,7 @@ CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/PersonajeNPC.h
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/PoderTrueno.h
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/Portal.h
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/Proyectil.h
+CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/ProyectilBoss.h
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/SpriteBoss.h
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/SpriteNPC.h
 CMakeFiles/libModulos.dir/ej_modulos/lara.cpp.o: ../ej_modulos/SpriteTrueno.h

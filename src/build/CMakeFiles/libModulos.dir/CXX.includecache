@@ -69,6 +69,8 @@ iostream
 -
 Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+math.h
+/home/jess/Escritorio/FV/src/ej_modulos/math.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Guerrera.cpp
 Guerrera.h
@@ -147,6 +149,8 @@ SpriteTrueno.h
 /home/jess/Escritorio/FV/src/ej_modulos/SpriteTrueno.h
 PoderTrueno.h
 /home/jess/Escritorio/FV/src/ej_modulos/PoderTrueno.h
+ProyectilBoss.h
+/home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Jugador.cpp
 Jugador.h
@@ -310,6 +314,18 @@ SFML/Graphics.hpp
 spritePersonaje.h
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
+/home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.cpp
+ProyectilBoss.h
+/home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.h
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+
+/home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.h
+SFML/Graphics.hpp
+-
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+
 /home/jess/Escritorio/FV/src/ej_modulos/SpriteBoss.cpp
 SpriteBoss.h
 /home/jess/Escritorio/FV/src/ej_modulos/SpriteBoss.h
@@ -339,6 +355,8 @@ iostream
 /home/jess/Escritorio/FV/src/ej_modulos/SpriteTrueno.h
 SFML/Graphics.hpp
 -
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Trueno.cpp
 Trueno.h

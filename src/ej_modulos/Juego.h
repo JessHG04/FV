@@ -22,6 +22,7 @@
 #include "SpriteBoss.h"
 #include "SpriteTrueno.h"
 #include "PoderTrueno.h"
+#include "ProyectilBoss.h"
 
 class Juego{
     public:
@@ -100,7 +101,7 @@ class Juego{
         sf::Time *cronoBoss;
         sf::Clock *relojTrueno;
         sf::Time *cronoTrueno;
-        Proyectil *pBoss = NULL;
+        ProyectilBoss *pBoss = NULL;
         std::vector<sf::IntRect> posiciones;
         //Creamos el portal
         Portal *portal = NULL;
@@ -119,6 +120,8 @@ class Juego{
         sf::Clock *relojDanyo = NULL;
         sf::Clock *relojMuerte = NULL;
         sf::Time *cronoMuerte = NULL;
+        sf::Clock *relojBossMover = NULL;
+        sf::Time *cronoBossMover = NULL;
         //Creamos el texto para el HUD
         Interfaz *interfaz;
         //Musica de fondo de cada nivel
@@ -162,7 +165,8 @@ class Juego{
         bool musicaOn = true;
         bool muerteMojon = false, muerteDarkrai = false, muerteLara = false, muerteKinder = false;
         bool muerteTransicion = false;
-
+         bool proyBoss = false;
+        bool empiezaLaBatalla = false;
         bool muerteNPC = false;
         bool transformacionBoss = false;
         bool parar = false;
@@ -174,4 +178,9 @@ class Juego{
         int variableAuxiliarBoss = 0;
         sf::Texture txCaraBoss;
         sf::Sprite caraBoss;
+
+        bool colisionProyectilBoss();
+        bool colisionBossJugador();
+        bool colisionProyectilBossMapa();
+        void movimientoBoss();
 };

@@ -21,6 +21,7 @@ CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/PersonajeNPC.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/PoderTrueno.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Portal.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/Proyectil.h
+CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/ProyectilBoss.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/SpriteBoss.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/SpriteNPC.h
 CMakeFiles/GremoryHole.dir/main.cpp.o: ../ej_modulos/SpriteTrueno.h
