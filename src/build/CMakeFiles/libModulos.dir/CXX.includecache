@@ -6,189 +6,201 @@
 
 #IncludeRegexTransform: 
 
-/home/alex/Desktop/FV/src/ej_modulos/AnimationDarkrai.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/AnimationDarkrai.cpp
 AnimationDarkrai.h
-/home/alex/Desktop/FV/src/ej_modulos/AnimationDarkrai.h
+/home/jess/Escritorio/FV/src/ej_modulos/AnimationDarkrai.h
 
-/home/alex/Desktop/FV/src/ej_modulos/AnimationDarkrai.h
+/home/jess/Escritorio/FV/src/ej_modulos/AnimationDarkrai.h
 SFML/Graphics.hpp
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/AnimationKinder.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/AnimationKinder.cpp
 AnimationKinder.h
-/home/alex/Desktop/FV/src/ej_modulos/AnimationKinder.h
+/home/jess/Escritorio/FV/src/ej_modulos/AnimationKinder.h
 
-/home/alex/Desktop/FV/src/ej_modulos/AnimationKinder.h
+/home/jess/Escritorio/FV/src/ej_modulos/AnimationKinder.h
 SFML/Graphics.hpp
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/Boss.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/Boss.cpp
 Boss.h
-/home/alex/Desktop/FV/src/ej_modulos/Boss.h
+/home/jess/Escritorio/FV/src/ej_modulos/Boss.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Boss.h
+/home/jess/Escritorio/FV/src/ej_modulos/Boss.h
 SFML/Graphics.hpp
 -
 SpriteBoss.h
-/home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.h
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteBoss.h
 iostream
 -
 string
 -
 vector
 -
+Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Darkrai.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/Darkrai.cpp
 Darkrai.h
-/home/alex/Desktop/FV/src/ej_modulos/Darkrai.h
+/home/jess/Escritorio/FV/src/ej_modulos/Darkrai.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Darkrai.h
+/home/jess/Escritorio/FV/src/ej_modulos/Darkrai.h
 SFML/Graphics.hpp
 -
 Enemigo.h
-/home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+/home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
 AnimationDarkrai.h
-/home/alex/Desktop/FV/src/ej_modulos/AnimationDarkrai.h
+/home/jess/Escritorio/FV/src/ej_modulos/AnimationDarkrai.h
 Proyectil.h
-/home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
-/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Enemigo.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/Enemigo.cpp
 Enemigo.h
-/home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+/home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+/home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
 SFML/Graphics.hpp
 -
 iostream
 -
+Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+math.h
+/home/jess/Escritorio/FV/src/ej_modulos/math.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Guerrera.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/Guerrera.cpp
 Guerrera.h
-/home/alex/Desktop/FV/src/ej_modulos/Guerrera.h
+/home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Guerrera.h
+/home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
 SFML/Graphics.hpp
 -
 Jugador.h
-/home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 iostream
 -
 string
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/Interfaz.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/Interfaz.cpp
 Interfaz.h
-/home/alex/Desktop/FV/src/ej_modulos/Interfaz.h
+/home/jess/Escritorio/FV/src/ej_modulos/Interfaz.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Interfaz.h
+/home/jess/Escritorio/FV/src/ej_modulos/Interfaz.h
 SFML/Graphics.hpp
 -
 spritePersonaje.h
-/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Juego.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/Juego.cpp
 Juego.h
-/home/alex/Desktop/FV/src/ej_modulos/Juego.h
+/home/jess/Escritorio/FV/src/ej_modulos/Juego.h
 SFML/Graphics.hpp
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/Juego.h
+/home/jess/Escritorio/FV/src/ej_modulos/Juego.h
 SFML/Graphics.hpp
 -
+SFML/Audio.hpp
+-
 Mago.h
-/home/alex/Desktop/FV/src/ej_modulos/Mago.h
+/home/jess/Escritorio/FV/src/ej_modulos/Mago.h
 Guerrera.h
-/home/alex/Desktop/FV/src/ej_modulos/Guerrera.h
+/home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
 Proyectil.h
-/home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 Map.h
-/home/alex/Desktop/FV/src/ej_modulos/Map.h
+/home/jess/Escritorio/FV/src/ej_modulos/Map.h
 Enemigo.h
-/home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+/home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
 bala.h
-/home/alex/Desktop/FV/src/ej_modulos/bala.h
+/home/jess/Escritorio/FV/src/ej_modulos/bala.h
 lara.h
-/home/alex/Desktop/FV/src/ej_modulos/lara.h
+/home/jess/Escritorio/FV/src/ej_modulos/lara.h
 Darkrai.h
-/home/alex/Desktop/FV/src/ej_modulos/Darkrai.h
+/home/jess/Escritorio/FV/src/ej_modulos/Darkrai.h
 mojon.h
-/home/alex/Desktop/FV/src/ej_modulos/mojon.h
+/home/jess/Escritorio/FV/src/ej_modulos/mojon.h
 KinderSorpresa.h
-/home/alex/Desktop/FV/src/ej_modulos/KinderSorpresa.h
+/home/jess/Escritorio/FV/src/ej_modulos/KinderSorpresa.h
 Portal.h
-/home/alex/Desktop/FV/src/ej_modulos/Portal.h
+/home/jess/Escritorio/FV/src/ej_modulos/Portal.h
 Interfaz.h
-/home/alex/Desktop/FV/src/ej_modulos/Interfaz.h
+/home/jess/Escritorio/FV/src/ej_modulos/Interfaz.h
 NPC.h
-/home/alex/Desktop/FV/src/ej_modulos/NPC.h
+/home/jess/Escritorio/FV/src/ej_modulos/NPC.h
 SpriteNPC.h
-/home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.h
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteNPC.h
 PersonajeNPC.h
-/home/alex/Desktop/FV/src/ej_modulos/PersonajeNPC.h
+/home/jess/Escritorio/FV/src/ej_modulos/PersonajeNPC.h
 Trueno.h
-/home/alex/Desktop/FV/src/ej_modulos/Trueno.h
+/home/jess/Escritorio/FV/src/ej_modulos/Trueno.h
 Boss.h
-/home/alex/Desktop/FV/src/ej_modulos/Boss.h
+/home/jess/Escritorio/FV/src/ej_modulos/Boss.h
 PersonajeBoss.h
-/home/alex/Desktop/FV/src/ej_modulos/PersonajeBoss.h
+/home/jess/Escritorio/FV/src/ej_modulos/PersonajeBoss.h
 SpriteBoss.h
-/home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.h
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteBoss.h
 SpriteTrueno.h
-/home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.h
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteTrueno.h
 PoderTrueno.h
-/home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.h
+/home/jess/Escritorio/FV/src/ej_modulos/PoderTrueno.h
+ProyectilBoss.h
+/home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Jugador.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.cpp
 Jugador.h
-/home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 SFML/Graphics.hpp
 -
 spritePersonaje.h
-/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 iostream
 -
 string
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/KinderSorpresa.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/KinderSorpresa.cpp
 KinderSorpresa.h
-/home/alex/Desktop/FV/src/ej_modulos/KinderSorpresa.h
+/home/jess/Escritorio/FV/src/ej_modulos/KinderSorpresa.h
 
-/home/alex/Desktop/FV/src/ej_modulos/KinderSorpresa.h
+/home/jess/Escritorio/FV/src/ej_modulos/KinderSorpresa.h
 SFML/Graphics.hpp
 -
 Enemigo.h
-/home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+/home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
 AnimationKinder.h
-/home/alex/Desktop/FV/src/ej_modulos/AnimationKinder.h
+/home/jess/Escritorio/FV/src/ej_modulos/AnimationKinder.h
 Proyectil.h
-/home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
-/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Mago.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/Mago.cpp
 Mago.h
-/home/alex/Desktop/FV/src/ej_modulos/Mago.h
+/home/jess/Escritorio/FV/src/ej_modulos/Mago.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Mago.h
+/home/jess/Escritorio/FV/src/ej_modulos/Mago.h
 SFML/Graphics.hpp
 -
 Jugador.h
-/home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 iostream
 -
 string
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/Map.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/Map.cpp
 Map.h
-/home/alex/Desktop/FV/src/ej_modulos/Map.h
+/home/jess/Escritorio/FV/src/ej_modulos/Map.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Map.h
+/home/jess/Escritorio/FV/src/ej_modulos/Map.h
 SFML/Graphics.hpp
 -
 iostream
@@ -198,33 +210,33 @@ stdio.h
 stdlib.h
 -
 tinyxml2.h
-/home/alex/Desktop/FV/src/ej_modulos/tinyxml2.h
+/home/jess/Escritorio/FV/src/ej_modulos/tinyxml2.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Menu.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/Menu.cpp
 Menu.h
-/home/alex/Desktop/FV/src/ej_modulos/Menu.h
+/home/jess/Escritorio/FV/src/ej_modulos/Menu.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Menu.h
+/home/jess/Escritorio/FV/src/ej_modulos/Menu.h
 SFML/Graphics.hpp
-/home/alex/Desktop/FV/src/ej_modulos/SFML/Graphics.hpp
+/home/jess/Escritorio/FV/src/ej_modulos/SFML/Graphics.hpp
 
-/home/alex/Desktop/FV/src/ej_modulos/MenuSeleccionPersonaje.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/MenuSeleccionPersonaje.cpp
 MenuSeleccionPersonaje.h
-/home/alex/Desktop/FV/src/ej_modulos/MenuSeleccionPersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/MenuSeleccionPersonaje.h
 
-/home/alex/Desktop/FV/src/ej_modulos/MenuSeleccionPersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/MenuSeleccionPersonaje.h
 SFML/Graphics.hpp
-/home/alex/Desktop/FV/src/ej_modulos/SFML/Graphics.hpp
+/home/jess/Escritorio/FV/src/ej_modulos/SFML/Graphics.hpp
 
-/home/alex/Desktop/FV/src/ej_modulos/NPC.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/NPC.cpp
 NPC.h
-/home/alex/Desktop/FV/src/ej_modulos/NPC.h
+/home/jess/Escritorio/FV/src/ej_modulos/NPC.h
 
-/home/alex/Desktop/FV/src/ej_modulos/NPC.h
+/home/jess/Escritorio/FV/src/ej_modulos/NPC.h
 SFML/Graphics.hpp
 -
 SpriteNPC.h
-/home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.h
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteNPC.h
 iostream
 -
 string
@@ -232,45 +244,45 @@ string
 vector
 -
 Jugador.h
-/home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 
-/home/alex/Desktop/FV/src/ej_modulos/PersonajeBoss.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/PersonajeBoss.cpp
 PersonajeBoss.h
-/home/alex/Desktop/FV/src/ej_modulos/PersonajeBoss.h
+/home/jess/Escritorio/FV/src/ej_modulos/PersonajeBoss.h
 
-/home/alex/Desktop/FV/src/ej_modulos/PersonajeBoss.h
+/home/jess/Escritorio/FV/src/ej_modulos/PersonajeBoss.h
 SFML/Graphics.hpp
 -
 Boss.h
-/home/alex/Desktop/FV/src/ej_modulos/Boss.h
+/home/jess/Escritorio/FV/src/ej_modulos/Boss.h
 iostream
 -
 string
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/PersonajeNPC.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/PersonajeNPC.cpp
 PersonajeNPC.h
-/home/alex/Desktop/FV/src/ej_modulos/PersonajeNPC.h
+/home/jess/Escritorio/FV/src/ej_modulos/PersonajeNPC.h
 
-/home/alex/Desktop/FV/src/ej_modulos/PersonajeNPC.h
+/home/jess/Escritorio/FV/src/ej_modulos/PersonajeNPC.h
 SFML/Graphics.hpp
 -
 NPC.h
-/home/alex/Desktop/FV/src/ej_modulos/NPC.h
+/home/jess/Escritorio/FV/src/ej_modulos/NPC.h
 iostream
 -
 string
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/PoderTrueno.cpp
 PoderTrueno.h
-/home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.h
+/home/jess/Escritorio/FV/src/ej_modulos/PoderTrueno.h
 
-/home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.h
+/home/jess/Escritorio/FV/src/ej_modulos/PoderTrueno.h
 SFML/Graphics.hpp
 -
 SpriteTrueno.h
-/home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.h
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteTrueno.h
 iostream
 -
 string
@@ -278,199 +290,215 @@ string
 vector
 -
 Jugador.h
-/home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Portal.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/Portal.cpp
 Portal.h
-/home/alex/Desktop/FV/src/ej_modulos/Portal.h
+/home/jess/Escritorio/FV/src/ej_modulos/Portal.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Portal.h
+/home/jess/Escritorio/FV/src/ej_modulos/Portal.h
 SFML/Graphics.hpp
 -
 iostream
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/Proyectil.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.cpp
 Proyectil.h
-/home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
-/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 SFML/Graphics.hpp
 -
 spritePersonaje.h
-/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
-/home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.cpp
+ProyectilBoss.h
+/home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.h
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+
+/home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.h
+SFML/Graphics.hpp
+-
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteBoss.cpp
 SpriteBoss.h
-/home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.h
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteBoss.h
 iostream
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.h
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteBoss.h
 SFML/Graphics.hpp
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteNPC.cpp
 SpriteNPC.h
-/home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.h
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteNPC.h
 iostream
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.h
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteNPC.h
 SFML/Graphics.hpp
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteTrueno.cpp
 SpriteTrueno.h
-/home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.h
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteTrueno.h
 iostream
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.h
+/home/jess/Escritorio/FV/src/ej_modulos/SpriteTrueno.h
 SFML/Graphics.hpp
 -
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Trueno.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/Trueno.cpp
 Trueno.h
-/home/alex/Desktop/FV/src/ej_modulos/Trueno.h
+/home/jess/Escritorio/FV/src/ej_modulos/Trueno.h
 
-/home/alex/Desktop/FV/src/ej_modulos/Trueno.h
+/home/jess/Escritorio/FV/src/ej_modulos/Trueno.h
 SFML/Graphics.hpp
 -
 PoderTrueno.h
-/home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.h
+/home/jess/Escritorio/FV/src/ej_modulos/PoderTrueno.h
 iostream
 -
 string
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/bala.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/bala.cpp
 SFML/Graphics.hpp
 -
 iostream
 -
 bala.h
-/home/alex/Desktop/FV/src/ej_modulos/bala.h
+/home/jess/Escritorio/FV/src/ej_modulos/bala.h
 
-/home/alex/Desktop/FV/src/ej_modulos/bala.h
+/home/jess/Escritorio/FV/src/ej_modulos/bala.h
 SFML/Graphics.hpp
 -
 iostream
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/cuadradoD.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.cpp
 SFML/Graphics.hpp
 -
 iostream
 -
 cuadradoD.h
-/home/alex/Desktop/FV/src/ej_modulos/cuadradoD.h
+/home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.h
 
-/home/alex/Desktop/FV/src/ej_modulos/cuadradoD.h
+/home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.h
 SFML/Graphics.hpp
 -
 iostream
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/cuadradoI.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/cuadradoI.cpp
 SFML/Graphics.hpp
 -
 iostream
 -
 cuadradoI.h
-/home/alex/Desktop/FV/src/ej_modulos/cuadradoI.h
+/home/jess/Escritorio/FV/src/ej_modulos/cuadradoI.h
 
-/home/alex/Desktop/FV/src/ej_modulos/cuadradoI.h
+/home/jess/Escritorio/FV/src/ej_modulos/cuadradoI.h
 SFML/Graphics.hpp
 -
 iostream
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/lara.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/lara.cpp
 SFML/Graphics.hpp
 -
 iostream
 -
 lara.h
-/home/alex/Desktop/FV/src/ej_modulos/lara.h
+/home/jess/Escritorio/FV/src/ej_modulos/lara.h
 Enemigo.h
-/home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+/home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
 cuadradoD.h
-/home/alex/Desktop/FV/src/ej_modulos/cuadradoD.h
+/home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.h
 bala.h
-/home/alex/Desktop/FV/src/ej_modulos/bala.h
+/home/jess/Escritorio/FV/src/ej_modulos/bala.h
 mojon.h
-/home/alex/Desktop/FV/src/ej_modulos/mojon.h
+/home/jess/Escritorio/FV/src/ej_modulos/mojon.h
 Juego.h
-/home/alex/Desktop/FV/src/ej_modulos/Juego.h
+/home/jess/Escritorio/FV/src/ej_modulos/Juego.h
 spritePersonaje.h
-/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 Jugador.h
-/home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 
-/home/alex/Desktop/FV/src/ej_modulos/lara.h
+/home/jess/Escritorio/FV/src/ej_modulos/lara.h
 SFML/Graphics.hpp
 -
 iostream
 -
 lara.h
-/home/alex/Desktop/FV/src/ej_modulos/lara.h
+/home/jess/Escritorio/FV/src/ej_modulos/lara.h
 Enemigo.h
-/home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+/home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
 cuadradoD.h
-/home/alex/Desktop/FV/src/ej_modulos/cuadradoD.h
+/home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.h
 bala.h
-/home/alex/Desktop/FV/src/ej_modulos/bala.h
+/home/jess/Escritorio/FV/src/ej_modulos/bala.h
 mojon.h
-/home/alex/Desktop/FV/src/ej_modulos/mojon.h
+/home/jess/Escritorio/FV/src/ej_modulos/mojon.h
 spritePersonaje.h
-/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 Jugador.h
-/home/alex/Desktop/FV/src/ej_modulos/Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 Proyectil.h
-/home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+Map.h
+/home/jess/Escritorio/FV/src/ej_modulos/Map.h
 
-/home/alex/Desktop/FV/src/ej_modulos/mojon.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/mojon.cpp
 SFML/Graphics.hpp
 -
 iostream
 -
 mojon.h
-/home/alex/Desktop/FV/src/ej_modulos/mojon.h
+/home/jess/Escritorio/FV/src/ej_modulos/mojon.h
 cuadradoD.h
-/home/alex/Desktop/FV/src/ej_modulos/cuadradoD.h
+/home/jess/Escritorio/FV/src/ej_modulos/cuadradoD.h
 cuadradoI.h
-/home/alex/Desktop/FV/src/ej_modulos/cuadradoI.h
+/home/jess/Escritorio/FV/src/ej_modulos/cuadradoI.h
 Enemigo.h
-/home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+/home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
 lara.h
-/home/alex/Desktop/FV/src/ej_modulos/lara.h
+/home/jess/Escritorio/FV/src/ej_modulos/lara.h
 
-/home/alex/Desktop/FV/src/ej_modulos/mojon.h
+/home/jess/Escritorio/FV/src/ej_modulos/mojon.h
 SFML/Graphics.hpp
 -
 iostream
 -
 Enemigo.h
-/home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+/home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
 Proyectil.h
-/home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
-/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
-/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.cpp
 spritePersonaje.h
-/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
-/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 SFML/Graphics.hpp
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/tinyxml2.cpp
+/home/jess/Escritorio/FV/src/ej_modulos/tinyxml2.cpp
 tinyxml2.h
-/home/alex/Desktop/FV/src/ej_modulos/tinyxml2.h
+/home/jess/Escritorio/FV/src/ej_modulos/tinyxml2.h
 new
 -
 stddef.h
@@ -482,7 +510,7 @@ cstddef
 cstdarg
 -
 
-/home/alex/Desktop/FV/src/ej_modulos/tinyxml2.h
+/home/jess/Escritorio/FV/src/ej_modulos/tinyxml2.h
 ctype.h
 -
 limits.h

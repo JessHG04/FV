@@ -28,11 +28,12 @@ class KinderSorpresa : public Enemigo {
         sf::RectangleShape boundingSet[12];  // Cajas colisionables
         sf::RectangleShape *boundingBox;
         float ajustes[12];
+        bool grande = false;
 
 
     public:
 
-        KinderSorpresa(int ,int ,int ,float , sf::Sprite& ,sf::Sprite& ,int );
+        KinderSorpresa(int ,int ,int ,float , sf::Sprite& ,sf::Sprite& ,int, bool);
         ~KinderSorpresa();
         void Update(float );
         bool colisionProyectil(Proyectil *);
@@ -42,6 +43,7 @@ class KinderSorpresa : public Enemigo {
         void recibeGolpe();
         bool colisionProtagonista(spritePersonaje *);
         void hacerTransparente();
+        void hacerGrande();
         bool estaEnRango(sf::Sprite *);
         sf::RectangleShape getBoundingBox();
 };

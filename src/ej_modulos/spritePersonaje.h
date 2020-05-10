@@ -19,6 +19,7 @@ class spritePersonaje{
         sf::Texture *txt_ataque_I;
         sf::Texture *txt_ataque_D;
         sf::Texture *txt_proyectil;
+        sf::Texture *txt_proyectilBoss;
 
         void set_sprite(sf::Texture *textura, int cantidadX1, int cantidadY1 , sf::Vector2i frm_act);
         void seleccionar_frame(); //carga el frame actual(por si se cambia)

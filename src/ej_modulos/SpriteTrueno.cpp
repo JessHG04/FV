@@ -2,7 +2,7 @@
 using namespace std;
 #include <iostream>
 
-//constrcutor   
+//constructor   
 SpriteTrueno::SpriteTrueno(){
     //textura de imagen
     txNPC = new sf::Texture();
@@ -28,7 +28,7 @@ void SpriteTrueno::cambiarSpriteNPC(sf::Texture *textura, int n1, int n2, sf::Ve
     spriteNPC->setTexture(*textura);
     tamFrameNPC = sf::Vector2f(txActualNPC->getSize().x / cantidadXNPC, txActualNPC->getSize().y / cantidadYNPC); //Dimension de cada frame haciendo la operacion    
     frActualNPC = frm; // cogemos el frame que queremos utilizar
-    //spriteNPC->setScale(0.7,0.7);
+    spriteNPC->setScale(0.6,0.6);
     seleccionarFrameNPC(); 
     sf::RectangleShape box(sf::Vector2f(tamFrameNPC.x, tamFrameNPC.y));
     cajaColisionesNPC = box;
@@ -82,4 +82,12 @@ void SpriteTrueno::cambiarFrameYNPC(int frame){
     //cambio frame n y
     frActualNPC.y = frame;
     seleccionarFrameNPC();
+}
+
+bool SpriteTrueno::colisionProtagonista(spritePersonaje *sp){
+    bool x = false;
+    if(spriteNPC->getGlobalBounds().intersects(sp->getSprite().getGlobalBounds())){
+        x = true;
+    }
+    return x;
 }

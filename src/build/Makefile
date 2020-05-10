@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/alex/Desktop/FV/src
+CMAKE_SOURCE_DIR = /home/jess/Escritorio/FV/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/alex/Desktop/FV/src/build
+CMAKE_BINARY_DIR = /home/jess/Escritorio/FV/src/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/Desktop/FV/src/build/CMakeFiles /home/alex/Desktop/FV/src/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jess/Escritorio/FV/src/build/CMakeFiles /home/jess/Escritorio/FV/src/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/Desktop/FV/src/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jess/Escritorio/FV/src/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -676,6 +676,33 @@ ej_modulos/Proyectil.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.s
 .PHONY : ej_modulos/Proyectil.cpp.s
 
+ej_modulos/ProyectilBoss.o: ej_modulos/ProyectilBoss.cpp.o
+
+.PHONY : ej_modulos/ProyectilBoss.o
+
+# target to build an object file
+ej_modulos/ProyectilBoss.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o
+.PHONY : ej_modulos/ProyectilBoss.cpp.o
+
+ej_modulos/ProyectilBoss.i: ej_modulos/ProyectilBoss.cpp.i
+
+.PHONY : ej_modulos/ProyectilBoss.i
+
+# target to preprocess a source file
+ej_modulos/ProyectilBoss.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.i
+.PHONY : ej_modulos/ProyectilBoss.cpp.i
+
+ej_modulos/ProyectilBoss.s: ej_modulos/ProyectilBoss.cpp.s
+
+.PHONY : ej_modulos/ProyectilBoss.s
+
+# target to generate assembly for a file
+ej_modulos/ProyectilBoss.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.s
+.PHONY : ej_modulos/ProyectilBoss.cpp.s
+
 ej_modulos/SpriteBoss.o: ej_modulos/SpriteBoss.cpp.o
 
 .PHONY : ej_modulos/SpriteBoss.o
@@ -1070,6 +1097,9 @@ help:
 	@echo "... ej_modulos/Proyectil.o"
 	@echo "... ej_modulos/Proyectil.i"
 	@echo "... ej_modulos/Proyectil.s"
+	@echo "... ej_modulos/ProyectilBoss.o"
+	@echo "... ej_modulos/ProyectilBoss.i"
+	@echo "... ej_modulos/ProyectilBoss.s"
 	@echo "... ej_modulos/SpriteBoss.o"
 	@echo "... ej_modulos/SpriteBoss.i"
 	@echo "... ej_modulos/SpriteBoss.s"
