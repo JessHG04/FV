@@ -33,7 +33,8 @@ void SpriteBoss::cambiarSpriteBoss(sf::Texture *textura, int n1, int n2, sf::Vec
     seleccionarFrameBoss(); 
     sf::RectangleShape box(sf::Vector2f(tamFrameBoss.x, tamFrameBoss.y));
     cajaColisionesBoss = box;
-    cajaColisionesBoss.setFillColor(sf::Color::Transparent);
+    cajaColisionesBoss.setScale(0.25,0.45);
+    cajaColisionesBoss.setFillColor(sf::Color(50,50,50,150));
 }
 
 //carga el frame correspondiente actual

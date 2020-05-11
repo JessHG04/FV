@@ -2,10 +2,8 @@
 
 using namespace std;
 
-
-//CAMBIOOOOOOOOO
 Boss::Boss(){
-    vida = 3;
+    vida = 10;
 }
 
 //actualiza al enemigo
@@ -20,10 +18,10 @@ void Boss::updateBoss(){
         relojAnimacion.restart();
     }
     this->impactoProyectil(); 
-    if(!golpeado){
-        setTraBoss(velBoss);
-        cajaColisionesBoss.setPosition(getPosicionBoss().x - tamFrameBoss.x/2, getPosicionBoss().y - tamFrameBoss.y/2);
-    }
+
+    setTraBoss(velBoss);
+    cajaColisionesBoss.setPosition(getPosicionBoss().x - tamFrameBoss.x/6 + 15, getPosicionBoss().y- tamFrameBoss.y/4);
+
 }
 
 void Boss::perderVida(){
@@ -35,7 +33,6 @@ void Boss::perderVida(){
     }
 }
 
-//CAMBIOOOOOOOOOOOOOOOOO
 void Boss::colocarBoss(){
     spriteBoss->setPosition(0, 0);
 }
@@ -68,7 +65,7 @@ void Boss::impactoProyectil(){
 
 bool Boss::colisionProyectil(Proyectil *p1){
     bool x = false;
-    if(p1->get_sprite().getGlobalBounds().intersects(spriteBoss->getGlobalBounds()) && golpeado == false){
+    if(p1->get_sprite().getGlobalBounds().intersects(cajaColisionesBoss.getGlobalBounds()) && golpeado == false){
         this->perderVida();
         x = true;
         golpeado = true;
@@ -95,14 +92,18 @@ void Boss::restartSprite(){
 
 bool Boss::colisionProtagonista(Jugador *j, bool esGuerrera){
     bool x = false;
+    //std::cout << "Caja protagonista " << j->cajaColisiones3.getPosition().x << " " << j->cajaColisiones3.getPosition().y << std::endl;
+    //std::cout << "Caja boss " << cajaColisionesBoss.getPosition().x << " " << cajaColisionesBoss.getPosition().y << std::endl;
 
-  if((spriteBoss->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(spriteBoss->getOrigin()))  &&  !golpeado){
-    if(j->atacando  &&  esGuerrera) {
-      golpeado = true;
-      restartear = true;
-      this->perderVida();
-    } else { x = true; }
-  }
+    if(j->getSprite().getGlobalBounds().intersects(cajaColisionesBoss.getGlobalBounds()) && golpeado == false){
+        if(j->atacando  &&  esGuerrera) {
+        //std::cout << "holaaaaaa" << std::endl;
+        golpeado = true;
+        restartear = true;
+        this->perderVida();
+        //j->atacando = false;
+        } else { x = true; }
+    }
 
   return x;
 }

@@ -14,7 +14,7 @@ using namespace sf;
 
 #define kVel 5
 
-    lara::lara(int xx, int yy) : Enemigo(3){
+    lara::lara(int xx, int yy) : Enemigo(2){
         avanza = 0;
         fin = false;
         yasta = false;

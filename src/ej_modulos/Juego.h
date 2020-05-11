@@ -99,6 +99,7 @@ class Juego{
         void bossTrueno();
         PoderTrueno *trueno = NULL;
         PoderTrueno *trueno2 = NULL;
+        PoderTrueno *trueno3 = NULL;
         sf::Clock *relojBoss;
         sf::Time *cronoBoss;
         sf::Clock *relojTrueno;
@@ -187,7 +188,6 @@ class Juego{
         sf::Sprite caraBoss;
 
         bool colisionProyectilBoss();
-        bool colisionBossJugador();
         bool colisionProyectilBossMapa();
         void movimientoBoss();
         void animarMuerteBossFinal();

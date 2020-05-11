@@ -8,7 +8,7 @@ SpriteTrueno::SpriteTrueno(){
     txNPC = new sf::Texture();
     //cargo la textura
     //ruta de acceso al sprite
-    sf::String ruta = "resources/Sprites/Trueno/trueno.png";
+    sf::String ruta = "resources/Sprites/Trueno/trueno2.png";
     //cargar textura
     txNPC->loadFromFile(ruta);
     //nuevo sprite a partir de la textura
@@ -32,7 +32,7 @@ void SpriteTrueno::cambiarSpriteNPC(sf::Texture *textura, int n1, int n2, sf::Ve
     seleccionarFrameNPC(); 
     sf::RectangleShape box(sf::Vector2f(tamFrameNPC.x, tamFrameNPC.y));
     cajaColisionesNPC = box;
-    cajaColisionesNPC.setFillColor(sf::Color::Red);
+    cajaColisionesNPC.setFillColor(sf::Color::Transparent);
 }
 
 //carga el frame correspondiente actual
