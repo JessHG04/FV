@@ -676,6 +676,33 @@ ej_modulos/Proyectil.cpp.s:
 	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.s
 .PHONY : ej_modulos/Proyectil.cpp.s
 
+ej_modulos/ProyectilBoss.o: ej_modulos/ProyectilBoss.cpp.o
+
+.PHONY : ej_modulos/ProyectilBoss.o
+
+# target to build an object file
+ej_modulos/ProyectilBoss.cpp.o:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o
+.PHONY : ej_modulos/ProyectilBoss.cpp.o
+
+ej_modulos/ProyectilBoss.i: ej_modulos/ProyectilBoss.cpp.i
+
+.PHONY : ej_modulos/ProyectilBoss.i
+
+# target to preprocess a source file
+ej_modulos/ProyectilBoss.cpp.i:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.i
+.PHONY : ej_modulos/ProyectilBoss.cpp.i
+
+ej_modulos/ProyectilBoss.s: ej_modulos/ProyectilBoss.cpp.s
+
+.PHONY : ej_modulos/ProyectilBoss.s
+
+# target to generate assembly for a file
+ej_modulos/ProyectilBoss.cpp.s:
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.s
+.PHONY : ej_modulos/ProyectilBoss.cpp.s
+
 ej_modulos/SpriteBoss.o: ej_modulos/SpriteBoss.cpp.o
 
 .PHONY : ej_modulos/SpriteBoss.o
@@ -1070,6 +1097,9 @@ help:
 	@echo "... ej_modulos/Proyectil.o"
 	@echo "... ej_modulos/Proyectil.i"
 	@echo "... ej_modulos/Proyectil.s"
+	@echo "... ej_modulos/ProyectilBoss.o"
+	@echo "... ej_modulos/ProyectilBoss.i"
+	@echo "... ej_modulos/ProyectilBoss.s"
 	@echo "... ej_modulos/SpriteBoss.o"
 	@echo "... ej_modulos/SpriteBoss.i"
 	@echo "... ej_modulos/SpriteBoss.s"

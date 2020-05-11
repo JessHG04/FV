@@ -11,6 +11,7 @@ SpriteBoss::SpriteBoss(){
     sf::String ruta = "resources/Sprites/Boss/BossFinal.png";
     //cargar textura
     txBoss->loadFromFile(ruta);
+    txBoss->setSmooth(true);
     //nuevo sprite a partir de la textura
     spriteBoss = new sf::Sprite(*txBoss);
 }
@@ -28,11 +29,12 @@ void SpriteBoss::cambiarSpriteBoss(sf::Texture *textura, int n1, int n2, sf::Vec
     spriteBoss->setTexture(*textura);
     tamFrameBoss = sf::Vector2f(txActualBoss->getSize().x / cantidadXBoss, txActualBoss->getSize().y / cantidadYBoss); //Dimension de cada frame haciendo la operacion    
     frActualBoss = frm; // cogemos el frame que queremos utilizar
-    spriteBoss->setScale(0.3,0.3);
+    spriteBoss->setScale(0.45,0.45);
     seleccionarFrameBoss(); 
     sf::RectangleShape box(sf::Vector2f(tamFrameBoss.x, tamFrameBoss.y));
     cajaColisionesBoss = box;
-    cajaColisionesBoss.setFillColor(sf::Color::Transparent);
+    cajaColisionesBoss.setScale(0.25,0.45);
+    cajaColisionesBoss.setFillColor(sf::Color(50,50,50,150));
 }
 
 //carga el frame correspondiente actual
