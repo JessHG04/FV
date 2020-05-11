@@ -188,7 +188,6 @@ class Juego{
         sf::Sprite caraBoss;
 
         bool colisionProyectilBoss();
-        bool colisionBossJugador();
         bool colisionProyectilBossMapa();
         void movimientoBoss();
         void animarMuerteBossFinal();

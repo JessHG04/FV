@@ -11,7 +11,7 @@ using namespace sf;
 
 #define kVel 10
 
-    mojon::mojon(int xx, int yy, int pos1, int pos2, bool grandesito) : Enemigo(3){
+    mojon::mojon(int xx, int yy, int pos1, int pos2, bool grandesito, int vidasB) : Enemigo(vidasB){
         direccion = 0;
         avansa = 0;
         x = xx;
@@ -192,10 +192,6 @@ using namespace sf;
 
     void mojon::hacerTransparente(){
         sprite->setColor(Color::Transparent);
-    }
-
-    void mojon::hacerGrande(){
-        numVidas = 7;
     }
 
     void mojon::restartSprite(){

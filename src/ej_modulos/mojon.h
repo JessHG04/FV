@@ -20,7 +20,7 @@ class mojon : public Enemigo{
         int contando = 0;
         bool golpeado = false, restartear = false;
         bool grande = false;
-        mojon(int, int, int, int, bool);
+        mojon(int, int, int, int, bool, int);
         ~mojon();
         void Draw(RenderWindow &);
         void Update(float nada);
@@ -32,7 +32,6 @@ class mojon : public Enemigo{
         Sprite getSprite();
         void recibeGolpe();
         void hacerTransparente();
-        void hacerGrande();
         void restartSprite();
         bool morir();
     private:

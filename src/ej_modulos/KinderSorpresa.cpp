@@ -29,9 +29,6 @@ KinderSorpresa::KinderSorpresa(int pos1, int pos2, int posy, float speed, sf::Sp
     animacion = new AnimationKinder(&textura, 0.5);
     body->setTextureRect(animacion->getCoordenadasRect());
     body->setOrigin(animacion->getOrigin());
-    /*if(grande){
-        body->setScale(2.0, 2.0);
-    }*/
 
     // Establecemos los limites colisionables...
     boundingSet[0].setSize(sf::Vector2f(64, 102));
@@ -69,6 +66,11 @@ KinderSorpresa::KinderSorpresa(int pos1, int pos2, int posy, float speed, sf::Sp
     // La caja inicial...
     boundingBox = &boundingSet[0];
     boundingBox->setPosition(body->getPosition().x-ajustes[0], body->getPosition().y-17);
+    if (grandesito) {
+	    distanciaG = (body->getTextureRect().width/2) + 5;
+    } else {
+    	distanciaG = body->getTextureRect().width/3;
+    }
 }
 
 
@@ -155,7 +157,7 @@ void KinderSorpresa::Update(float deltaTime) {
         if (_pj != NULL  &&  !estaAtacando) {
 
             // Si kinder esta dentro del rango de ataque...
-            if (_distancia.x > body->getTextureRect().width/3) {
+            if (_distancia.x > distanciaG) {
                 if (body->getPosition().x >= rangoMovimiento[0]  &&  body->getPosition().x <= rangoMovimiento[1]) {
                     ejecuta = 1;
                     if (miraIzquierda) {
@@ -200,12 +202,17 @@ bool KinderSorpresa::estaEnRango(sf::Sprite *p) {
     bool _devuelve = false;
     float _altura = body->getTextureRect().height;
     float _pos_personaje = p->getPosition().y;
-
-    if (_pos_personaje >= (body->getPosition().y-_altura+40)) {
-        if (p->getPosition().x >= rangoMovimiento[0]  &&  p->getPosition().x <= rangoMovimiento[1]) {
-            _devuelve = true;
+    
+    if(!grande){
+        if (_pos_personaje >= (body->getPosition().y-_altura+40)) {
+            if (p->getPosition().x >= rangoMovimiento[0]  &&  p->getPosition().x <= rangoMovimiento[1]) {
+                _devuelve = true;
+            }
         }
+    }else{
+        _devuelve = true;
     }
+    
     
     return _devuelve;
 }
@@ -242,15 +249,15 @@ void KinderSorpresa::impactoProyectil(){
 bool KinderSorpresa::colisionProtagonista(Jugador *j, bool esGuerrera){
     bool x = false;
 
-  if((boundingBox->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(boundingBox->getOrigin()))  &&  !golpeado){
-    if(j->atacando  &&  esGuerrera) {
-      //std::cout << "holaaaaaa" << std::endl;
-      golpeado = true;
-      restartear = true;
-      this->perderVida();
-      //j->atacando = false;
-    } else { x = true; }
-  }
+    if((boundingBox->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(boundingBox->getOrigin()))  &&  !golpeado){
+        if(j->atacando  &&  esGuerrera) {
+        //std::cout << "holaaaaaa" << std::endl;
+        golpeado = true;
+        restartear = true;
+        this->perderVida();
+        //j->atacando = false;
+        } else { x = true; }
+    }
 
   return x;
 }
@@ -282,7 +289,7 @@ void KinderSorpresa::Draw(RenderWindow &window) {
     if (esGolpeado) {
         esGolpeado = false;
     } else {
-        window.draw(*boundingBox);
+        //window.draw(*boundingBox);
         window.draw(*body);
     }
 }

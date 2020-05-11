@@ -16,6 +16,7 @@ class KinderSorpresa : public Enemigo {
         int ejecuta = 2;  // Animacion a ejecutar: 1->Movimiento, 2->Estatico
         int contando = 0;
         float distanciaG;
+        float alturaG;
         sf::Texture textura;
         sf::Sprite *body;
         sf::Sprite *personaje1;

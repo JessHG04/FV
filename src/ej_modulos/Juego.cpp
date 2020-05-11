@@ -485,14 +485,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                     danyo=true;
                 }
             }
-
-            if(colisionBossJugador()==true){
-                if(!dios){
-                    relojDanyo->restart();
-                    danyo=true;
-                }
-            }
-
+            
             if(!proyBoss){
                 if(pBoss != nullptr){
                     if(colisionProyectilBossMapa()){
@@ -1471,8 +1464,8 @@ void Juego::crearEnemigos(){
     if(level == 1){
         nEnemigos = 4;
         darkrai1 = new Darkrai(125*16, 6*16, 25.0f, *j1->spr_player);
-        mojoncito1 = new mojon(60*16, 38*16, 55*16, 67*16, false);
-        kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 5, false);
+        mojoncito1 = new mojon(60*16, 38*16, 55*16, 67*16, false, 3);
+        kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 4, false);
         larita1 = new lara(83*16, 20*16);
         //NPC
         //inicializo NPC
@@ -1502,29 +1495,28 @@ void Juego::crearEnemigos(){
     }
     if(level == 2){  //Mojon hacerlo grandesico y más fuertote
         nEnemigos = 1;
-        mojoncito1 = new mojon(43*16, 53*16, 4*16, 52*16, true);
-        mojoncito1->hacerGrande();
+        mojoncito1 = new mojon(43*16, 53*16, 4*16, 52*16, true, 7);
     }
     if(level == 3){
         nEnemigos = 7;
         darkrai1 = new Darkrai(51*16, 6*16, 25.0f, *j1->spr_player);
         darkrai2 = new Darkrai(172*16, 6*16, 25.0f, *j1->spr_player);
-        mojoncito1 = new mojon(43*16, 29*16, 39*16, 47*16, false);
-        mojoncito2 = new mojon(138*16, 26*16, 131*16, 145*16, false);
-        kindercito1 = new KinderSorpresa(73*16, 99*16, 36*16, 40.0, *(j1->spr_player), *sp, 5, false);
+        mojoncito1 = new mojon(43*16, 29*16, 39*16, 47*16, false, 3);
+        mojoncito2 = new mojon(138*16, 26*16, 131*16, 145*16, false, 3);
+        kindercito1 = new KinderSorpresa(73*16, 99*16, 36*16, 40.0, *(j1->spr_player), *sp, 4, false);
         larita1 = new lara(6*16, 12*16);
         larita2 = new lara(111*16, 14*16);
     }
     if(level == 4){
         nEnemigos = 1;
-        kindercito1 = new KinderSorpresa(4*16, 55*16, 38*16, 50.0, *(j1->spr_player), *sp, 12, true);
+        kindercito1 = new KinderSorpresa(4*16, 55*16, 38*16, 50.0, *(j1->spr_player), *sp, 8, true);
     }
     if(level == 5){
         nEnemigos = 6;
         darkrai1 = new Darkrai(101*16, 12*16, 25.0f, *j1->spr_player);
-        mojoncito1 = new mojon (9*16, 39*16, 5*16, 13*16, false);
-        mojoncito2 = new mojon(69*16, 41*16, 65*16, 75*16, false);
-        kindercito1 = new KinderSorpresa(85*16, 103*16, 34*16, 40.0, *(j1->spr_player), *sp, 5, false);
+        mojoncito1 = new mojon (9*16, 39*16, 5*16, 13*16, false, 3);
+        mojoncito2 = new mojon(69*16, 41*16, 65*16, 75*16, false, 3);
+        kindercito1 = new KinderSorpresa(85*16, 103*16, 34*16, 40.0, *(j1->spr_player), *sp, 4, false);
         larita1 = new lara(54*16, 16*16);
         larita2 = new lara (77*16, 10*16);
     }
@@ -1602,7 +1594,7 @@ void Juego::colisionesProtagonista(){
 	    if(larita3 != NULL && !muerteLara3){
             larita3->colisionProtagonista(j1, esGuerrera);
         }
-/*
+
         if(darkrai1 != NULL && !muerteDarkrai1){
             if(darkrai1->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
@@ -1623,7 +1615,7 @@ void Juego::colisionesProtagonista(){
                 danyo = true;
             }
         }
-*/
+
         if(mojoncito1 != NULL && !muerteMojon1){
             if(mojoncito1->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
@@ -1667,7 +1659,7 @@ void Juego::colisionesProtagonista(){
         }
         
         if(bossFinal != NULL && !muerteBossFinal){
-            if(bossFinal->colisionProtagonista(j1)){
+            if(bossFinal->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
                 danyo = true;
             }
@@ -2010,11 +2002,11 @@ void Juego::detenerDash(){
 void Juego::bossLanza(){
 
     *cronoBoss = relojBoss->getElapsedTime();
-    
+    int valor;
     //cada cierto tiempo el boss lanza un proyectil
     if(cronoBoss->asSeconds()>3.8){
-        //int valor = rand() % 2; 
-            if(empiezaLaBatalla==true){
+        valor = rand() % 2; 
+            if(empiezaLaBatalla==true && valor == 0){
                 pBoss = new ProyectilBoss(4,1,sf::Vector2i(0,0));
                 proyBoss = false;
                 //si mira en direccion derecha, lanzara el proyectil hacia la izquierda
@@ -2031,6 +2023,26 @@ void Juego::bossLanza(){
                 }
                 else{
                     pBoss->set_posicion(sf::Vector2f(bossFinal->getPosicionBoss().x+20,bossFinal->getPosicionBoss().y));
+                    pBoss->set_velocidad(sf::Vector2f(pBoss->vel_desp,0));
+                }
+            }
+            else if(valor == 1 && empiezaLaBatalla){
+                pBoss = new ProyectilBoss(4,1,sf::Vector2i(0,0));
+                proyBoss = false;
+                //si mira en direccion derecha, lanzara el proyectil hacia la izquierda
+                if(bossFinal->direccionBoss == der)
+                    pBoss->dirColisionProyectilBoss = derechaProyectilBoss;
+                else
+                    pBoss->dirColisionProyectilBoss = izquierdaProyectilBoss;
+                pBoss->posicionInicial = sf::Vector2f(pBoss->get_posicion().x, pBoss->get_posicion().y + 40);
+                
+                //si mira en direccion izquierda, lanzara el proyectil hacia la izquierda
+                if(bossFinal->direccionBoss == izq){
+                    pBoss->set_posicion(sf::Vector2f(bossFinal->getPosicionBoss().x-20,bossFinal->getPosicionBoss().y + 40));
+                    pBoss->set_velocidad(sf::Vector2f(-pBoss->vel_desp,0));
+                }
+                else{
+                    pBoss->set_posicion(sf::Vector2f(bossFinal->getPosicionBoss().x+20,bossFinal->getPosicionBoss().y + 40));
                     pBoss->set_velocidad(sf::Vector2f(pBoss->vel_desp,0));
                 }
             }
@@ -2070,17 +2082,7 @@ void Juego::bossTrueno(){
 bool Juego::colisionProyectilBoss(){
     bool x = false;
     if(pBoss!=nullptr && j1!=nullptr && bossFinal!=nullptr){
-         if(pBoss->getSprite().getGlobalBounds().intersects(j1->getSprite().getGlobalBounds())){ 
-             x = true;
-        }
-    }
-    return x;
-}
-
-bool Juego::colisionBossJugador(){
-    bool x = false;
-    if(j1!=nullptr && bossFinal!=nullptr){
-         if(bossFinal->getSpriteBoss().getGlobalBounds().intersects(j1->getSprite().getGlobalBounds())){ 
+         if(pBoss->getSprite().getGlobalBounds().intersects(j1->cajaColisiones3.getGlobalBounds())){ 
              x = true;
         }
     }
