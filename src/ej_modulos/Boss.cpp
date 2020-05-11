@@ -3,8 +3,9 @@
 using namespace std;
 
 
+//CAMBIOOOOOOOOO
 Boss::Boss(){
-    vida = 15;
+    vida = 3;
 }
 
 //actualiza al enemigo
@@ -12,6 +13,11 @@ void Boss::updateBoss(){
     if(restartear == true){
         impactado.restart();
         restartear = false;
+    }
+    float sgs = relojAnimacion.getElapsedTime().asSeconds();
+    if(sgs >= 0.5){
+        this->animarBoss();
+        relojAnimacion.restart();
     }
     this->impactoProyectil(); 
     if(!golpeado){
@@ -27,6 +33,11 @@ void Boss::perderVida(){
             muerto = true;
         }
     }
+}
+
+//CAMBIOOOOOOOOOOOOOOOOO
+void Boss::colocarBoss(){
+    spriteBoss->setPosition(0, 0);
 }
 
 bool Boss::getMuerte(){

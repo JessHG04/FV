@@ -37,17 +37,7 @@ void SpriteTrueno::cambiarSpriteNPC(sf::Texture *textura, int n1, int n2, sf::Ve
 
 //carga el frame correspondiente actual
 void SpriteTrueno::seleccionarFrameNPC(){
-    sf::IntRect rectangulo(0,0,200,96);
-    if (frActualNPC.x == 0) {
-        sf::IntRect rectangulo(0,0,200,96);
-    } else if (frActualNPC.x == 1) {
-        sf::IntRect rectangulo(180,0,200,165);
-    } else if (frActualNPC.x == 2) {
-        sf::IntRect rectangulo(360,0,200,257);
-    } else {
-        sf::IntRect rectangulo(540,0,200,338);
-    }
-
+    sf::IntRect rectangulo(frActualNPC.x * tamFrameNPC.x,frActualNPC.y * tamFrameNPC.y,tamFrameNPC.x,tamFrameNPC.y); //Construimos el rectangulo del tamaño del frame que queremos
     spriteNPC->setTextureRect(rectangulo); // le insertamos el recorte al sprite
 }
 

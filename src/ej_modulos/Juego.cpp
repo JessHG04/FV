@@ -208,332 +208,260 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                 procesar_eventos();
             }
 
-            if(muerteNPC==true && npc!=NULL){
-                 if(npc->animarMuerteNPC()==true){
-                     npc = nullptr;
-                     delete npc;
-                 }
-             }
+            if (clock.getElapsedTime().asMilliseconds() > tiempoUpdate) {
 
-             if(transformacionBoss==true && bossFinal!=NULL){
-                 if(parar == false && bossFinal->animarMuerteBoss()==true){
-                    parar = true;
-                    bossFinal->cambiarFrameXBoss(7);
-                 }
-             }
-             
-            //Pasar de Nivel
-            if(portal != NULL){
-                colisionPersPortal();
-            }
-            if(!cargar && level <= maxLevels){
-                crearEnemigos();
-                //std::cout<< "Nivel: " << level << std::endl;
-                mapa = new Map();
-                mapa->mapMatrix(level);
-                mapa->load("resources/Mapas/Tileset.png", sf::Vector2u(16,16), mapa->tilemap, mapa->widthMap, mapa->heightMap, mapa->numLayers);
-                crearPortal();
-                cargar = true;
-                //BOSS 1
-                if(level == 2){
-                    musicaGuia.setString("Musica: ON");
-                    sprit.setTexture(text); 
-                    musicaNivel1.pause();
-                    musicaBoss1.play();
-                    musicaBoss1.setVolume(30);
+                deltaTime = clock.restart().asSeconds();
+
+                if(muerteNPC==true && npc!=NULL){
+                    if(npc->animarMuerteNPC()==true){
+                        npc = nullptr;
+                        delete npc;
+                    }
                 }
 
-                //NIVEL 2
-                if(level == 3){
-                    musicaGuia.setString("Musica: ON");
-                    sprit.setTexture(text); 
-                    musicaBoss1.pause();
-                    musicaNivel2.play();
-                    musicaNivel2.setVolume(30);
-                }
-
-                //BOSS 2
-                if(level == 4){
-                    musicaGuia.setString("Musica: ON");
-                    sprit.setTexture(text); 
-                    musicaNivel2.pause();
-                    musicaBoss2.play();
-                    musicaBoss2.setVolume(30);
-                }
-
-                //NIVEL 3
-                if(level == 5){
-                    musicaGuia.setString("Musica: ON");
-                    sprit.setTexture(text); 
-                    musicaBoss2.pause();
-                    musicaNivel3.play();
-                    musicaNivel3.setVolume(30);
-                }
-
-                //BOSS 3
-                if(level == 6){
-                    musicaGuia.setString("Musica: ON");
-                    sprit.setTexture(text); 
-                    musicaNivel3.pause();
-                    musicaBoss3.play();
-                    musicaBoss3.setVolume(30);
-                }
-
-                //CREDITOS
-                if(level == 7){
-                    musicaGuia.setString("Musica: ON");
-                    sprit.setTexture(text); 
-                    musicaBoss3.pause();
-                    musicaCreditos.play();
-                    musicaCreditos.setVolume(30);
-                }
-            }
-            j1->posInicial = j1->get_posicion();
-            if(level > maxLevels){
-                gameover = true;
-            }
-
-            //********************************************* GRAVEDAD *************************************************
-            
-            gestionGravedad();
-            if((gravedad || j1->saltando) && !j1->dash){ // concicion no cae con el dash
-                j1->vel_salto += 2.5f;
-                
-                if(j1->vel_salto > 0){
-                    j1->dirColision = abajo;
-                }else{
-                    j1->dirColision = arriba;
+                if(transformacionBoss==true && bossFinal!=NULL){
+                    if(parar == false && bossFinal->animarMuerteBoss()==true){
+                        parar = true;
+                        bossFinal->cambiarFrameXBoss(7);
+                    }
                 }
                 
-                if(!j1->movimiento)
-                    j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));
-                else if(j1->direccion == izq)
-                    j1->set_velocidad(sf::Vector2f(-j1->vel_desp,j1->vel_salto));
-                else if(j1->direccion == der)
-                    j1->set_velocidad(sf::Vector2f(j1->vel_desp,j1->vel_salto));
-            }
+                //Pasar de Nivel
+                if(portal != NULL){
+                    colisionPersPortal();
+                }
+                if(!cargar && level <= maxLevels){
+                    crearEnemigos();
+                    //std::cout<< "Nivel: " << level << std::endl;
+                    mapa = new Map();
+                    mapa->mapMatrix(level);
+                    mapa->load("resources/Mapas/Tileset.png", sf::Vector2u(16,16), mapa->tilemap, mapa->widthMap, mapa->heightMap, mapa->numLayers);
+                    crearPortal();
+                    cargar = true;
+                    //BOSS 1
+                    if(level == 2){
+                        musicaGuia.setString("Musica: ON");
+                        sprit.setTexture(text); 
+                        musicaNivel1.pause();
+                        musicaBoss1.play();
+                        musicaBoss1.setVolume(30);
+                    }
 
-            if(p1)
-                p1->animar();
+                    //NIVEL 2
+                    if(level == 3){
+                        musicaGuia.setString("Musica: ON");
+                        sprit.setTexture(text); 
+                        musicaBoss1.pause();
+                        musicaNivel2.play();
+                        musicaNivel2.setVolume(30);
+                    }
 
-            j1->update(1.0); //Revisar
-            if(p1)
-                p1->update();
-            this->colisionesProtagonista();
-            
-            //UPDATES ENEMIGOS
-            for(int x = 0; x < enemigos.size(); x++){
-                if(enemigos[x] != NULL){ //otro if enemigos[x] -> muerto
-                    if(x < 9){ //Hace todos los updates menos los de Lara porque tiene otros parámetros
-                        enemigos[x]->Update(reloj1->getElapsedTime().asSeconds());
+                    //BOSS 2
+                    if(level == 4){
+                        musicaGuia.setString("Musica: ON");
+                        sprit.setTexture(text); 
+                        musicaNivel2.pause();
+                        musicaBoss2.play();
+                        musicaBoss2.setVolume(30);
                     }
-                }
-            }
 
-            if(larita1 != NULL && !muerteLara1 && level == 1){
-                if(larita1->Update(*ventana, j1, (83*16+100), (20*16), mapa)){
-                    if(!dios){
-                        relojDanyo->restart();
-                        danyo = true;
+                    //NIVEL 3
+                    if(level == 5){
+                        musicaGuia.setString("Musica: ON");
+                        sprit.setTexture(text); 
+                        musicaBoss2.pause();
+                        musicaNivel3.play();
+                        musicaNivel3.setVolume(30);
                     }
-                }
-            }
-            if(larita1 != NULL && !muerteLara1 && level == 3){
-                if(larita1->Update(*ventana, j1, (6*16+100), (12*16), mapa)){ 
-                    if(!dios){
-                        relojDanyo->restart();
-                        danyo = true;
-                    }
-                }
-            }
-            if(larita2 != NULL && !muerteLara2 && level == 3){
-                if(larita2->Update(*ventana, j1, (111*16+100), (14*16), mapa)){ 
-                    if(!dios){
-                        relojDanyo->restart();
-                        danyo = true;
-                    }
-                }
-            }
-            if(larita1 != NULL  && !muerteLara1 && level == 5){
-                if(larita1->Update(*ventana, j1, (54*16+100), (16*16), mapa)){ 
-                    if(!dios){
-                        relojDanyo->restart();
-                        danyo = true;
-                    }
-                }
-            }
-            if(larita2 != NULL && !muerteLara2 && level == 5){
-                if(larita2->Update(*ventana, j1, (77*16+100), (10*16), mapa)){ 
-                    if(!dios){
-                        relojDanyo->restart();
-                        danyo = true;
-                    }
-                }
-            }
-            if(larita3 != NULL && !muerteLara3){
-                if(larita3->Update(*ventana, j1, (83*16+100), (20*16), mapa)){ 
-                    if(!dios){
-                        relojDanyo->restart();
-                        danyo = true;
-                    }
-                }
-            }
 
-            //Animacion ataque de Mercedes
-            if (esGuerrera  &&  j1->atacando) {
-                float _tiempo = relojMerche.getElapsedTime().asSeconds();
-                if (_tiempo > 0.40f) {
-                    j1->movimiento = false;
-                    /*
-                    if(j1->inmortal){
-                        if(j1->direccion == izq){
-                            j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,2));
-                        }
-                        if(j1->direccion == der){
-                            j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,3));
-                        }
+                    //BOSS 3
+                    if(level == 6){
+                        musicaGuia.setString("Musica: ON");
+                        sprit.setTexture(text); 
+                        musicaNivel3.pause();
+                        musicaBoss3.play();
+                        musicaBoss3.setVolume(30);
+                    }
+
+                    //CREDITOS
+                    if(level == 7){
+                        musicaGuia.setString("Musica: ON");
+                        sprit.setTexture(text); 
+                        musicaBoss3.pause();
+                        musicaCreditos.play();
+                        musicaCreditos.setVolume(30);
+                    }
+                }
+                j1->posInicial = j1->get_posicion();
+                if(level > maxLevels){
+                    gameover = true;
+                }
+
+                //********************************************* GRAVEDAD *************************************************
+                
+                gestionGravedad();
+                if((gravedad || j1->saltando) && !j1->dash){ // concicion no cae con el dash
+                    j1->vel_salto += 2.5f;
+                    
+                    if(j1->vel_salto > 0){
+                        j1->dirColision = abajo;
                     }else{
-                        if(j1->direccion == izq){
-                            j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
-                        }else{
-                            j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
-                        }
-                    }*/
-                    if(j1->direccion == izq){
-                        j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
-                    }else{
-                        j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
+                        j1->dirColision = arriba;
                     }
                     
-                    j1->atacando = false;
-                    j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
-                } else {
-                    if(j1->direccion == izq){
-                        j1->dirColision = izq;
-                        j1->movimiento = true;
-                        j1->set_frameY(0); 
-                        if (_tiempo > 0.12f  &&  _tiempo < 0.30f) {
-                            j1->set_sprite(j1->txt_ataque_I,3,1,sf::Vector2i(1,0));
-                        } else if (_tiempo > 0.30f) {
-                            j1->set_sprite(j1->txt_ataque_I,3,1,sf::Vector2i(2,0));
-                        } else {
-                            j1->set_sprite(j1->txt_ataque_I,3,1,sf::Vector2i(0,0));
-                        }
-                    }else{
-                        j1->dirColision = der;
-                        j1->movimiento = true;
-                        j1->set_frameY(0);
-                        if (_tiempo > 0.12f  &&  _tiempo < 0.30f) {
-                            j1->set_sprite(j1->txt_ataque_D,3,1,sf::Vector2i(1,0));
-                        } else if (_tiempo > 0.30f) {
-                            j1->set_sprite(j1->txt_ataque_D,3,1,sf::Vector2i(0,0));
-                        } else {
-                            j1->set_sprite(j1->txt_ataque_D,3,1,sf::Vector2i(2,0));
+                    if(!j1->movimiento)
+                        j1->set_velocidad(sf::Vector2f(0,j1->vel_salto));
+                    else if(j1->direccion == izq)
+                        j1->set_velocidad(sf::Vector2f(-j1->vel_desp,j1->vel_salto));
+                    else if(j1->direccion == der)
+                        j1->set_velocidad(sf::Vector2f(j1->vel_desp,j1->vel_salto));
+                }
+
+                if(p1)
+                    p1->animar();
+
+                j1->update(1.0); //Revisar
+                if(p1)
+                    p1->update();
+                this->colisionesProtagonista();
+                
+                //UPDATES ENEMIGOS
+                for(int x = 0; x < enemigos.size(); x++){
+                    if(enemigos[x] != NULL){ //otro if enemigos[x] -> muerto
+                        if(x < 9){ //Hace todos los updates menos los de Lara porque tiene otros parámetros
+                            enemigos[x]->Update(deltaTime);
                         }
                     }
                 }
-            }
+
+                if(larita1 != NULL && !muerteLara1 && level == 1){
+                    if(larita1->Update(*ventana, j1, (83*16+100), (20*16), mapa)){
+                        if(!dios){
+                            relojDanyo->restart();
+                            danyo = true;
+                        }
+                    }
+                }
+                if(larita1 != NULL && !muerteLara1 && level == 3){
+                    if(larita1->Update(*ventana, j1, (6*16+100), (12*16), mapa)){ 
+                        if(!dios){
+                            relojDanyo->restart();
+                            danyo = true;
+                        }
+                    }
+                }
+                if(larita2 != NULL && !muerteLara2 && level == 3){
+                    if(larita2->Update(*ventana, j1, (111*16+100), (14*16), mapa)){ 
+                        if(!dios){
+                            relojDanyo->restart();
+                            danyo = true;
+                        }
+                    }
+                }
+                if(larita1 != NULL  && !muerteLara1 && level == 5){
+                    if(larita1->Update(*ventana, j1, (54*16+100), (16*16), mapa)){ 
+                        if(!dios){
+                            relojDanyo->restart();
+                            danyo = true;
+                        }
+                    }
+                }
+                if(larita2 != NULL && !muerteLara2 && level == 5){
+                    if(larita2->Update(*ventana, j1, (77*16+100), (10*16), mapa)){ 
+                        if(!dios){
+                            relojDanyo->restart();
+                            danyo = true;
+                        }
+                    }
+                }
+                if(larita3 != NULL && !muerteLara3){
+                    if(larita3->Update(*ventana, j1, (83*16+100), (20*16), mapa)){ 
+                        if(!dios){
+                            relojDanyo->restart();
+                            danyo = true;
+                        }
+                    }
+                }
+
+                //Animacion ataque de Mercedes
+                if (esGuerrera  &&  j1->atacando) {
+                    float _tiempo = relojMerche.getElapsedTime().asSeconds();
+                    if (_tiempo > 0.40f) {
+                        j1->movimiento = false;
+
+                        if(j1->inmortal){
+                            if(j1->direccion == izq){
+                                j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,2));
+                            }
+                            if(j1->direccion == der){
+                                j1->set_sprite(j1->txt_herido2,4,4,sf::Vector2i(0,3));
+                            }
+                        }else{
+                            if(j1->direccion == izq){
+                                j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
+                            }else{
+                                j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
+                            }
+                        }
+                        
+                        j1->atacando = false;
+                        j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
+                    } else {
+                        if(j1->direccion == izq){
+                            j1->dirColision = izq;
+                            j1->movimiento = true;
+                            j1->set_frameY(0); 
+                            if (_tiempo > 0.12f  &&  _tiempo < 0.30f) {
+                                j1->set_sprite(j1->txt_ataque_I,3,1,sf::Vector2i(1,0));
+                            } else if (_tiempo > 0.30f) {
+                                j1->set_sprite(j1->txt_ataque_I,3,1,sf::Vector2i(2,0));
+                            } else {
+                                j1->set_sprite(j1->txt_ataque_I,3,1,sf::Vector2i(0,0));
+                            }
+                        }else{
+                            j1->dirColision = der;
+                            j1->movimiento = true;
+                            j1->set_frameY(0);
+                            if (_tiempo > 0.12f  &&  _tiempo < 0.30f) {
+                                j1->set_sprite(j1->txt_ataque_D,3,1,sf::Vector2i(1,0));
+                            } else if (_tiempo > 0.30f) {
+                                j1->set_sprite(j1->txt_ataque_D,3,1,sf::Vector2i(0,0));
+                            } else {
+                                j1->set_sprite(j1->txt_ataque_D,3,1,sf::Vector2i(2,0));
+                            }
+                        }
+                    }
+                }
+                
+                //BOSS PROYECTIL
+                if(!proyBoss){
+                    if(pBoss != NULL){
+                        pBoss->animar();
+                    }
+                }
+                    
+                if(!proyBoss){
+                    if(pBoss != NULL){
+                        pBoss->update();
+                    }
+                }
+
+                //CAMBIOOOOOO
+                if(muerteBossFinal==false){
+                    if(bossFinal != NULL){
+                        if(empiezaLaBatalla==true){
+                            bossFinal->updateBoss();
+                            bossLanza();
+                            movimientoBoss();
+                        }
+                        bossTrueno();
+                    }
+                }
+                portal->Update();
             
-            //BOSS PROYECTIL
-            if(!proyBoss){
-                if(pBoss != NULL){
-                    pBoss->animar();
-                }
-            }
-            if(bossFinal != NULL)
-                bossFinal->updateBoss();
-            if(!proyBoss){
-                if(pBoss != NULL){
-                    pBoss->update();
-                }
-            }
-            if(bossFinal != NULL){
-                bossLanza();
-                movimientoBoss();
-            }
-            if(bossFinal != NULL)
-                bossTrueno();
-            portal->Update();
-            dibujar();
           
-            if(cronoInmortal->asSeconds() > 2.5 && j1->inmortal){
-                j1->inmortal = false;
-                if(esGuerrera == false){
-                    if(j1->direccion == izq){
-                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
-                    }
-                        
-                    if(j1->direccion == der){
-                        j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
-                    }
-                }else{
-                    if(j1->direccion == izq){
-                        j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
-                    }
-                        
-                    if(j1->direccion == der){
-                        j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
-                    }
-                }
-            }
-            
-            if(colisionProyectilBoss()==true){
-                if(!dios){
-                    relojDanyo->restart();
-                    danyo=true;
-                }
-            }
-
-            if(colisionBossJugador()==true){
-                if(!dios){
-                    relojDanyo->restart();
-                    danyo=true;
-                }
-            }
-
-            if(!proyBoss){
-                if(pBoss != nullptr){
-                    if(colisionProyectilBossMapa()){
-                        //cout << "Colisiona con la pared" << endl;
-                        delete pBoss;
-                        pBoss = 0;
-                        proyBoss = true;
-                    }
-                }
-            }
-
-            if(colisionPersTrampa(j1->dirColision)){
-                if(!dios){
-                    relojDanyo->restart();
-                    danyo = true;
-                    //impacto();
-                }
-            }
-            
-            if(trueno != nullptr && j1 != nullptr){
-                if(trueno->colisionProtagonista(j1)){
-                    if(!dios){
-                        relojDanyo->restart();
-                        danyo = true;
-                    }
-                } 
-            }
-			
-            if(trueno2 != nullptr && j1 != nullptr){
-                if(trueno2->colisionProtagonista(j1)){
-                    if(!dios){
-                        relojDanyo->restart();
-                        danyo = true;
-                    }
-                }
-            }
-
-            if(colisionPersMapa(j1->dirColision)){
-                j1->saltando = false;
-                j1->movimiento = false;
-                j1->vel_salto = 0;
-                j1->set_velocidad(sf::Vector2f(0,0));
-                if(!j1->inmortal){
+                if(cronoInmortal->asSeconds() > 2.5 && j1->inmortal){
+                    j1->inmortal = false;
                     if(esGuerrera == false){
                         if(j1->direccion == izq){
                             j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
@@ -552,39 +480,120 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                         }
                     }
                 }
-            }
-
-            
-
-            this->muerteNPCs();
-             if(danyo){
-                impacto();
-                danyao = true;
-                float segundetes = relojDanyo->getElapsedTime().asSeconds();
-                if(segundetes >= 1.0){
-                    danyo = false;
-                    danyao = false;
+                
+                if(colisionProyectilBoss()==true){
+                    if(!dios){
+                        relojDanyo->restart();
+                        danyo=true;
+                    }
                 }
-            }
-            
-            hasMuerto.setPosition(200 + pos_vista.x - resolucion.x/2, 130);
-            spriteMuerte.setPosition(350 + pos_vista.x - resolucion.x/2, 300);
 
-            if(j1->vida == 0 && muerteTransicion == false){
-                relojMuerte->restart();
-                muerteTransicion = true;
-                musicaNivel1.stop();
-                musicaNivel2.stop();
-                musicaNivel3.stop();
-                musicaBoss1.stop();
-                musicaBoss2.stop();
-                musicaBoss3.stop();
-                musicaOff = true;
-                hasMuertoSonido.play();
-                hasMuertoSonido.setVolume(30);
-            }
+                if(colisionBossJugador()==true){
+                    if(!dios){
+                        relojDanyo->restart();
+                        danyo=true;
+                    }
+                }
 
-            reloj1->restart();
+                if(!proyBoss){
+                    if(pBoss != nullptr){
+                        if(colisionProyectilBossMapa()){
+                            //cout << "Colisiona con la pared" << endl;
+                            delete pBoss;
+                            pBoss = 0;
+                            proyBoss = true;
+                        }
+                    }
+                }
+
+                if(colisionPersTrampa(j1->dirColision)){
+                    if(!dios){
+                        relojDanyo->restart();
+                        danyo = true;
+                        //impacto();
+                    }
+                }
+                
+                if(trueno != nullptr && j1 != nullptr){
+                    if(trueno->colisionProtagonista(j1)){
+                        if(!dios){
+                            relojDanyo->restart();
+                            danyo = true;
+                        }
+                    } 
+                }
+                
+                if(trueno2 != nullptr && j1 != nullptr){
+                    if(trueno2->colisionProtagonista(j1)){
+                        if(!dios){
+                            relojDanyo->restart();
+                            danyo = true;
+                        }
+                    }
+                }
+
+                if(colisionPersMapa(j1->dirColision)){
+                    j1->saltando = false;
+                    j1->movimiento = false;
+                    j1->vel_salto = 0;
+                    j1->set_velocidad(sf::Vector2f(0,0));
+                    if(!j1->inmortal){
+                        if(esGuerrera == false){
+                            if(j1->direccion == izq){
+                                j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,2));
+                            }
+                                
+                            if(j1->direccion == der){
+                                j1->set_sprite(j1->txt_player,4,4,sf::Vector2i(0,3));
+                            }
+                        }else{
+                            if(j1->direccion == izq){
+                                j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,2));
+                            }
+                                
+                            if(j1->direccion == der){
+                                j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
+                            }
+                        }
+                    }
+                }
+
+                if(restartearMuerteBoss==false){
+                    if(bossFinal!=nullptr){
+                        animarMuerteBossFinal();
+                    }
+                }
+
+                this->muerteNPCs();
+                if(danyo){
+                    impacto();
+                    danyao = true;
+                    float segundetes = relojDanyo->getElapsedTime().asSeconds();
+                    if(segundetes >= 1.0){
+                        danyo = false;
+                        danyao = false;
+                    }
+                }
+                
+                hasMuerto.setPosition(200 + pos_vista.x - resolucion.x/2, 130);
+                spriteMuerte.setPosition(350 + pos_vista.x - resolucion.x/2, 300);
+
+                if(j1->vida == 0 && muerteTransicion == false){
+                    relojMuerte->restart();
+                    muerteTransicion = true;
+                    musicaNivel1.stop();
+                    musicaNivel2.stop();
+                    musicaNivel3.stop();
+                    musicaBoss1.stop();
+                    musicaBoss2.stop();
+                    musicaBoss3.stop();
+                    musicaOff = true;
+                    hasMuertoSonido.play();
+                    hasMuertoSonido.setVolume(30);
+                }
+
+                reloj1->restart();
+            }
             //Camara - Extremo derecho, normal, extremo izquierdo
             if(j1->get_posicion().x >= (mapa->widthMap * 16 - resolucion.x /2)){
                 pos_vista.x = mapa->widthMap * 16 - resolucion.x /2;
@@ -601,6 +610,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             musicaGuia.setPosition(25 + pos_vista.x - resolucion.x/2, 600);
             sprit.setPosition(150 + pos_vista.x - resolucion.x/2, 590);
             vista.setCenter(pos_vista);
+            dibujar();
         }
         *cronoMuerte = relojMuerte->getElapsedTime(); 
         if(cronoMuerte->asSeconds() > 7.0 && muerteTransicion == true){
@@ -631,6 +641,7 @@ void Juego::iniciar(){
     relojMuerte = new sf::Clock();
     cronoMuerte = new sf::Time();
     relojBossMover = new sf::Clock();
+    muerteBoss = new sf::Clock();
     cronoBossMover = new sf::Time();
     p1 = 0;
     
@@ -1572,7 +1583,7 @@ void Juego::colisionesProtagonista(){
 	    if(larita3 != NULL && !muerteLara3){
             larita3->colisionProtagonista(j1, esGuerrera);
         }
-
+/*
         if(darkrai1 != NULL && !muerteDarkrai1){
             if(darkrai1->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
@@ -1593,7 +1604,7 @@ void Juego::colisionesProtagonista(){
                 danyo = true;
             }
         }
-
+*/
         if(mojoncito1 != NULL && !muerteMojon1){
             if(mojoncito1->colisionProtagonista(j1, esGuerrera)){
                 relojDanyo->restart();
@@ -1775,7 +1786,7 @@ void Juego::colisionProyectilEnemigos(){
 
     //Colision proyectil con Boss Final
     if(p1 != nullptr && bossFinal != NULL){
-        if(!bossFinal){
+        if(muerteBossFinal == false){
             if(bossFinal->colisionProyectil(p1)){
                 delete p1;        
                 p1 = 0;
@@ -1924,10 +1935,9 @@ void Juego::muerteNPCs(){
     //Muerte Boss Final
     if(bossFinal != NULL){
         if(!muerteBossFinal){
-            if(bossFinal->morir()){
-                delete bossFinal;        
+            if(bossFinal->morir()){       
                 muerteBossFinal = true;
-                nEnemigos--;
+                muerteBoss->restart();
             }
         }
     }
@@ -2015,12 +2025,18 @@ void Juego::bossLanza(){
 void Juego::bossTrueno(){
 
     *cronoTrueno = relojTrueno->getElapsedTime();
+    int valor = rand() % 10; 
 
     //cada cierto tiempo el boss lanza un proyectil
-    if(cronoTrueno->asSeconds()>0.15f){
-        if(trueno->animarMuerteNPC()==true){
-            trueno->cambiarFrameXNPC(0);
-            trueno2->cambiarFrameXNPC(0);
+    if(cronoTrueno->asSeconds()>0.08){
+        if(valor==0){
+            if(trueno->animarMuerteNPC()==true){
+                trueno->cambiarFrameXNPC(0);
+            }
+        }else if(valor==1){
+            if(trueno2->animarMuerteNPC()==true){
+                trueno2->cambiarFrameXNPC(0);
+            }
         }
             
         //reinicio de reloj
@@ -2077,11 +2093,6 @@ void Juego::reiniciar(){
     spriteMuerte.setPosition(350 , 300);
     musicaGuia.setString("Musica: ON");
     sprit.setTexture(text);
-    //ITEM VIDA
-    itemVida.setTexture(itemTextura);
-    itemVida.setScale(0.25, 0.3);
-    itemVida2.setTexture(itemTextura);
-    itemVida2.setScale(0.25, 0.3);
 
     if(esGuerrera){
         j1->vida = 5;
@@ -2123,22 +2134,58 @@ void Juego::reiniciar(){
     musicaGuia.setPosition(0 ,0);
 }
 
+//CAMBIOOOOOOOOOOOOOOOOOO
 void Juego::movimientoBoss(){
     *cronoBossMover = relojBossMover->getElapsedTime();
-    
-    //cada cierto tiempo el boss lanza un proyectil
-    if(cronoBossMover->asSeconds()>3.2){
-        int valor = rand() % 2; 
+    if(bossFinal->getPosicionXBoss() >= 790){
+        vuelveIz = true;
+        valor = 0;
+    }
+    if(bossFinal->getPosicionXBoss() <= 120){
+        vuelveDe = true;
+        valor = 1;
+    }
+    if(vuelveIz || vuelveDe){
         if(valor==0 && empiezaLaBatalla){
-            bossFinal->direccionBoss = izquierdaBoss;
-            
+            bossFinal->cambiarFrameYBoss(4);
+            bossFinal->direccionBoss = izquierdaBoss;       
             bossFinal->setVelBoss(Vector2f(-bossFinal->velDesplazamientoBoss, 0.0));
         }else if(valor==1 && empiezaLaBatalla){
+            bossFinal->cambiarFrameYBoss(5);
             bossFinal->direccionBoss = derechaBoss;
             bossFinal->setVelBoss(Vector2f(bossFinal->velDesplazamientoBoss, 0.0));
         }
-            
-        //reinicio de reloj
-        relojBossMover->restart();
+    }
+    else{
+        //cada cierto tiempo el boss lanza un proyectil
+        if(cronoBossMover->asSeconds()>3.2){
+            valor = rand() % 2;
+            if(valor==0 && empiezaLaBatalla){
+                bossFinal->cambiarFrameYBoss(4);
+                bossFinal->direccionBoss = izquierdaBoss;
+                
+                bossFinal->setVelBoss(Vector2f(-bossFinal->velDesplazamientoBoss, 0.0));
+            }else if(valor==1 && empiezaLaBatalla){
+                bossFinal->cambiarFrameYBoss(5);
+                bossFinal->direccionBoss = derechaBoss;
+                bossFinal->setVelBoss(Vector2f(bossFinal->velDesplazamientoBoss, 0.0));
+            }
+                
+            //reinicio de reloj
+            relojBossMover->restart();
+        }
+    }
+}
+
+void Juego::animarMuerteBossFinal(){
+    if(muerteBossFinal){
+        float sgs = muerteBoss->getElapsedTime().asSeconds();
+        bossFinal->animarMuerteBoss();
+        if(sgs >= 2.0){
+            nEnemigos--;
+            restartearMuerteBoss = true;
+            bossFinal->hacerTransparente();
+            bossFinal->colocarBoss();
+        }
     }
 }
