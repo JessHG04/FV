@@ -32,7 +32,7 @@ void SpriteTrueno::cambiarSpriteNPC(sf::Texture *textura, int n1, int n2, sf::Ve
     seleccionarFrameNPC(); 
     sf::RectangleShape box(sf::Vector2f(tamFrameNPC.x, tamFrameNPC.y));
     cajaColisionesNPC = box;
-    cajaColisionesNPC.setFillColor(sf::Color::Transparent);
+    cajaColisionesNPC.setFillColor(sf::Color::Red);
 }
 
 //carga el frame correspondiente actual

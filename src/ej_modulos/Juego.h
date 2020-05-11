@@ -24,7 +24,7 @@
 #include "PoderTrueno.h"
 #include "ProyectilBoss.h"
 
-#define tiempoUpdate 1000/15
+#define tiempoUpdate 0.08
 
 class Juego{
     public:
@@ -114,8 +114,7 @@ class Juego{
         // La ventana de nuestro juego
         sf::RenderWindow *ventana = NULL;
         //Creamos el reloj
-        float deltaTime, interpolacion;
-        sf::Clock clock;
+        float deltaTime;
         sf::Clock *reloj1 = NULL;
         sf::Time *crono1 = NULL;
         sf::Clock *relojInmortal = NULL;

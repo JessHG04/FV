@@ -93,10 +93,16 @@ void Boss::restartSprite(){
     spriteBoss->setColor(sf::Color(255,255,255));
 }
 
-bool Boss::colisionProtagonista(spritePersonaje *sp){
+bool Boss::colisionProtagonista(Jugador *j, bool esGuerrera){
     bool x = false;
-    if(spriteBoss->getGlobalBounds().intersects(sp->getSprite().getGlobalBounds())){
-        x = true;
-    }
-    return x;
+
+  if((spriteBoss->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(spriteBoss->getOrigin()))  &&  !golpeado){
+    if(j->atacando  &&  esGuerrera) {
+      golpeado = true;
+      restartear = true;
+      this->perderVida();
+    } else { x = true; }
+  }
+
+  return x;
 }
