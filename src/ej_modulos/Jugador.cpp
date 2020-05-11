@@ -23,7 +23,7 @@ void Jugador::update(float deltaTime){ //Actuaiza fisicas del jugador
     }
     set_translacion(sf::Vector2f(velocidad.x * deltaTime, velocidad.y * deltaTime));
     cajaColisiones3.setPosition(get_posicion().x - tamFrame.x/4, get_posicion().y - tamFrame.y/2 + tamFrame.y/10);
-    cajaColisiones2.setPosition(get_posicion().x - 15 , get_posicion().y + tamFrame.y/2  + 2 - 8);
+    cajaColisiones2.setPosition(get_posicion().x - 15 , get_posicion().y + tamFrame.y/2  + 2 - 6);
 
     //}
 }
@@ -31,6 +31,5 @@ void Jugador::update(float deltaTime){ //Actuaiza fisicas del jugador
 void Jugador::draw(sf::RenderWindow& window) {
  
     window.draw(*spr_player);
-    window.draw(cajaColisiones);
-    window.draw(cajaColisiones2);
+
 }

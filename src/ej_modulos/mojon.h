@@ -6,10 +6,7 @@
 #include "Enemigo.h"
 #include "Proyectil.h"
 #include "spritePersonaje.h"
-#include "cuadradoD.h"
-#include "cuadradoI.h"
-#include "lara.h"
-#include "Guerrera.h"
+#include "Jugador.h"
 
 using namespace std;
 using namespace sf;
@@ -23,7 +20,7 @@ class mojon : public Enemigo{
         int contando = 0;
         bool golpeado = false, restartear = false;
         bool grande = false;
-        mojon(int, int, int, int, bool);
+        mojon(int, int, int, int, bool, int);
         ~mojon();
         void Draw(RenderWindow &);
         void Update(float nada);
@@ -31,11 +28,10 @@ class mojon : public Enemigo{
         void cambiarSpriteDos(int);
         bool colisionProyectil(Proyectil *);
         void impactoProyectil();
-        bool colisionProtagonista(Jugador *,bool );
+        bool colisionProtagonista(Jugador *, bool);
         Sprite getSprite();
         void recibeGolpe();
         void hacerTransparente();
-        void hacerGrande();
         void restartSprite();
         bool morir();
     private:

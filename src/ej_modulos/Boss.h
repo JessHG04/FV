@@ -6,6 +6,7 @@
 #include <vector>
 #include "Proyectil.h"
 #include "spritePersonaje.h"
+#include "Jugador.h"
 
 
 enum estadosBoss{
@@ -57,7 +58,7 @@ class Boss:public SpriteBoss{
         void restartSprite();
         void hacerTransparente();
         bool morir();
-        bool colisionProtagonista(spritePersonaje *);
+        bool colisionProtagonista(Jugador *, bool);
 
         sf::Sprite getSpriteBoss(){
             return *spriteBoss;
@@ -93,4 +94,8 @@ class Boss:public SpriteBoss{
             posBoss = posicionNueva;
             spriteBoss->setPosition(posBoss);
         }
+
+        //CAMBIOOOOOOOO
+        void colocarBoss();
+        sf::Clock relojAnimacion;
 };

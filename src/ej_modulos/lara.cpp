@@ -14,7 +14,7 @@ using namespace sf;
 
 #define kVel 5
 
-    lara::lara(int xx, int yy) : Enemigo(3){
+    lara::lara(int xx, int yy) : Enemigo(2){
         avanza = 0;
         fin = false;
         yasta = false;
@@ -36,38 +36,45 @@ using namespace sf;
 
     void lara::cambiarSprite(int x, spritePersonaje *spritep){
         if(x == 0){
+            mantener = true;
             shoot = false;
             sprite->setTextureRect(sf::IntRect(142, 350, 34, 52));
+            float sgs = mantenedor.getElapsedTime().asSeconds();
+            if(sgs >= 2.0){
+                mantener = false;
+            }
         }
-        else if(x == 1){
-            shoot = false;
-            sprite->setTextureRect(sf::IntRect(243, 286, 43, 52));
+        if(!mantener){
+            if(x == 1){
+                shoot = false;
+                sprite->setTextureRect(sf::IntRect(243, 286, 43, 52));
+            }
+            if(x == 2){
+                shoot = false;
+                sprite->setTextureRect(sf::IntRect(33, 351, 37, 52));
+            }
+            if(x == 3){
+                shoot = false;
+                sprite->setTextureRect(sf::IntRect(243, 286, 43, 52));
+            }
+            if(x == 4){
+                shoot = false;
+                sprite->setTextureRect(sf::IntRect(143, 288, 52, 52));
+            }
+            if(x == 5){
+                shoot = false;
+                sprite->setTextureRect(sf::IntRect(31, 12, 47, 52));
+            }
+            if(x == 6){
+                shoot = false;
+                sprite->setTextureRect(sf::IntRect(228, 12, 73, 52));
+            }
+            if(x == 7){
+                shoot = true;
+                sprite->setTextureRect(sf::IntRect(115, 12, 78, 52));
+                mantenedor.restart();
+            }
         }
-        else if(x == 2){
-            shoot = false;
-            sprite->setTextureRect(sf::IntRect(33, 351, 37, 52));
-        }
-        else if(x == 3){
-            shoot = false;
-            sprite->setTextureRect(sf::IntRect(243, 286, 43, 52));
-        }
-        else if(x == 4){
-            shoot = false;
-            sprite->setTextureRect(sf::IntRect(143, 288, 52, 52));
-        }
-        else if(x == 5){
-            shoot = false;
-            sprite->setTextureRect(sf::IntRect(31, 12, 47, 52));
-        }
-        else if(x == 6){
-            shoot = false;
-            sprite->setTextureRect(sf::IntRect(228, 12, 73, 52));
-        }
-        else{
-            shoot = true;
-            sprite->setTextureRect(sf::IntRect(115, 12, 78, 52));
-        }
-
         if(spritep->getSprite().getPosition().x < this->getSprite().getPosition().x){
             sprite->setScale(1, 1);
             lado = false;
@@ -155,6 +162,17 @@ using namespace sf;
        return disparo;
     }
 
+    void lara::colisionProtagonista(Jugador *j, bool esGuerrera){
+        if((sprite->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(sprite->getOrigin()))  &&  !golpeado){
+            if(j->atacando  &&  esGuerrera) {
+            golpeado = true;
+            restartear = true;
+            this->perderVida();
+            //j->atacando = false;
+            }
+        }
+    }
+
     bool lara::colisionProyectil(Proyectil *p1){
         bool x = false;
         if(p1->get_sprite().getGlobalBounds().intersects(sprite->getGlobalBounds()) && golpeado == false){
@@ -184,18 +202,6 @@ using namespace sf;
         }
     }
 
-void lara::colisionProtagonista(Jugador *j, bool esGuerrera){
-
-  if((sprite->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(sprite->getOrigin()))  &&  !golpeado){
-    if(j->atacando  &&  esGuerrera) {
-      golpeado = true;
-      restartear = true;
-      this->perderVida();
-      //j->atacando = false;
-    }
-  }
-}
-
     bool lara::morir(){
         bool x = false;
         if(this->getMuerte()){
@@ -205,9 +211,9 @@ void lara::colisionProtagonista(Jugador *j, bool esGuerrera){
     }
 
     bool lara::colisionBalaMapa(bala *balera, Map *mapa){ //La colision del personaje con el mapa
-        int gid;
-        sf::RectangleShape cajaMapa(sf::Vector2f(16, 16)); //Caja de colision de cada GID del mapa
-        bool colisionando = false;
+    int gid;
+    sf::RectangleShape cajaMapa(sf::Vector2f(16, 16)); //Caja de colision de cada GID del mapa
+    bool colisionando = false;
         for(unsigned int l = 0; l < 1; l++){
             for(unsigned int y = 0; y < mapa->heightMap; y++){
                 for(unsigned int x = 0; x < mapa->widthMap; x++){

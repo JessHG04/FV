@@ -22,7 +22,7 @@ Menu::Menu(float width, float height)
 	menu[2].setFont(font);
 	menu[2].setColor(sf::Color::White);
 	menu[2].setString("Controles");
-	menu[2].setPosition(sf::Vector2f(width + 25, 410));
+	menu[2].setPosition(sf::Vector2f(width + 20, 410));
 	menu[2].setCharacterSize(30);
 
 	selectedItemIndex = 0;
