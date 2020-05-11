@@ -39,6 +39,7 @@ class lara : public Enemigo{
         void recibeGolpe();
         void hacerTransparente();
         bala getBala();
+        void colisionProtagonista(Jugador *, bool);
     private:
         Sprite *sprite;
         bala *balera = nullptr;        

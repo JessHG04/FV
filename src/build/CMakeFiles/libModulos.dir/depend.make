@@ -9,6 +9,7 @@ CMakeFiles/libModulos.dir/ej_modulos/AnimationKinder.cpp.o: ../ej_modulos/Animat
 
 CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o: ../ej_modulos/Boss.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o: ../ej_modulos/Boss.h
+CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o: ../ej_modulos/Jugador.h
 CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o: ../ej_modulos/Proyectil.h
 CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o: ../ej_modulos/SpriteBoss.h
 CMakeFiles/libModulos.dir/ej_modulos/Boss.cpp.o: ../ej_modulos/spritePersonaje.h
@@ -17,6 +18,8 @@ CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/AnimationDarkr
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Darkrai.cpp
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Darkrai.h
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Enemigo.h
+CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Guerrera.h
+CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Jugador.h
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/Proyectil.h
 CMakeFiles/libModulos.dir/ej_modulos/Darkrai.cpp.o: ../ej_modulos/spritePersonaje.h
 
@@ -71,6 +74,8 @@ CMakeFiles/libModulos.dir/ej_modulos/Jugador.cpp.o: ../ej_modulos/spritePersonaj
 
 CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o: ../ej_modulos/AnimationKinder.h
 CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o: ../ej_modulos/Enemigo.h
+CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o: ../ej_modulos/Guerrera.h
+CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o: ../ej_modulos/Jugador.h
 CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o: ../ej_modulos/KinderSorpresa.cpp
 CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o: ../ej_modulos/KinderSorpresa.h
 CMakeFiles/libModulos.dir/ej_modulos/KinderSorpresa.cpp.o: ../ej_modulos/Proyectil.h
@@ -98,6 +103,7 @@ CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o: ../ej_modulos/SpriteNPC.h
 CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o: ../ej_modulos/spritePersonaje.h
 
 CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o: ../ej_modulos/Boss.h
+CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o: ../ej_modulos/Jugador.h
 CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o: ../ej_modulos/PersonajeBoss.cpp
 CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o: ../ej_modulos/PersonajeBoss.h
 CMakeFiles/libModulos.dir/ej_modulos/PersonajeBoss.cpp.o: ../ej_modulos/Proyectil.h

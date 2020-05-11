@@ -41,6 +41,8 @@ Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Darkrai.cpp
 Darkrai.h
@@ -57,6 +59,8 @@ Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+Guerrera.h
+/home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Enemigo.cpp
 Enemigo.h
@@ -181,6 +185,8 @@ Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+Guerrera.h
+/home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Mago.cpp
 Mago.h
@@ -487,6 +493,8 @@ Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.cpp
 spritePersonaje.h

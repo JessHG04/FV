@@ -15,13 +15,15 @@ void Jugador::update(float deltaTime){ //Actuaiza fisicas del jugador
   
     if(movimiento || inmortal){
         animar();
+        /*
         if(atacando && frame_actual.x >= 1)
             atacando = false;
-            recarga_proyectil->restart();
+        recarga_proyectil->restart();
+            */
     }
     set_translacion(sf::Vector2f(velocidad.x * deltaTime, velocidad.y * deltaTime));
     cajaColisiones3.setPosition(get_posicion().x - tamFrame.x/4, get_posicion().y - tamFrame.y/2 + tamFrame.y/10);
-    cajaColisiones2.setPosition(get_posicion().x - 15 , get_posicion().y + tamFrame.y/2  + 2 - 8);
+    cajaColisiones2.setPosition(get_posicion().x - 15 , get_posicion().y + tamFrame.y/2  + 2 - 6);
 
     //}
 }

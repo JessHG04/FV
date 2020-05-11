@@ -14,7 +14,7 @@ using namespace sf;
 
 #define kVel 5
 
-    lara::lara(int xx, int yy) : Enemigo(3){
+    lara::lara(int xx, int yy) : Enemigo(2){
         avanza = 0;
         fin = false;
         yasta = false;
@@ -160,6 +160,17 @@ using namespace sf;
             balera->hacerTransparente();
         }
        return disparo;
+    }
+
+    void lara::colisionProtagonista(Jugador *j, bool esGuerrera){
+        if((sprite->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(sprite->getOrigin()))  &&  !golpeado){
+            if(j->atacando  &&  esGuerrera) {
+            golpeado = true;
+            restartear = true;
+            this->perderVida();
+            //j->atacando = false;
+            }
+        }
     }
 
     bool lara::colisionProyectil(Proyectil *p1){

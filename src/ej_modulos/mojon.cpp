@@ -11,7 +11,7 @@ using namespace sf;
 
 #define kVel 10
 
-    mojon::mojon(int xx, int yy, int pos1, int pos2, bool grandesito) : Enemigo(6){
+    mojon::mojon(int xx, int yy, int pos1, int pos2, bool grandesito, int vidasB) : Enemigo(vidasB){
         direccion = 0;
         avansa = 0;
         x = xx;
@@ -102,6 +102,22 @@ using namespace sf;
         }
     }
 
+    bool mojon::colisionProtagonista(Jugador *j, bool esGuerrera){
+        bool x = false;
+
+        if((sprite->getGlobalBounds().intersects(j->spr_player->getGlobalBounds()) || j->spr_player->getGlobalBounds().contains(sprite->getOrigin()))  &&  !golpeado){
+            if(j->atacando  &&  esGuerrera) {
+            //std::cout << "holaaaaaa" << std::endl;
+            golpeado = true;
+            restartear = true;
+            this->perderVida();
+            //j->atacando = false;
+            } else { x = true; }
+        }
+
+        return x;
+        }
+    /*
     bool mojon::colisionProtagonista(spritePersonaje *sp){
         bool x = false;
         if(sprite->getGlobalBounds().intersects(sp->getSprite().getGlobalBounds())){
@@ -109,7 +125,7 @@ using namespace sf;
         }
         return x;
     }
-
+*/
     void mojon::cambiarSprite(int x){
         if(x == 0){
             sprite->setTextureRect(sf::IntRect(2, 114, 62, 54));
@@ -176,11 +192,6 @@ using namespace sf;
 
     void mojon::hacerTransparente(){
         sprite->setColor(Color::Transparent);
-    }
-
-    void mojon::hacerGrande(){
-        //grande = true;
-        //Cambiar vida
     }
 
     void mojon::restartSprite(){

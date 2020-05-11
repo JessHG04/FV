@@ -5,6 +5,7 @@
 #include "AnimationKinder.h"
 #include "Proyectil.h"
 #include "spritePersonaje.h"
+#include "Guerrera.h"
 
 class KinderSorpresa : public Enemigo {
 
@@ -14,6 +15,8 @@ class KinderSorpresa : public Enemigo {
         bool miraIzquierda = true;
         int ejecuta = 2;  // Animacion a ejecutar: 1->Movimiento, 2->Estatico
         int contando = 0;
+        float distanciaG;
+        float alturaG;
         sf::Texture textura;
         sf::Sprite *body;
         sf::Sprite *personaje1;
@@ -22,13 +25,13 @@ class KinderSorpresa : public Enemigo {
         sf::Clock impactado;
         AnimationKinder *animacion;
         bool esGolpeado = false;
+        bool grande = false;
         int rangoMovimiento[2]; // Posicion en eje x por la que podra moverse el personaje
         bool estaAtacando = false;
         bool restartear = false, golpeado = false;
         sf::RectangleShape boundingSet[12];  // Cajas colisionables
         sf::RectangleShape *boundingBox;
         float ajustes[12];
-        bool grande = false;
 
 
     public:
@@ -41,9 +44,8 @@ class KinderSorpresa : public Enemigo {
         bool morir();
         void Draw(RenderWindow &);
         void recibeGolpe();
-        bool colisionProtagonista(spritePersonaje *);
+        bool colisionProtagonista(Jugador *,bool );
         void hacerTransparente();
-        void hacerGrande();
         bool estaEnRango(sf::Sprite *);
         sf::RectangleShape getBoundingBox();
 };

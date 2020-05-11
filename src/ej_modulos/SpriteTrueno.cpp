@@ -8,7 +8,7 @@ SpriteTrueno::SpriteTrueno(){
     txNPC = new sf::Texture();
     //cargo la textura
     //ruta de acceso al sprite
-    sf::String ruta = "resources/Sprites/Trueno/trueno.png";
+    sf::String ruta = "resources/Sprites/Trueno/trueno2.png";
     //cargar textura
     txNPC->loadFromFile(ruta);
     //nuevo sprite a partir de la textura
