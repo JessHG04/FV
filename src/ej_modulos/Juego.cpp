@@ -705,7 +705,7 @@ void Juego::dibujar(){
         //---------NPC-------------
         if(npc != NULL){
             ventana->draw(npc->getSpriteEne());
-            ventana->draw(npc->cajaColisionesNPC);
+            //ventana->draw(npc->cajaColisionesNPC);
         }
         //elijo la imagen dependiendo de la variable auxiliar (numero de monologo)
         if(npc != NULL){
@@ -740,7 +740,7 @@ void Juego::dibujar(){
         //---------BOSS-------------
         if(bossFinal != NULL){
             ventana->draw(bossFinal->getSpriteBoss());
-            ventana->draw(bossFinal->cajaColisionesBoss);
+            //ventana->draw(bossFinal->cajaColisionesBoss);
         }
 
         //ventana->draw(j1->cajaColisiones3);
@@ -759,15 +759,15 @@ void Juego::dibujar(){
         //Boss trueno
         if(trueno != NULL){
             ventana->draw(trueno->getSpriteEne());
-            ventana->draw(trueno->cajaColisionesNPC);
+            //ventana->draw(trueno->cajaColisionesNPC);
         }
         if(trueno2 != NULL){
             ventana->draw(trueno2->getSpriteEne());
-            ventana->draw(trueno2->cajaColisionesNPC);
+            //ventana->draw(trueno2->cajaColisionesNPC);
         }
         if(trueno3 != NULL){
             ventana->draw(trueno3->getSpriteEne());
-            ventana->draw(trueno3->cajaColisionesNPC);
+            //ventana->draw(trueno3->cajaColisionesNPC);
         }
         
         if(interfaz && level != 7){
