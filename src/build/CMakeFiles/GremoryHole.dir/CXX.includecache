@@ -25,6 +25,12 @@ string
 -
 vector
 -
+Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Darkrai.h
 SFML/Graphics.hpp
@@ -37,12 +43,18 @@ Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+Guerrera.h
+/home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Enemigo.h
 SFML/Graphics.hpp
 -
 iostream
 -
+Proyectil.h
+/home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+math.h
+/home/jess/Escritorio/FV/src/ej_modulos/math.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
 SFML/Graphics.hpp
@@ -62,6 +74,8 @@ spritePersonaje.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Juego.h
 SFML/Graphics.hpp
+-
+SFML/Audio.hpp
 -
 Mago.h
 /home/jess/Escritorio/FV/src/ej_modulos/Mago.h
@@ -105,6 +119,8 @@ SpriteTrueno.h
 /home/jess/Escritorio/FV/src/ej_modulos/SpriteTrueno.h
 PoderTrueno.h
 /home/jess/Escritorio/FV/src/ej_modulos/PoderTrueno.h
+ProyectilBoss.h
+/home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 SFML/Graphics.hpp
@@ -127,6 +143,8 @@ Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+Guerrera.h
+/home/jess/Escritorio/FV/src/ej_modulos/Guerrera.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Mago.h
 SFML/Graphics.hpp
@@ -218,6 +236,12 @@ SFML/Graphics.hpp
 spritePersonaje.h
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
+/home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.h
+SFML/Graphics.hpp
+-
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+
 /home/jess/Escritorio/FV/src/ej_modulos/SpriteBoss.h
 SFML/Graphics.hpp
 -
@@ -229,6 +253,8 @@ SFML/Graphics.hpp
 /home/jess/Escritorio/FV/src/ej_modulos/SpriteTrueno.h
 SFML/Graphics.hpp
 -
+spritePersonaje.h
+/home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/Trueno.h
 SFML/Graphics.hpp
@@ -273,6 +299,8 @@ Jugador.h
 /home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
+Map.h
+/home/jess/Escritorio/FV/src/ej_modulos/Map.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/mojon.h
 SFML/Graphics.hpp
@@ -285,6 +313,8 @@ Proyectil.h
 /home/jess/Escritorio/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
+Jugador.h
+/home/jess/Escritorio/FV/src/ej_modulos/Jugador.h
 
 /home/jess/Escritorio/FV/src/ej_modulos/spritePersonaje.h
 SFML/Graphics.hpp

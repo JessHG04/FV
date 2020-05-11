@@ -24,6 +24,8 @@ void Map::mapMatrix(int level){
         doc.LoadFile("resources/Mapas/Mazmorra3.tmx");
     }else if(level == 6){
         doc.LoadFile("resources/Mapas/Boss3.tmx");
+    }else if(level == 7){
+        doc.LoadFile("resources/Mapas/Creditos.tmx");
     }
 
     //Dimensiones del mapa y tiles
