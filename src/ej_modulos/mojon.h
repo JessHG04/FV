@@ -6,6 +6,7 @@
 #include "Enemigo.h"
 #include "Proyectil.h"
 #include "spritePersonaje.h"
+#include "Jugador.h"
 
 using namespace std;
 using namespace sf;
@@ -18,7 +19,8 @@ class mojon : public Enemigo{
         int numVidas, avansa, posx = 0, posxx = 0, x = 0, y = 0;
         int contando = 0;
         bool golpeado = false, restartear = false;
-        mojon(int, int, int, int);
+        bool grande = false;
+        mojon(int, int, int, int, bool, int);
         ~mojon();
         void Draw(RenderWindow &);
         void Update(float nada);
@@ -26,7 +28,7 @@ class mojon : public Enemigo{
         void cambiarSpriteDos(int);
         bool colisionProyectil(Proyectil *);
         void impactoProyectil();
-        bool colisionProtagonista(spritePersonaje *);
+        bool colisionProtagonista(Jugador *, bool);
         Sprite getSprite();
         void recibeGolpe();
         void hacerTransparente();

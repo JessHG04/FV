@@ -801,6 +801,30 @@ CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o.provides: CMakeFiles/libModulos.d
 CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o
 
 
+CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o: CMakeFiles/libModulos.dir/flags.make
+CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o: ../ej_modulos/ProyectilBoss.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.cpp
+
+CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.cpp > CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.i
+
+CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.cpp -o CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.s
+
+CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o.requires:
+
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o.requires
+
+CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o.provides: CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o.requires
+	$(MAKE) -f CMakeFiles/libModulos.dir/build.make CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o.provides.build
+.PHONY : CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o.provides
+
+CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o.provides.build: CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o
+
+
 # Object files for target libModulos
 libModulos_OBJECTS = \
 "CMakeFiles/libModulos.dir/ej_modulos/Menu.cpp.o" \
@@ -833,7 +857,8 @@ libModulos_OBJECTS = \
 "CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o" \
 "CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o" \
-"CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o"
+"CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o" \
+"CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o"
 
 # External object files for target libModulos
 libModulos_EXTERNAL_OBJECTS =
@@ -869,9 +894,10 @@ liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o
+liblibModulos.a: CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o
 liblibModulos.a: CMakeFiles/libModulos.dir/build.make
 liblibModulos.a: CMakeFiles/libModulos.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking CXX static library liblibModulos.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/jess/Escritorio/FV/src/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Linking CXX static library liblibModulos.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/libModulos.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/libModulos.dir/link.txt --verbose=$(VERBOSE)
 
@@ -911,6 +937,7 @@ CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/SpriteN
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/Trueno.cpp.o.requires
 CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o.requires
+CMakeFiles/libModulos.dir/requires: CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o.requires
 
 .PHONY : CMakeFiles/libModulos.dir/requires
 

@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "Mago.h"
 #include "Guerrera.h"
 #include "Proyectil.h"
@@ -21,13 +22,21 @@
 #include "SpriteBoss.h"
 #include "SpriteTrueno.h"
 #include "PoderTrueno.h"
+#include "ProyectilBoss.h"
+
+#define tiempoUpdate 0.08
 
 class Juego{
     public:
+        static Juego* getInstancia(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana, int idPersonaje);
+
+    protected:
         Juego(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana, int idPersonaje);
+        ~Juego(){
+
+        };
         void iniciar(); //Inicia variables y diferentes aspectos
         void dibujar(); //dibujar elementos
-        void logica(); // procesa logicas del juego
         void procesar_eventos(); // elementos de entrada, teclado...
         void cortarEventoDash(int distancia);
         void impacto();
@@ -42,14 +51,17 @@ class Juego{
         void colisionProyectilEnemigos();
         void muerteNPCs();
         void detenerDash();
+        void reiniciar();
         
     private:
+        static Juego* juego;
         sf::Sprite *sp = NULL; //Segundo sprite al que persigue Kinder
         sf::Texture textFondo;
         sf::Sprite fondo;
         bool gameover = false;
         std::vector <Enemigo *> enemigos;
         //POSICIONES: D1 - D2 - D3 - M1 - M2 - M3 - K1 - K2 - K3 - L1 - L2 - L3
+     
         int totalEnemigos;
         //Creamos al jugador
         Jugador *j1;
@@ -57,7 +69,7 @@ class Juego{
         Proyectil *p1 = NULL;
         //Creamos el mapa
         Map *mapa = NULL;
-        //creamos enemigo
+        //Creamos a Darkrai
         Darkrai *darkrai1 = NULL;
         Darkrai *darkrai2 = NULL;
         Darkrai *darkrai3 = NULL;
@@ -87,11 +99,12 @@ class Juego{
         void bossTrueno();
         PoderTrueno *trueno = NULL;
         PoderTrueno *trueno2 = NULL;
+        PoderTrueno *trueno3 = NULL;
         sf::Clock *relojBoss;
         sf::Time *cronoBoss;
         sf::Clock *relojTrueno;
         sf::Time *cronoTrueno;
-        Proyectil *pBoss = NULL;
+        ProyectilBoss *pBoss = NULL;
         std::vector<sf::IntRect> posiciones;
         //Creamos el portal
         Portal *portal = NULL;
@@ -102,19 +115,89 @@ class Juego{
         // La ventana de nuestro juego
         sf::RenderWindow *ventana = NULL;
         //Creamos el reloj
+        float deltaTime;
         sf::Clock *reloj1 = NULL;
         sf::Time *crono1 = NULL;
         sf::Clock *relojInmortal = NULL;
         sf::Time *cronoInmortal = NULL;
+        sf::Clock *relojEnemigos = NULL;
+        sf::Clock *relojDanyo = NULL;
+        sf::Clock *relojMuerte = NULL;
+        sf::Time *cronoMuerte = NULL;
+        sf::Clock *relojBossMover = NULL;
+        sf::Time *cronoBossMover = NULL;
+        sf::Clock relojMerche;
+        sf::Clock *muerteBoss = NULL;
         //Creamos el texto para el HUD
         Interfaz *interfaz;
+        //Musica de fondo de cada nivel
+        sf::Music musicaNivel1;
+        sf::Music musicaNivel2;
+        sf::Music musicaNivel3;
+        sf::Music musicaBoss1;
+        sf::Music musicaBoss2;
+        sf::Music musicaBoss3;
+        sf::Music musicaCreditos;
 
+        sf::Font font;
+        sf::Text musicaGuia;
+        sf::Texture text;
+        sf::Texture text2;
+        sf::Sprite sprit;
+
+        //Efectos de sonido
+        sf::Music efectoMagia;
+        sf::Music golpeHacha;
+        sf::Music hasMuertoSonido;
+
+        //Transicion muerte
+        sf::Text hasMuerto;
+        sf::Sprite spriteMuerte;
+        sf::Texture texturaMuerte;
+        sf::Sprite fondoNegro;
         int personajeSelec = 0;
-        int fps;
+        int fps; 
+        int valor = 0;
         bool esGuerrera = false;
         bool gravedad = true;
+        bool dios = false;
+        bool danyo, danyao = false, restartearMuerteBoss = false;
+        int nEnemigos = 0;
         int level = 1;
-        int maxLevels = 6;
+        int maxLevels = 7;
         bool cargar = false;
+        bool muerteDarkrai1, muerteDarkrai2, muerteDarkrai3, muerteMojon1, muerteMojon2, muerteMojon3, muerteKinder1, muerteKinder2, muerteKinder3, muerteLara1, muerteLara2, muerteLara3, muerteBossFinal = false;
+        bool colisionaProyMapa = true;
+        bool musicaOff = false;
+        bool musicaOn = true;
         bool muerteMojon = false, muerteDarkrai = false, muerteLara = false, muerteKinder = false;
+        bool muerteTransicion = false;
+         bool proyBoss = false;
+        bool empiezaLaBatalla = false;
+        bool muerteNPC = false;
+        bool transformacionBoss = false;
+        bool parar = false;
+        bool vuelveIz = false, vuelveDe = false;
+        sf::Texture conver0;   
+        sf::Texture conver5;
+        sf::Texture conver5Boss;
+        sf::Texture converBoss;
+        std::vector<sf::Sprite> conversacionBoss;
+        int variableAuxiliarBoss = 0;
+        sf::Texture txCaraBoss;
+        sf::Sprite caraBoss;
+
+        bool colisionProyectilBoss();
+        bool colisionProyectilBossMapa();
+        void movimientoBoss();
+        void animarMuerteBossFinal();
+
+        //CREAMOS ITEM
+        sf::Sprite itemVida;
+        sf::Sprite itemVida2;
+        sf::Texture itemTextura;
+
+        sf::Music cogerItem;
+        bool dibujarItem = true;
+        int random = 0;
 };
