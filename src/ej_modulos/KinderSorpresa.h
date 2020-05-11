@@ -15,6 +15,7 @@ class KinderSorpresa : public Enemigo {
         bool miraIzquierda = true;
         int ejecuta = 2;  // Animacion a ejecutar: 1->Movimiento, 2->Estatico
         int contando = 0;
+        float distanciaG;
         sf::Texture textura;
         sf::Sprite *body;
         sf::Sprite *personaje1;
@@ -44,7 +45,6 @@ class KinderSorpresa : public Enemigo {
         void recibeGolpe();
         bool colisionProtagonista(Jugador *,bool );
         void hacerTransparente();
-        void hacerGrande();
         bool estaEnRango(sf::Sprite *);
         sf::RectangleShape getBoundingBox();
 };

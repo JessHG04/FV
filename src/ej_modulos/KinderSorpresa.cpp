@@ -29,6 +29,9 @@ KinderSorpresa::KinderSorpresa(int pos1, int pos2, int posy, float speed, sf::Sp
     animacion = new AnimationKinder(&textura, 0.5);
     body->setTextureRect(animacion->getCoordenadasRect());
     body->setOrigin(animacion->getOrigin());
+    /*if(grande){
+        body->setScale(2.0, 2.0);
+    }*/
 
     // Establecemos los limites colisionables...
     boundingSet[0].setSize(sf::Vector2f(64, 102));
@@ -46,6 +49,9 @@ KinderSorpresa::KinderSorpresa(int pos1, int pos2, int posy, float speed, sf::Sp
     for (int i=0; i<12; i++) {
         boundingSet[i].setOrigin(boundingSet[i].getSize().x/2, boundingSet[i].getSize().y);
         boundingSet[i].setFillColor(sf::Color(150,50,20,80));
+        if(grande){
+            boundingSet[i].setScale(2.0, 2.0);
+        }
     }
     ajustes[0] = 12.0;
     ajustes[1] = 10.5;
@@ -265,20 +271,24 @@ bool KinderSorpresa::morir(){
 }
 
 void KinderSorpresa::Draw(RenderWindow &window) {
+    if(grande){
+        if(miraIzquierda){
+            body->setScale(2.0, 2.0);
+        }
+        else{
+            body->setScale(-2.0, 2.0);
+        }
+    }
     if (esGolpeado) {
         esGolpeado = false;
     } else {
+        window.draw(*boundingBox);
         window.draw(*body);
     }
 }
 
 void KinderSorpresa::hacerTransparente(){
     body->setColor(Color::Transparent);
-}
-
-void KinderSorpresa::hacerGrande(){
-    body->setScale(10.0, 10.0);
-    //cambiar vida
 }
 
 sf::RectangleShape KinderSorpresa::getBoundingBox() {

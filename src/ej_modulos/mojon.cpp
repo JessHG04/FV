@@ -11,7 +11,7 @@ using namespace sf;
 
 #define kVel 10
 
-    mojon::mojon(int xx, int yy, int pos1, int pos2, bool grandesito) : Enemigo(6){
+    mojon::mojon(int xx, int yy, int pos1, int pos2, bool grandesito) : Enemigo(3){
         direccion = 0;
         avansa = 0;
         x = xx;
@@ -195,8 +195,7 @@ using namespace sf;
     }
 
     void mojon::hacerGrande(){
-        //grande = true;
-        //Cambiar vida
+        numVidas = 7;
     }
 
     void mojon::restartSprite(){

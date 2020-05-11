@@ -135,7 +135,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                 j1->set_velocidad(sf::Vector2f(-j1->vel_desp*3,0));
             else
                 j1->set_velocidad(sf::Vector2f(j1->vel_desp*3,0));
-            if(j1->crono_termina_dash->asSeconds() > 0.5 || colisionPersMapa(j1->direccion)){
+            if(j1->crono_termina_dash->asSeconds() > 0.5 || colisionPersMapa(j1->direccion) || muerteTransicion){
                 detenerDash();
                 j1->dash = false;
                 j1->recarga_dash->restart();
@@ -203,25 +203,27 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             this->colisionProyectilEnemigos();
         }
 
-        if(crono1->asSeconds() > 0.08){ // comparamos si el tiempo transcurrido es 1 fps (1 frame) si es asi ejecuttamos un instante
+        deltaTime = crono1->asSeconds();
+
+        if(deltaTime > tiempoUpdate){ // comparamos si el tiempo transcurrido es 1 fps (1 frame) si es asi ejecuttamos un instante
             while(ventana->pollEvent(*evento)){
                 procesar_eventos();
             }
 
             if(muerteNPC==true && npc!=NULL){
-                 if(npc->animarMuerteNPC()==true){
-                     npc = nullptr;
-                     delete npc;
-                 }
-             }
+                if(npc->animarMuerteNPC()==true){
+                    npc = nullptr;
+                    delete npc;
+                }
+            }
 
-             if(transformacionBoss==true && bossFinal!=NULL){
-                 if(parar == false && bossFinal->animarMuerteBoss()==true){
+            if(transformacionBoss==true && bossFinal!=NULL){
+                if(parar == false && bossFinal->animarMuerteBoss()==true){
                     parar = true;
                     bossFinal->cambiarFrameXBoss(7);
-                 }
-             }
-             
+                }
+            }
+            
             //Pasar de Nivel
             if(portal != NULL){
                 colisionPersPortal();
@@ -325,7 +327,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             for(int x = 0; x < enemigos.size(); x++){
                 if(enemigos[x] != NULL){ //otro if enemigos[x] -> muerto
                     if(x < 9){ //Hace todos los updates menos los de Lara porque tiene otros parámetros
-                        enemigos[x]->Update(reloj1->getElapsedTime().asSeconds());
+                        enemigos[x]->Update(deltaTime);
                     }
                 }
             }
@@ -399,7 +401,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                             j1->set_sprite(j1->txt_player2,4,4,sf::Vector2i(0,3));
                         }
                     }
-                    
+                    j1->recarga_proyectil->restart();
                     j1->atacando = false;
                     j1->set_posicion(sf::Vector2f(j1->get_posicion().x, j1->get_posicion().y));
                 } else {
@@ -435,22 +437,27 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                     pBoss->animar();
                 }
             }
-            if(bossFinal != NULL)
-                bossFinal->updateBoss();
+                
             if(!proyBoss){
                 if(pBoss != NULL){
                     pBoss->update();
                 }
             }
-            if(bossFinal != NULL){
-                bossLanza();
-                movimientoBoss();
+
+            //CAMBIOOOOOO
+            if(muerteBossFinal==false){
+                if(bossFinal != NULL){
+                    if(empiezaLaBatalla==true){
+                        bossFinal->updateBoss();
+                        bossLanza();
+                        movimientoBoss();
+                    }
+                    bossTrueno();
+                }
             }
-            if(bossFinal != NULL)
-                bossTrueno();
             portal->Update();
-            dibujar();
-          
+        
+        
             if(cronoInmortal->asSeconds() > 2.5 && j1->inmortal){
                 j1->inmortal = false;
                 if(esGuerrera == false){
@@ -513,9 +520,18 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                     }
                 } 
             }
-			
+            
             if(trueno2 != nullptr && j1 != nullptr){
                 if(trueno2->colisionProtagonista(j1)){
+                    if(!dios){
+                        relojDanyo->restart();
+                        danyo = true;
+                    }
+                }
+            }
+
+            if(trueno3 != nullptr && j1 != nullptr){
+                if(trueno3->colisionProtagonista(j1)){
                     if(!dios){
                         relojDanyo->restart();
                         danyo = true;
@@ -549,10 +565,14 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
                 }
             }
 
-            
+            if(restartearMuerteBoss==false){
+                if(bossFinal!=nullptr){
+                    animarMuerteBossFinal();
+                }
+            }
 
             this->muerteNPCs();
-             if(danyo){
+            if(danyo){
                 impacto();
                 danyao = true;
                 float segundetes = relojDanyo->getElapsedTime().asSeconds();
@@ -596,6 +616,7 @@ Juego::Juego(sf::Vector2u resolucion, sf::RenderWindow *window, int idPersonaje)
             musicaGuia.setPosition(25 + pos_vista.x - resolucion.x/2, 600);
             sprit.setPosition(150 + pos_vista.x - resolucion.x/2, 590);
             vista.setCenter(pos_vista);
+            dibujar();
         }
         *cronoMuerte = relojMuerte->getElapsedTime(); 
         if(cronoMuerte->asSeconds() > 7.0 && muerteTransicion == true){
@@ -626,6 +647,7 @@ void Juego::iniciar(){
     relojMuerte = new sf::Clock();
     cronoMuerte = new sf::Time();
     relojBossMover = new sf::Clock();
+    muerteBoss = new sf::Clock();
     cronoBossMover = new sf::Time();
     p1 = 0;
     
@@ -749,6 +771,10 @@ void Juego::dibujar(){
         if(trueno2 != NULL){
             ventana->draw(trueno2->getSpriteEne());
             ventana->draw(trueno2->cajaColisionesNPC);
+        }
+        if(trueno3 != NULL){
+            ventana->draw(trueno3->getSpriteEne());
+            ventana->draw(trueno3->cajaColisionesNPC);
         }
         
         if(interfaz && level != 7){
@@ -992,7 +1018,7 @@ void Juego::procesar_eventos(){
                         }
                     }
                     else{
-                        if(!j1->atacando /*&& j1->crono_recarga_proyectil->asSeconds() > 1.0*/){
+                        if(!j1->atacando && j1->crono_recarga_proyectil->asSeconds() > 1.0){
                             golpeHacha.play();
                             golpeHacha.setPlayingOffset(sf::seconds(0.1));
                             golpeHacha.setVolume(30);
@@ -1438,12 +1464,15 @@ void Juego::crearEnemigos(){
     bossFinal = NULL;
     trueno = NULL;
     trueno2 = NULL;
+    trueno3 = NULL;
     enemigos.clear();
+    itemVida.setScale(0.02, 0.02);
+    itemVida2.setScale(0.02, 0.02);
     if(level == 1){
         nEnemigos = 4;
         darkrai1 = new Darkrai(125*16, 6*16, 25.0f, *j1->spr_player);
         mojoncito1 = new mojon(60*16, 38*16, 55*16, 67*16, false);
-        kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 10, false);
+        kindercito1 = new KinderSorpresa(115*16, 150*16, 36*16, 40.0, *(j1->spr_player), *sp, 5, false);
         larita1 = new lara(83*16, 20*16);
         //NPC
         //inicializo NPC
@@ -1474,7 +1503,7 @@ void Juego::crearEnemigos(){
     if(level == 2){  //Mojon hacerlo grandesico y más fuertote
         nEnemigos = 1;
         mojoncito1 = new mojon(43*16, 53*16, 4*16, 52*16, true);
-        //mojoncito1->hacerGrande();
+        mojoncito1->hacerGrande();
     }
     if(level == 3){
         nEnemigos = 7;
@@ -1488,15 +1517,14 @@ void Juego::crearEnemigos(){
     }
     if(level == 4){
         nEnemigos = 1;
-        kindercito1 = new KinderSorpresa(4*16, 55*16, 38*16, 50.0, *(j1->spr_player), *sp, 15, true);
-        kindercito1->hacerGrande();
+        kindercito1 = new KinderSorpresa(4*16, 55*16, 38*16, 50.0, *(j1->spr_player), *sp, 12, true);
     }
     if(level == 5){
         nEnemigos = 6;
         darkrai1 = new Darkrai(101*16, 12*16, 25.0f, *j1->spr_player);
         mojoncito1 = new mojon (9*16, 39*16, 5*16, 13*16, false);
         mojoncito2 = new mojon(69*16, 41*16, 65*16, 75*16, false);
-        kindercito1 = new KinderSorpresa(85*16, 103*16, 34*16, 40.0, *(j1->spr_player), *sp, 10, false);
+        kindercito1 = new KinderSorpresa(85*16, 103*16, 34*16, 40.0, *(j1->spr_player), *sp, 5, false);
         larita1 = new lara(54*16, 16*16);
         larita2 = new lara (77*16, 10*16);
     }
@@ -1520,19 +1548,26 @@ void Juego::crearEnemigos(){
             conversacionBoss[i].setPosition(sf::Vector2f(580,575));
         }
         //inicializo rayo
-        trueno = new Trueno(4, 2, sf::Vector2i(0,0));
-        trueno -> cambiarPosicionEne(sf::Vector2f(280,315));
+        trueno = new Trueno(8, 1, sf::Vector2i(0,0));
+        trueno -> cambiarPosicionEne(sf::Vector2f(240,290));
         trueno->movimientoEne=false;
         trueno->cambiarFrameYNPC(0);
         trueno->setVelEne(sf::Vector2f(0.0, 0.0));
         trueno->updateEne();
 
-        trueno2 = new Trueno(4, 2, sf::Vector2i(0,0));
-        trueno2 -> cambiarPosicionEne(sf::Vector2f(480,315));
+        trueno2 = new Trueno(8, 1, sf::Vector2i(0,0));
+        trueno2 -> cambiarPosicionEne(sf::Vector2f(480,290));
         trueno2->movimientoEne=false;
         trueno2->cambiarFrameYNPC(0);
         trueno2->setVelEne(sf::Vector2f(0.0, 0.0));
         trueno2->updateEne();
+
+        trueno3 = new Trueno(8, 1, sf::Vector2i(0,0));
+        trueno3 -> cambiarPosicionEne(sf::Vector2f(720,290));
+        trueno3->movimientoEne=false;
+        trueno3->cambiarFrameYNPC(0);
+        trueno3->setVelEne(sf::Vector2f(0.0, 0.0));
+        trueno3->updateEne();
     }
     if(level == 7){
         nEnemigos = 0;
@@ -1770,7 +1805,7 @@ void Juego::colisionProyectilEnemigos(){
 
     //Colision proyectil con Boss Final
     if(p1 != nullptr && bossFinal != NULL){
-        if(!bossFinal){
+        if(muerteBossFinal == false){
             if(bossFinal->colisionProyectil(p1)){
                 delete p1;        
                 p1 = 0;
@@ -1919,10 +1954,9 @@ void Juego::muerteNPCs(){
     //Muerte Boss Final
     if(bossFinal != NULL){
         if(!muerteBossFinal){
-            if(bossFinal->morir()){
-                delete bossFinal;        
+            if(bossFinal->morir()){       
                 muerteBossFinal = true;
-                nEnemigos--;
+                muerteBoss->restart();
             }
         }
     }
@@ -2018,6 +2052,9 @@ void Juego::bossTrueno(){
             if(trueno->animarMuerteNPC()==true){
                 trueno->cambiarFrameXNPC(0);
             }
+            if(trueno3->animarMuerteNPC()==true){
+                trueno3->cambiarFrameXNPC(0);
+            }
         }else if(valor==1){
             if(trueno2->animarMuerteNPC()==true){
                 trueno2->cambiarFrameXNPC(0);
@@ -2078,11 +2115,6 @@ void Juego::reiniciar(){
     spriteMuerte.setPosition(350 , 300);
     musicaGuia.setString("Musica: ON");
     sprit.setTexture(text);
-    //ITEM VIDA
-    itemVida.setTexture(itemTextura);
-    itemVida.setScale(0.25, 0.3);
-    itemVida2.setTexture(itemTextura);
-    itemVida2.setScale(0.25, 0.3);
 
     if(esGuerrera){
         j1->vida = 5;
@@ -2124,22 +2156,58 @@ void Juego::reiniciar(){
     musicaGuia.setPosition(0 ,0);
 }
 
+//CAMBIOOOOOOOOOOOOOOOOOO
 void Juego::movimientoBoss(){
     *cronoBossMover = relojBossMover->getElapsedTime();
-    
-    //cada cierto tiempo el boss lanza un proyectil
-    if(cronoBossMover->asSeconds()>3.2){
-        int valor = rand() % 2; 
+    if(bossFinal->getPosicionXBoss() >= 790){
+        vuelveIz = true;
+        valor = 0;
+    }
+    if(bossFinal->getPosicionXBoss() <= 120){
+        vuelveDe = true;
+        valor = 1;
+    }
+    if(vuelveIz || vuelveDe){
         if(valor==0 && empiezaLaBatalla){
-            bossFinal->direccionBoss = izquierdaBoss;
-            
+            bossFinal->cambiarFrameYBoss(4);
+            bossFinal->direccionBoss = izquierdaBoss;       
             bossFinal->setVelBoss(Vector2f(-bossFinal->velDesplazamientoBoss, 0.0));
         }else if(valor==1 && empiezaLaBatalla){
+            bossFinal->cambiarFrameYBoss(5);
             bossFinal->direccionBoss = derechaBoss;
             bossFinal->setVelBoss(Vector2f(bossFinal->velDesplazamientoBoss, 0.0));
         }
-            
-        //reinicio de reloj
-        relojBossMover->restart();
+    }
+    else{
+        //cada cierto tiempo el boss lanza un proyectil
+        if(cronoBossMover->asSeconds()>3.2){
+            valor = rand() % 2;
+            if(valor==0 && empiezaLaBatalla){
+                bossFinal->cambiarFrameYBoss(4);
+                bossFinal->direccionBoss = izquierdaBoss;
+                
+                bossFinal->setVelBoss(Vector2f(-bossFinal->velDesplazamientoBoss, 0.0));
+            }else if(valor==1 && empiezaLaBatalla){
+                bossFinal->cambiarFrameYBoss(5);
+                bossFinal->direccionBoss = derechaBoss;
+                bossFinal->setVelBoss(Vector2f(bossFinal->velDesplazamientoBoss, 0.0));
+            }
+                
+            //reinicio de reloj
+            relojBossMover->restart();
+        }
+    }
+}
+
+void Juego::animarMuerteBossFinal(){
+    if(muerteBossFinal){
+        float sgs = muerteBoss->getElapsedTime().asSeconds();
+        bossFinal->animarMuerteBoss();
+        if(sgs >= 2.0){
+            nEnemigos--;
+            restartearMuerteBoss = true;
+            bossFinal->hacerTransparente();
+            bossFinal->colocarBoss();
+        }
     }
 }

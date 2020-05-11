@@ -93,4 +93,8 @@ class Boss:public SpriteBoss{
             posBoss = posicionNueva;
             spriteBoss->setPosition(posBoss);
         }
+
+        //CAMBIOOOOOOOO
+        void colocarBoss();
+        sf::Clock relojAnimacion;
 };

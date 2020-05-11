@@ -24,6 +24,8 @@
 #include "PoderTrueno.h"
 #include "ProyectilBoss.h"
 
+#define tiempoUpdate 0.08
+
 class Juego{
     public:
         static Juego* getInstancia(sf::Vector2u tam_pantalla,  sf::RenderWindow *ventana, int idPersonaje);
@@ -97,6 +99,7 @@ class Juego{
         void bossTrueno();
         PoderTrueno *trueno = NULL;
         PoderTrueno *trueno2 = NULL;
+        PoderTrueno *trueno3 = NULL;
         sf::Clock *relojBoss;
         sf::Time *cronoBoss;
         sf::Clock *relojTrueno;
@@ -112,6 +115,7 @@ class Juego{
         // La ventana de nuestro juego
         sf::RenderWindow *ventana = NULL;
         //Creamos el reloj
+        float deltaTime;
         sf::Clock *reloj1 = NULL;
         sf::Time *crono1 = NULL;
         sf::Clock *relojInmortal = NULL;
@@ -123,6 +127,7 @@ class Juego{
         sf::Clock *relojBossMover = NULL;
         sf::Time *cronoBossMover = NULL;
         sf::Clock relojMerche;
+        sf::Clock *muerteBoss = NULL;
         //Creamos el texto para el HUD
         Interfaz *interfaz;
         //Musica de fondo de cada nivel
@@ -151,11 +156,12 @@ class Juego{
         sf::Texture texturaMuerte;
         sf::Sprite fondoNegro;
         int personajeSelec = 0;
-        int fps;
+        int fps; 
+        int valor = 0;
         bool esGuerrera = false;
         bool gravedad = true;
         bool dios = false;
-        bool danyo, danyao = false;
+        bool danyo, danyao = false, restartearMuerteBoss = false;
         int nEnemigos = 0;
         int level = 1;
         int maxLevels = 7;
@@ -171,6 +177,7 @@ class Juego{
         bool muerteNPC = false;
         bool transformacionBoss = false;
         bool parar = false;
+        bool vuelveIz = false, vuelveDe = false;
         sf::Texture conver0;   
         sf::Texture conver5;
         sf::Texture conver5Boss;
@@ -184,6 +191,7 @@ class Juego{
         bool colisionBossJugador();
         bool colisionProyectilBossMapa();
         void movimientoBoss();
+        void animarMuerteBossFinal();
 
         //CREAMOS ITEM
         sf::Sprite itemVida;
