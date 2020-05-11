@@ -318,8 +318,6 @@ int main() {
 			if(reiniciar){
 				/*
 				musicaMenu.play();
-				//delete juego;
-				//juego = NULL;
 				entra = false;
 				seleccion = false;
 				idPersonaje = 0;

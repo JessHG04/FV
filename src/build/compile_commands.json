@@ -158,5 +158,10 @@
   "directory": "/home/jess/Escritorio/FV/src/build",
   "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/NPC.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/NPC.cpp",
   "file": "/home/jess/Escritorio/FV/src/ej_modulos/NPC.cpp"
+},
+{
+  "directory": "/home/jess/Escritorio/FV/src/build",
+  "command": "/usr/bin/c++    -I/home/jess/Escritorio/FV/src/ej_modulos   -std=c++1y -Wall -Wextra -g   -o CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o -c /home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.cpp",
+  "file": "/home/jess/Escritorio/FV/src/ej_modulos/ProyectilBoss.cpp"
 }
 ]
