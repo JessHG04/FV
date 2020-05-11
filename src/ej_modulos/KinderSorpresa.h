@@ -23,6 +23,7 @@ class KinderSorpresa : public Enemigo {
         sf::Clock impactado;
         AnimationKinder *animacion;
         bool esGolpeado = false;
+        bool grande = false;
         int rangoMovimiento[2]; // Posicion en eje x por la que podra moverse el personaje
         bool estaAtacando = false;
         bool restartear = false, golpeado = false;
@@ -33,7 +34,7 @@ class KinderSorpresa : public Enemigo {
 
     public:
 
-        KinderSorpresa(int ,int ,int ,float , sf::Sprite& ,sf::Sprite& ,int );
+        KinderSorpresa(int ,int ,int ,float , sf::Sprite& ,sf::Sprite& ,int, bool);
         ~KinderSorpresa();
         void Update(float );
         bool colisionProyectil(Proyectil *);

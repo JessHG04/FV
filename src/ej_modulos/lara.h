@@ -8,8 +8,10 @@
 #include "cuadradoD.h"
 #include "bala.h"
 #include "mojon.h"
-#include "Guerrera.h"
+#include "spritePersonaje.h"
+#include "Jugador.h"
 #include "Proyectil.h"
+#include "Map.h"
 
 using namespace std;
 using namespace sf;
@@ -17,8 +19,9 @@ using namespace sf;
 class lara : public Enemigo{
     public:
         Texture *tex;
-        Clock reloja, relojd, impactado;
+        Clock reloja, relojd, impactado, mantenedor;
         bool lado = false, es = false, disparo = false, shoot = false, dispara = false;
+        bool mantener = false;
         int numVidas, avanza = 0;
         int contando = 0;
         float coolDownDisparo = 1;
@@ -28,14 +31,15 @@ class lara : public Enemigo{
         void restartSprite();
         Sprite getSprite();
         void Draw(RenderWindow &);
-        bool Update(RenderWindow &, spritePersonaje*, int, int);
+        bool Update(RenderWindow &, spritePersonaje*, int, int, Map *);
         bool colisionProyectil(Proyectil *);
-        void colisionProtagonista(Jugador *,bool );
         bool morir();
+        bool colisionBalaMapa(bala *, Map *);
         void impactoProyectil();
         void recibeGolpe();
         void hacerTransparente();
         bala getBala();
+        void colisionProtagonista(Jugador *, bool);
     private:
         Sprite *sprite;
         bala *balera = nullptr;        

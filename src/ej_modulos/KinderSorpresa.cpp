@@ -1,8 +1,8 @@
 #include "KinderSorpresa.h"
 
-KinderSorpresa::KinderSorpresa(int pos1, int pos2, int posy, float speed, sf::Sprite &_pj1, sf::Sprite &_pj2, int vidas) : Enemigo(vidas) {
+KinderSorpresa::KinderSorpresa(int pos1, int pos2, int posy, float speed, sf::Sprite &_pj1, sf::Sprite &_pj2, int vidas, bool grandesito) : Enemigo(vidas) {
     this->speed = speed;
-
+    grande = grandesito;
     // Asignamos los personajes que tiene que perseguir...
     if (&_pj1) {
         personaje1 = &_pj1;

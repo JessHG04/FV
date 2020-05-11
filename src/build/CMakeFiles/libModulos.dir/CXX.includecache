@@ -71,6 +71,8 @@ iostream
 -
 Proyectil.h
 /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+math.h
+/home/alex/Desktop/FV/src/ej_modulos/math.h
 
 /home/alex/Desktop/FV/src/ej_modulos/Guerrera.cpp
 Guerrera.h
@@ -104,6 +106,8 @@ SFML/Graphics.hpp
 
 /home/alex/Desktop/FV/src/ej_modulos/Juego.h
 SFML/Graphics.hpp
+-
+SFML/Audio.hpp
 -
 Mago.h
 /home/alex/Desktop/FV/src/ej_modulos/Mago.h
@@ -147,6 +151,8 @@ SpriteTrueno.h
 /home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.h
 PoderTrueno.h
 /home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.h
+ProyectilBoss.h
+/home/alex/Desktop/FV/src/ej_modulos/ProyectilBoss.h
 
 /home/alex/Desktop/FV/src/ej_modulos/Jugador.cpp
 Jugador.h
@@ -312,6 +318,18 @@ SFML/Graphics.hpp
 spritePersonaje.h
 /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
 
+/home/alex/Desktop/FV/src/ej_modulos/ProyectilBoss.cpp
+ProyectilBoss.h
+/home/alex/Desktop/FV/src/ej_modulos/ProyectilBoss.h
+spritePersonaje.h
+/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+
+/home/alex/Desktop/FV/src/ej_modulos/ProyectilBoss.h
+SFML/Graphics.hpp
+-
+spritePersonaje.h
+/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+
 /home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.cpp
 SpriteBoss.h
 /home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.h
@@ -341,6 +359,8 @@ iostream
 /home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.h
 SFML/Graphics.hpp
 -
+spritePersonaje.h
+/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
 
 /home/alex/Desktop/FV/src/ej_modulos/Trueno.cpp
 Trueno.h
@@ -435,14 +455,30 @@ bala.h
 /home/alex/Desktop/FV/src/ej_modulos/bala.h
 mojon.h
 /home/alex/Desktop/FV/src/ej_modulos/mojon.h
-Guerrera.h
-/home/alex/Desktop/FV/src/ej_modulos/Guerrera.h
+spritePersonaje.h
+/home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
+Jugador.h
+/home/alex/Desktop/FV/src/ej_modulos/Jugador.h
 Proyectil.h
 /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
+Map.h
+/home/alex/Desktop/FV/src/ej_modulos/Map.h
 
 /home/alex/Desktop/FV/src/ej_modulos/mojon.cpp
+SFML/Graphics.hpp
+-
+iostream
+-
 mojon.h
 /home/alex/Desktop/FV/src/ej_modulos/mojon.h
+cuadradoD.h
+/home/alex/Desktop/FV/src/ej_modulos/cuadradoD.h
+cuadradoI.h
+/home/alex/Desktop/FV/src/ej_modulos/cuadradoI.h
+Enemigo.h
+/home/alex/Desktop/FV/src/ej_modulos/Enemigo.h
+lara.h
+/home/alex/Desktop/FV/src/ej_modulos/lara.h
 
 /home/alex/Desktop/FV/src/ej_modulos/mojon.h
 SFML/Graphics.hpp
@@ -455,14 +491,8 @@ Proyectil.h
 /home/alex/Desktop/FV/src/ej_modulos/Proyectil.h
 spritePersonaje.h
 /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.h
-cuadradoD.h
-/home/alex/Desktop/FV/src/ej_modulos/cuadradoD.h
-cuadradoI.h
-/home/alex/Desktop/FV/src/ej_modulos/cuadradoI.h
-lara.h
-/home/alex/Desktop/FV/src/ej_modulos/lara.h
-Guerrera.h
-/home/alex/Desktop/FV/src/ej_modulos/Guerrera.h
+Jugador.h
+/home/alex/Desktop/FV/src/ej_modulos/Jugador.h
 
 /home/alex/Desktop/FV/src/ej_modulos/spritePersonaje.cpp
 spritePersonaje.h

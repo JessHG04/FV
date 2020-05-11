@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "spritePersonaje.h"
 
 class SpriteTrueno{
 
@@ -32,4 +33,7 @@ class SpriteTrueno{
         void animarNPC();
         //animacion perder
         bool animarMuerteNPC();
+        //colision protagonista
+        bool colisionProtagonista(spritePersonaje *);
+
 };

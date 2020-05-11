@@ -24,6 +24,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/alex/Desktop/FV/src/ej_modulos/PoderTrueno.cpp" "/home/alex/Desktop/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/PoderTrueno.cpp.o"
   "/home/alex/Desktop/FV/src/ej_modulos/Portal.cpp" "/home/alex/Desktop/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/Portal.cpp.o"
   "/home/alex/Desktop/FV/src/ej_modulos/Proyectil.cpp" "/home/alex/Desktop/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/Proyectil.cpp.o"
+  "/home/alex/Desktop/FV/src/ej_modulos/ProyectilBoss.cpp" "/home/alex/Desktop/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/ProyectilBoss.cpp.o"
   "/home/alex/Desktop/FV/src/ej_modulos/SpriteBoss.cpp" "/home/alex/Desktop/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/SpriteBoss.cpp.o"
   "/home/alex/Desktop/FV/src/ej_modulos/SpriteNPC.cpp" "/home/alex/Desktop/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/SpriteNPC.cpp.o"
   "/home/alex/Desktop/FV/src/ej_modulos/SpriteTrueno.cpp" "/home/alex/Desktop/FV/src/build/CMakeFiles/libModulos.dir/ej_modulos/SpriteTrueno.cpp.o"

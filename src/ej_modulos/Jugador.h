@@ -4,7 +4,6 @@
 #include <iostream>
 #include <string>
 
-
 enum estados{parado,andando,muerto};
 enum direcciones{quieto = 0, arriba = 1, izq = 2,der = 3, abajo = 4}; 
 
@@ -13,7 +12,7 @@ class Jugador : public spritePersonaje{
         //Constructor
         Jugador();
         //Destructor
-        virtual ~Jugador();
+        //~Jugador();
 
         // Obtener el sprite del jugador
         sf::Sprite get_sprite(){ 
@@ -34,9 +33,9 @@ class Jugador : public spritePersonaje{
         void set_velocidad(sf::Vector2f vel){
             velocidad = vel;
         }
-        bool atacando = false;
 
-        void update();//actualizar fisicas del jugador
+        void update(float delta);//actualizar fisicas del jugador
+        void draw(sf::RenderWindow& window);//actualizar fisicas del jugador
         sf::String archivo;
         bool movimiento = false;
         float vel_desp; // velocidad desplazamiento
@@ -50,6 +49,8 @@ class Jugador : public spritePersonaje{
         direcciones dirColision;
         bool inmortal = false;
         sf::RectangleShape cajaColisiones2;
+        sf::RectangleShape cajaColisiones3;
+        bool atacando = false;
 
         //-----------------------------------------DASH------------------------------------------
         bool dash = false;
@@ -57,6 +58,10 @@ class Jugador : public spritePersonaje{
         sf::Clock *recarga_dash;
         sf::Time *crono_termina_dash;
         sf::Time *crono_recarga_dash;
+        sf::Clock *recarga_proyectil;
+        sf::Time *crono_recarga_proyectil;
+        sf::Clock *termina_proyectil;
+        sf::Time *crono_termina_proyectil;
 
     private:
         //spritePersonaje * spriteJugador;

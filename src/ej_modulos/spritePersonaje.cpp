@@ -12,6 +12,7 @@ spritePersonaje::spritePersonaje(){
     txt_ataque_D = new sf::Texture(); //Textura de imagen
     txt_ataque_I = new sf::Texture(); //Textura de imagen
     txt_proyectil = new sf::Texture();
+    txt_proyectilBoss = new sf::Texture();
 
     //Cargo la textura
     txt_player->loadFromFile("resources/Sprites/Eugyn/" + std::to_string(1) + ".png"); //Cargo el recurso desde la ruta
@@ -25,20 +26,18 @@ spritePersonaje::spritePersonaje(){
     txt_ataque_D->loadFromFile("resources/Sprites/Merche/"+ std::to_string(7) + ".png"); //Cargo el recurso desde la ruta
     txt_ataque_I->loadFromFile("resources/Sprites/Merche/"+ std::to_string(6) + ".png"); //Cargo el recurso desde la ruta
     txt_proyectil->loadFromFile("resources/Sprites/Proyectil/" + std::to_string(1) + ".png"); 
+    txt_proyectilBoss->loadFromFile("resources/Sprites/ProyectilBoss/" + std::to_string(1) + ".png"); //Cargo el recurso desde la ruta
     /*delete spr_player;
     spr_player = 0;*/
     spr_player = new sf::Sprite(*txt_player); //Nuevo sprite apartir de textura
-}
-
-spritePersonaje::~spritePersonaje() {
-    
 }
 
 void spritePersonaje::set_sprite(sf::Texture *textura, int cantidadX1, int cantidadY1, sf::Vector2i frm_act){
     //Variables
     cantidadX = cantidadX1; //Cantidad de grids en x
     cantidadY = cantidadY1; //Cantidad de grids en y
-
+   /*delete txt_player;
+    txt_player = 0;*/
     textura_actual = textura;
     spr_player->setOrigin((textura_actual->getSize().x / cantidadX) / 2, (textura_actual->getSize().y / cantidadY) / 2);
     spr_player->setTexture(*textura);
