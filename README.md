@@ -1,4 +1,4 @@
-# FV
+# GREMORY HOLE - FV
 Gremory Hole es un videojuego desarrollado por los integrantes de Doubtful Machine:
   - Alejandro Castro Valero
   - Jessica Hernández Gómez
